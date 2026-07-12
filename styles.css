@@ -76,7 +76,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -283,7 +283,8 @@ ul {
   position: relative;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover,
+.nav-menu a.active {
   color: var(--brand-primary);
 }
 
@@ -300,7 +301,8 @@ ul {
   transition: transform var(--dur) var(--ease);
 }
 
-.nav-menu a:hover::after {
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
   transform: scaleX(1);
 }
 
@@ -313,6 +315,14 @@ ul {
 .nav-cta {
   padding: 10px 20px;
   font-size: 14px;
+}
+
+.nav-download {
+  display: none;
+}
+
+.menu-open {
+  overflow: hidden;
 }
 
 .menu-toggle {
@@ -461,6 +471,23 @@ ul {
   flex-wrap: wrap;
 }
 
+.install-availability {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.install-availability span {
+  display: inline-block;
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-tint);
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 600;
+}
+
 /* --- Hero Visual: Interactive Launcher --- */
 .hero-visual {
   position: relative;
@@ -602,9 +629,26 @@ ul {
   transform: translateY(0);
 }
 
+.launcher-send:disabled {
+  cursor: not-allowed;
+  background: var(--border);
+  box-shadow: none;
+  color: var(--ink-muted);
+  transform: none;
+}
+
 .launcher-send.sending {
   background: var(--brand-accent);
   pointer-events: none;
+}
+
+.launcher-send.sending #launcher-send-label {
+  font-size: 0;
+}
+
+.launcher-send.sending #launcher-send-label::after {
+  content: 'Launching…';
+  font-size: 14px;
 }
 
 /* --- Orbiting Model Nodes --- */
@@ -661,9 +705,14 @@ ul {
 }
 
 .orbit-node:hover {
-  transform: scale(1.12);
   box-shadow: var(--shadow-lg);
   z-index: 4;
+}
+
+.orbit-node.inactive {
+  filter: grayscale(1);
+  opacity: 0.32;
+  box-shadow: var(--shadow-xs);
 }
 
 /* Position 8 nodes around the circle */
@@ -678,6 +727,12 @@ ul {
 
 .orbit-node-1:hover { transform: translate(-50%, 0) scale(1.12); }
 .orbit-node-2:hover { transform: translate(-50%, 0) scale(1.12); }
+.orbit-node-3:hover { transform: translate(-50%, -50%) scale(1.12); }
+.orbit-node-4:hover { transform: translate(-50%, -50%) scale(1.12); }
+.orbit-node-5:hover { transform: translate(-50%, -50%) scale(1.12); }
+.orbit-node-6:hover { transform: translate(-50%, -50%) scale(1.12); }
+.orbit-node-7:hover { transform: translate(-50%, -50%) scale(1.12); }
+.orbit-node-8:hover { transform: translate(-50%, 0) scale(1.12); }
 
 /* Pulse animation when sending */
 .orbit-node.pulse {
@@ -877,6 +932,16 @@ ul {
   max-width: 320px;
   text-align: center;
   padding: 0 24px;
+  border-radius: var(--radius-lg);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.step:hover,
+.step:focus-visible,
+.step.is-active {
+  background: var(--surface-soft);
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 3px rgba(109, 93, 251, 0.18);
 }
 
 .step-number {
@@ -1025,6 +1090,12 @@ ul {
   margin-bottom: 14px;
 }
 
+.mockup-input.is-highlighted,
+.mockup-models.is-highlighted,
+.mockup-send.is-highlighted {
+  box-shadow: 0 0 0 3px rgba(109, 93, 251, 0.18), var(--shadow-sm);
+}
+
 .mockup-models {
   display: flex;
   flex-wrap: wrap;
@@ -1129,6 +1200,7 @@ ul {
 }
 
 .model-card {
+  display: block;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
@@ -1171,7 +1243,7 @@ ul {
 
 .usecases-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
 }
 
@@ -1424,7 +1496,7 @@ ul {
   }
 
   .models-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .usecases-grid {
@@ -1475,6 +1547,12 @@ ul {
     padding: 8px 0;
   }
 
+  .nav-menu .nav-download {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 4px;
+  }
+
   .menu-toggle {
     display: flex;
   }
@@ -1493,6 +1571,11 @@ ul {
 
   .hero {
     padding: 100px 0 60px;
+  }
+
+  .hero-visual {
+    max-width: 420px;
+    aspect-ratio: 4 / 3;
   }
 
   .trust-container {
@@ -1552,6 +1635,11 @@ ul {
     padding: 24px 16px;
   }
 
+  .model-card img {
+    width: 48px;
+    height: 48px;
+  }
+
   .usecases-grid {
     grid-template-columns: 1fr;
   }
@@ -1562,6 +1650,7 @@ ul {
 
   .step {
     padding: 0 8px;
+    min-width: 0;
   }
 
   .launcher-card {
@@ -1580,6 +1669,25 @@ ul {
 
   .hero-cta .btn {
     width: 100%;
+  }
+
+  .hero-visual {
+    aspect-ratio: auto;
+    height: 310px;
+  }
+
+  .orbit-container {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+
+  .final-cta {
+    padding: 64px 0;
+  }
+
+  .final-cta .btn-large {
+    width: min(100%, 360px);
+    white-space: normal;
   }
 
   .footer-links {

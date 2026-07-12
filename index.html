@@ -90,14 +90,16 @@
         <a href="#features">Features</a>
         <a href="#how-it-works">How it works</a>
         <a href="#models">Models</a>
+        <a href="#use-cases">Use cases</a>
         <a href="#privacy">Privacy</a>
-        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer">Download</a>
+        <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill nav-download">Download v1.0.1</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill nav-cta">
+        <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill nav-cta">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View on GitHub
+          Download v1.0.1
         </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
           <span class="menu-bar"></span>
@@ -133,16 +135,17 @@
           </p>
 
           <div class="hero-cta">
-            <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill">
+            <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              View on GitHub
+              Download v1.0.1 on GitHub
             </a>
             <a href="#how-it-works" class="btn btn-secondary btn-pill">See how it works</a>
           </div>
+          <p class="install-availability">Chrome <span>Coming soon</span> · Edge <span>Coming soon</span> · Currently install from GitHub</p>
         </div>
 
         <!-- Interactive Prompt Launcher Visual -->
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual" role="group" aria-label="Interactive ModelAny prompt launcher">
           <div class="launcher-card">
             <div class="launcher-header">
               <span class="launcher-dot"></span>
@@ -152,8 +155,8 @@
             </div>
             <div class="launcher-body">
               <div class="launcher-input-wrap">
-                <div class="launcher-input" id="launcher-input" contenteditable="true">Help me plan a product launch.</div>
-                <span class="launcher-counter">26 / 5000</span>
+                <div class="launcher-input" id="launcher-input" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Prompt to distribute">Help me plan a product launch.</div>
+                <span class="launcher-counter" id="launcher-counter" aria-live="polite">26 / 5000</span>
               </div>
               <div class="launcher-chips" id="launcher-chips">
                 <button class="chip active" data-model="chatgpt">ChatGPT</button>
@@ -166,7 +169,7 @@
                 <button class="chip active" data-model="wenxin">Wenxin</button>
               </div>
               <button class="launcher-send" id="launcher-send" type="button">
-                Send to <span id="send-count">8</span> models
+                <span id="launcher-send-label">Send to <span id="send-count">8</span> models</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </button>
             </div>
@@ -175,14 +178,14 @@
           <!-- Orbiting model nodes -->
           <div class="orbit-container" id="orbit-container">
             <svg class="orbit-lines" id="orbit-lines" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
-            <div class="orbit-node orbit-node-1" data-model="chatgpt"><img src="assets/models/chatgpt.svg" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-2" data-model="gemini"><img src="assets/models/gemini.svg" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-3" data-model="deepseek"><img src="assets/models/deepseek.ico" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-4" data-model="kimi"><img src="assets/models/kimi.ico" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-5" data-model="glm"><img src="assets/models/glm.ico" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-6" data-model="qwen"><img src="assets/models/qwen.png" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-7" data-model="doubao"><img src="assets/models/doubao.png" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-8" data-model="wenxin"><img src="assets/models/wenxin.ico" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-1" data-model="chatgpt" aria-hidden="true"><img src="assets/models/chatgpt.svg" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-2" data-model="gemini" aria-hidden="true"><img src="assets/models/gemini.svg" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-3" data-model="deepseek" aria-hidden="true"><img src="assets/models/deepseek.ico" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-4" data-model="kimi" aria-hidden="true"><img src="assets/models/kimi.ico" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-5" data-model="glm" aria-hidden="true"><img src="assets/models/glm.ico" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-6" data-model="qwen" aria-hidden="true"><img src="assets/models/qwen.png" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-7" data-model="doubao" aria-hidden="true"><img src="assets/models/doubao.png" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-8" data-model="wenxin" aria-hidden="true"><img src="assets/models/wenxin.ico" alt="" width="40" height="40"></div>
           </div>
         </div>
       </div>
@@ -292,7 +295,7 @@
         </div>
 
         <div class="steps">
-          <div class="step">
+          <div class="step" data-step="1" tabindex="0">
             <div class="step-number">1</div>
             <div class="step-content">
               <h3>Write your prompt</h3>
@@ -304,7 +307,7 @@
 
           <div class="step-connector" aria-hidden="true"></div>
 
-          <div class="step">
+          <div class="step" data-step="2" tabindex="0">
             <div class="step-number">2</div>
             <div class="step-content">
               <h3>Choose your models</h3>
@@ -316,7 +319,7 @@
 
           <div class="step-connector" aria-hidden="true"></div>
 
-          <div class="step">
+          <div class="step" data-step="3" tabindex="0">
             <div class="step-number">3</div>
             <div class="step-content">
               <h3>Compare better answers</h3>
@@ -347,8 +350,8 @@
                 </div>
                 <div class="mockup-gear" aria-hidden="true">⚙</div>
               </div>
-              <div class="mockup-input">用一句话介绍人工智能。</div>
-              <div class="mockup-models">
+              <div class="mockup-input" data-step-target="1">用一句话介绍人工智能。</div>
+              <div class="mockup-models" data-step-target="2">
                 <span class="mockup-model-chip selected">ChatGPT</span>
                 <span class="mockup-model-chip selected">Gemini</span>
                 <span class="mockup-model-chip selected">DeepSeek</span>
@@ -362,7 +365,7 @@
                 <span>自动发送</span>
                 <span class="mockup-switch" aria-hidden="true"></span>
               </div>
-              <button class="mockup-send" type="button">发送到 5 个模型</button>
+              <button class="mockup-send" type="button" data-step-target="3">发送到 5 个模型</button>
             </div>
           </div>
 
@@ -401,52 +404,52 @@
         </div>
 
         <div class="models-grid">
-          <article class="model-card">
+          <a class="model-card" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ChatGPT">
             <img src="assets/models/chatgpt.svg" alt="ChatGPT logo" width="64" height="64" loading="lazy">
             <h3>ChatGPT</h3>
             <p>chatgpt.com</p>
-          </article>
-          <article class="model-card">
+          </a>
+          <a class="model-card" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Gemini">
             <img src="assets/models/gemini.svg" alt="Gemini logo" width="64" height="64" loading="lazy">
             <h3>Gemini</h3>
             <p>gemini.google.com</p>
-          </article>
-          <article class="model-card">
+          </a>
+          <a class="model-card" href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer" aria-label="Open DeepSeek">
             <img src="assets/models/deepseek.ico" alt="DeepSeek logo" width="64" height="64" loading="lazy">
             <h3>DeepSeek</h3>
             <p>chat.deepseek.com</p>
-          </article>
-          <article class="model-card">
+          </a>
+          <a class="model-card" href="https://www.kimi.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Kimi">
             <img src="assets/models/kimi.ico" alt="Kimi logo" width="64" height="64" loading="lazy">
             <h3>Kimi</h3>
             <p>kimi.com</p>
-          </article>
-          <article class="model-card">
+          </a>
+          <a class="model-card" href="https://chatglm.cn/" target="_blank" rel="noopener noreferrer" aria-label="Open GLM">
             <img src="assets/models/glm.ico" alt="GLM logo" width="64" height="64" loading="lazy">
             <h3>GLM</h3>
             <p>chatglm.cn</p>
-          </article>
-          <article class="model-card">
+          </a>
+          <a class="model-card" href="https://www.qianwen.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Qwen">
             <img src="assets/models/qwen.png" alt="Qwen logo" width="64" height="64" loading="lazy">
             <h3>Qwen</h3>
             <p>qianwen.com</p>
-          </article>
-          <article class="model-card">
+          </a>
+          <a class="model-card" href="https://www.doubao.com/chat/" target="_blank" rel="noopener noreferrer" aria-label="Open Doubao">
             <img src="assets/models/doubao.png" alt="Doubao logo" width="64" height="64" loading="lazy">
             <h3>Doubao</h3>
             <p>doubao.com</p>
-          </article>
-          <article class="model-card">
+          </a>
+          <a class="model-card" href="https://wenxin.baidu.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Wenxin">
             <img src="assets/models/wenxin.ico" alt="Wenxin logo" width="64" height="64" loading="lazy">
             <h3>Wenxin</h3>
             <p>wenxin.baidu.com</p>
-          </article>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ==================== 7. USE CASES ==================== -->
-    <section class="use-cases section" aria-labelledby="usecases-title">
+    <section class="use-cases section" id="use-cases" aria-labelledby="usecases-title">
       <div class="container">
         <div class="section-header">
           <h2 id="usecases-title">Built for how you think</h2>
@@ -538,9 +541,9 @@
       <div class="container cta-container">
         <h2 id="cta-title">Ask once. <span class="gradient-text">Think wider.</span></h2>
         <p class="cta-subtitle-zh">问一次，看得更广。</p>
-        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill btn-large">
+        <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill btn-large">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          Explore ModelAny on GitHub
+          Download v1.0.1 on GitHub
         </a>
       </div>
     </section>
@@ -555,7 +558,7 @@
       </div>
       <p class="footer-tagline">Built for people who think with more than one AI.</p>
       <div class="footer-links">
-        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer">Download v1.0.1</a>
         <a href="https://github.com/kyreemeng/ModelAny/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer">Privacy</a>
         <a href="mailto:kyreemeng@gmail.com">kyreemeng@gmail.com</a>
       </div>

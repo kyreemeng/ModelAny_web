@@ -34,17 +34,42 @@
   const navMenu = document.getElementById('nav-menu');
 
   if (menuToggle && navMenu) {
+    let menuTriggerBeforeOpen = null;
+
+    function closeMobileMenu(restoreFocus) {
+      navMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      if (restoreFocus && menuTriggerBeforeOpen) {
+        menuToggle.focus();
+      }
+    }
+
     menuToggle.addEventListener('click', function () {
       const isOpen = navMenu.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.classList.toggle('menu-open', isOpen);
+      if (isOpen) {
+        menuTriggerBeforeOpen = document.activeElement;
+      }
     });
 
-    // Close menu when a link is clicked
     navMenu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        navMenu.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
+        closeMobileMenu(false);
       });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeMobileMenu(true);
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (navMenu.classList.contains('open') && !navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+        closeMobileMenu(false);
+      }
     });
   }
 
@@ -69,12 +94,27 @@
   // --- Interactive Prompt Launcher ---
   const launcherSend = document.getElementById('launcher-send');
   const launcherChips = document.getElementById('launcher-chips');
+  const launcherInput = document.getElementById('launcher-input');
+  const launcherCounter = document.getElementById('launcher-counter');
   const sendCount = document.getElementById('send-count');
   const orbitContainer = document.getElementById('orbit-container');
   const orbitLines = document.getElementById('orbit-lines');
 
   // Track selected models
   const selectedModels = new Set(MODELS.map(function (m) { return m.id; }));
+
+  function updateLauncherCounter() {
+    if (!launcherInput || !launcherCounter) return;
+    const characterCount = Array.from(launcherInput.textContent.trim()).length;
+    launcherCounter.textContent = String(characterCount) + ' / 5000';
+  }
+
+  function syncOrbitNodeState() {
+    if (!orbitContainer) return;
+    orbitContainer.querySelectorAll('.orbit-node').forEach(function (node) {
+      node.classList.toggle('inactive', !selectedModels.has(node.dataset.model));
+    });
+  }
 
   // Update send button count
   function updateSendCount() {
@@ -83,7 +123,13 @@
     }
     if (launcherSend) {
       launcherSend.disabled = selectedModels.size === 0;
+      launcherSend.setAttribute('aria-disabled', String(selectedModels.size === 0));
     }
+    syncOrbitNodeState();
+  }
+
+  if (launcherInput) {
+    launcherInput.addEventListener('input', updateLauncherCounter);
   }
 
   // Toggle chip selection
@@ -98,8 +144,10 @@
           selectedModels.add(modelId);
           chip.classList.add('active');
         }
+        chip.setAttribute('aria-pressed', String(selectedModels.has(modelId)));
         updateSendCount();
       });
+      chip.setAttribute('aria-pressed', String(selectedModels.has(chip.dataset.model)));
     });
   }
 
@@ -107,13 +155,27 @@
   function drawOrbitLines() {
     if (!orbitLines || !orbitContainer) return;
 
+    orbitLines.replaceChildren();
+
     // Define gradient
-    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    defs.innerHTML =
-      '<linearGradient id="orbit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">' +
-        '<stop offset="0%" stop-color="#6D5DFB" stop-opacity="0.8"/>' +
-        '<stop offset="100%" stop-color="#55B8FF" stop-opacity="0.4"/>' +
-      '</linearGradient>';
+    const svgNamespace = 'http://www.w3.org/2000/svg';
+    const defs = document.createElementNS(svgNamespace, 'defs');
+    const gradient = document.createElementNS(svgNamespace, 'linearGradient');
+    gradient.setAttribute('id', 'orbit-gradient');
+    gradient.setAttribute('x1', '0%');
+    gradient.setAttribute('y1', '0%');
+    gradient.setAttribute('x2', '100%');
+    gradient.setAttribute('y2', '100%');
+
+    [['0%', '#6D5DFB', '0.8'], ['100%', '#55B8FF', '0.4']].forEach(function (stopData) {
+      const stop = document.createElementNS(svgNamespace, 'stop');
+      stop.setAttribute('offset', stopData[0]);
+      stop.setAttribute('stop-color', stopData[1]);
+      stop.setAttribute('stop-opacity', stopData[2]);
+      gradient.appendChild(stop);
+    });
+
+    defs.appendChild(gradient);
     orbitLines.appendChild(defs);
 
     const containerRect = orbitContainer.getBoundingClientRect();
@@ -143,9 +205,6 @@
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
       if (orbitLines) {
-        // Clear all lines except defs
-        const lines = orbitLines.querySelectorAll('line');
-        lines.forEach(function (l) { l.remove(); });
         drawOrbitLines();
       }
     }, 200);
@@ -164,20 +223,20 @@
   // Send button animation
   if (launcherSend) {
     launcherSend.addEventListener('click', function () {
-      if (selectedModels.size === 0 || launcherSend.classList.contains('sending')) return;
+      if (selectedModels.size === 0 || launcherSend.classList.contains('sending') || !orbitContainer || !orbitLines) return;
 
+      launcherSend.setAttribute('aria-label', 'Launching selected models');
       if (prefersReducedMotion) {
         // For reduced motion, just show a brief state change
         launcherSend.classList.add('sending');
         setTimeout(function () {
           launcherSend.classList.remove('sending');
+          launcherSend.removeAttribute('aria-label');
         }, 800);
         return;
       }
 
       launcherSend.classList.add('sending');
-      var originalText = launcherSend.innerHTML;
-      launcherSend.innerHTML = 'Launching...';
 
       // Activate orbit lines
       if (orbitContainer) {
@@ -215,7 +274,7 @@
       // Reset after animation
       setTimeout(function () {
         launcherSend.classList.remove('sending');
-        launcherSend.innerHTML = originalText;
+        launcherSend.removeAttribute('aria-label');
         if (orbitContainer) {
           orbitContainer.classList.remove('active');
         }
@@ -224,6 +283,7 @@
   }
 
   updateSendCount();
+  updateLauncherCounter();
 
   // --- GitHub Stars API ---
   const githubStarText = document.getElementById('github-star-text');
@@ -231,13 +291,18 @@
 
   function showLoading() {
     if (githubStarText) {
-      githubStarText.innerHTML = '<span class="github-stat-loading"></span>';
+      const loadingIndicator = document.createElement('span');
+      loadingIndicator.className = 'github-stat-loading';
+      githubStarText.replaceChildren(loadingIndicator);
     }
   }
 
   function showStars(count) {
     if (githubStarText) {
-      githubStarText.innerHTML = '<span class="github-stat-count">' + escapeHtml(formatNumber(count)) + '</span> stars';
+      const countElement = document.createElement('span');
+      countElement.className = 'github-stat-count';
+      countElement.textContent = formatNumber(count);
+      githubStarText.replaceChildren(countElement, document.createTextNode(' stars'));
     }
   }
 
@@ -252,12 +317,6 @@
       return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
     }
     return String(num);
-  }
-
-  function escapeHtml(str) {
-    var div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
   }
 
   async function fetchGitHubStats() {
@@ -357,5 +416,47 @@
       }
     });
   });
+
+  // --- Active navigation state ---
+  if ('IntersectionObserver' in window) {
+    const sectionLinks = Array.from(document.querySelectorAll('.nav-menu a[href^="#"]'));
+    const sections = sectionLinks
+      .map(function (link) { return document.querySelector(link.getAttribute('href')); })
+      .filter(Boolean);
+
+    const sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        sectionLinks.forEach(function (link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(function (section) {
+      sectionObserver.observe(section);
+    });
+  }
+
+  // --- How it works preview highlight ---
+  const steps = document.querySelectorAll('.step[data-step]');
+  const mockupTargets = document.querySelectorAll('[data-step-target]');
+
+  function highlightStep(stepNumber) {
+    steps.forEach(function (step) {
+      step.classList.toggle('is-active', step.dataset.step === stepNumber);
+    });
+    mockupTargets.forEach(function (target) {
+      target.classList.toggle('is-highlighted', target.dataset.stepTarget === stepNumber);
+    });
+  }
+
+  steps.forEach(function (step) {
+    ['mouseenter', 'focus'].forEach(function (eventName) {
+      step.addEventListener(eventName, function () { highlightStep(step.dataset.step); });
+    });
+  });
+
+  highlightStep('1');
 
 })();
