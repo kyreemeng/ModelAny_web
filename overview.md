@@ -31,9 +31,25 @@ python3 -m http.server 8765
 # Open http://localhost:8765
 ```
 
+## SEO optimization (2026-07-12)
+
+A full on-page + technical SEO pass was completed. See `seo-audit-report.md` for the complete audit. Highlights:
+
+- **Canonical domain fixed:** `modelany.ai` (dead) → `modelany.app` (live, verified)
+- **Invalid HTML fixed:** gtag scripts moved from between `</head>`/`<body>` into `<head>`
+- **Structured data:** 1 → 6 schema types via JSON-LD `@graph` (Organization, WebSite, SoftwareApplication, HowTo, FAQPage, BreadcrumbList) — no fabricated ratings (E-E-A-T compliant)
+- **New FAQ section** (`#faq`) with 7 bilingual Q&As targeting People-Also-Ask queries, wired to FAQPage schema
+- **New crawl files:** `robots.txt`, `sitemap.xml`, `site.webmanifest` (PWA)
+- **Asset optimization:** favicon 472 KB → 25 KB (−95%); generated 1200×630 OG image (48 KB JPEG)
+- **Meta tags:** optimized title (57 chars) + description (151 chars); added hreflang, googlebot meta, max-image-preview:large, full OG/Twitter image dimensions + alt
+- **Tests:** 5/5 UI contract tests still pass; JSON-LD validated
+
 ## Follow-up items
 
-- [ ] Confirm canonical domain and update `href` in `<link rel="canonical">`
-- [ ] Create 1200x630 OG image and update `og:image` / `twitter:image` URLs
-- [ ] Add `sitemap.xml` and `robots.txt` once deployed
+- [x] Confirm canonical domain and update `href` in `<link rel="canonical">` → `modelany.app`
+- [x] Create 1200x630 OG image and update `og:image` / `twitter:image` URLs
+- [x] Add `sitemap.xml` and `robots.txt`
+- [ ] Submit `sitemap.xml` in Google Search Console + request indexing (manual)
+- [ ] Decide apex vs www canonical host and 301-redirect the other (server config)
+- [ ] Review the AI-generated OG image for brand fit; regenerate if needed
 - [ ] Consider adding a Chrome Web Store link once the extension is published

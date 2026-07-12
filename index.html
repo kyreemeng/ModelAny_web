@@ -6,83 +6,244 @@
   <meta name="theme-color" content="#6D5DFB">
 
   <!-- Primary Meta Tags -->
-  <title>ModelAny — Send One Prompt to Every AI</title>
-  <meta name="title" content="ModelAny — Send One Prompt to Every AI">
-  <meta name="description" content="ModelAny is a Chrome extension that sends one prompt to multiple AI models, helping you compare perspectives faster. Supports ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, and Wenxin.">
-  <meta name="keywords" content="AI Chrome extension, multi-model AI, ChatGPT, Gemini, DeepSeek, AI prompt launcher, ModelAny, Kimi, GLM, Qwen, Doubao, Wenxin, compare AI answers">
+  <title>ModelAny — One Prompt to All AI Models | Chrome Extension</title>
+  <meta name="title" content="ModelAny — One Prompt to All AI Models | Chrome Extension">
+  <meta name="description" content="Free Chrome extension that sends one prompt to multiple AI models—ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao & Wenxin. Compare AI answers faster.">
+  <meta name="keywords" content="AI Chrome extension, multi-model AI, send prompt to multiple AI, compare AI models, ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, Wenxin, ModelAny, AI prompt launcher, multi AI chat">
   <meta name="author" content="ModelAny">
-  <meta name="robots" content="index, follow">
-  <!-- TODO: confirm canonical domain. Replace with the final deployed URL, e.g. https://modelany.ai/ -->
-  <link rel="canonical" href="https://modelany.ai/">
+  <meta name="application-name" content="ModelAny">
+  <meta name="apple-mobile-web-app-title" content="ModelAny">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="color-scheme" content="light">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Canonical (live domain: modelany.app) -->
+  <link rel="canonical" href="https://modelany.app/">
+
+  <!-- hreflang: bilingual single page (English primary, Chinese alternate) -->
+  <link rel="alternate" hreflang="en" href="https://modelany.app/">
+  <link rel="alternate" hreflang="zh-CN" href="https://modelany.app/">
+  <link rel="alternate" hreflang="x-default" href="https://modelany.app/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://modelany.ai/">
-  <meta property="og:title" content="ModelAny — Send One Prompt to Every AI">
-  <meta property="og:description" content="A Chrome extension that sends one prompt to multiple AI models. Stop copying the same question across AI tabs — compare more perspectives in less time.">
-  <!-- TODO: replace with actual OG image URL once hosted. Recommended 1200x630 PNG. -->
-  <meta property="og:image" content="https://modelany.ai/assets/og-image.png">
+  <meta property="og:url" content="https://modelany.app/">
+  <meta property="og:title" content="ModelAny — One Prompt to All AI Models">
+  <meta property="og:description" content="A free Chrome extension that sends one prompt to multiple AI models. Stop copying the same question across AI tabs — compare more perspectives in less time.">
+  <meta property="og:image" content="https://modelany.app/assets/og-image.jpg">
+  <meta property="og:image:secure_url" content="https://modelany.app/assets/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ModelAny — One prompt to every AI. Purple-blue gradient brand image with orbiting AI model icons.">
   <meta property="og:site_name" content="ModelAny">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ModelAny — Send One Prompt to Every AI">
-  <meta name="twitter:description" content="A Chrome extension that sends one prompt to multiple AI models. Compare perspectives faster.">
-  <!-- TODO: replace with actual Twitter Card image URL once hosted. -->
-  <meta name="twitter:image" content="https://modelany.ai/assets/og-image.png">
+  <meta name="twitter:title" content="ModelAny — One Prompt to All AI Models">
+  <meta name="twitter:description" content="A free Chrome extension that sends one prompt to multiple AI models. Compare perspectives faster.">
+  <meta name="twitter:image" content="https://modelany.app/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="ModelAny — One prompt to every AI.">
 
-  <!-- Icons -->
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="site.webmanifest">
 
-  <!-- Preconnect for GitHub API -->
-  <link rel="preconnect" href="https://api.github.com">
+  <!-- Icons (multiple sizes; compressed) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+  <!-- Resource hints: preconnect & dns-prefetch -->
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
   <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.vercel-insights.com">
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- JSON-LD Structured Data: SoftwareApplication -->
+  <!-- Google tag (gtag.js) — placed in <head> for valid HTML -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX4BMB7829"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CX4BMB7829');
+  </script>
+
+  <!-- JSON-LD Structured Data (@graph: Organization, WebSite, SoftwareApplication, HowTo, FAQPage, BreadcrumbList) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "ModelAny",
-    "applicationCategory": "BrowserExtension",
-    "operatingSystem": "Chrome",
-    "description": "ModelAny is a Chrome extension that sends one prompt to multiple AI models. Enter your question once, select the models you want, and ModelAny opens their conversations and fills the same prompt for you.",
-    "url": "https://github.com/kyreemeng/ModelAny",
-    "softwareVersion": "1.0.1",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "featureList": [
-      "Send one prompt to multiple AI models",
-      "Automatically open selected model conversations",
-      "Fill prompts and optionally submit them automatically",
-      "Group the tabs opened for the current task",
-      "Keep drafts and recent history locally in your browser",
-      "Use selected webpage text as a prompt from the context menu"
-    ],
-    "supports": [
-      "ChatGPT", "Gemini", "DeepSeek", "Kimi", "GLM", "Qwen", "Doubao", "Wenxin"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://modelany.app/#organization",
+        "name": "ModelAny",
+        "url": "https://modelany.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://modelany.app/assets/favicon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://github.com/kyreemeng/ModelAny"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "kyreemeng@gmail.com",
+          "contactType": "customer support"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://modelany.app/#website",
+        "url": "https://modelany.app/",
+        "name": "ModelAny",
+        "description": "Send one prompt to every AI. A Chrome extension that launches your prompt across multiple AI models so you can compare perspectives faster.",
+        "publisher": { "@id": "https://modelany.app/#organization" },
+        "inLanguage": ["en", "zh-CN"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "ModelAny",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome, Edge",
+        "description": "ModelAny is a Chrome extension that sends one prompt to multiple AI models. Enter your question once, select the models you want, and ModelAny opens their conversations and fills the same prompt for you.",
+        "url": "https://modelany.app/",
+        "downloadUrl": "https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1",
+        "softwareVersion": "1.0.1",
+        "dateModified": "2026-07-12",
+        "image": "https://modelany.app/assets/og-image.jpg",
+        "screenshot": "https://modelany.app/assets/og-image.jpg",
+        "author": { "@id": "https://modelany.app/#organization" },
+        "publisher": { "@id": "https://modelany.app/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Send one prompt to multiple AI models",
+          "Automatically open selected model conversations",
+          "Fill prompts and optionally submit them automatically",
+          "Group the tabs opened for the current task",
+          "Keep drafts and recent history locally in your browser",
+          "Use selected webpage text as a prompt from the context menu"
+        ],
+        "supports": [
+          "ChatGPT", "Gemini", "DeepSeek", "Kimi", "GLM", "Qwen", "Doubao", "Wenxin"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to use ModelAny",
+        "description": "Send one prompt to multiple AI models in three steps.",
+        "totalTime": "PT1M",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Write your prompt",
+            "text": "Open the ModelAny popup and type your question — up to 5,000 characters."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Choose your models",
+            "text": "Select one or more from the eight supported AI models. Toggle auto-send if you want."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Compare better answers",
+            "text": "ModelAny opens each model's chat, fills your prompt, and optionally sends it. Compare responses side by side."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is ModelAny?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ModelAny is a free, open-source Chrome extension that lets you type one prompt and send it to several AI models at the same time, so you can compare their answers side by side. ModelAny 是一款免费开源的 Chrome 扩展，输入一次提示词即可同时发送给多个 AI 模型，方便横向比较回答。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which AI models does ModelAny support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ModelAny supports eight models: ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, and Wenxin. 支持 8 个模型：ChatGPT、Gemini、DeepSeek、Kimi、GLM、通义千问、豆包、文心。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ModelAny free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ModelAny is free and open source. You can install it from GitHub and review all of the source code. ModelAny 完全免费且开源，可从 GitHub 安装并查看全部代码。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ModelAny store my prompts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. ModelAny is local-first — drafts, settings, and history stay in your browser, and prompts are sent only to the AI services you choose. ModelAny does not upload your prompts to its own server. 采用本地优先设计，草稿、设置与历史保存在浏览器本地，提示词只发送到你主动选择的 AI，不会上传到 ModelAny 服务器。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I install ModelAny?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Download the latest release from GitHub, unzip it, open chrome://extensions, enable Developer mode, and click 'Load unpacked' to select the unzipped folder. 从 GitHub 下载最新版本并解压，打开 chrome://extensions，开启开发者模式，点击“加载已解压的扩展程序”并选择解压后的文件夹。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I compare AI answers with ModelAny?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — that is the core idea. ModelAny opens a separate tab for each selected model, fills in your prompt, and optionally sends it, so you can compare responses in one round. 可以，这正是核心功能。ModelAny 为每个选中的模型打开独立标签页并填入提示词，可选自动发送，一轮即可比较多个回答。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ModelAny submit my prompt automatically?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is optional. Enable auto-send to submit automatically, or leave it off so the prompt is filled in for you to review and send manually. 可选。开启自动发送会自动提交；关闭则只填入文本，由你手动确认发送。"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://modelany.app/"
+          }
+        ]
+      }
     ]
   }
   </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CX4BMB7829"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CX4BMB7829');
-</script>
 <body>
   <!-- Skip link for accessibility -->
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -101,6 +262,7 @@
         <a href="#models">Models</a>
         <a href="#use-cases">Use cases</a>
         <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
         <a href="https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer">Download</a>
         <a href="https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill nav-download">Download v1.0.1</a>
       </nav>
@@ -544,7 +706,103 @@
       </div>
     </section>
 
-    <!-- ==================== 9. FINAL CTA ==================== -->
+    <!-- ==================== 9. FAQ ==================== -->
+    <section class="faq section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <p class="section-subtitle-zh">常见问题</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>
+              <span class="faq-q-en">What is ModelAny?</span>
+              <span class="faq-q-zh">ModelAny 是什么？</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>ModelAny is a free, open-source Chrome extension that lets you type one prompt and send it to several AI models at the same time, so you can compare their answers side by side.</p>
+              <p class="faq-a-zh">ModelAny 是一款免费开源的 Chrome 扩展，输入一次提示词即可同时发送给多个 AI 模型，方便横向比较回答。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q-en">Which AI models does ModelAny support?</span>
+              <span class="faq-q-zh">ModelAny 支持哪些 AI 模型？</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>ModelAny supports eight models: ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, and Wenxin.</p>
+              <p class="faq-a-zh">支持 8 个模型：ChatGPT、Gemini、DeepSeek、Kimi、GLM、通义千问、豆包、文心。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q-en">Is ModelAny free to use?</span>
+              <span class="faq-q-zh">ModelAny 免费吗？</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes. ModelAny is free and open source. You can install it from GitHub and review all of the source code.</p>
+              <p class="faq-a-zh">ModelAny 完全免费且开源，可从 GitHub 安装并查看全部代码。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q-en">Does ModelAny store my prompts?</span>
+              <span class="faq-q-zh">ModelAny 会保存我的提示词吗？</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>No. ModelAny is local-first — drafts, settings, and history stay in your browser, and prompts are sent only to the AI services you choose. ModelAny does not upload your prompts to its own server.</p>
+              <p class="faq-a-zh">采用本地优先设计，草稿、设置与历史保存在浏览器本地，提示词只发送到你主动选择的 AI，不会上传到 ModelAny 服务器。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q-en">How do I install ModelAny?</span>
+              <span class="faq-q-zh">如何安装 ModelAny？</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Download the latest release from GitHub, unzip it, open <code>chrome://extensions</code>, enable Developer mode, and click “Load unpacked” to select the unzipped folder.</p>
+              <p class="faq-a-zh">从 GitHub 下载最新版本并解压，打开 chrome://extensions，开启开发者模式，点击“加载已解压的扩展程序”并选择解压后的文件夹。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q-en">Can I compare AI answers with ModelAny?</span>
+              <span class="faq-q-zh">可以用 ModelAny 比较 AI 的回答吗？</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes — that is the core idea. ModelAny opens a separate tab for each selected model, fills in your prompt, and optionally sends it, so you can compare responses in one round.</p>
+              <p class="faq-a-zh">可以，这正是核心功能。ModelAny 为每个选中的模型打开独立标签页并填入提示词，可选自动发送，一轮即可比较多个回答。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q-en">Does ModelAny submit my prompt automatically?</span>
+              <span class="faq-q-zh">ModelAny 会自动发送提示词吗？</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>It is optional. Enable auto-send to submit automatically, or leave it off so the prompt is filled in for you to review and send manually.</p>
+              <p class="faq-a-zh">可选。开启自动发送会自动提交；关闭则只填入文本，由你手动确认发送。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 10. FINAL CTA ==================== -->
     <section class="final-cta" aria-labelledby="cta-title">
       <div class="cta-bg" aria-hidden="true"></div>
       <div class="container cta-container">
