@@ -6,8 +6,7 @@
 
 <p align="center">
   <a href="https://modelany.app">访问官网</a> ·
-  <a href="https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1">下载 ModelAny v1.0.1</a> ·
-  <a href="https://github.com/kyreemeng/ModelAny">查看源代码</a>
+  <a href="https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1">下载 ModelAny v1.0.1</a> 
 </p>
 
 ## 为什么使用 ModelAny？
@@ -74,7 +73,6 @@ ModelAny 采用本地优先设计：
 
 - 官网：[modelany.app](https://modelany.app)
 - 下载：[GitHub Release v1.0.1](https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1)
-- 源代码：[github.com/kyreemeng/ModelAny](https://github.com/kyreemeng/ModelAny)
 - 联系邮箱：kyreemeng@gmail.com
 
 ## 关于本仓库
