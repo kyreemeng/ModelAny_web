@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://modelany.app">访问官网</a> ·
-  <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1">下载 ModelAny v1.0.1</a> ·
+  <a href="https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1">下载 ModelAny v1.0.1</a> ·
   <a href="https://github.com/kyreemeng/ModelAny">查看源代码</a>
 </p>
 
@@ -37,7 +37,7 @@
 
 目前 Chrome Web Store 和 Microsoft Edge Add-ons 版本正在上架审核。临时版本可通过 GitHub Release 安装：
 
-1. 打开 [ModelAny v1.0.1 Release](https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1)。
+1. 打开 [ModelAny v1.0.1 Release](https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1)。
 2. 下载 `ModelAny-v1.0.1.zip` 并解压。
 3. 在 Chrome 或 Edge 地址栏打开 `chrome://extensions` 或 `edge://extensions`。
 4. 开启右上角的“开发者模式”。
@@ -73,7 +73,7 @@ ModelAny 采用本地优先设计：
 ## 项目链接
 
 - 官网：[modelany.app](https://modelany.app)
-- 下载：[GitHub Release v1.0.1](https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1)
+- 下载：[GitHub Release v1.0.1](https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1)
 - 源代码：[github.com/kyreemeng/ModelAny](https://github.com/kyreemeng/ModelAny)
 - 联系邮箱：kyreemeng@gmail.com
 

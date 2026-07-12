@@ -10,7 +10,7 @@ async function readProjectFile(filename) {
 
 test('all primary download actions use the published GitHub release', async () => {
   const html = await readProjectFile('index.html');
-  const releaseUrl = 'https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1';
+  const releaseUrl = 'https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1';
 
   assert.ok(html.includes(releaseUrl));
   assert.match(html, /Download v1\.0\.1 on GitHub/);
