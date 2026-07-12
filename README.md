@@ -1,96 +1,88 @@
-# ModelAny Landing Page
+# ModelAny：一次提问，同时获得多个 AI 的回答
 
-Official landing page for the **ModelAny** Chrome extension — a tool that sends one prompt to multiple AI models at once.
+[ModelAny](https://modelany.app) 是一款开源的多模型 AI 浏览器扩展。输入一次问题，即可同时发送给 ChatGPT、Gemini、DeepSeek、Kimi、通义千问、豆包、文心和智谱 GLM，快速比较不同模型的回答与思路。
 
-## Quick Start
+不用在多个 AI 标签页之间反复复制粘贴，让研究、写作、编程、学习和头脑风暴更高效。
+
+<p align="center">
+  <a href="https://modelany.app">访问官网</a> ·
+  <a href="https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1">下载 ModelAny v1.0.1</a> ·
+  <a href="https://github.com/kyreemeng/ModelAny">查看源代码</a>
+</p>
+
+## 为什么使用 ModelAny？
+
+- **一次提问，多模型回答**：输入一次提示词，同时发送到你选择的多个 AI 模型。
+- **快速比较不同视角**：横向查看不同模型的答案、语气、结构和解决方案。
+- **自动打开 AI 对话**：自动为每个选中的模型打开独立对话标签页并填入提示词。
+- **可选自动发送**：可以自动提交问题，也可以先检查内容，再手动发送。
+- **标签页自动归组**：同一轮打开的 AI 对话集中管理，保持浏览器工作区整洁。
+- **右键快速提问**：选中网页文本后，可以直接通过右键菜单发送给多个 AI。
+- **本地优先隐私**：草稿、设置和历史记录保存在浏览器本地，ModelAny 不会将提示词上传到自己的服务器。
+
+## 支持的 AI 模型
+
+| 模型 | 官网 |
+| --- | --- |
+| ChatGPT | [chatgpt.com](https://chatgpt.com/) |
+| Gemini | [gemini.google.com](https://gemini.google.com/) |
+| DeepSeek | [chat.deepseek.com](https://chat.deepseek.com/) |
+| Kimi | [kimi.com](https://www.kimi.com/) |
+| 智谱 GLM | [chatglm.cn](https://chatglm.cn/) |
+| 通义千问 Qwen | [qianwen.com](https://www.qianwen.com/) |
+| 豆包 Doubao | [doubao.com](https://www.doubao.com/chat/) |
+| 文心 Wenxin | [wenxin.baidu.com](https://wenxin.baidu.com/) |
+
+## 安装 ModelAny
+
+目前 Chrome Web Store 和 Microsoft Edge Add-ons 版本正在上架审核。临时版本可通过 GitHub Release 安装：
+
+1. 打开 [ModelAny v1.0.1 Release](https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1)。
+2. 下载 `ModelAny-v1.0.1.zip` 并解压。
+3. 在 Chrome 或 Edge 地址栏打开 `chrome://extensions` 或 `edge://extensions`。
+4. 开启右上角的“开发者模式”。
+5. 点击“加载已解压的扩展程序”，选择解压后的 ModelAny 文件夹。
+
+## 使用方法
+
+1. 点击浏览器工具栏中的 ModelAny 图标。
+2. 输入要提问的内容。
+3. 选择一个或多个 AI 模型。
+4. 根据需要开启自动发送。
+5. 点击发送，在多个 AI 标签页中比较回答。
+
+你也可以在网页中选中文字，使用右键菜单快速发起多模型提问。
+
+## 使用场景
+
+- **研究与资料整理**：从多个模型获得不同的分析角度和信息组织方式。
+- **写作与内容创作**：比较不同语气、结构和表达风格。
+- **编程与调试**：交叉验证代码方案、边界情况和错误解释。
+- **学习与知识理解**：同时获取多种讲解方式，找到更容易理解的答案。
+- **头脑风暴**：让多个 AI 同时产生创意，再组合出更好的想法。
+
+## 隐私承诺
+
+ModelAny 采用本地优先设计：
+
+- 提示词只会发送到你主动选择的 AI 服务。
+- ModelAny 不会把提示词、历史记录或诊断信息上传到自己的服务器。
+- 草稿和设置保存在你的浏览器本地。
+- 项目开源，欢迎查看和审查代码。
+
+## 项目链接
+
+- 官网：[modelany.app](https://modelany.app)
+- 下载：[GitHub Release v1.0.1](https://github.com/kyreemeng/ModelAny/releases/tag/v1.0.1)
+- 源代码：[github.com/kyreemeng/ModelAny](https://github.com/kyreemeng/ModelAny)
+- 联系邮箱：kyreemeng@gmail.com
+
+## 关于本仓库
+
+本仓库是 ModelAny 官方产品官网，使用纯 HTML、CSS 和 JavaScript 构建，无框架、无构建步骤、零运行时依赖。
 
 ```bash
-# From the project directory
 python3 -m http.server 8765
-
-# Then open in browser
-# http://localhost:8765
 ```
 
-Or use any static file server:
-
-```bash
-npx serve .
-```
-
-## Project Structure
-
-```
-ModelAny_web/
-├── index.html          # Main page with all 10 sections + full SEO metadata
-├── styles.css          # All styles, responsive (375px / 768px / 1440px)
-├── script.js           # Interactive hero, GitHub API, scroll reveal
-├── assets/
-│   ├── favicon.png
-│   ├── modelany-icon-master.png
-│   └── models/
-│       ├── chatgpt.svg     # Real SVG icon from extension repo
-│       ├── gemini.svg      # Real SVG icon from extension repo
-│       ├── deepseek.ico    # Official icon from extension repo
-│       ├── kimi.ico        # Official icon from extension repo
-│       ├── glm.ico         # Official icon from extension repo
-│       ├── qwen.png        # Official icon from extension repo
-│       ├── doubao.png      # Official icon from extension repo
-│       └── wenxin.ico      # Official icon from extension repo
-└── README.md
-```
-
-## Page Sections
-
-1. **Top Navigation** — glassmorphism nav with mobile menu
-2. **Hero** — interactive Prompt Launcher with orbiting model nodes
-3. **Trust Bar** — GitHub Stars (live API), open source badges
-4. **Features** — 6 feature cards (English + Chinese)
-5. **How It Works** — 3-step flow + popup UI mockup
-6. **Supported Models** — 8 model cards with real icons
-7. **Use Cases** — Research, Writing, Coding, Learning, Brainstorming
-8. **Privacy** — Local-first privacy commitment
-9. **Final CTA** — Gradient call-to-action
-10. **Footer** — Brand, links, contact
-
-## Key Features
-
-- **GitHub Stars API**: Fetches real star count from `https://api.github.com/repos/kyreemeng/ModelAny` with loading state and graceful fallback to "Star on GitHub" on failure.
-- **Interactive Hero**: Click "Send to N models" to animate prompt flowing to orbiting model nodes. Respects `prefers-reduced-motion`.
-- **SEO Complete**: Semantic HTML, single H1, Open Graph, Twitter Card, JSON-LD SoftwareApplication schema, canonical URL.
-- **Accessible**: Skip link, focus states, ARIA labels, keyboard navigation, reduced-motion support.
-- **Responsive**: Mobile-first design tested at 375px, 768px, 1440px breakpoints.
-- **Zero Dependencies**: Pure HTML/CSS/JS — no frameworks, no build step.
-
-## Model Data Structure
-
-The model list is defined in `script.js` and mirrored in `index.html`:
-
-```javascript
-const MODELS = [
-  { id: 'chatgpt',  name: 'ChatGPT',  color: '#10A37F', url: 'https://chatgpt.com/' },
-  { id: 'gemini',   name: 'Gemini',   color: '#4285F4', url: 'https://gemini.google.com/' },
-  { id: 'deepseek', name: 'DeepSeek', color: '#4D6BFE', url: 'https://chat.deepseek.com/' },
-  { id: 'kimi',     name: 'Kimi',     color: '#111827', url: 'https://www.kimi.com/' },
-  { id: 'glm',      name: 'GLM',      color: '#159C8C', url: 'https://chatglm.cn/' },
-  { id: 'qwen',     name: 'Qwen',     color: '#6954E8', url: 'https://www.qianwen.com/' },
-  { id: 'doubao',   name: 'Doubao',   color: '#3B82F6', url: 'https://www.doubao.com/chat/' },
-  { id: 'wenxin',   name: 'Wenxin',   color: '#2F6BFF', url: 'https://wenxin.baidu.com/' }
-];
-```
-
-This matches `src/shared/models.ts` in the ModelAny extension source.
-
-## SEO TODO
-
-Before deploying to production:
-
-1. **Canonical URL**: Update `<link rel="canonical">` to the final domain.
-2. **OG Image**: Create a 1200x630 PNG for social sharing and update `og:image` / `twitter:image` URLs.
-3. **Sitemap**: Add `sitemap.xml` once the domain is live.
-4. **robots.txt**: Add a `robots.txt` allowing crawling.
-
-## Contact
-
-- GitHub: https://github.com/kyreemeng/ModelAny
-- Email: kyreemeng@gmail.com
+然后打开 <http://localhost:8765> 预览官网。
