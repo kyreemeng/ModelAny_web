@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6D5DFB">
+
+  <!-- Primary Meta Tags -->
+  <title>ModelAny — Send One Prompt to Every AI</title>
+  <meta name="title" content="ModelAny — Send One Prompt to Every AI">
+  <meta name="description" content="ModelAny is a Chrome extension that sends one prompt to multiple AI models, helping you compare perspectives faster. Supports ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, and Wenxin.">
+  <meta name="keywords" content="AI Chrome extension, multi-model AI, ChatGPT, Gemini, DeepSeek, AI prompt launcher, ModelAny, Kimi, GLM, Qwen, Doubao, Wenxin, compare AI answers">
+  <meta name="author" content="ModelAny">
+  <meta name="robots" content="index, follow">
+  <!-- TODO: confirm canonical domain. Replace with the final deployed URL, e.g. https://modelany.ai/ -->
+  <link rel="canonical" href="https://modelany.ai/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://modelany.ai/">
+  <meta property="og:title" content="ModelAny — Send One Prompt to Every AI">
+  <meta property="og:description" content="A Chrome extension that sends one prompt to multiple AI models. Stop copying the same question across AI tabs — compare more perspectives in less time.">
+  <!-- TODO: replace with actual OG image URL once hosted. Recommended 1200x630 PNG. -->
+  <meta property="og:image" content="https://modelany.ai/assets/og-image.png">
+  <meta property="og:site_name" content="ModelAny">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ModelAny — Send One Prompt to Every AI">
+  <meta name="twitter:description" content="A Chrome extension that sends one prompt to multiple AI models. Compare perspectives faster.">
+  <!-- TODO: replace with actual Twitter Card image URL once hosted. -->
+  <meta name="twitter:image" content="https://modelany.ai/assets/og-image.png">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+
+  <!-- Preconnect for GitHub API -->
+  <link rel="preconnect" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://api.github.com">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- JSON-LD Structured Data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ModelAny",
+    "applicationCategory": "BrowserExtension",
+    "operatingSystem": "Chrome",
+    "description": "ModelAny is a Chrome extension that sends one prompt to multiple AI models. Enter your question once, select the models you want, and ModelAny opens their conversations and fills the same prompt for you.",
+    "url": "https://github.com/kyreemeng/ModelAny",
+    "softwareVersion": "1.0.1",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Send one prompt to multiple AI models",
+      "Automatically open selected model conversations",
+      "Fill prompts and optionally submit them automatically",
+      "Group the tabs opened for the current task",
+      "Keep drafts and recent history locally in your browser",
+      "Use selected webpage text as a prompt from the context menu"
+    ],
+    "supports": [
+      "ChatGPT", "Gemini", "DeepSeek", "Kimi", "GLM", "Qwen", "Doubao", "Wenxin"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ==================== 1. TOP NAVIGATION ==================== -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#top" class="brand" aria-label="ModelAny home">
+        <img src="assets/modelany-icon-master.png" alt="" class="brand-icon" width="36" height="36">
+        <span class="brand-text">ModelAny</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#models">Models</a>
+        <a href="#privacy">Privacy</a>
+        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill nav-cta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ==================== 2. HERO ==================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="eyebrow">Multi-model AI launcher</span>
+          <span class="eyebrow-zh">多模型AI启动器</span>
+          <h1 id="hero-title">Send one prompt to <span class="gradient-text">every AI</span></h1>
+          <p class="hero-subtitle-zh">一条提示词，发给所有 AI</p>
+          <p class="hero-description">
+            Stop copying the same question across AI tabs. ModelAny launches your prompt across the models you choose, so you can compare more perspectives in less time.
+          </p>
+          <p class="hero-description-zh">
+            不用在多个 AI 页面间来回复制。一键发送，同步获取更多答案与视角。
+          </p>
+
+          <div class="hero-cta">
+            <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              View on GitHub
+            </a>
+            <a href="#how-it-works" class="btn btn-secondary btn-pill">See how it works</a>
+          </div>
+        </div>
+
+        <!-- Interactive Prompt Launcher Visual -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="launcher-card">
+            <div class="launcher-header">
+              <span class="launcher-dot"></span>
+              <span class="launcher-dot"></span>
+              <span class="launcher-dot"></span>
+              <span class="launcher-title">ModelAny</span>
+            </div>
+            <div class="launcher-body">
+              <div class="launcher-input-wrap">
+                <div class="launcher-input" id="launcher-input" contenteditable="true">Help me plan a product launch.</div>
+                <span class="launcher-counter">26 / 5000</span>
+              </div>
+              <div class="launcher-chips" id="launcher-chips">
+                <button class="chip active" data-model="chatgpt">ChatGPT</button>
+                <button class="chip active" data-model="gemini">Gemini</button>
+                <button class="chip active" data-model="deepseek">DeepSeek</button>
+                <button class="chip active" data-model="kimi">Kimi</button>
+                <button class="chip active" data-model="glm">GLM</button>
+                <button class="chip active" data-model="qwen">千问</button>
+                <button class="chip active" data-model="doubao">Doubao</button>
+                <button class="chip active" data-model="wenxin">Wenxin</button>
+              </div>
+              <button class="launcher-send" id="launcher-send" type="button">
+                Send to <span id="send-count">8</span> models
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Orbiting model nodes -->
+          <div class="orbit-container" id="orbit-container">
+            <svg class="orbit-lines" id="orbit-lines" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+            <div class="orbit-node orbit-node-1" data-model="chatgpt"><img src="assets/models/chatgpt.svg" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-2" data-model="gemini"><img src="assets/models/gemini.svg" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-3" data-model="deepseek"><img src="assets/models/deepseek.ico" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-4" data-model="kimi"><img src="assets/models/kimi.ico" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-5" data-model="glm"><img src="assets/models/glm.ico" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-6" data-model="qwen"><img src="assets/models/qwen.png" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-7" data-model="doubao"><img src="assets/models/doubao.png" alt="" width="40" height="40"></div>
+            <div class="orbit-node orbit-node-8" data-model="wenxin"><img src="assets/models/wenxin.ico" alt="" width="40" height="40"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. TRUST & GITHUB DATA BAR ==================== -->
+    <section class="trust-bar" aria-label="Project highlights">
+      <div class="container trust-container">
+        <div class="trust-items">
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <span>Open source</span>
+          </div>
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+            <span>Built for Chrome</span>
+          </div>
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Local-first</span>
+          </div>
+        </div>
+
+        <div class="github-stats" id="github-stats" aria-live="polite">
+          <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="github-stat-link" id="github-star-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <span class="github-stat-label" id="github-star-text">Star on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. FEATURES ==================== -->
+    <section class="features section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="features-title">Why ModelAny</h2>
+          <p class="section-subtitle">Less copying. More comparing.</p>
+          <p class="section-subtitle-zh">少一些复制粘贴，多一些视角对比。</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>One prompt, many models</h3>
+            <p>Type your question once and send it to every AI you select — no more pasting the same text into separate tabs.</p>
+            <p class="feature-zh">输入一次，同时发给所有选中的模型，不再反复复制粘贴。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+            </div>
+            <h3>Compare perspectives faster</h3>
+            <p>See how different models approach the same question, side by side. Find better answers in a single round.</p>
+            <p class="feature-zh">同一个问题，多种模型思路并列呈现，一轮就能看到更多答案。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>Open AI chats automatically</h3>
+            <p>ModelAny opens a dedicated conversation tab for each selected model and fills in your prompt for you.</p>
+            <p class="feature-zh">自动为每个选中的模型打开独立对话页面并填入问题。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </div>
+            <h3>Optional auto-send</h3>
+            <p>Let ModelAny submit for you, or keep the prompt filled so you can review before sending. You stay in control.</p>
+            <p class="feature-zh">可选自动发送，也可以只填入文本，发送前手动确认。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+            </div>
+            <h3>Keep conversations organized</h3>
+            <p>Tabs opened in the same round are grouped together, so your workspace stays tidy across multiple models.</p>
+            <p class="feature-zh">同一轮打开的标签页自动归组，多模型对话井然有序。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Local-first privacy</h3>
+            <p>Drafts, settings, and history stay in your browser. ModelAny does not upload your prompts to its own server.</p>
+            <p class="feature-zh">草稿、设置与记录保存在本地，不上传到 ModelAny 服务器。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. HOW IT WORKS ==================== -->
+    <section class="how-it-works section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="how-title">How it works</h2>
+          <p class="section-subtitle">Three steps to wider perspectives.</p>
+          <p class="section-subtitle-zh">三步，获得更多视角。</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Write your prompt</h3>
+              <p>Open the ModelAny popup and type your question — up to 5,000 characters.</p>
+              <p class="step-zh">输入你的问题</p>
+              <p class="step-zh-desc">打开 ModelAny 弹窗，输入要同时发送的问题。</p>
+            </div>
+          </div>
+
+          <div class="step-connector" aria-hidden="true"></div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Choose your models</h3>
+              <p>Select one or more from the eight supported AI models. Toggle auto-send if you want.</p>
+              <p class="step-zh">选择要使用的模型</p>
+              <p class="step-zh-desc">从八个支持的 AI 模型中选择一个或多个，可按需开启自动发送。</p>
+            </div>
+          </div>
+
+          <div class="step-connector" aria-hidden="true"></div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Compare better answers</h3>
+              <p>ModelAny opens each model's chat, fills your prompt, and optionally sends it. Compare responses side by side.</p>
+              <p class="step-zh">同时获取并比较答案</p>
+              <p class="step-zh-desc">ModelAny 打开每个模型对话页，填入问题并可选发送，便于横向比较。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popup UI mockup -->
+        <div class="popup-mockup" aria-label="ModelAny extension popup preview">
+          <div class="mockup-window">
+            <div class="mockup-titlebar">
+              <span class="mockup-dot"></span>
+              <span class="mockup-dot"></span>
+              <span class="mockup-dot"></span>
+              <span class="mockup-tab-label">ModelAny</span>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-header">
+                <div class="mockup-brand">
+                  <div class="mockup-logo"></div>
+                  <div>
+                    <strong>ModelAny</strong>
+                    <small>一次提问，多模型回答</small>
+                  </div>
+                </div>
+                <div class="mockup-gear" aria-hidden="true">⚙</div>
+              </div>
+              <div class="mockup-input">用一句话介绍人工智能。</div>
+              <div class="mockup-models">
+                <span class="mockup-model-chip selected">ChatGPT</span>
+                <span class="mockup-model-chip selected">Gemini</span>
+                <span class="mockup-model-chip selected">DeepSeek</span>
+                <span class="mockup-model-chip selected">Kimi</span>
+                <span class="mockup-model-chip">GLM</span>
+                <span class="mockup-model-chip selected">Qwen</span>
+                <span class="mockup-model-chip">Doubao</span>
+                <span class="mockup-model-chip">Wenxin</span>
+              </div>
+              <div class="mockup-toggle">
+                <span>自动发送</span>
+                <span class="mockup-switch" aria-hidden="true"></span>
+              </div>
+              <button class="mockup-send" type="button">发送到 5 个模型</button>
+            </div>
+          </div>
+
+          <div class="mockup-tabs" aria-hidden="true">
+            <div class="mockup-tab-chip">
+              <span class="mockup-tab-color" style="background:#10A37F"></span>
+              ChatGPT
+            </div>
+            <div class="mockup-tab-chip">
+              <span class="mockup-tab-color" style="background:#4285F4"></span>
+              Gemini
+            </div>
+            <div class="mockup-tab-chip">
+              <span class="mockup-tab-color" style="background:#4D6BFE"></span>
+              DeepSeek
+            </div>
+            <div class="mockup-tab-chip">
+              <span class="mockup-tab-color" style="background:#111827"></span>
+              Kimi
+            </div>
+            <div class="mockup-tab-chip">
+              <span class="mockup-tab-color" style="background:#6954E8"></span>
+              Qwen
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. SUPPORTED MODELS ==================== -->
+    <section class="models section" id="models" aria-labelledby="models-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="models-title">Your favorite AI models. One starting point.</h2>
+          <p class="section-subtitle-zh">你常用的 AI，从同一个入口开始。</p>
+        </div>
+
+        <div class="models-grid">
+          <article class="model-card">
+            <img src="assets/models/chatgpt.svg" alt="ChatGPT logo" width="64" height="64" loading="lazy">
+            <h3>ChatGPT</h3>
+            <p>chatgpt.com</p>
+          </article>
+          <article class="model-card">
+            <img src="assets/models/gemini.svg" alt="Gemini logo" width="64" height="64" loading="lazy">
+            <h3>Gemini</h3>
+            <p>gemini.google.com</p>
+          </article>
+          <article class="model-card">
+            <img src="assets/models/deepseek.ico" alt="DeepSeek logo" width="64" height="64" loading="lazy">
+            <h3>DeepSeek</h3>
+            <p>chat.deepseek.com</p>
+          </article>
+          <article class="model-card">
+            <img src="assets/models/kimi.ico" alt="Kimi logo" width="64" height="64" loading="lazy">
+            <h3>Kimi</h3>
+            <p>kimi.com</p>
+          </article>
+          <article class="model-card">
+            <img src="assets/models/glm.ico" alt="GLM logo" width="64" height="64" loading="lazy">
+            <h3>GLM</h3>
+            <p>chatglm.cn</p>
+          </article>
+          <article class="model-card">
+            <img src="assets/models/qwen.png" alt="Qwen logo" width="64" height="64" loading="lazy">
+            <h3>Qwen</h3>
+            <p>qianwen.com</p>
+          </article>
+          <article class="model-card">
+            <img src="assets/models/doubao.png" alt="Doubao logo" width="64" height="64" loading="lazy">
+            <h3>Doubao</h3>
+            <p>doubao.com</p>
+          </article>
+          <article class="model-card">
+            <img src="assets/models/wenxin.ico" alt="Wenxin logo" width="64" height="64" loading="lazy">
+            <h3>Wenxin</h3>
+            <p>wenxin.baidu.com</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. USE CASES ==================== -->
+    <section class="use-cases section" aria-labelledby="usecases-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="usecases-title">Built for how you think</h2>
+          <p class="section-subtitle-zh">为你的思考方式而设计</p>
+        </div>
+
+        <div class="usecases-grid">
+          <article class="usecase-card">
+            <div class="usecase-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>Research</h3>
+            <p>Ask the same research question across models to gather diverse sources, framings, and citations in one pass.</p>
+            <p class="usecase-zh">研究 — 同一问题获得多模型的不同视角与来源。</p>
+          </article>
+
+          <article class="usecase-card">
+            <div class="usecase-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            </div>
+            <h3>Writing</h3>
+            <p>Compare tones, structures, and phrasings from different AIs to find the version that fits your voice.</p>
+            <p class="usecase-zh">写作 — 对比不同 AI 的语气与结构，找到最合你心意的表达。</p>
+          </article>
+
+          <article class="usecase-card">
+            <div class="usecase-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Coding</h3>
+            <p>Send a bug or design problem to multiple models and cross-check solutions, edge cases, and explanations.</p>
+            <p class="usecase-zh">编程 — 多模型交叉验证方案、边界情况与解释。</p>
+          </article>
+
+          <article class="usecase-card">
+            <div class="usecase-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Learning</h3>
+            <p>Get multiple explanations of a concept at once — some models click better with certain topics than others.</p>
+            <p class="usecase-zh">学习 — 同时获取多种讲解，找到最容易理解的那一种。</p>
+          </article>
+
+          <article class="usecase-card">
+            <div class="usecase-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 2 7h10c0-2 2-4 2-7a7 7 0 0 0-7-7z"/></svg>
+            </div>
+            <h3>Brainstorming</h3>
+            <p>Spark more ideas by asking several models the same creative question — then mix and match the best parts.</p>
+            <p class="usecase-zh">创意构思 — 多模型同时头脑风暴，碰撞出更多灵感。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. PRIVACY ==================== -->
+    <section class="privacy section" id="privacy" aria-labelledby="privacy-title">
+      <div class="container">
+        <div class="privacy-card">
+          <div class="privacy-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h2 id="privacy-title">Your prompts stay yours.</h2>
+          <p class="privacy-subtitle-zh">你的提示词，只属于你。</p>
+
+          <ul class="privacy-list">
+            <li>
+              <p>Prompts are sent only to the AI services you choose.</p>
+              <p class="privacy-zh">问题只发送到你主动选择的 AI 网站。</p>
+            </li>
+            <li>
+              <p>ModelAny does not upload prompts, history, or diagnostics to its own server.</p>
+              <p class="privacy-zh">ModelAny 不会将问题、历史记录或诊断日志上传到自己的服务器。</p>
+            </li>
+            <li>
+              <p>Your drafts and settings remain in your browser.</p>
+              <p class="privacy-zh">草稿与设置保存在你的浏览器本地。</p>
+            </li>
+          </ul>
+
+          <a href="https://github.com/kyreemeng/ModelAny/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-pill privacy-link">Read the privacy policy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 9. FINAL CTA ==================== -->
+    <section class="final-cta" aria-labelledby="cta-title">
+      <div class="cta-bg" aria-hidden="true"></div>
+      <div class="container cta-container">
+        <h2 id="cta-title">Ask once. <span class="gradient-text">Think wider.</span></h2>
+        <p class="cta-subtitle-zh">问一次，看得更广。</p>
+        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill btn-large">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          Explore ModelAny on GitHub
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 10. FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="assets/modelany-icon-master.png" alt="" class="footer-logo" width="32" height="32">
+        <span>ModelAny</span>
+      </div>
+      <p class="footer-tagline">Built for people who think with more than one AI.</p>
+      <div class="footer-links">
+        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/kyreemeng/ModelAny/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer">Privacy</a>
+        <a href="mailto:kyreemeng@gmail.com">kyreemeng@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
