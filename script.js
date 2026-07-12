@@ -23,8 +23,8 @@
     { id: 'wenxin',   name: 'Wenxin',   color: '#2F6BFF', url: 'https://wenxin.baidu.com/' }
   ];
 
-  const GITHUB_API_URL = 'https://api.github.com/repos/kyreemeng/ModelAny';
-  const GITHUB_REPO_URL = 'https://github.com/kyreemeng/ModelAny';
+  const GITHUB_API_URL = 'https://api.github.com/repos/kyreemeng/ModelAny-Releases';
+  const GITHUB_REPO_URL = 'https://github.com/kyreemeng/ModelAny-Releases';
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

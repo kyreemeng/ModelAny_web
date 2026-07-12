@@ -181,3 +181,41 @@ The page is optimized for the following intent clusters (single-page strategy):
 | Navigational | "ModelAny", model names (ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, Wenxin) | Nav, models section, brand mentions |
 
 All 8 supported model names appear in the meta description and models section, capturing brand-search long-tail.
+
+---
+
+## 8. Follow-Up Pass (2026-07-12) — Broken Links, Privacy Page & Graph Linking
+
+A second review found and fixed defects the first pass missed, plus added content depth.
+
+### 8.1 Broken links (P0 — crawl/trust)
+Verified live HTTP status: `github.com/kyreemeng/ModelAny` returns **404**; the valid repo is `github.com/kyreemeng/ModelAny-Releases` (**200**).
+
+| Location | Before (404) | After (200) |
+|----------|--------------|-------------|
+| `Organization.sameAs` | `…/ModelAny` | `…/ModelAny-Releases` |
+| Privacy card CTA | `…/ModelAny/blob/main/PRIVACY.md` | `privacy.html` |
+| Footer "Privacy" | `…/ModelAny/blob/main/PRIVACY.md` | `privacy.html` |
+| `script.js` `GITHUB_API_URL` / `GITHUB_REPO_URL` | `…/ModelAny` | `…/ModelAny-Releases` |
+
+The `script.js` fix also restores the GitHub star-count fetch (it was silently 404-ing and always falling back to "Star on GitHub").
+
+### 8.2 New indexable page: `privacy.html`
+- Bilingual (EN/ZH) privacy policy — the site is no longer single-URL.
+- Full head: canonical, hreflang, OG/Twitter, robots `index,follow`, icons, manifest.
+- JSON-LD `WebPage` + `BreadcrumbList` (Home › Privacy Policy).
+- Reuses `styles.css` (added `.legal-*` / `.breadcrumb` styles) and `script.js` (all feature blocks are element-guarded, so it runs safely).
+- Satisfies the Chrome Web Store privacy-policy-URL requirement and adds an internal-linking target.
+- Added to `sitemap.xml` (`priority 0.3`, `changefreq yearly`).
+
+### 8.3 Internal linking
+Footer converted to a semantic `<nav>` linking every on-page section (Features, How it works, Models, Use cases, FAQ) plus Privacy, Download, GitHub, and contact — deepening the internal link graph on both pages.
+
+### 8.4 Structured data graph linking
+Homepage `@graph` gained a `WebPage` node (`#webpage`) tying the page to the `WebSite`, `SoftwareApplication` (now `@id #software`), `primaryImageOfPage`, and `BreadcrumbList` (now `@id #breadcrumb`) — a properly connected entity graph rather than loose schemas.
+
+### 8.5 Validation
+- UI contract tests: **5/5 pass** (no regressions).
+- JSON-LD: both pages parse; homepage graph = 7 linked entities, privacy = 2.
+- `sitemap.xml` / `site.webmanifest` well-formed; all referenced assets exist.
+- Zero remaining references to the dead `kyreemeng/ModelAny` repo.
