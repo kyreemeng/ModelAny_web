@@ -1,0 +1,84 @@
+{
+  "redirects": [
+    {
+      "source": "/compare/deepseek-vs-chatgpt",
+      "destination": "/compare/chatgpt-vs-deepseek/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/deepseek-vs-chatgpt/",
+      "destination": "/compare/chatgpt-vs-deepseek/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-vs-chatgpt",
+      "destination": "/compare/chatgpt-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-vs-chatgpt/",
+      "destination": "/compare/chatgpt-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/gemini-vs-chatgpt",
+      "destination": "/compare/chatgpt-vs-gemini/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/gemini-vs-chatgpt/",
+      "destination": "/compare/chatgpt-vs-gemini/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/gemini-vs-claude",
+      "destination": "/compare/claude-vs-gemini/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/gemini-vs-claude/",
+      "destination": "/compare/claude-vs-gemini/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/perplexity-vs-chatgpt",
+      "destination": "/compare/chatgpt-vs-perplexity/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/perplexity-vs-chatgpt/",
+      "destination": "/compare/chatgpt-vs-perplexity/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/grok-vs-chatgpt",
+      "destination": "/compare/chatgpt-vs-grok/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/grok-vs-chatgpt/",
+      "destination": "/compare/chatgpt-vs-grok/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-chatgpt",
+      "destination": "/compare/chatgpt-vs-copilot/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-chatgpt/",
+      "destination": "/compare/chatgpt-vs-copilot/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-cursor",
+      "destination": "/compare/cursor-vs-copilot/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-cursor/",
+      "destination": "/compare/cursor-vs-copilot/",
+      "permanent": true
+    }
+  ]
+}

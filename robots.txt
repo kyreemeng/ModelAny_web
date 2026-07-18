@@ -1,11 +1,12 @@
 # robots.txt for ModelAny — https://modelany.app/
-# Static landing page: all content is indexable.
+# Indexing is controlled per page with meta robots. Only reviewed pages are
+# included in sitemap.xml; research drafts remain noindex,follow.
 
 User-agent: *
 Allow: /
 
-# No disallowed paths — the site is a single indexable landing page.
-# Third-party crawlers (Googlebot, Bingbot, etc.) may crawl freely.
+# Third-party crawlers (Googlebot, Bingbot, etc.) may crawl freely so they can
+# follow canonical and noindex directives.
 
 User-agent: GPTBot
 Allow: /

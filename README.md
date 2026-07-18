@@ -84,3 +84,15 @@ python3 -m http.server 8765
 ```
 
 然后打开 <http://localhost:8765> 预览官网。
+
+### 程序化 SEO 页面
+
+P0/P1 对比长尾页由 `seo/generate.mjs` 生成，覆盖 `/compare/`、`/best-for/`、`/alternatives/`、`/free/`、`/pricing/`、`/zh/compare/`。页面只有在具备官方来源、完成第一方多模型测试并通过人工审校后才允许索引；未达标页面统一输出 `noindex,follow` 且不会进入 sitemap。
+
+```bash
+node seo/generate.mjs
+```
+
+生成结果会写入对应目录、更新根目录 `sitemap.xml`，并生成 Vercel 的永久重定向规则。
+
+真实测试的采集格式见 [`seo/TESTING_TEMPLATE.md`](seo/TESTING_TEMPLATE.md)。完整原始输出归档后，在 `seo/data/test-results.json` 增加对应 URL 的日期、地区、模型/套餐、方法、人工结论和公开证据链接，再重新运行生成器。

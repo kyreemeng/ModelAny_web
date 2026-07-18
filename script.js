@@ -3,9 +3,12 @@
  * Features:
  * - Interactive Prompt Launcher simulation (prompt flowing to model nodes)
  * - GitHub Stars API with graceful degradation
- * - Mobile menu toggle
+ * - Mobile menu toggle with focus trap
  * - Scroll reveal animations
  * - Prefers-reduced-motion support
+ * - Touch-friendly step highlight
+ * - Copy success feedback
+ * - Error/success status colorization
  */
 
 (function () {
@@ -29,28 +32,70 @@
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // --- Mobile Menu Toggle ---
+  // --- Mobile Menu Toggle with Focus Trap ---
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
   if (menuToggle && navMenu) {
     let menuTriggerBeforeOpen = null;
+    let focusTrapHandler = null;
+
+    function getFocusableElements(container) {
+      return Array.from(container.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )).filter(function (el) {
+        return el.offsetParent !== null || el === container;
+      });
+    }
 
     function closeMobileMenu(restoreFocus) {
       navMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('menu-open');
+      if (focusTrapHandler) {
+        document.removeEventListener('keydown', focusTrapHandler);
+        focusTrapHandler = null;
+      }
       if (restoreFocus && menuTriggerBeforeOpen) {
         menuToggle.focus();
       }
     }
 
+    function openMobileMenu() {
+      navMenu.classList.add('open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+      menuTriggerBeforeOpen = document.activeElement;
+
+      // Focus trap: keep Tab within menu while open
+      focusTrapHandler = function (event) {
+        if (event.key !== 'Tab') return;
+        var focusable = getFocusableElements(navMenu);
+        if (focusable.length === 0) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      };
+      document.addEventListener('keydown', focusTrapHandler);
+
+      // Move focus into the menu for screen reader users
+      var firstLink = navMenu.querySelector('a, button');
+      if (firstLink) {
+        setTimeout(function () { firstLink.focus(); }, 100);
+      }
+    }
+
     menuToggle.addEventListener('click', function () {
-      const isOpen = navMenu.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      document.body.classList.toggle('menu-open', isOpen);
-      if (isOpen) {
-        menuTriggerBeforeOpen = document.activeElement;
+      if (navMenu.classList.contains('open')) {
+        closeMobileMenu(true);
+      } else {
+        openMobileMenu();
       }
     });
 
@@ -75,7 +120,6 @@
 
   // --- Header scroll effect ---
   const header = document.getElementById('site-header');
-  let lastScrollY = 0;
 
   function handleHeaderScroll() {
     const scrollY = window.scrollY;
@@ -86,10 +130,11 @@
       header.style.boxShadow = 'none';
       header.style.background = 'rgba(255, 255, 255, 0.7)';
     }
-    lastScrollY = scrollY;
   }
 
-  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  if (header) {
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  }
 
   // --- Interactive Prompt Launcher ---
   const launcherSend = document.getElementById('launcher-send');
@@ -97,23 +142,117 @@
   const launcherInput = document.getElementById('launcher-input');
   const launcherCounter = document.getElementById('launcher-counter');
   const sendCount = document.getElementById('send-count');
+  const autoSubmit = document.getElementById('launcher-auto-submit');
+  const launcherStatus = document.getElementById('launcher-status');
+  const launcherFallback = document.getElementById('launcher-fallback');
+  const copyButton = document.getElementById('launcher-copy');
+  const openSitesButton = document.getElementById('launcher-open-sites');
   const orbitContainer = document.getElementById('orbit-container');
   const orbitLines = document.getElementById('orbit-lines');
+  const MAX_PROMPT_LENGTH = 5000;
+  const BRIDGE_TIMEOUT_MS = 1500;
 
   // Track selected models
   const selectedModels = new Set(MODELS.map(function (m) { return m.id; }));
 
-  function updateLauncherCounter() {
-    if (!launcherInput || !launcherCounter) return;
-    const characterCount = Array.from(launcherInput.textContent.trim()).length;
-    launcherCounter.textContent = String(characterCount) + ' / 5000';
+  const isZh = document.documentElement.lang === 'zh-CN';
+  const copy = isZh ? {
+    enterPrompt: '请先输入提示词。',
+    selectModel: '请至少选择一个模型。',
+    checking: '正在检测已安装的 ModelAny 扩展…',
+    sending: '正在发送…',
+    acceptedFill: '正在打开 {n} 个模型网站。提示词将填入供你确认。',
+    acceptedSend: '正在打开 {n} 个模型网站。已请求自动发送。',
+    rejected: '扩展无法启动此任务。',
+    missing: '未检测到 ModelAny。请先安装扩展后再试；提示词仍保留在本页。',
+    copied: '提示词已复制到剪贴板。',
+    copyFailed: '复制失败。请手动选中提示词后复制。',
+    copyRetry: '重试复制',
+    opened: '已打开所选模型网站。请自行粘贴提示词。'
+  } : {
+    enterPrompt: 'Enter a prompt before launching.',
+    selectModel: 'Select at least one model.',
+    checking: 'Checking the installed ModelAny extension…',
+    sending: 'Sending…',
+    acceptedFill: 'Opening {n} model sites. Prompts will be filled for your review.',
+    acceptedSend: 'Opening {n} model sites. Auto-send was requested.',
+    rejected: 'The extension could not start this task.',
+    missing: 'ModelAny is not detected. Install the extension, then try again. Your prompt remains on this page.',
+    copied: 'Prompt copied to your clipboard.',
+    copyFailed: 'Copy failed. Select the prompt and copy it manually.',
+    copyRetry: 'Retry copy',
+    opened: 'Opened the selected model sites. Paste the prompt yourself.'
+  };
+
+  // Toggle chip selection (chips are static in HTML)
+  if (launcherChips) {
+    launcherChips.querySelectorAll('[data-model]').forEach(function (chip) {
+      chip.setAttribute('aria-pressed', String(selectedModels.has(chip.dataset.model)));
+      chip.addEventListener('click', function () {
+        const modelId = chip.dataset.model;
+        if (selectedModels.has(modelId)) {
+          selectedModels.delete(modelId);
+          chip.classList.remove('active');
+        } else {
+          selectedModels.add(modelId);
+          chip.classList.add('active');
+        }
+        chip.setAttribute('aria-pressed', String(selectedModels.has(modelId)));
+        updateSendCount();
+      });
+    });
   }
 
-  function syncOrbitNodeState() {
-    if (!orbitContainer) return;
-    orbitContainer.querySelectorAll('.orbit-node').forEach(function (node) {
-      node.classList.toggle('inactive', !selectedModels.has(node.dataset.model));
-    });
+  function updateLauncherCounter() {
+    if (!launcherInput || !launcherCounter) return;
+    var text = launcherInput.textContent;
+    var chars = Array.from(text);
+    if (chars.length > MAX_PROMPT_LENGTH) {
+      // Preserve cursor position when truncating
+      var selection = window.getSelection();
+      var cursorOffset = 0;
+      if (selection && selection.rangeCount > 0 && launcherInput.contains(selection.anchorNode)) {
+        var range = selection.getRangeAt(0);
+        var preRange = document.createRange();
+        preRange.selectNodeContents(launcherInput);
+        preRange.setEnd(range.startContainer, range.startOffset);
+        cursorOffset = Array.from(preRange.toString()).length;
+      }
+
+      var limited = chars.slice(0, MAX_PROMPT_LENGTH).join('');
+      launcherInput.textContent = limited;
+
+      // Restore cursor
+      if (cursorOffset > 0 && cursorOffset <= MAX_PROMPT_LENGTH) {
+        var newRange = document.createRange();
+        var textNode = launcherInput.firstChild;
+        if (textNode) {
+          var charCount = 0;
+          var pos = 0;
+          var allChars = Array.from(textNode.textContent);
+          for (var i = 0; i < allChars.length; i++) {
+            if (charCount >= cursorOffset) { pos = i; break; }
+            charCount++;
+          }
+          newRange.setStart(textNode, Math.min(pos, textNode.textContent.length));
+          newRange.collapse(true);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(newRange);
+        }
+      }
+    }
+    var trimmedLength = Array.from(launcherInput.textContent.trim()).length;
+    launcherCounter.textContent = trimmedLength + ' / ' + MAX_PROMPT_LENGTH;
+
+    // Color warning as user approaches limit
+    var ratio = trimmedLength / MAX_PROMPT_LENGTH;
+    launcherCounter.classList.remove('is-warning', 'is-danger');
+    if (ratio >= 0.95) {
+      launcherCounter.classList.add('is-danger');
+    } else if (ratio >= 0.85) {
+      launcherCounter.classList.add('is-warning');
+    }
   }
 
   // Update send button count
@@ -128,36 +267,18 @@
     syncOrbitNodeState();
   }
 
-  if (launcherInput) {
-    launcherInput.addEventListener('input', updateLauncherCounter);
-  }
-
-  // Toggle chip selection
-  if (launcherChips) {
-    launcherChips.querySelectorAll('.chip').forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        const modelId = chip.dataset.model;
-        if (selectedModels.has(modelId)) {
-          selectedModels.delete(modelId);
-          chip.classList.remove('active');
-        } else {
-          selectedModels.add(modelId);
-          chip.classList.add('active');
-        }
-        chip.setAttribute('aria-pressed', String(selectedModels.has(modelId)));
-        updateSendCount();
-      });
-      chip.setAttribute('aria-pressed', String(selectedModels.has(chip.dataset.model)));
+  function syncOrbitNodeState() {
+    if (!orbitContainer) return;
+    orbitContainer.querySelectorAll('.orbit-node').forEach(function (node) {
+      node.classList.toggle('inactive', !selectedModels.has(node.dataset.model));
     });
   }
 
-  // Draw orbit lines from center to each node
   function drawOrbitLines() {
     if (!orbitLines || !orbitContainer) return;
 
     orbitLines.replaceChildren();
 
-    // Define gradient
     const svgNamespace = 'http://www.w3.org/2000/svg';
     const defs = document.createElementNS(svgNamespace, 'defs');
     const gradient = document.createElementNS(svgNamespace, 'linearGradient');
@@ -182,14 +303,12 @@
     const cx = containerRect.width / 2;
     const cy = containerRect.height / 2;
 
-    // Get node positions
-    const nodes = orbitContainer.querySelectorAll('.orbit-node');
-    nodes.forEach(function (node, idx) {
+    orbitContainer.querySelectorAll('.orbit-node').forEach(function (node) {
       const nodeRect = node.getBoundingClientRect();
       const nx = nodeRect.left - containerRect.left + nodeRect.width / 2;
       const ny = nodeRect.top - containerRect.top + nodeRect.height / 2;
 
-      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      const line = document.createElementNS(svgNamespace, 'line');
       line.setAttribute('x1', String(cx));
       line.setAttribute('y1', String(cy));
       line.setAttribute('x2', String(nx));
@@ -199,86 +318,163 @@
     });
   }
 
-  // Redraw on resize
-  let resizeTimer;
-  function handleResize() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function () {
-      if (orbitLines) {
-        drawOrbitLines();
-      }
-    }, 200);
+  function playOrbitLaunchAnimation() {
+    if (!orbitContainer || !orbitLines || prefersReducedMotion) return;
+
+    orbitContainer.classList.add('active');
+    const nodes = orbitContainer.querySelectorAll('.orbit-node');
+    let delay = 0;
+    nodes.forEach(function (node) {
+      const modelId = node.dataset.model;
+      if (!selectedModels.has(modelId)) return;
+
+      setTimeout(function () {
+        node.classList.add('pulse');
+        const line = orbitLines.querySelector('line[data-model="' + modelId + '"]');
+        if (line) {
+          line.style.opacity = '1';
+          line.style.strokeWidth = '2.5';
+        }
+      }, delay);
+      delay += 120;
+
+      setTimeout(function () {
+        node.classList.remove('pulse');
+        const line = orbitLines.querySelector('line[data-model="' + modelId + '"]');
+        if (line) {
+          line.style.opacity = '';
+          line.style.strokeWidth = '';
+        }
+      }, delay + 600);
+    });
+
+    setTimeout(function () {
+      orbitContainer.classList.remove('active');
+    }, delay + 800);
   }
 
-  window.addEventListener('resize', handleResize);
+  let resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (orbitLines) drawOrbitLines();
+    }, 200);
+  });
 
-  // Initialize orbit lines after layout settles
   if (orbitLines) {
-    // Use requestAnimationFrame to ensure layout is complete
     requestAnimationFrame(function () {
       requestAnimationFrame(drawOrbitLines);
     });
   }
 
-  // Send button animation
+  if (launcherInput) {
+    launcherInput.addEventListener('input', updateLauncherCounter);
+  }
+
+  function setLauncherStatus(message, type) {
+    if (!launcherStatus) return;
+    launcherStatus.textContent = message;
+    launcherStatus.classList.remove('is-error', 'is-success', 'is-info');
+    if (type) {
+      launcherStatus.classList.add('is-' + type);
+    }
+  }
+
+  function selectedPrompt() {
+    return launcherInput ? launcherInput.textContent.trim() : '';
+  }
+
+  function requestExtensionLaunch(payload) {
+    return new Promise(function (resolve, reject) {
+      const nonce = crypto.randomUUID();
+      const timer = window.setTimeout(function () {
+        window.removeEventListener('message', onMessage);
+        reject(new Error('EXTENSION_NOT_DETECTED'));
+      }, BRIDGE_TIMEOUT_MS);
+
+      function onMessage(event) {
+        if (event.origin !== window.location.origin || event.source !== window || !event.data || event.data.nonce !== nonce) return;
+        if (event.data.type !== 'MODELANY_LAUNCH_RESULT') return;
+        window.clearTimeout(timer);
+        window.removeEventListener('message', onMessage);
+        resolve(event.data);
+      }
+
+      window.addEventListener('message', onMessage);
+      window.postMessage({ type: 'MODELANY_LAUNCH_REQUEST', nonce: nonce, payload: payload }, window.location.origin);
+    });
+  }
+
+  function showLauncherFallback(message, isError) {
+    setLauncherStatus(message, isError ? 'error' : 'info');
+    if (launcherFallback) launcherFallback.hidden = false;
+  }
+
   if (launcherSend) {
-    launcherSend.addEventListener('click', function () {
-      if (selectedModels.size === 0 || launcherSend.classList.contains('sending') || !orbitContainer || !orbitLines) return;
+    launcherSend.addEventListener('click', async function () {
+      const prompt = selectedPrompt();
+      if (!prompt) return showLauncherFallback(copy.enterPrompt, true);
+      if (!selectedModels.size) return showLauncherFallback(copy.selectModel, true);
 
-      launcherSend.setAttribute('aria-label', 'Launching selected models');
-      if (prefersReducedMotion) {
-        // For reduced motion, just show a brief state change
-        launcherSend.classList.add('sending');
-        setTimeout(function () {
-          launcherSend.classList.remove('sending');
-          launcherSend.removeAttribute('aria-label');
-        }, 800);
-        return;
-      }
-
+      // Apply sending state for visual feedback
       launcherSend.classList.add('sending');
-
-      // Activate orbit lines
-      if (orbitContainer) {
-        orbitContainer.classList.add('active');
-      }
-
-      // Pulse each selected node in sequence
-      const nodes = orbitContainer.querySelectorAll('.orbit-node');
-      let delay = 0;
-      nodes.forEach(function (node) {
-        const modelId = node.dataset.model;
-        if (!selectedModels.has(modelId)) return;
-
-        setTimeout(function () {
-          node.classList.add('pulse');
-          // Highlight the corresponding line
-          const line = orbitLines.querySelector('line[data-model="' + modelId + '"]');
-          if (line) {
-            line.style.opacity = '1';
-            line.style.strokeWidth = '2.5';
-          }
-        }, delay);
-        delay += 120;
-
-        setTimeout(function () {
-          node.classList.remove('pulse');
-          const line = orbitLines.querySelector('line[data-model="' + modelId + '"]');
-          if (line) {
-            line.style.opacity = '';
-            line.style.strokeWidth = '';
-          }
-        }, delay + 600);
-      });
-
-      // Reset after animation
-      setTimeout(function () {
-        launcherSend.classList.remove('sending');
-        launcherSend.removeAttribute('aria-label');
-        if (orbitContainer) {
-          orbitContainer.classList.remove('active');
+      launcherSend.disabled = true;
+      setLauncherStatus(copy.checking, 'info');
+      if (launcherFallback) launcherFallback.hidden = true;
+      playOrbitLaunchAnimation();
+      try {
+        const result = await requestExtensionLaunch({
+          prompt: prompt,
+          modelIds: Array.from(selectedModels),
+          autoSubmit: Boolean(autoSubmit && autoSubmit.checked)
+        });
+        if (result.status === 'accepted') {
+          const template = result.autoSubmit ? copy.acceptedSend : copy.acceptedFill;
+          setLauncherStatus(template.replace('{n}', String(result.modelCount)), 'success');
+        } else {
+          showLauncherFallback(result.message || copy.rejected, true);
         }
-      }, delay + 800);
+      } catch (error) {
+        showLauncherFallback(copy.missing, true);
+      } finally {
+        launcherSend.classList.remove('sending');
+        launcherSend.disabled = selectedModels.size === 0;
+      }
+    });
+  }
+
+  if (copyButton) {
+    var originalCopyText = copyButton.textContent;
+    copyButton.addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText(selectedPrompt());
+        setLauncherStatus(copy.copied, 'success');
+        // Visual confirmation on button
+        copyButton.textContent = '✓ ' + copy.copied.split('.')[0];
+        copyButton.classList.add('is-success');
+        setTimeout(function () {
+          copyButton.textContent = originalCopyText;
+          copyButton.classList.remove('is-success');
+        }, 2000);
+      } catch {
+        setLauncherStatus(copy.copyFailed, 'error');
+        // Add retry button text
+        copyButton.textContent = copy.copyRetry;
+        copyButton.classList.add('is-error');
+        setTimeout(function () {
+          copyButton.textContent = originalCopyText;
+          copyButton.classList.remove('is-error');
+        }, 3000);
+      }
+    });
+  }
+
+  if (openSitesButton) {
+    openSitesButton.addEventListener('click', function () {
+      MODELS.filter(function (model) { return selectedModels.has(model.id); }).forEach(function (model) {
+        window.open(model.url, '_blank', 'noopener,noreferrer');
+      });
+      setLauncherStatus(copy.opened, 'info');
     });
   }
 
@@ -289,15 +485,16 @@
   const githubStarText = document.getElementById('github-star-text');
   const githubStarLink = document.getElementById('github-star-link');
 
-  function showLoading() {
+  function showGithubLoading() {
     if (githubStarText) {
       const loadingIndicator = document.createElement('span');
       loadingIndicator.className = 'github-stat-loading';
+      loadingIndicator.setAttribute('aria-label', 'Loading star count');
       githubStarText.replaceChildren(loadingIndicator);
     }
   }
 
-  function showStars(count) {
+  function showGithubStars(count) {
     if (githubStarText) {
       const countElement = document.createElement('span');
       countElement.className = 'github-stat-count';
@@ -306,9 +503,12 @@
     }
   }
 
-  function showFallback() {
+  function showGithubFallback() {
     if (githubStarText) {
       githubStarText.textContent = 'Star on GitHub';
+      if (githubStarLink) {
+        githubStarLink.setAttribute('title', 'Star count temporarily unavailable');
+      }
     }
   }
 
@@ -320,7 +520,7 @@
   }
 
   async function fetchGitHubStats() {
-    showLoading();
+    showGithubLoading();
 
     try {
       const response = await fetch(GITHUB_API_URL, {
@@ -336,13 +536,13 @@
       const data = await response.json();
 
       if (typeof data.stargazers_count === 'number') {
-        showStars(data.stargazers_count);
+        showGithubStars(data.stargazers_count);
       } else {
-        showFallback();
+        showGithubFallback();
       }
     } catch (err) {
       // Graceful degradation: show generic text, no fake data
-      showFallback();
+      showGithubFallback();
     }
   }
 
@@ -364,7 +564,9 @@
       '.usecase-card',
       '.step',
       '.popup-mockup',
-      '.privacy-card'
+      '.privacy-card',
+      '.faq-item',
+      '.popular-link'
     ];
 
     const selector = revealTargets.join(', ');
@@ -438,7 +640,7 @@
     });
   }
 
-  // --- How it works preview highlight ---
+  // --- How it works preview highlight (mouse + touch + keyboard) ---
   const steps = document.querySelectorAll('.step[data-step]');
   const mockupTargets = document.querySelectorAll('[data-step-target]');
 
@@ -452,11 +654,41 @@
   }
 
   steps.forEach(function (step) {
-    ['mouseenter', 'focus'].forEach(function (eventName) {
-      step.addEventListener(eventName, function () { highlightStep(step.dataset.step); });
+    ['mouseenter', 'focus', 'click', 'touchstart'].forEach(function (eventName) {
+      step.addEventListener(eventName, function (e) {
+        // For click/touch, prevent default scroll on touchstart
+        if (eventName === 'touchstart') e.preventDefault();
+        highlightStep(step.dataset.step);
+      }, { passive: false });
     });
   });
 
   highlightStep('1');
+
+  // --- FAQ accordion smooth animation ---
+  // Use grid-template-rows trick for smooth height transition
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function (item) {
+    var summary = item.querySelector('summary');
+    if (!summary) return;
+
+    item.addEventListener('toggle', function () {
+      var answer = item.querySelector('.faq-answer');
+      if (!answer) return;
+      if (item.open) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        // After transition, set to none to allow content reflow
+        setTimeout(function () {
+          if (item.open) answer.style.maxHeight = 'none';
+        }, 300);
+      } else {
+        // Set explicit height first, then collapse
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        requestAnimationFrame(function () {
+          answer.style.maxHeight = '0';
+        });
+      }
+    });
+  });
 
 })();

@@ -26,12 +26,16 @@ test('the interactive launcher remains available to assistive technology', async
   assert.match(html, /aria-label="Prompt to distribute"/);
 });
 
-test('launcher selection, counter, and orbit rendering have explicit state handling', async () => {
+test('launcher validates prompts and uses the verified extension bridge with a fallback', async () => {
   const script = await readProjectFile('script.js');
 
   assert.match(script, /function updateLauncherCounter\(\)/);
-  assert.match(script, /function syncOrbitNodeState\(\)/);
-  assert.match(script, /orbitLines\.replaceChildren\(\)/);
+  assert.match(script, /MAX_PROMPT_LENGTH = 5000/);
+  assert.match(script, /MODELANY_LAUNCH_REQUEST/);
+  assert.match(script, /crypto\.randomUUID\(\)/);
+  assert.match(script, /function showLauncherFallback\(/);
+  assert.match(script, /function drawOrbitLines\(\)/);
+  assert.match(script, /function playOrbitLaunchAnimation\(\)/);
   assert.doesNotMatch(script, /\.innerHTML/);
 });
 
@@ -40,13 +44,16 @@ test('the mobile navigation supports an accessible dismissal path', async () => 
 
   assert.match(script, /function closeMobileMenu\(/);
   assert.match(script, /event\.key === 'Escape'/);
-  assert.match(script, /document\.body\.classList\.toggle\('menu-open'/);
+  assert.match(script, /document\.body\.classList\.(add|toggle)\('menu-open'/);
 });
 
-test('every orbit node preserves its anchor transform while hovering', async () => {
+test('orbit model icons keep circular positions and hover scaling', async () => {
   const styles = await readProjectFile('styles.css');
 
-  for (const node of [1, 2, 3, 4, 5, 6, 7, 8]) {
-    assert.match(styles, new RegExp(`\\.orbit-node-${node}:hover\\s*\\{[\\s\\S]*?translate\\(`));
-  }
+  assert.match(styles, /\.orbit-node-1 \{ top: 0%; left: 50%; transform: translate\(-50%, 0\); \}/);
+  assert.match(styles, /\.orbit-node-3 \{ top: 50%; left: 95%; transform: translate\(-50%, -50%\); \}/);
+  assert.match(styles, /\.orbit-node-7 \{ top: 50%; left: 5%; transform: translate\(-50%, -50%\); \}/);
+  assert.match(styles, /\.orbit-node-1:hover \{ transform: translate\(-50%, 0\) scale\(1\.12\); \}/);
+  assert.match(styles, /\.orbit-node-3:hover \{ transform: translate\(-50%, -50%\) scale\(1\.12\); \}/);
+  assert.doesNotMatch(styles, /\.orbit-node-1,\s*\.orbit-node-2,\s*\.orbit-node-3,\s*\.orbit-node-4 \{ left: 12%; \}/);
 });

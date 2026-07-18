@@ -1,0 +1,329 @@
+/* ============================================
+   SEO programmatic pages (compare / best-for / etc.)
+   Extends the ModelAny landing design tokens
+   ============================================ */
+
+.seo-page .seo-main {
+  padding: 96px 0 64px;
+  background: var(--gradient-hero-bg);
+  min-height: 60vh;
+}
+
+.seo-container {
+  max-width: 860px;
+}
+
+.seo-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+
+.seo-breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin-left: 8px;
+  color: var(--ink-light);
+}
+
+.seo-breadcrumb a {
+  color: var(--brand-primary);
+}
+
+.seo-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.seo-article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.seo-eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.seo-header h1 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.seo-section {
+  margin-top: 36px;
+}
+
+.seo-section h2 {
+  font-size: 1.375rem;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.seo-section h3 {
+  font-size: 1.1rem;
+  margin: 20px 0 8px;
+  color: var(--ink);
+}
+
+.seo-section p,
+.seo-section li {
+  color: var(--ink-soft);
+  font-size: 1.0125rem;
+}
+
+.seo-section ul,
+.seo-section ol {
+  padding-left: 1.25rem;
+  margin: 10px 0 14px;
+}
+
+.seo-section li + li {
+  margin-top: 6px;
+}
+
+.quick-verdict {
+  margin: 8px 0 8px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #F5F3FF 0%, #EEF6FF 100%);
+  border: 1px solid var(--border);
+}
+
+.quick-verdict h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.quick-verdict p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.seo-table-wrap {
+  overflow-x: auto;
+  margin: 12px 0 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.seo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  min-width: 520px;
+}
+
+.seo-table caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 600;
+  padding: 12px 14px;
+  color: var(--ink);
+}
+
+.seo-table th,
+.seo-table td {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border-soft);
+  text-align: left;
+  vertical-align: top;
+}
+
+.seo-table thead th {
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.seo-table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.seo-score {
+  letter-spacing: -0.05em;
+  color: var(--brand-primary);
+  font-size: 0.75rem;
+  margin-right: 4px;
+}
+
+.seo-note,
+.seo-hint {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  margin-top: 8px;
+}
+
+.seo-prompt {
+  margin: 14px 0;
+  padding: 16px 18px;
+  border-left: 4px solid var(--brand-primary);
+  background: var(--brand-mist);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.seo-prompt p {
+  margin: 0;
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.925rem;
+  line-height: 1.55;
+}
+
+.seo-sample-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .seo-sample-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.seo-sample-card {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-tint);
+}
+
+.seo-sample-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.seo-cta {
+  margin-top: 40px;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-cta);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.seo-cta h2 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.seo-cta p {
+  color: var(--ink-soft);
+  margin: 0 auto 18px;
+  max-width: 36rem;
+}
+
+.seo-related {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.seo-related h2 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.seo-related ul,
+.seo-index-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.seo-related a,
+.seo-index-list a {
+  color: var(--brand-primary-dark);
+  font-weight: 500;
+}
+
+.seo-related a:hover,
+.seo-index-list a:hover {
+  text-decoration: underline;
+}
+
+.seo-index-list {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .seo-index-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Homepage popular comparisons */
+.popular-compare {
+  background: var(--surface);
+}
+
+.popular-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  margin-top: 24px;
+}
+
+@media (min-width: 640px) {
+  .popular-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .popular-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.popular-link {
+  display: block;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-soft);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.popular-link:hover {
+  border-color: var(--brand-accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.popular-link strong {
+  display: block;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.popular-link span {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+
+.popular-more {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
