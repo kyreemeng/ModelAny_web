@@ -30,6 +30,12 @@ test('locale middleware preserves explicit locales and avoids bots', async () =>
   assert.match(middleware, /url\.pathname !== '\/'/);
 });
 
+test('Vercel treats middleware as native ESM', async () => {
+  const packageJson = JSON.parse(await projectFile('package.json'));
+
+  assert.equal(packageJson.type, 'module');
+});
+
 test('English homepage has no mixed Chinese body copy', async () => {
   const english = await projectFile('index.html');
   const chinese = [...english.matchAll(/[\u4e00-\u9fff]+/g)].map((match) => match[0]);
