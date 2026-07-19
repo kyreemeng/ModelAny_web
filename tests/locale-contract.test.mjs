@@ -28,6 +28,8 @@ test('locale middleware preserves explicit locales and avoids bots', async () =>
   assert.match(middleware, /modelany_locale/);
   assert.match(middleware, /Googlebot/);
   assert.match(middleware, /url\.pathname !== '\/'/);
+  assert.match(middleware, /function readCookie/);
+  assert.doesNotMatch(middleware, /request\.cookies/);
 });
 
 test('Vercel treats middleware as native ESM', async () => {
