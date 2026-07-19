@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6D5DFB">
+  <title>按场景查看 AI 模型评测数据 | ModelAny</title>
+  <meta name="description" content="按研究、写作、编程、学习、创意与生活场景查看公开 AI 评测结果。数据从来源快照每日更新。">
+  <link rel="canonical" href="https://modelany.app/zh/benchmarks/">
+  <link rel="alternate" hreflang="en" href="https://modelany.app/benchmarks/">
+  <link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/benchmarks/">
+  <link rel="alternate" hreflang="x-default" href="https://modelany.app/benchmarks/">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="icon" type="image/png" href="../../assets/favicon-32.png">
+</head>
+<body>
+  <a href="#main" class="skip-link">跳到主要内容</a>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/zh/" class="brand" aria-label="ModelAny 首页">
+        <img src="../../assets/modelany-icon-master.png" alt="" class="brand-icon" width="36" height="36">
+        <span class="brand-text">ModelAny</span>
+      </a>
+      <nav class="nav-menu benchmark-nav" aria-label="主导航">
+        <a href="/zh/#use-cases">使用场景</a>
+        <a href="/zh/#popular-compare">模型对比</a>
+        <a href="/benchmarks/" data-locale-switch="en" hreflang="en" lang="en">English</a>
+        <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">安装扩展</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="benchmark-hero">
+      <div class="container">
+        <p class="eyebrow">独立评测快照</p>
+        <h1>按<span class="gradient-text">真实场景</span>查看评测证据</h1>
+        <p>各来源与指标独立呈现。这些数据用于核验，不构成通用的模型总排名。</p>
+        <label class="benchmark-filter-label" for="benchmark-scene">选择场景</label>
+        <select id="benchmark-scene" class="benchmark-filter" data-benchmark-scene>
+          <option value="all">全部可用结果</option>
+          <option value="research">研究</option>
+          <option value="writing">写作</option>
+          <option value="coding">编程</option>
+          <option value="learning">学习</option>
+          <option value="creative">创意</option>
+          <option value="everyday">生活</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="benchmark-section section" aria-labelledby="benchmark-results-title">
+      <div class="container">
+        <div class="benchmark-intro">
+          <h2 id="benchmark-results-title">最新可用来源结果</h2>
+          <p>快照每日更新。任何来源抓取失败都不会覆盖上一个有效版本。每条结果保留精确模型版本、测试口径和原始排行榜链接。</p>
+        </div>
+        <div data-benchmark-root data-benchmark-url="../../benchmarks/data/latest.json" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="benchmark-method section">
+      <div class="container benchmark-method-grid">
+        <article>
+          <h2>如何解读</h2>
+          <p>LiveBench 展示客观任务的类别分数。Arena 展示盲测人类偏好 Elo。SWE-bench Verified 展示特定代理配置解决真实仓库问题的比例。</p>
+        </article>
+        <article>
+          <h2>重要限制</h2>
+          <p>不同基准的分数不能相加或直接比较。生活场景使用偏好代理，因为目前没有覆盖通用日常助手的权威基准。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-bottom"><p>© 2026 ModelAny</p><a href="/zh/">首页</a><a href="/zh/privacy.html">隐私</a></div></footer>
+  <script src="../../benchmarks.js" defer></script>
+  <script src="../../locale.js" defer></script>
+  <script src="../../download.js" defer></script>
+</body>
+</html>

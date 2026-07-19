@@ -41,43 +41,423 @@
       "permanent": true
     },
     {
+      "source": "/zh/compare",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/llm-benchmark",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/llm-benchmark/",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-copilot",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-copilot/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-perplexity",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-perplexity/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-grok",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-grok/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/deepseek-vs-grok",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/deepseek-vs-grok/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/deepseek-vs-perplexity",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/deepseek-vs-perplexity/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-vs-grok",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-vs-grok/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/gemini-vs-grok",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/gemini-vs-grok/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/perplexity-vs-claude",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/perplexity-vs-claude/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/perplexity-vs-gemini",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/perplexity-vs-gemini/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
       "source": "/compare/perplexity-vs-chatgpt",
-      "destination": "/compare/chatgpt-vs-perplexity/",
+      "destination": "/compare/",
       "permanent": true
     },
     {
       "source": "/compare/perplexity-vs-chatgpt/",
-      "destination": "/compare/chatgpt-vs-perplexity/",
+      "destination": "/compare/",
       "permanent": true
     },
     {
       "source": "/compare/grok-vs-chatgpt",
-      "destination": "/compare/chatgpt-vs-grok/",
+      "destination": "/compare/",
       "permanent": true
     },
     {
       "source": "/compare/grok-vs-chatgpt/",
-      "destination": "/compare/chatgpt-vs-grok/",
+      "destination": "/compare/",
       "permanent": true
     },
     {
       "source": "/compare/copilot-vs-chatgpt",
-      "destination": "/compare/chatgpt-vs-copilot/",
+      "destination": "/compare/",
       "permanent": true
     },
     {
       "source": "/compare/copilot-vs-chatgpt/",
-      "destination": "/compare/chatgpt-vs-copilot/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-claude",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-claude/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-gemini",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/copilot-vs-gemini/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/mistral-vs-chatgpt",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/mistral-vs-chatgpt/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/llama-vs-chatgpt",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/llama-vs-chatgpt/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-vs-gemini-vs-chatgpt",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-vs-gemini-vs-chatgpt/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-claude-gemini",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-claude-gemini/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-deepseek-claude",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-deepseek-claude/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-claude-gemini-deepseek",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-claude-gemini-deepseek/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-claude-gemini-copilot",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-claude-gemini-copilot/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/best-ai-models",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/best-ai-models/",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/ai-models-2026",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/ai-models-2026/",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/comparison-table",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/comparison-table/",
+      "destination": "/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-claude-coding",
+      "destination": "/compare/chatgpt-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-claude-coding/",
+      "destination": "/compare/chatgpt-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-deepseek-coding",
+      "destination": "/compare/chatgpt-vs-deepseek/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-deepseek-coding/",
+      "destination": "/compare/chatgpt-vs-deepseek/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/deepseek-vs-claude-coding",
+      "destination": "/compare/deepseek-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/deepseek-vs-claude-coding/",
+      "destination": "/compare/deepseek-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-claude-writing",
+      "destination": "/compare/chatgpt-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/chatgpt-vs-claude-writing/",
+      "destination": "/compare/chatgpt-vs-claude/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/cursor-vs-copilot",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/cursor-vs-copilot/",
+      "destination": "/compare/",
       "permanent": true
     },
     {
       "source": "/compare/copilot-vs-cursor",
-      "destination": "/compare/cursor-vs-copilot/",
+      "destination": "/compare/",
       "permanent": true
     },
     {
       "source": "/compare/copilot-vs-cursor/",
-      "destination": "/compare/cursor-vs-copilot/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/cursor-vs-claude-code",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/cursor-vs-claude-code/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/cursor-vs-windsurf",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/cursor-vs-windsurf/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-code-vs-copilot",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/claude-code-vs-copilot/",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/wenxin-vs-qwen",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/wenxin-vs-qwen/",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/doubao-vs-wenxin",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/doubao-vs-wenxin/",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/kimi-vs-wenxin",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/kimi-vs-wenxin/",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/wenxin-vs-deepseek",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/wenxin-vs-deepseek/",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/best-chinese-ai",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/best-chinese-ai/",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/chinese-ai-ranking",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/chinese-ai-ranking/",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/chinese-llm-comparison",
+      "destination": "/zh/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/compare/chinese-llm-comparison/",
+      "destination": "/zh/benchmarks/",
       "permanent": true
     }
   ]

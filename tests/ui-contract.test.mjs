@@ -8,14 +8,22 @@ async function readProjectFile(filename) {
   return readFile(new URL(filename, root), 'utf8');
 }
 
-test('all primary download actions use the published GitHub release', async () => {
-  const html = await readProjectFile('index.html');
-  const releaseUrl = 'https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1';
+test('primary install actions use Chrome Web Store without GitHub release downloads', async () => {
+  const [html, download] = await Promise.all([
+    readProjectFile('index.html'),
+    readProjectFile('download.js'),
+  ]);
+  const storeUrl = 'https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb';
 
-  assert.ok(html.includes(releaseUrl));
-  assert.match(html, /Download v1\.0\.1 on GitHub/);
-  assert.match(html, /Chrome.*Coming soon/);
-  assert.match(html, /Edge.*Coming soon/);
+  assert.ok(html.includes(storeUrl));
+  assert.match(html, /data-download-cta/);
+  assert.match(html, /Chrome Web Store/);
+  assert.match(html, /Under review/);
+  assert.match(html, /browser-icon-chrome/);
+  assert.match(html, /browser-icon-edge/);
+  assert.doesNotMatch(html, /github\.com\/kyreemeng\/ModelAny-Releases\/releases\/tag/);
+  assert.match(download, /isChromeBrowser/);
+  assert.match(download, /Chrome 商店可用|Available on Chrome Web Store/);
 });
 
 test('the interactive launcher remains available to assistive technology', async () => {
@@ -33,6 +41,7 @@ test('launcher validates prompts and uses the verified extension bridge with a f
   assert.match(script, /MAX_PROMPT_LENGTH = 5000/);
   assert.match(script, /MODELANY_LAUNCH_REQUEST/);
   assert.match(script, /crypto\.randomUUID\(\)/);
+  assert.match(script, /BRIDGE_TIMEOUT_MS = 5000/);
   assert.match(script, /function showLauncherFallback\(/);
   assert.match(script, /function drawOrbitLines\(\)/);
   assert.match(script, /function playOrbitLaunchAnimation\(\)/);

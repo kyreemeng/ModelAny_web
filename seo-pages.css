@@ -327,3 +327,22 @@
   gap: 12px;
   justify-content: center;
 }
+
+.seo-evidence-card {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.seo-evidence-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+}
+
+.seo-evidence-meta {
+  margin: 8px 0 16px;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}

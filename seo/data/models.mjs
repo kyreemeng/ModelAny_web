@@ -4,9 +4,14 @@
  * Do not add capability rankings, context windows, free-tier limits, or prices
  * unless they are tied to a specific official source and verification date.
  */
-export const DATE = '2026-07-14';
+export const DATE = '2026-07-19';
 export const SITE = 'https://modelany.app';
-export const DOWNLOAD = 'https://github.com/kyreemeng/ModelAny-Releases/releases/tag/v1.0.1';
+export const EXTENSION_VERSION = '1.0.1';
+export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb';
+/** Primary install CTA target. Non-Chrome browsers are handled in download.js. */
+export const DOWNLOAD = CHROME_STORE_URL;
+export const EDGE_STORE_STATUS = 'review';
+export const GITHUB_REPO = 'https://github.com/kyreemeng/ModelAny-Releases';
 
 const source = (url, label) => ({ url, label, verifiedAt: DATE });
 

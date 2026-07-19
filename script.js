@@ -150,7 +150,7 @@
   const orbitContainer = document.getElementById('orbit-container');
   const orbitLines = document.getElementById('orbit-lines');
   const MAX_PROMPT_LENGTH = 5000;
-  const BRIDGE_TIMEOUT_MS = 1500;
+  const BRIDGE_TIMEOUT_MS = 5000;
 
   // Track selected models
   const selectedModels = new Set(MODELS.map(function (m) { return m.id; }));
@@ -164,7 +164,7 @@
     acceptedFill: '正在打开 {n} 个模型网站。提示词将填入供你确认。',
     acceptedSend: '正在打开 {n} 个模型网站。已请求自动发送。',
     rejected: '扩展无法启动此任务。',
-    missing: '未检测到 ModelAny。请先安装扩展后再试；提示词仍保留在本页。',
+    missing: '未检测到支持网页发送的 ModelAny。请确认扩展已更新至 v1.0.2 或更高版本后重试；提示词仍保留在本页。',
     copied: '提示词已复制到剪贴板。',
     copyFailed: '复制失败。请手动选中提示词后复制。',
     copyRetry: '重试复制',
@@ -177,7 +177,7 @@
     acceptedFill: 'Opening {n} model sites. Prompts will be filled for your review.',
     acceptedSend: 'Opening {n} model sites. Auto-send was requested.',
     rejected: 'The extension could not start this task.',
-    missing: 'ModelAny is not detected. Install the extension, then try again. Your prompt remains on this page.',
+    missing: 'A ModelAny version with website launch support was not detected. Update to v1.0.2 or later, then try again. Your prompt remains on this page.',
     copied: 'Prompt copied to your clipboard.',
     copyFailed: 'Copy failed. Select the prompt and copy it manually.',
     copyRetry: 'Retry copy',

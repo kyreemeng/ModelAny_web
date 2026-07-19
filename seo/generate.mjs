@@ -1,15 +1,16 @@
 /**
  * Safe programmatic SEO generator.
  *
- * A page is indexable only when it is a selected core page and has a complete
- * first-party test record. All other research drafts stay noindex,follow and
- * are omitted from sitemap.xml.
+ * Compare pages are generated only when every model shares public third-party
+ * benchmark coverage. Other research drafts stay noindex,follow and are omitted
+ * from sitemap.xml until they have reviewable evidence.
  *
  * Run: node seo/generate.mjs
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { hasSharedBenchmarkData, sharedBenchmarkGroups } from './data/benchmarks.mjs';
 import { DATE, DOWNLOAD, models, SITE } from './data/models.mjs';
 import {
   alternativePages,
@@ -17,6 +18,7 @@ import {
   comparePages,
   freePages,
   pricingPages,
+  removedCompareRedirects,
   zhComparePages,
 } from './data/pages.mjs';
 
@@ -25,9 +27,6 @@ const CORE_COMPARE_SLUGS = new Set([
   'chatgpt-vs-deepseek',
   'chatgpt-vs-claude',
   'chatgpt-vs-gemini',
-  'chatgpt-vs-copilot',
-  'chatgpt-vs-perplexity',
-  'chatgpt-vs-grok',
   'deepseek-vs-claude',
   'deepseek-vs-gemini',
   'claude-vs-gemini',
@@ -83,76 +82,84 @@ function sourcesHtml(items, lang) {
             ? `下列链接是本页产品身份与套餐信息的官方来源，最后核验于 ${DATE}。价格、可用模型、配额与地区限制可能变化，请在购买或部署前以官网为准。`
             : `The links below are official sources for product identity and plan information, last checked ${DATE}. Pricing, model availability, quotas, and regional access can change; confirm on the provider site before purchasing or deploying.`}</p>
           <ul>
-            ${sources.map((item) => `<li><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.label)}</a> — ${item.verifiedAt}</li>`).join('\n            ')}
+            ${sources.map((item) => `<li><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.label)}</a> - ${item.verifiedAt}</li>`).join('\n            ')}
           </ul>
         </section>`;
 }
 
-function testMethodHtml(items, lang, test) {
-  const names = items.map((item) => item.name).join(lang === 'zh' ? '、' : ', ');
-  if (test) {
-    return `<section class="seo-section" aria-labelledby="test-heading">
-          <h2 id="test-heading">${lang === 'zh' ? '真实多模型测试' : 'First-party multi-model test'}</h2>
-          <p>${lang === 'zh'
-            ? `测试日期：${esc(test.date)}；地区：${esc(test.region)}；测试范围：${esc(test.models)}。以下结论仅适用于所列模型版本、套餐与提示词。`
-            : `Test date: ${esc(test.date)}; region: ${esc(test.region)}; scope: ${esc(test.models)}. Findings apply only to the listed model versions, plans, and prompts.`}</p>
-          ${test.method ? `<p>${esc(test.method)}</p>` : ''}
-          ${test.resultSummary ? `<p><strong>${lang === 'zh' ? '人工结论：' : 'Reviewer summary: '}</strong>${esc(test.resultSummary)}</p>` : ''}
-          ${test.artifactUrl ? `<p><a href="${esc(test.artifactUrl)}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '查看完整测试记录与原始输出' : 'View the complete test record and raw outputs'}</a></p>` : ''}
-        </section>`;
-  }
+function formatRetrievedAt(value, lang) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value || '-';
+  return new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : 'en-US', { dateStyle: 'medium', timeStyle: 'short' }).format(date);
+}
 
-  return `<section class="seo-section" aria-labelledby="test-heading">
-          <h2 id="test-heading">${lang === 'zh' ? '如何自行测试' : 'How to test this comparison yourself'}</h2>
+function publicEvidenceHtml(modelIds, lang) {
+  const groups = sharedBenchmarkGroups(modelIds);
+  if (!groups.length) return '';
+  const hub = lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/';
+  const blocks = groups.map((group) => {
+    const rows = [...group.rows].sort((a, b) => b.score - a.score || a.rank - b.rank).map((row) => `<tr>
+              <th scope="row">${esc(row.product)}</th>
+              <td>${esc(row.modelExactName)}</td>
+              <td>${esc(String(row.rank))}</td>
+              <td>${esc(String(row.score))}${row.unit === '%' ? '%' : ''}</td>
+              <td>${esc(row.metric)} (${esc(row.unit)})</td>
+            </tr>`).join('\n            ');
+    return `<article class="seo-evidence-card">
+          <h3>${esc(group.source === 'arena' ? 'Arena' : group.source === 'swebench' ? 'SWE-bench Verified' : group.source)} · ${esc(group.label[lang] || group.category)}</h3>
+          <p>${esc(group.plain[lang] || '')}</p>
+          <p class="seo-evidence-meta">${lang === 'zh' ? '数据抓取时间' : 'Retrieved'}: ${esc(formatRetrievedAt(group.retrievedAt, lang))} · <a href="${esc(group.sourceUrl)}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '查看原始排行榜' : 'Open original leaderboard'}</a></p>
+          <div class="seo-table-wrap">
+            <table class="seo-table">
+              <thead><tr><th>${lang === 'zh' ? '产品' : 'Product'}</th><th>${lang === 'zh' ? '精确模型版本' : 'Exact model version'}</th><th>${lang === 'zh' ? '排名' : 'Rank'}</th><th>${lang === 'zh' ? '成绩' : 'Score'}</th><th>${lang === 'zh' ? '指标' : 'Metric'}</th></tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </article>`;
+  }).join('\n        ');
+
+  return `<section class="seo-section" aria-labelledby="public-evidence-heading">
+          <h2 id="public-evidence-heading">${lang === 'zh' ? '公开评测怎么说' : 'What public benchmarks show'}</h2>
           <p>${lang === 'zh'
-            ? `本页尚未发布第一方测试结论，因此不对 ${esc(names)} 做能力排名。请在同一时间窗口、相同地区和相同套餐条件下，用完全相同的提示词比较输出。`
-            : `This page does not yet publish first-party test findings, so it does not rank ${esc(names)}. Compare the same prompt in the same time window, region, and plan conditions.`}</p>
-          <ol>
-            <li>${lang === 'zh' ? '记录产品、模型版本、套餐、地区和测试日期。' : 'Record product, model version, plan, region, and test date.'}</li>
-            <li>${lang === 'zh' ? '保存完整原始输出，而不是只截取好看的片段。' : 'Keep complete raw outputs, not selected highlights.'}</li>
-            <li>${lang === 'zh' ? '按你的任务评估准确性、修改成本、速度与隐私要求。' : 'Evaluate accuracy, editing cost, speed, and privacy fit for your own tasks.'}</li>
-          </ol>
+            ? '下面只展示这些模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，也不能直接宣布谁全面更好。'
+            : 'Below are results only from public benchmark categories where every model on this page appears together. Scores from different sources cannot be added up, and they do not prove one model is best overall.'}</p>
+          ${blocks}
+          <p><a href="${hub}">${lang === 'zh' ? '查看按场景整理的全部公开评测数据' : 'Browse all public benchmark data by scenario'}</a></p>
         </section>`;
 }
 
-function comparisonBody(page, items, lang, test) {
+function comparisonBody(page, items, lang) {
   const names = items.map((item) => item.name).join(' vs ');
   const productRows = items.map((item) => `<tr>
               <th scope="row">${esc(item.name)}</th>
               <td>${esc(item.vendor)}</td>
               <td><a href="${esc(item.productUrl)}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '访问产品官网' : 'Visit product site'}</a></td>
-              <td>${item.inModelAny ? (lang === 'zh' ? 'ModelAny 当前支持' : 'Currently supported by ModelAny') : (lang === 'zh' ? '当前不在 ModelAny 启动列表中' : 'Not currently in ModelAny’s launcher')}</td>
+              <td>${item.inModelAny ? (lang === 'zh' ? 'ModelAny 当前支持' : 'Currently supported by ModelAny') : (lang === 'zh' ? '当前不在 ModelAny 启动列表中' : 'Not currently in ModelAny launcher')}</td>
             </tr>`).join('\n            ');
 
   return `<div class="quick-verdict">
-          <h2>${lang === 'zh' ? '页面状态' : 'Page status'}</h2>
-          <p>${test
-            ? (lang === 'zh' ? '本页包含有日期、版本和原始记录支撑的第一方测试。结论仅适用于列明的测试条件。' : 'This page includes a dated first-party test with versions and raw records. Findings apply only to the stated test conditions.')
-            : (lang === 'zh' ? '本页是待验证的对比研究稿；在第一方测试完成前，不作“最佳”或能力排名结论。' : 'This is a comparison research draft. It makes no “best” or capability-ranking claim until first-party testing is complete.')}</p>
-        </div>
-        <section class="seo-section">
-          <h2>${lang === 'zh' ? '对比范围' : 'Comparison scope'}</h2>
+          <h2>${lang === 'zh' ? '如何阅读本页' : 'How to read this page'}</h2>
           <p>${lang === 'zh'
-            ? `本页围绕“${esc(page.keyword)}”梳理 ${esc(names)}。它旨在帮助你建立测试短名单，而不是替代你的实际工作负载验证。`
-            : `This page scopes the query “${esc(page.keyword)}” across ${esc(names)}. It is designed to help you build a test shortlist, not replace validation against your real workload.`}</p>
-        </section>
+            ? '本页用通俗方式汇总公开第三方评测。它帮助你快速了解公开数据里两边的相对位置，但不能替代你用真实任务亲自试用。'
+            : 'This page summarizes public third-party benchmarks in plain language. It helps you see where the models stand in published data, but it does not replace trying them on your own tasks.'}</p>
+        </div>
+        ${publicEvidenceHtml(page.models, lang)}
         <section class="seo-section">
-          <h2>${lang === 'zh' ? '产品身份与官方入口' : 'Product identity and official entry points'}</h2>
+          <h2>${lang === 'zh' ? '产品入口' : 'Product entry points'}</h2>
           <div class="seo-table-wrap">
             <table class="seo-table">
-              <caption>${lang === 'zh' ? `${esc(names)}：可核验产品信息` : `${esc(names)}: verifiable product details`}</caption>
+              <caption>${lang === 'zh' ? `${esc(names)}：官网与支持状态` : `${esc(names)}: official sites and support status`}</caption>
               <thead><tr><th>${lang === 'zh' ? '产品' : 'Product'}</th><th>${lang === 'zh' ? '提供方' : 'Provider'}</th><th>${lang === 'zh' ? '官方入口' : 'Official entry point'}</th><th>ModelAny</th></tr></thead>
               <tbody>${productRows}</tbody>
             </table>
           </div>
         </section>
-        ${testMethodHtml(items, lang, test)}
         <section class="seo-section">
-          <h2>${lang === 'zh' ? '选择时应比较什么' : 'What to compare before choosing'}</h2>
+          <h2>${lang === 'zh' ? '自己试用时可以看什么' : 'What to check when you try them yourself'}</h2>
           <ul>
-            <li>${lang === 'zh' ? '你的实际任务是否正确完成，以及是否需要大量人工改写。' : 'Whether your real task is completed correctly and how much human revision it needs.'}</li>
-            <li>${lang === 'zh' ? '当前套餐、地区和模型版本下的使用限制与成本。' : 'Usage limits and costs for your current plan, region, and model version.'}</li>
-            <li>${lang === 'zh' ? '数据处理、团队账号和合规要求是否适配。' : 'Whether data handling, team accounts, and compliance requirements fit your situation.'}</li>
+            <li>${lang === 'zh' ? '你的真实问题能否一次答对，还是还要大量修改。' : 'Whether your real question is answered well, or still needs heavy editing.'}</li>
+            <li>${lang === 'zh' ? '当前套餐下够不够用，以及价格是否可接受。' : 'Whether the current plan is enough, and whether the price fits.'}</li>
+            <li>${lang === 'zh' ? '隐私、登录方式和团队协作是否适合你。' : 'Whether privacy, sign-in, and team features fit your needs.'}</li>
           </ul>
         </section>
         ${sourcesHtml(items, lang)}`;
@@ -160,20 +167,26 @@ function comparisonBody(page, items, lang, test) {
 
 function researchBody(page, items, lang = 'en') {
   const names = items.map((item) => item.name).join(lang === 'zh' ? '、' : ', ');
+  const modelIds = page.models || (page.target ? [page.target] : items.map((item) => item.id));
+  const evidence = modelIds.length >= 2 && hasSharedBenchmarkData(modelIds)
+    ? publicEvidenceHtml(modelIds, lang)
+    : `<section class="seo-section"><h2>${lang === 'zh' ? '公开评测' : 'Public benchmarks'}</h2><p>${lang === 'zh'
+      ? '当前快照里还没有足以支撑本页全部产品并列比较的公开评测结果，因此本页不发布能力排名。'
+      : 'The current snapshot does not yet contain shared public benchmark coverage for every product on this page, so no capability ranking is published.'}</p><p><a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '查看已有公开评测数据' : 'Browse available public benchmark data'}</a></p></section>`;
   return `<div class="quick-verdict">
           <h2>${lang === 'zh' ? '研究稿状态' : 'Research-draft status'}</h2>
           <p>${lang === 'zh'
-            ? '此页尚未经过第一方测试与人工审校，不参与搜索索引。待补齐可复现测试、来源和查询专属分析后才会开放索引。'
-            : 'This page has not yet passed first-party testing and editorial review, so it is excluded from search indexing. It will be eligible only after reproducible testing, sources, and query-specific analysis are added.'}</p>
+            ? '此页尚未完成完整审校，不参与搜索索引。只有具备可核验公开评测或第一方测试后才会开放索引。'
+            : 'This page has not completed full editorial review, so it is excluded from search indexing. It becomes eligible only after verifiable public benchmarks or first-party testing are available.'}</p>
         </div>
         <section class="seo-section">
           <h2>${lang === 'zh' ? '计划覆盖范围' : 'Planned scope'}</h2>
           <p>${lang === 'zh'
-            ? `关键词“${esc(page.keyword)}”计划覆盖：${esc(names)}。发布前将补充适用于该查询的真实测试，而不会使用通用能力分数或未经核验的排名。`
-            : `The planned scope for “${esc(page.keyword)}” is ${esc(names)}. Before publication, it will receive query-specific real testing rather than generic capability scores or unverified rankings.`}</p>
+            ? `关键词“${esc(page.keyword)}”计划覆盖：${esc(names)}。`
+            : `The planned scope for “${esc(page.keyword)}” is ${esc(names)}.`}</p>
         </section>
-        ${sourcesHtml(items, lang)}
-        ${testMethodHtml(items, lang, null)}`;
+        ${evidence}
+        ${sourcesHtml(items, lang)}`;
 }
 
 function faqs(lang) {
@@ -190,10 +203,15 @@ function faqs(lang) {
       ];
 }
 
-function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', indexable = false, breadcrumbs }) {
+function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', indexable = false, breadcrumbs, localeHref }) {
   const base = assetBase(path);
   const pageUrl = `${SITE}${canonical}`;
   const robots = indexable ? 'index, follow, max-image-preview:large, max-snippet:-1' : 'noindex, follow, max-image-preview:large, max-snippet:-1';
+  const switchHref = localeHref || (lang === 'zh' ? '/compare/' : '/zh/benchmarks/');
+  const switchLabel = lang === 'zh' ? 'English' : '中文';
+  const switchLang = lang === 'zh' ? 'en' : 'zh';
+  const switchHreflang = lang === 'zh' ? 'en' : 'zh-CN';
+  const downloadLabel = lang === 'zh' ? '安装扩展' : 'Install extension';
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -226,6 +244,19 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
       : `<li><a href="${item.href}">${esc(item.name)}</a></li>`
   )).join('\n          ');
   const faqHtml = faqs(lang).map((item) => `<details class="faq-item"><summary><span>${esc(item.q)}</span></summary><div class="faq-answer"><p>${esc(item.a)}</p></div></details>`).join('\n          ');
+  const hreflangExtra = localeHref
+    ? `\n  <link rel="alternate" hreflang="${switchHreflang}" href="${SITE}${localeHref}">`
+    : '';
+  const mobileNav = `
+    <div class="nav-actions">
+      <a href="${switchHref}" data-locale-switch="${switchLang}" class="locale-switch locale-switch-compact" hreflang="${switchHreflang}" lang="${switchHreflang}" aria-current="false">${switchLabel}</a>
+      <a href="${DOWNLOAD}" data-download-cta class="btn btn-primary btn-pill nav-cta">${downloadLabel}</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="${lang === 'zh' ? '切换导航菜单' : 'Toggle menu'}" aria-expanded="false" aria-controls="nav-menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>`;
 
   return `<!DOCTYPE html>
 <html lang="${lang === 'zh' ? 'zh-CN' : 'en'}">
@@ -238,7 +269,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <meta name="author" content="ModelAny">
   <meta name="robots" content="${robots}">
   <link rel="canonical" href="${pageUrl}">
-  <link rel="alternate" hreflang="${lang === 'zh' ? 'zh-CN' : 'en'}" href="${pageUrl}">
+  <link rel="alternate" hreflang="${lang === 'zh' ? 'zh-CN' : 'en'}" href="${pageUrl}">${hreflangExtra}
   <meta property="og:type" content="article">
   <meta property="og:url" content="${pageUrl}">
   <meta property="og:title" content="${esc(title)}">
@@ -259,19 +290,21 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <a href="#main" class="skip-link">${lang === 'zh' ? '跳到主要内容' : 'Skip to main content'}</a>
   <header class="site-header"><div class="container nav-container">
     <a href="${lang === 'zh' ? '/zh/' : '/'}" class="brand" aria-label="ModelAny ${lang === 'zh' ? '首页' : 'home'}"><img src="${base}assets/modelany-icon-master.png" alt="" class="brand-icon" width="36" height="36"><span class="brand-text">ModelAny</span></a>
-    <nav class="nav-menu" aria-label="${lang === 'zh' ? '主导航' : 'Primary navigation'}"><a href="${lang === 'zh' ? '/zh/compare/' : '/compare/'}">${lang === 'zh' ? '对比' : 'Compare'}</a><a href="${lang === 'zh' ? '/' : '/zh/'}" data-locale-switch="${lang === 'zh' ? 'en' : 'zh'}" hreflang="${lang === 'zh' ? 'en' : 'zh-CN'}">${lang === 'zh' ? 'English' : '中文'}</a><a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '下载' : 'Download'}</a></nav>
+    <nav class="nav-menu" id="nav-menu" aria-label="${lang === 'zh' ? '主导航' : 'Primary navigation'}">${lang === 'zh' ? '' : '<a href="/compare/">Compare</a>'}<a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '评测数据' : 'Benchmarks'}</a><a href="${switchHref}" data-locale-switch="${switchLang}" hreflang="${switchHreflang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav>${mobileNav}
   </div></header>
   <main id="main" class="seo-main"><div class="container seo-container">
     <nav class="seo-breadcrumb" aria-label="Breadcrumb"><ol>${crumbHtml}</ol></nav>
     <article class="seo-article">
-      <header class="seo-header"><p class="seo-eyebrow">Verified source registry: ${DATE}</p><h1>${esc(h1)}</h1></header>
+      <header class="seo-header"><p class="seo-eyebrow">${lang === 'zh' ? '公开评测快照' : 'Public benchmark snapshot'}: ${DATE}</p><h1>${esc(h1)}</h1></header>
       ${body}
       <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">${lang === 'zh' ? '常见问题' : 'Frequently asked questions'}</h2><div class="faq-list">${faqHtml}</div></section>
-      <section class="seo-cta"><h2>${lang === 'zh' ? '用同一提示词比较多个模型' : 'Compare multiple models with one prompt'}</h2><p>${lang === 'zh' ? 'ModelAny 是免费开源的 Chrome 扩展。草稿、设置与历史保留在浏览器本地。' : 'ModelAny is a free, open-source Chrome extension. Drafts, settings, and history remain in your browser.'}</p><a href="${DOWNLOAD}" class="btn btn-primary btn-pill" target="_blank" rel="noopener noreferrer">Download ModelAny</a></section>
+      <section class="seo-cta"><h2>${lang === 'zh' ? '用同一提示词比较多个模型' : 'Compare multiple models with one prompt'}</h2><p>${lang === 'zh' ? 'ModelAny 已在 Chrome 网上应用店上架；Microsoft Edge 扩展仍在审核中。草稿、设置与历史保留在浏览器本地。' : 'ModelAny is available on the Chrome Web Store. The Microsoft Edge Add-ons listing is still under review. Drafts, settings, and history remain in your browser.'}</p><a href="${DOWNLOAD}" data-download-cta class="btn btn-primary btn-pill">${downloadLabel}</a></section>
     </article>
   </div></main>
-  <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="${lang === 'zh' ? '页脚导航' : 'Footer navigation'}"><a href="${lang === 'zh' ? '/zh/privacy.html' : '/privacy.html'}">${lang === 'zh' ? '隐私' : 'Privacy'}</a><a href="${lang === 'zh' ? '/' : '/zh/'}" data-locale-switch="${lang === 'zh' ? 'en' : 'zh'}">${lang === 'zh' ? 'English' : '中文'}</a><a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '下载' : 'Download'}</a></nav></div></footer>
+  <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="${lang === 'zh' ? '页脚导航' : 'Footer navigation'}"><a href="${lang === 'zh' ? '/zh/privacy.html' : '/privacy.html'}">${lang === 'zh' ? '隐私' : 'Privacy'}</a><a href="${switchHref}" data-locale-switch="${switchLang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav></div></footer>
   <script src="${base}locale.js" defer></script>
+  <script src="${base}download.js" defer></script>
+  <script src="${base}script.js" defer></script>
 </body>
 </html>`;
 }
@@ -280,19 +313,18 @@ function titleCase(text) {
   return text.replace(/\b\w/g, (letter) => letter.toUpperCase()).replace(/\bAi\b/g, 'AI').replace(/\bApi\b/g, 'API');
 }
 
-function generateCompare(page, prefix = 'compare', lang = 'en', tests) {
+function generateCompare(page, prefix = 'compare', lang = 'en') {
   const items = resolveModels(page.models);
   if (page.canonicalSlug) return null;
+  if (!hasSharedBenchmarkData(page.models)) return null;
   const canonical = `/${prefix}/${page.slug}/`;
   const path = `${prefix}/${page.slug}/index.html`;
-  const isCore = prefix === 'compare' && CORE_COMPARE_SLUGS.has(page.slug);
-  const test = tests[canonical];
-  const indexable = Boolean(isCore && test);
+  const indexable = prefix === 'compare' ? CORE_COMPARE_SLUGS.has(page.slug) : true;
   const names = items.map((item) => item.name).join(' vs ');
-  const h1 = lang === 'zh' ? `${names} 对比指南` : `${names}: comparison guide`;
+  const h1 = lang === 'zh' ? `${names} 公开评测对比` : `${names}: public benchmark comparison`;
   const description = lang === 'zh'
-    ? `${names} 的可核验产品来源、对比方法与第一方测试状态。`
-    : `Verifiable product sources, comparison method, and first-party testing status for ${names}.`;
+    ? `${names} 的公开第三方评测结果、精确模型版本与官方来源说明。`
+    : `Public third-party benchmark results, exact model versions, and official sources for ${names}.`;
   return {
     path,
     url: canonical,
@@ -304,9 +336,14 @@ function generateCompare(page, prefix = 'compare', lang = 'en', tests) {
       description,
       h1,
       lang,
-      body: comparisonBody(page, items, lang, test),
+      body: comparisonBody(page, items, lang),
       indexable,
-      breadcrumbs: [{ name: 'Home', href: '/' }, { name: lang === 'zh' ? '对比' : 'Compare', href: lang === 'zh' ? '/zh/compare/' : '/compare/' }, { name: names, href: canonical }],
+      localeHref: lang === 'zh' ? '/compare/' : '/zh/benchmarks/',
+      breadcrumbs: [
+        { name: lang === 'zh' ? '首页' : 'Home', href: lang === 'zh' ? '/zh/' : '/' },
+        { name: lang === 'zh' ? '评测数据' : 'Compare', href: lang === 'zh' ? '/zh/benchmarks/' : '/compare/' },
+        { name: names, href: canonical },
+      ],
     }),
   };
 }
@@ -356,7 +393,7 @@ function generateHub(section, label, pages, lang = 'en') {
 }
 
 function writeRedirectConfig() {
-  const redirects = comparePages
+  const pairRedirects = comparePages
     .filter((page) => page.canonicalSlug)
     .flatMap((page) => [
       {
@@ -370,7 +407,30 @@ function writeRedirectConfig() {
         permanent: true,
       },
     ]);
+  const redirects = [...pairRedirects, ...removedCompareRedirects];
   writeFileSync(join(ROOT, 'vercel.json'), `${JSON.stringify({ redirects }, null, 2)}\n`, 'utf8');
+}
+
+function pruneRemovedCompareDirs() {
+  const keep = new Set([
+    ...comparePages.filter((page) => !page.canonicalSlug).map((page) => `compare/${page.slug}`),
+    ...zhComparePages.filter((page) => !page.canonicalSlug).map((page) => `zh/compare/${page.slug}`),
+  ]);
+  const pruneTargets = new Set([
+    ...removedCompareRedirects.map((item) => item.source.replace(/\/$/, '').replace(/^\//, '')),
+    ...comparePages.filter((page) => page.canonicalSlug).map((page) => `compare/${page.slug}`),
+  ]);
+  for (const rel of pruneTargets) {
+    if (rel !== 'zh/compare' && !rel.startsWith('compare/') && !rel.startsWith('zh/compare/')) continue;
+    if (keep.has(rel)) continue;
+    const full = join(ROOT, rel);
+    if (rel === 'zh/compare') {
+      const hub = join(full, 'index.html');
+      if (existsSync(hub)) rmSync(hub, { force: true });
+    } else if (existsSync(full)) {
+      rmSync(full, { recursive: true, force: true });
+    }
+  }
 }
 
 function writeSitemap(records) {
@@ -378,6 +438,8 @@ function writeSitemap(records) {
   const entries = [
     { url: '/', priority: '1.0', changefreq: 'weekly' },
     { url: '/zh/', priority: '1.0', changefreq: 'weekly' },
+    { url: '/benchmarks/', priority: '0.8', changefreq: 'daily' },
+    { url: '/zh/benchmarks/', priority: '0.8', changefreq: 'daily' },
     { url: '/privacy.html', priority: '0.3', changefreq: 'yearly' },
     { url: '/zh/privacy.html', priority: '0.3', changefreq: 'yearly' },
     ...indexable.map((record) => ({ url: record.url, priority: '0.8', changefreq: 'weekly' })),
@@ -398,24 +460,27 @@ ${body}
 const tests = loadTests();
 const records = [];
 for (const page of comparePages) {
-  const record = generateCompare(page, 'compare', 'en', tests);
+  const record = generateCompare(page, 'compare', 'en');
   if (record) records.push(record);
 }
-for (const page of zhComparePages) records.push(generateCompare(page, 'zh/compare', 'zh', tests));
+for (const page of zhComparePages) {
+  const record = generateCompare(page, 'zh/compare', 'zh');
+  if (record) records.push(record);
+}
 for (const page of bestForPages) records.push(generateDraft(page, 'best-for', resolveModels(page.models), tests));
 for (const page of alternativePages) records.push(generateDraft(page, 'alternatives', resolveModels([page.target]), tests));
 for (const page of freePages) records.push(generateDraft(page, 'free', resolveModels(page.models), tests));
 for (const page of pricingPages) records.push(generateDraft(page, 'pricing', resolveModels(page.models), tests));
 
 records.push(
-  generateHub('compare', 'AI model comparisons', comparePages),
-  generateHub('zh/compare', '国产与中文 AI 对比', zhComparePages, 'zh'),
+  generateHub('compare', 'AI model comparisons', comparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models))),
   generateHub('best-for', 'Best AI by use case', bestForPages),
   generateHub('alternatives', 'AI alternatives', alternativePages),
   generateHub('free', 'Free AI guides', freePages),
   generateHub('pricing', 'AI pricing guides', pricingPages),
 );
 
+pruneRemovedCompareDirs();
 for (const record of records) writePage(record.path, record.content);
 writeRedirectConfig();
 writeSitemap(records);
