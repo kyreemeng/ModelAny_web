@@ -33,7 +33,11 @@ test('English and Chinese benchmark pages are paired and explain limits', async 
   assert.match(chinese, /hreflang="en" href="https:\/\/modelany\.app\/benchmarks\//);
   assert.match(english, /Scores from different benchmarks cannot be added together/);
   assert.match(chinese, /不同基准的分数不能相加或直接比较/);
+  assert.match(english, /data-benchmark-url="\.\/data\/latest\.json"/);
+  assert.match(english, /<!-- benchmark-static:start -->[\s\S]+Exact model[\s\S]+<!-- benchmark-static:end -->/);
+  assert.match(chinese, /<!-- benchmark-static:start -->[\s\S]+精确模型版本[\s\S]+<!-- benchmark-static:end -->/);
   assert.match(script, /snapshot\.refreshWarnings/);
+  assert.doesNotMatch(script, /root\.textContent = copy\.loading/);
   assert.doesNotMatch(script, /overallScore|combinedScore|totalScore/);
 });
 
@@ -48,4 +52,5 @@ test('scheduled refresh preserves source provenance and runs daily', async () =>
   assert.match(refresh, /Keeping \$\{LATEST_PATH\}/);
   assert.match(refresh, /sourceUrl/);
   assert.match(refresh, /isValidSnapshot/);
+  assert.match(refresh, /renderBenchmarkPages/);
 });

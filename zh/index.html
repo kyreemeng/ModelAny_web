@@ -9,7 +9,6 @@
   <title>ModelAny — 一条提示词，比较多个 AI 模型 | Chrome 扩展</title>
   <meta name="title" content="ModelAny — 一条提示词，比较多个 AI 模型 | Chrome 扩展">
   <meta name="description" content="免费开源的 Chrome 扩展。输入一次提示词，即可打开 ChatGPT、Gemini、DeepSeek、Kimi、GLM、通义千问、豆包和文心进行横向比较。">
-  <meta name="keywords" content="AI Chrome extension, multi-model AI, send prompt to multiple AI, compare AI models, ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, Wenxin, ModelAny, AI prompt launcher, multi AI chat">
   <meta name="author" content="ModelAny">
   <meta name="application-name" content="ModelAny">
   <meta name="apple-mobile-web-app-title" content="ModelAny">
@@ -38,7 +37,7 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ModelAny — One prompt to every AI. Purple-blue gradient brand image with orbiting AI model icons.">
+  <meta property="og:image:alt" content="ModelAny：一条提示词，同时发送给多个 AI 模型并比较回答。">
   <meta property="og:site_name" content="ModelAny">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
@@ -48,7 +47,7 @@
   <meta name="twitter:title" content="ModelAny — 一条提示词，比较多个 AI 模型">
   <meta name="twitter:description" content="一次提问，多模型比较。">
   <meta name="twitter:image" content="https://modelany.app/assets/og-image.jpg">
-  <meta name="twitter:image:alt" content="ModelAny — One prompt to every AI.">
+  <meta name="twitter:image:alt" content="ModelAny：一次提问，多模型比较。">
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="../site.webmanifest">
@@ -108,7 +107,7 @@
         "@id": "https://modelany.app/#website",
         "url": "https://modelany.app/",
         "name": "ModelAny",
-        "description": "Send one prompt to every AI. A Chrome extension that launches your prompt across multiple AI models so you can compare perspectives faster.",
+        "description": "一条提示词，同时发送给多个 AI 模型。ModelAny 是一款 Chrome 扩展，可帮助用户更快地比较不同模型的回答。",
         "publisher": { "@id": "https://modelany.app/#organization" },
         "inLanguage": ["en", "zh-CN"]
       },
@@ -129,7 +128,7 @@
         "breadcrumb": { "@id": "https://modelany.app/zh/#breadcrumb" },
         "inLanguage": "zh-CN",
         "datePublished": "2026-07-12",
-        "dateModified": "2026-07-14"
+        "dateModified": "2026-07-19"
       },
       {
         "@type": "SoftwareApplication",
@@ -137,7 +136,7 @@
         "name": "ModelAny",
         "applicationCategory": "BrowserExtension",
         "operatingSystem": "Chrome, Edge",
-        "description": "ModelAny is a Chrome extension that sends one prompt to multiple AI models. Enter your question once, select the models you want, and ModelAny opens their conversations and fills the same prompt for you.",
+        "description": "ModelAny 是一款可将同一条提示词发送给多个 AI 模型的 Chrome 扩展。输入一次问题并选择模型后，ModelAny 会打开对应对话并自动填入提示词。",
         "url": "https://modelany.app/",
         "downloadUrl": "https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb",
         "softwareVersion": "1.0.1",
@@ -152,12 +151,12 @@
           "priceCurrency": "USD"
         },
         "featureList": [
-          "Send one prompt to multiple AI models",
-          "Automatically open selected model conversations",
-          "Fill prompts and optionally submit them automatically",
-          "Group the tabs opened for the current task",
-          "Keep drafts and recent history locally in your browser",
-          "Use selected webpage text as a prompt from the context menu"
+          "将一条提示词发送给多个 AI 模型",
+          "自动打开所选模型的对话页面",
+          "自动填入提示词，并可选择是否自动发送",
+          "自动归组同一任务打开的标签页",
+          "在浏览器本地保存草稿、设置和最近历史",
+          "通过右键菜单将网页选中文本作为提示词"
         ],
         "supports": [
           "ChatGPT", "Gemini", "DeepSeek", "Kimi", "GLM", "Qwen", "Doubao", "Wenxin"
@@ -274,7 +273,7 @@
   <header class="site-header" id="site-header">
     <div class="container nav-container">
       <a href="/zh/" class="brand" aria-label="ModelAny 首页">
-        <img src="../assets/modelany-icon-master.png" alt="" class="brand-icon" width="36" height="36">
+        <img src="../assets/favicon-192.png" alt="" class="brand-icon" width="36" height="36">
         <span class="brand-text">ModelAny</span>
       </a>
 
@@ -851,7 +850,7 @@
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-brand">
-        <img src="../assets/modelany-icon-master.png" alt="" class="footer-logo" width="32" height="32">
+        <img src="../assets/favicon-192.png" alt="" class="footer-logo" width="32" height="32">
         <span>ModelAny</span>
       </div>
       <p class="footer-tagline">为需要同时使用多个 AI 思考的人而设计。</p>
@@ -861,8 +860,6 @@
         <a href="#models">支持模型</a>
         <a href="#use-cases">使用场景</a>
         <a href="/zh/benchmarks/">评测数据</a>
-        <a href="/alternatives/">替代方案</a>
-        <a href="/free/">免费 AI</a>
         <a href="#faq">常见问题</a>
         <a href="/zh/privacy.html">隐私</a>
         <a href="/" data-locale-switch="en" hreflang="en" lang="en">English</a>

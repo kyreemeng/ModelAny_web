@@ -8,6 +8,7 @@ import {
   isValidSnapshot,
   resolveProduct,
 } from './sources.mjs';
+import { renderBenchmarkPages } from './render.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_DIR = join(ROOT, 'benchmarks', 'data');
@@ -182,6 +183,7 @@ async function main() {
   const date = now.toISOString().slice(0, 10);
   await atomicWrite(join(DATA_DIR, `${date}.json`), pretty);
   await atomicWrite(LATEST_PATH, pretty);
+  await renderBenchmarkPages();
   console.log(`Wrote ${records.length} records from ${new Set(records.map((record) => record.source)).size} sources.`);
   if (failures.length) console.warn(`Partial refresh: ${failures.join(' | ')}`);
 }
