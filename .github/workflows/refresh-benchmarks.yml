@@ -1,0 +1,45 @@
+name: Refresh benchmark snapshots
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Refresh public benchmark snapshots
+        id: refresh
+        run: node benchmarks/refresh.mjs
+      - name: Commit changed snapshots
+        if: success()
+        run: |
+          if git diff --quiet -- benchmarks/data; then
+            echo "No benchmark changes."
+            exit 0
+          fi
+          git add benchmarks/data
+          GIT_AUTHOR_NAME="modelany-benchmark-bot" \
+          GIT_AUTHOR_EMAIL="modelany-benchmark-bot@users.noreply.github.com" \
+          GIT_COMMITTER_NAME="modelany-benchmark-bot" \
+          GIT_COMMITTER_EMAIL="modelany-benchmark-bot@users.noreply.github.com" \
+          git commit -m "chore: refresh benchmark snapshots"
+          git push
+      - name: Create failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Benchmark refresh failed" \
+            --body "The scheduled benchmark refresh failed. The previous valid snapshot remains published. Review this workflow run before changing source adapters."

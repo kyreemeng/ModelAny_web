@@ -549,9 +549,19 @@ ul {
   margin-top: 16px;
   font-size: 13px;
   color: var(--ink-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
 }
 
-.install-availability span {
+.browser-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.browser-status em {
   display: inline-block;
   padding: 2px 7px;
   border: 1px solid var(--border);
@@ -560,6 +570,13 @@ ul {
   color: var(--ink-soft);
   font-size: 11px;
   font-weight: 600;
+  font-style: normal;
+}
+
+.browser-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
 }
 
 /* --- Hero Visual: Interactive Launcher --- */
@@ -1477,6 +1494,213 @@ ul {
   margin-bottom: 4px;
 }
 
+.usecase-benchmark-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--brand-primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.download-tip {
+  margin-top: 12px;
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.usecase-benchmark-link:hover,
+.usecase-benchmark-link:focus-visible {
+  color: var(--brand-primary-dark);
+  text-decoration: underline;
+}
+
+/* --- Benchmark data centre --- */
+.benchmark-hero {
+  padding: 148px 0 72px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(109, 93, 251, 0.14), transparent 28rem),
+    var(--surface-soft);
+}
+
+.benchmark-hero h1 {
+  max-width: 740px;
+  margin: 12px 0 16px;
+  font-size: clamp(38px, 5vw, 62px);
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.benchmark-hero > .container > p:not(.eyebrow) {
+  max-width: 650px;
+  color: var(--ink-soft);
+  font-size: 18px;
+}
+
+.benchmark-filter-label {
+  display: block;
+  margin: 30px 0 8px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.benchmark-filter {
+  width: min(100%, 320px);
+  min-height: 46px;
+  padding: 10px 40px 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+}
+
+.benchmark-filter:focus-visible,
+.benchmark-source a:focus-visible {
+  outline: 3px solid rgba(109, 93, 251, 0.4);
+  outline-offset: 3px;
+}
+
+.benchmark-section {
+  background: var(--surface);
+}
+
+.benchmark-intro {
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.benchmark-intro h2,
+.benchmark-method h2 {
+  color: var(--ink);
+  font-size: 28px;
+  letter-spacing: -0.025em;
+}
+
+.benchmark-intro p,
+.benchmark-method p,
+.benchmark-disclaimer,
+.benchmark-updated,
+.benchmark-warning,
+.benchmark-empty {
+  color: var(--ink-soft);
+}
+
+.benchmark-context {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.benchmark-updated {
+  margin: 0;
+  font-size: 13px;
+}
+
+.benchmark-source {
+  margin-top: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+}
+
+.benchmark-source-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px 0;
+}
+
+.benchmark-source-header h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 20px;
+}
+
+.benchmark-source-header a {
+  flex: 0 0 auto;
+  color: var(--brand-primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.benchmark-disclaimer {
+  max-width: 900px;
+  margin: 8px 28px 20px;
+  font-size: 14px;
+}
+
+.benchmark-table-wrap {
+  overflow-x: auto;
+}
+
+.benchmark-table {
+  width: 100%;
+  min-width: 660px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.benchmark-table th,
+.benchmark-table td {
+  padding: 13px 28px;
+  border-top: 1px solid var(--border);
+}
+
+.benchmark-table th {
+  color: var(--ink-muted);
+  background: var(--surface-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.benchmark-table td {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.benchmark-table td:nth-child(1),
+.benchmark-table td:nth-child(3) {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.benchmark-warning,
+.benchmark-empty {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: var(--brand-lavender);
+  font-size: 14px;
+}
+
+.benchmark-error {
+  color: #a33a4d;
+}
+
+.benchmark-method {
+  background: var(--surface-soft);
+}
+
+.benchmark-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.benchmark-method-grid article {
+  padding: 28px;
+  border-left: 3px solid var(--brand-primary);
+  background: var(--surface);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
 /* --- Popular Compare (SEO hub) --- */
 .popular-compare {
   background: var(--surface-soft);
@@ -1980,6 +2204,31 @@ ul {
 
   .hero {
     padding: 100px 0 60px;
+  }
+
+  .benchmark-hero {
+    padding: 118px 0 56px;
+  }
+
+  .benchmark-method-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .benchmark-source-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 20px 0;
+  }
+
+  .benchmark-disclaimer {
+    margin: 8px 20px 16px;
+  }
+
+  .benchmark-table th,
+  .benchmark-table td {
+    padding: 12px 20px;
   }
 
   .hero-visual {

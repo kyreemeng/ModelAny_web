@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6D5DFB">
+  <title>AI benchmark data by scenario | ModelAny</title>
+  <meta name="description" content="Compare independently published AI benchmark results by research, writing, coding, learning, creative work, and everyday assistance. Updated from source snapshots daily.">
+  <link rel="canonical" href="https://modelany.app/benchmarks/">
+  <link rel="alternate" hreflang="en" href="https://modelany.app/benchmarks/">
+  <link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/benchmarks/">
+  <link rel="alternate" hreflang="x-default" href="https://modelany.app/benchmarks/">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../assets/favicon-32.png">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand" aria-label="ModelAny home">
+        <img src="../assets/modelany-icon-master.png" alt="" class="brand-icon" width="36" height="36">
+        <span class="brand-text">ModelAny</span>
+      </a>
+      <nav class="nav-menu benchmark-nav" aria-label="Primary navigation">
+        <a href="/#use-cases">Use cases</a>
+        <a href="/compare/">Compare</a>
+        <a href="/zh/benchmarks/" data-locale-switch="zh" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install extension</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="benchmark-hero">
+      <div class="container">
+        <p class="eyebrow">Independent benchmark snapshots</p>
+        <h1>Compare evidence by <span class="gradient-text">real work scenario</span></h1>
+        <p>Scores remain separated by source and metric. They are evidence to inspect, not a universal model ranking.</p>
+        <label class="benchmark-filter-label" for="benchmark-scene">Scenario</label>
+        <select id="benchmark-scene" class="benchmark-filter" data-benchmark-scene>
+          <option value="all">All available results</option>
+          <option value="research">Research</option>
+          <option value="writing">Writing</option>
+          <option value="coding">Coding</option>
+          <option value="learning">Learning</option>
+          <option value="creative">Creative</option>
+          <option value="everyday">Everyday life</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="benchmark-section section" aria-labelledby="benchmark-results-title">
+      <div class="container">
+        <div class="benchmark-intro">
+          <h2 id="benchmark-results-title">Latest available source results</h2>
+          <p>Snapshots refresh daily. A failed source never overwrites the last valid data. Exact model versions, test setup, and original leaderboard links are retained for each result.</p>
+        </div>
+        <div data-benchmark-root data-benchmark-url="../data/latest.json" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="benchmark-method section">
+      <div class="container benchmark-method-grid">
+        <article>
+          <h2>How to read this page</h2>
+          <p>LiveBench reports category scores on objective tasks. Arena reports blind human-preference Elo. SWE-bench Verified reports the rate at which an agent configuration resolves real repository issues.</p>
+        </article>
+        <article>
+          <h2>Important limits</h2>
+          <p>Scores from different benchmarks cannot be added together. The everyday-life view uses a preference proxy because no general authoritative benchmark covers that scenario.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-bottom"><p>© 2026 ModelAny</p><a href="/">Home</a><a href="/privacy.html">Privacy</a></div></footer>
+  <script src="../benchmarks.js" defer></script>
+  <script src="../locale.js" defer></script>
+  <script src="../download.js" defer></script>
+</body>
+</html>

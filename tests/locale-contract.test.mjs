@@ -46,3 +46,18 @@ test('Chinese homepage mirrors English structure with localized chrome', async (
   assert.doesNotMatch(chinese, />How it works</);
   assert.doesNotMatch(chinese, />Features</);
 });
+
+test('Chinese homepage compare links stay on Chinese routes', async () => {
+  const chinese = await projectFile('zh/index.html');
+  assert.match(chinese, /href="\/zh\/compare\//);
+  assert.match(chinese, /href="\/zh\/benchmarks\//);
+  assert.doesNotMatch(chinese, /href="\/compare\/chatgpt-vs-/);
+  assert.doesNotMatch(chinese, /href="\/best-for\//);
+  assert.doesNotMatch(chinese, /href="\/compare\/"/);
+});
+
+test('locale switch normalizes language codes for aria-current', async () => {
+  const locale = await projectFile('locale.js');
+  assert.match(locale, /normalizeLang/);
+  assert.match(locale, /startsWith\('zh'\)/);
+});
