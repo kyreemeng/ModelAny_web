@@ -6,10 +6,10 @@
   <meta name="theme-color" content="#6D5DFB">
 
   <!-- Primary Meta Tags -->
-  <title>ModelAny — One Prompt to All Models | Chrome Extension</title>
-  <meta name="title" content="ModelAny — One Prompt to All Models | Chrome Extension">
-  <meta name="description" content="Free Chrome extension that sends one prompt to multiple models—ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao & Wenxin. Compare model answers faster.">
-  <meta name="keywords" content="Chrome extension, multi-model, send prompt to multiple models, compare models, ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, Wenxin, ModelAny, model prompt launcher, multi-model chat">
+  <title>Ask Multiple AI Models at Once | ModelAny</title>
+  <meta name="title" content="Ask Multiple AI Models at Once | ModelAny">
+  <meta name="description" content="Ask ChatGPT, Gemini, DeepSeek and more the same question at once. Compare AI answers faster with ModelAny, a free, open-source Chrome extension.">
+  <meta name="keywords" content="ask multiple AI models, compare AI answers, AI model comparison, ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, Wenxin, free Chrome extension, ModelAny">
   <meta name="author" content="ModelAny">
   <meta name="application-name" content="ModelAny">
   <meta name="apple-mobile-web-app-title" content="ModelAny">
@@ -31,24 +31,24 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://modelany.app/">
-  <meta property="og:title" content="ModelAny — One Prompt to All Models">
-  <meta property="og:description" content="A free Chrome extension that sends one prompt to multiple models. Stop copying the same question across model tabs — compare more perspectives in less time.">
+  <meta property="og:title" content="ModelAny — Ask Every AI Model, All at Once">
+  <meta property="og:description" content="Type your question once and compare answers from ChatGPT, Gemini, DeepSeek, and more with a free Chrome extension.">
   <meta property="og:image" content="https://modelany.app/assets/og-image.jpg">
   <meta property="og:image:secure_url" content="https://modelany.app/assets/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ModelAny — One prompt to every model. Purple-blue gradient brand image with orbiting model icons.">
+  <meta property="og:image:alt" content="ModelAny — Ask multiple AI models the same question at once. Purple-blue gradient brand image with orbiting AI model icons.">
   <meta property="og:site_name" content="ModelAny">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ModelAny — One Prompt to All Models">
-  <meta name="twitter:description" content="A free Chrome extension that sends one prompt to multiple models. Compare perspectives faster.">
+  <meta name="twitter:title" content="ModelAny — Ask Every AI Model, All at Once">
+  <meta name="twitter:description" content="Type your question once and compare answers from ChatGPT, Gemini, DeepSeek, and more.">
   <meta name="twitter:image" content="https://modelany.app/assets/og-image.jpg">
-  <meta name="twitter:image:alt" content="ModelAny — One prompt to every model.">
+  <meta name="twitter:image:alt" content="ModelAny — Ask multiple AI models the same question at once.">
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="site.webmanifest">
@@ -65,6 +65,13 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://cdn.vercel-insights.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- Prevent the CSS fallback from starting before GSAP initializes. -->
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('has-motion');
+    }
+  </script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
@@ -109,7 +116,7 @@
         "@id": "https://modelany.app/#website",
         "url": "https://modelany.app/",
         "name": "ModelAny",
-        "description": "Send one prompt to any model. A Chrome extension that launches your prompt across multiple models so you can compare perspectives faster.",
+        "description": "Ask multiple AI models the same question at once. ModelAny is a free Chrome extension for comparing answers from ChatGPT, Gemini, DeepSeek, and more.",
         "publisher": { "@id": "https://modelany.app/#organization" },
         "inLanguage": ["en", "zh-CN"]
       },
@@ -117,8 +124,8 @@
         "@type": "WebPage",
         "@id": "https://modelany.app/#webpage",
         "url": "https://modelany.app/",
-        "name": "ModelAny — One Prompt to All Models | Chrome Extension",
-        "description": "Free Chrome extension that sends one prompt to multiple models—ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao & Wenxin. Compare model answers faster.",
+        "name": "Ask Multiple AI Models at Once | ModelAny",
+        "description": "Ask ChatGPT, Gemini, DeepSeek and more the same question at once. Compare AI answers faster with ModelAny, a free, open-source Chrome extension.",
         "isPartOf": { "@id": "https://modelany.app/#website" },
         "about": { "@id": "https://modelany.app/#software" },
         "primaryImageOfPage": {
@@ -130,7 +137,7 @@
         "breadcrumb": { "@id": "https://modelany.app/#breadcrumb" },
         "inLanguage": "en",
         "datePublished": "2026-07-12",
-        "dateModified": "2026-07-19"
+        "dateModified": "2026-07-20"
       },
       {
         "@type": "SoftwareApplication",
@@ -138,7 +145,7 @@
         "name": "ModelAny",
         "applicationCategory": "BrowserExtension",
         "operatingSystem": "Chrome, Edge",
-        "description": "ModelAny is a Chrome extension that sends one prompt to multiple models. Enter your question once, select the models you want, and ModelAny opens their conversations and fills the same prompt for you.",
+        "description": "ModelAny is a free Chrome extension that lets you ask multiple AI models the same question at once. Enter your question once, choose your models, and compare their answers side by side.",
         "url": "https://modelany.app/",
         "downloadUrl": "https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb",
         "softwareVersion": "1.0.1",
@@ -153,7 +160,7 @@
           "priceCurrency": "USD"
         },
         "featureList": [
-          "Send one prompt to multiple models",
+          "Ask multiple AI models the same question at once",
           "Automatically open selected model conversations",
           "Fill prompts and optionally submit them automatically",
           "Group the tabs opened for the current task",
@@ -167,13 +174,13 @@
       {
         "@type": "HowTo",
         "name": "How to use ModelAny",
-        "description": "Send one prompt to multiple models in three steps.",
+        "description": "Ask multiple AI models the same question in three simple steps.",
         "totalTime": "PT1M",
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
-            "name": "Write your prompt",
+            "name": "Write your question",
             "text": "Open the ModelAny popup and type your question — up to 5,000 characters."
           },
           {
@@ -186,7 +193,7 @@
             "@type": "HowToStep",
             "position": 3,
             "name": "Compare better answers",
-            "text": "ModelAny opens each model's chat, fills your prompt, and optionally sends it. Compare responses side by side."
+            "text": "ModelAny opens each model's chat, fills in your question, and optionally sends it. Compare responses side by side."
           }
         ]
       },
@@ -198,7 +205,7 @@
             "name": "What is ModelAny?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "ModelAny is a free, open-source Chrome extension that lets you type one prompt and send it to several models at the same time, so you can compare their answers side by side."
+              "text": "ModelAny is a free, open-source Chrome extension that lets you type one question and ask several AI models at the same time, so you can compare their answers side by side."
             }
           },
           {
@@ -318,9 +325,9 @@
       <div class="container hero-container">
         <div class="hero-content">
           <span class="eyebrow">Multi-model launcher</span>
-          <h1 id="hero-title">Send one prompt to <span class="gradient-text">every model</span></h1>
+          <h1 id="hero-title">Ask every AI model, <span class="gradient-text">all at once</span></h1>
           <p class="hero-description">
-            Stop copying the same question across model tabs. ModelAny launches your prompt across the models you choose, so you can compare more perspectives in less time.
+            Type your question once and compare answers from ChatGPT, Gemini, DeepSeek, and more.
           </p>
           <div class="hero-cta">
 <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install from Chrome Web Store</a>
@@ -425,8 +432,8 @@
             <div class="feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </div>
-            <h3>One prompt, many models</h3>
-            <p>Type your question once and send it to every model you select — no more pasting the same text into separate tabs.</p>
+            <h3>One question, many AI models</h3>
+            <p>Type your question once and ask every model you select — no more pasting the same text into separate tabs.</p>
             </article>
 
           <article class="feature-card">
@@ -442,7 +449,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
             <h3>Open model chats automatically</h3>
-            <p>ModelAny opens a dedicated conversation tab for each selected model and fills in your prompt for you.</p>
+            <p>ModelAny opens a dedicated conversation tab for each selected model and fills in your question for you.</p>
             </article>
 
           <article class="feature-card">
@@ -450,7 +457,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </div>
             <h3>Optional auto-send</h3>
-            <p>Let ModelAny submit for you, or keep the prompt filled so you can review before sending. You stay in control.</p>
+            <p>Let ModelAny submit for you, or keep your question filled in so you can review it before sending. You stay in control.</p>
             </article>
 
           <article class="feature-card">
@@ -484,7 +491,7 @@
           <div class="step" data-step="1" tabindex="0">
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3>Write your prompt</h3>
+              <h3>Write your question</h3>
               <p>Open the ModelAny popup and type your question — up to 5,000 characters.</p>
               </div>
           </div>
@@ -505,7 +512,7 @@
             <div class="step-number">3</div>
             <div class="step-content">
               <h3>Compare better answers</h3>
-              <p>ModelAny opens each model's chat, fills your prompt, and optionally sends it. Compare responses side by side.</p>
+              <p>ModelAny opens each model's chat, fills in your question, and optionally sends it. Compare responses side by side.</p>
               </div>
           </div>
         </div>
@@ -525,7 +532,7 @@
                   <div class="mockup-logo"></div>
                   <div>
                     <strong>ModelAny</strong>
-                    <small>One prompt, many models</small>
+                    <small>One question, many AI models</small>
                   </div>
                 </div>
                 <div class="mockup-gear" aria-hidden="true">⚙</div>
@@ -696,7 +703,7 @@
       <div class="container">
         <div class="section-header">
           <h2 id="popular-compare-title">Popular model comparisons</h2>
-          <p class="section-description" style="max-width:40rem;margin:8px auto 0;color:var(--ink-soft);">Shortlists for the searches people actually type — then verify with one prompt across models in ModelAny.</p>
+          <p class="section-description" style="max-width:40rem;margin:8px auto 0;color:var(--ink-soft);">Shortlists for the searches people actually type — then ask the same question across multiple models in ModelAny.</p>
         </div>
 
         <div class="popular-grid">
@@ -774,7 +781,7 @@
             </summary>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-<p>ModelAny is a free, open-source Chrome extension that lets you type one prompt and send it to several models at the same time, so you can compare their answers side by side.</p>
+<p>ModelAny is a free, open-source Chrome extension that lets you type one question and ask several AI models at the same time, so you can compare their answers side by side.</p>
               </div>
             </div>
 </details>

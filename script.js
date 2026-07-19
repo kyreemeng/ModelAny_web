@@ -232,31 +232,31 @@
 
   const isZh = document.documentElement.lang === 'zh-CN';
   const copy = isZh ? {
-    enterPrompt: '请先输入提示词。',
+    enterPrompt: '请先输入问题。',
     selectModel: '请至少选择一个模型。',
     checking: '正在检测已安装的 ModelAny 扩展…',
     sending: '正在发送…',
-    acceptedFill: '正在打开 {n} 个模型网站。提示词将填入供你确认。',
+    acceptedFill: '正在打开 {n} 个模型网站。问题将自动填入，供你确认。',
     acceptedSend: '正在打开 {n} 个模型网站。已请求自动发送。',
     rejected: '扩展无法启动此任务。',
-    missing: '未检测到支持网页发送的 ModelAny。请确认扩展已更新至 v1.0.2 或更高版本后重试；提示词仍保留在本页。',
-    copied: '提示词已复制到剪贴板。',
-    copyFailed: '复制失败。请手动选中提示词后复制。',
+    missing: '未检测到支持网页发送的 ModelAny。请确认扩展已更新至 v1.0.2 或更高版本后重试；问题仍保留在本页。',
+    copied: '问题已复制到剪贴板。',
+    copyFailed: '复制失败。请手动选中问题后复制。',
     copyRetry: '重试复制',
-    opened: '已打开所选模型网站。请自行粘贴提示词。'
+    opened: '已打开所选模型网站。请自行粘贴问题。'
   } : {
-    enterPrompt: 'Enter a prompt before launching.',
+    enterPrompt: 'Enter a question before launching.',
     selectModel: 'Select at least one model.',
     checking: 'Checking the installed ModelAny extension…',
     sending: 'Sending…',
-    acceptedFill: 'Opening {n} model sites. Prompts will be filled for your review.',
+    acceptedFill: 'Opening {n} model sites. Your question will be filled in for review.',
     acceptedSend: 'Opening {n} model sites. Auto-send was requested.',
     rejected: 'The extension could not start this task.',
-    missing: 'A ModelAny version with website launch support was not detected. Update to v1.0.2 or later, then try again. Your prompt remains on this page.',
-    copied: 'Prompt copied to your clipboard.',
-    copyFailed: 'Copy failed. Select the prompt and copy it manually.',
+    missing: 'A ModelAny version with website launch support was not detected. Update to v1.0.2 or later, then try again. Your question remains on this page.',
+    copied: 'Question copied to your clipboard.',
+    copyFailed: 'Copy failed. Select the question and copy it manually.',
     copyRetry: 'Retry copy',
-    opened: 'Opened the selected model sites. Paste the prompt yourself.'
+    opened: 'Opened the selected model sites. Paste the question yourself.'
   };
 
   // Toggle chip selection (chips are static in HTML)
