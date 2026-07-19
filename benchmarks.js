@@ -146,7 +146,7 @@
   }
 
   async function init() {
-    root.textContent = copy.loading;
+    root.setAttribute('aria-busy', 'true');
     try {
       const response = await fetch(root.dataset.benchmarkUrl, { cache: 'no-cache' });
       if (!response.ok) throw new Error(String(response.status));
@@ -162,8 +162,11 @@
       select?.addEventListener('change', update);
       update();
     } catch {
-      root.textContent = copy.unavailable;
+      const status = createElement('p', 'benchmark-warning', copy.unavailable);
+      root.prepend(status);
       root.classList.add('benchmark-error');
+    } finally {
+      root.removeAttribute('aria-busy');
     }
   }
 

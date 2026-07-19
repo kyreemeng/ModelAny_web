@@ -65,14 +65,17 @@ test('Chinese comparison hub is not published as a standalone page', async () =>
 });
 
 test('core compare pages with shared evidence are indexable; research drafts stay noindex', async () => {
-  const [comparison, useCase, sitemap] = await Promise.all([
+  const [comparison, hub, useCase, sitemap] = await Promise.all([
     projectFile('compare/chatgpt-vs-deepseek/index.html'),
+    projectFile('compare/index.html'),
     projectFile('best-for/coding/index.html'),
     projectFile('sitemap.xml'),
   ]);
 
   assert.doesNotMatch(comparison, /<meta name="robots" content="noindex, follow/);
+  assert.doesNotMatch(hub, /<meta name="robots" content="noindex, follow/);
   assert.match(useCase, /<meta name="robots" content="noindex, follow/);
+  assert.match(sitemap, /https:\/\/modelany\.app\/compare\/</);
   assert.match(sitemap, /\/compare\/chatgpt-vs-deepseek\//);
   assert.doesNotMatch(sitemap, /\/best-for\/coding\//);
   assert.match(comparison, /public benchmark/i);
@@ -83,6 +86,34 @@ test('generated comparison pages avoid unsupported rankings and FAQ rich-result 
 
   assert.doesNotMatch(html, /currently leads|Ranked picks|FAQPage/i);
   assert.match(html, /What public benchmarks show/);
+  assert.match(html, /"@type":"WebPage"/);
+  assert.match(html, /More evidence-backed model comparisons/);
+  assert.match(html, /hreflang="x-default"/);
+  assert.doesNotMatch(html, /hreflang="zh-CN" href="https:\/\/modelany\.app\/zh\/benchmarks\//);
+});
+
+test('sitemap declares reciprocal language alternates only for equivalent pages', async () => {
+  const sitemap = await projectFile('sitemap.xml');
+  assert.match(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/);
+  assert.match(sitemap, /hreflang="zh-CN" href="https:\/\/modelany\.app\/zh\/benchmarks\/"/);
+  const comparisonEntry = sitemap.match(/<url>\s*<loc>https:\/\/modelany\.app\/compare\/chatgpt-vs-deepseek\/<\/loc>[\s\S]*?<\/url>/)?.[0] || '';
+  assert.doesNotMatch(comparisonEntry, /hreflang="zh-CN"/);
+});
+
+test('every sitemap page includes first-party traffic measurement', async () => {
+  const sitemap = await projectFile('sitemap.xml');
+  const urls = [...sitemap.matchAll(/<loc>https:\/\/modelany\.app(.*?)<\/loc>/g)].map((match) => match[1]);
+
+  for (const url of urls) {
+    const path = url === '/'
+      ? 'index.html'
+      : url.endsWith('/')
+        ? `${url.slice(1)}index.html`
+        : url.slice(1);
+    const html = await projectFile(path);
+    assert.match(html, /G-CX4BMB7829/, `${url} should include GA4`);
+    assert.match(html, /cdn\.vercel-insights\.com\/v1\/script\.js/, `${url} should include Vercel Analytics`);
+  }
 });
 
 test('reverse comparison routes are permanent Vercel redirects', async () => {

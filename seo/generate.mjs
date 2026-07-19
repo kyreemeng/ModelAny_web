@@ -162,7 +162,28 @@ function comparisonBody(page, items, lang) {
             <li>${lang === 'zh' ? '隐私、登录方式和团队协作是否适合你。' : 'Whether privacy, sign-in, and team features fit your needs.'}</li>
           </ul>
         </section>
+        ${relatedComparisonsHtml(page, lang)}
         ${sourcesHtml(items, lang)}`;
+}
+
+function relatedComparisonsHtml(currentPage, lang) {
+  const registry = lang === 'zh' ? zhComparePages : comparePages;
+  const pages = registry
+    .filter((page) => !page.canonicalSlug && page.slug !== currentPage.slug && hasSharedBenchmarkData(page.models))
+    .filter((page) => lang === 'zh' || CORE_COMPARE_SLUGS.has(page.slug))
+    .slice(0, 6);
+  if (!pages.length) return '';
+  const prefix = lang === 'zh' ? '/zh/compare/' : '/compare/';
+  const links = pages.map((page) => {
+    const names = resolveModels(page.models).map((item) => item.name).join(' vs ');
+    return `<li><a href="${prefix}${page.slug}/">${esc(names)}</a></li>`;
+  }).join('\n            ');
+  return `<section class="seo-section" aria-labelledby="related-comparisons-heading">
+          <h2 id="related-comparisons-heading">${lang === 'zh' ? '更多有公开证据的模型对比' : 'More evidence-backed model comparisons'}</h2>
+          <ul class="seo-index-list">
+            ${links}
+          </ul>
+        </section>`;
 }
 
 function researchBody(page, items, lang = 'en') {
@@ -224,7 +245,25 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
         author: { '@id': `${SITE}/#organization` },
         publisher: { '@id': `${SITE}/#organization` },
         mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+        image: `${SITE}/assets/og-image.jpg`,
         inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: h1,
+        description,
+        isPartOf: { '@id': `${SITE}/#website` },
+        breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          url: `${SITE}/assets/og-image.jpg`,
+          width: 1200,
+          height: 630,
+        },
+        inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+        dateModified: DATE,
       },
       {
         '@type': 'BreadcrumbList',
@@ -244,8 +283,8 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
       : `<li><a href="${item.href}">${esc(item.name)}</a></li>`
   )).join('\n          ');
   const faqHtml = faqs(lang).map((item) => `<details class="faq-item"><summary><span>${esc(item.q)}</span></summary><div class="faq-answer"><p>${esc(item.a)}</p></div></details>`).join('\n          ');
-  const hreflangExtra = localeHref
-    ? `\n  <link rel="alternate" hreflang="${switchHreflang}" href="${SITE}${localeHref}">`
+  const xDefault = lang === 'en'
+    ? `\n  <link rel="alternate" hreflang="x-default" href="${pageUrl}">`
     : '';
   const mobileNav = `
     <div class="nav-actions">
@@ -257,6 +296,15 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
         <span class="menu-bar"></span>
       </button>
     </div>`;
+  const analytics = indexable ? `
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX4BMB7829"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CX4BMB7829');
+  </script>
+  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>` : '';
 
   return `<!DOCTYPE html>
 <html lang="${lang === 'zh' ? 'zh-CN' : 'en'}">
@@ -268,20 +316,27 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <meta name="description" content="${esc(description)}">
   <meta name="author" content="ModelAny">
   <meta name="robots" content="${robots}">
+  <meta name="googlebot" content="${robots}">
   <link rel="canonical" href="${pageUrl}">
-  <link rel="alternate" hreflang="${lang === 'zh' ? 'zh-CN' : 'en'}" href="${pageUrl}">${hreflangExtra}
+  <link rel="alternate" hreflang="${lang === 'zh' ? 'zh-CN' : 'en'}" href="${pageUrl}">${xDefault}
   <meta property="og:type" content="article">
   <meta property="og:url" content="${pageUrl}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${SITE}/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${esc(h1)}">
   <meta property="og:site_name" content="ModelAny">
   <meta property="og:locale" content="${lang === 'zh' ? 'zh_CN' : 'en_US'}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${SITE}/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="${esc(h1)}">
   <link rel="icon" type="image/png" sizes="32x32" href="${base}assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="${base}assets/apple-touch-icon.png">
+  <link rel="manifest" href="${base}site.webmanifest">
   <link rel="stylesheet" href="${base}styles.css">
   <link rel="stylesheet" href="${base}seo-pages.css">
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
@@ -289,7 +344,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
 <body class="seo-page locale-${lang}">
   <a href="#main" class="skip-link">${lang === 'zh' ? '跳到主要内容' : 'Skip to main content'}</a>
   <header class="site-header"><div class="container nav-container">
-    <a href="${lang === 'zh' ? '/zh/' : '/'}" class="brand" aria-label="ModelAny ${lang === 'zh' ? '首页' : 'home'}"><img src="${base}assets/modelany-icon-master.png" alt="" class="brand-icon" width="36" height="36"><span class="brand-text">ModelAny</span></a>
+    <a href="${lang === 'zh' ? '/zh/' : '/'}" class="brand" aria-label="ModelAny ${lang === 'zh' ? '首页' : 'home'}"><img src="${base}assets/favicon-192.png" alt="" class="brand-icon" width="36" height="36"><span class="brand-text">ModelAny</span></a>
     <nav class="nav-menu" id="nav-menu" aria-label="${lang === 'zh' ? '主导航' : 'Primary navigation'}">${lang === 'zh' ? '' : '<a href="/compare/">Compare</a>'}<a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '评测数据' : 'Benchmarks'}</a><a href="${switchHref}" data-locale-switch="${switchLang}" hreflang="${switchHreflang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav>${mobileNav}
   </div></header>
   <main id="main" class="seo-main"><div class="container seo-container">
@@ -305,6 +360,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <script src="${base}locale.js" defer></script>
   <script src="${base}download.js" defer></script>
   <script src="${base}script.js" defer></script>
+${analytics}
 </body>
 </html>`;
 }
@@ -373,20 +429,26 @@ function generateDraft(page, section, items, tests, lang = 'en') {
 function generateHub(section, label, pages, lang = 'en') {
   const canonical = `/${section}/`;
   const path = `${section}/index.html`;
-  const links = pages.filter((page) => !page.canonicalSlug).slice(0, 12).map((page) => `<li><a href="/${section}/${page.slug}/">${esc(page.keyword)}</a></li>`).join('');
+  const publishablePages = pages.filter((page) => !page.canonicalSlug);
+  const links = publishablePages.map((page) => `<li><a href="/${section}/${page.slug}/">${esc(page.keyword)}</a></li>`).join('');
+  const indexable = section === 'compare' && publishablePages.length > 0;
   return {
     path,
     url: canonical,
-    indexable: false,
+    indexable,
     content: htmlPage({
       path,
       canonical,
       title: `${label} | ModelAny`,
-      description: `${label} research hub. Pages are published to search only after source and test review.`,
+      description: indexable
+        ? 'Compare AI models using public third-party benchmark evidence, exact model versions, source links, and clearly stated limits.'
+        : `${label} research hub. Pages are published to search only after source and test review.`,
       h1: label,
       lang,
-      indexable: false,
-      body: `<div class="quick-verdict"><h2>${lang === 'zh' ? '发布状态' : 'Publication status'}</h2><p>${lang === 'zh' ? '此索引页与其下研究稿暂不参与搜索索引；只有通过来源、测试与人工审校后才会开放。' : 'This hub and its drafts are excluded from search indexing until they pass source, test, and editorial review.'}</p></div><section class="seo-section"><h2>${lang === 'zh' ? '研究主题' : 'Research topics'}</h2><ul class="seo-index-list">${links}</ul></section>`,
+      indexable,
+      body: indexable
+        ? `<div class="quick-verdict"><h2>Evidence before rankings</h2><p>Every published comparison below uses results where the models appear in the same public benchmark category. Metrics remain separate, exact model versions are shown, and no single score is treated as a universal ranking.</p></div><section class="seo-section"><h2>Published AI model comparisons</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>How these comparisons are reviewed</h2><p>We preserve the source leaderboard, retrieval time, metric, model version, and test limitations. Pages without shared evidence remain outside search indexing until review is complete.</p><p><a href="/benchmarks/">Browse all benchmark snapshots by scenario</a></p></section>`
+        : `<div class="quick-verdict"><h2>${lang === 'zh' ? '发布状态' : 'Publication status'}</h2><p>${lang === 'zh' ? '此索引页与其下研究稿暂不参与搜索索引；只有通过来源、测试与人工审校后才会开放。' : 'This hub and its drafts are excluded from search indexing until they pass source, test, and editorial review.'}</p></div><section class="seo-section"><h2>${lang === 'zh' ? '研究主题' : 'Research topics'}</h2><ul class="seo-index-list">${links}</ul></section>`,
       breadcrumbs: [{ name: 'Home', href: '/' }, { name: label, href: canonical }],
     }),
   };
@@ -444,14 +506,31 @@ function writeSitemap(records) {
     { url: '/zh/privacy.html', priority: '0.3', changefreq: 'yearly' },
     ...indexable.map((record) => ({ url: record.url, priority: '0.8', changefreq: 'weekly' })),
   ];
-  const body = entries.map((entry) => `  <url>
+  const languagePairs = {
+    '/': { en: '/', zh: '/zh/' },
+    '/zh/': { en: '/', zh: '/zh/' },
+    '/benchmarks/': { en: '/benchmarks/', zh: '/zh/benchmarks/' },
+    '/zh/benchmarks/': { en: '/benchmarks/', zh: '/zh/benchmarks/' },
+    '/privacy.html': { en: '/privacy.html', zh: '/zh/privacy.html' },
+    '/zh/privacy.html': { en: '/privacy.html', zh: '/zh/privacy.html' },
+  };
+  const body = entries.map((entry) => {
+    const pair = languagePairs[entry.url];
+    const alternates = pair
+      ? `
+    <xhtml:link rel="alternate" hreflang="en" href="${SITE}${pair.en}"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${SITE}${pair.zh}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${pair.en}"/>`
+      : '';
+    return `  <url>
     <loc>${SITE}${entry.url}</loc>
     <lastmod>${DATE}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>
-  </url>`).join('\n');
+    <priority>${entry.priority}</priority>${alternates}
+  </url>`;
+  }).join('\n');
   writeFileSync(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${body}
 </urlset>
 `, 'utf8');
