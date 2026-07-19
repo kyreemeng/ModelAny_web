@@ -34,15 +34,20 @@
 
   function bind(anchor) {
     const chrome = isChromeBrowser();
+    const keepLabel =
+      anchor.classList.contains('nav-cta') ||
+      anchor.classList.contains('nav-download') ||
+      anchor.hasAttribute('data-keep-label');
+
     anchor.setAttribute('href', chrome ? CHROME_STORE : '#download');
     if (chrome) {
       anchor.setAttribute('target', '_blank');
       anchor.setAttribute('rel', 'noopener noreferrer');
     } else {
       anchor.removeAttribute('target');
-      if (anchor.textContent.trim()) {
-        const versionMatch = anchor.textContent.match(/v?\d+\.\d+\.\d+/);
-        anchor.textContent = versionMatch ? `${copy.other}` : copy.other;
+      // Keep short nav labels like "Download" / "下载"; rewrite longer CTAs only
+      if (!keepLabel && anchor.textContent.trim()) {
+        anchor.textContent = copy.other;
       }
     }
 

@@ -4,7 +4,7 @@
  * - Interactive Prompt Launcher simulation (prompt flowing to model nodes)
  * - GitHub Stars API with graceful degradation
  * - Mobile menu toggle with focus trap
- * - Scroll reveal animations
+ * - GSAP motion layer (hero, scroll reveal, orbit) with CSS fallback
  * - Prefers-reduced-motion support
  * - Touch-friendly step highlight
  * - Copy success feedback
@@ -28,9 +28,84 @@
 
   const GITHUB_API_URL = 'https://api.github.com/repos/kyreemeng/ModelAny-Releases';
   const GITHUB_REPO_URL = 'https://github.com/kyreemeng/ModelAny-Releases';
+  const GSAP_CORE_URL = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js';
+  const GSAP_ST_URL = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js';
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Opt into JS-driven motion (CSS keeps content visible until GSAP is ready / fallback)
+  if (!prefersReducedMotion) {
+    document.documentElement.classList.add('has-motion');
+  }
+
+  function resolveSiblingAsset(filename) {
+    var current = document.currentScript;
+    var src = current && current.src ? current.src : '';
+    if (!src) {
+      var el = document.querySelector('script[src*="script.js"]');
+      src = el ? el.src : '';
+    }
+    if (!src) return filename;
+    return src.replace(/script\.js(?:\?.*)?$/i, filename);
+  }
+
+  function loadScript(url) {
+    return new Promise(function (resolve, reject) {
+      var existing = document.querySelector('script[src="' + url + '"]');
+      if (existing) {
+        if (existing.dataset.loaded === 'true' || existing.getAttribute('data-loaded') === 'true') {
+          resolve();
+          return;
+        }
+        existing.addEventListener('load', function () { resolve(); }, { once: true });
+        existing.addEventListener('error', function () { reject(new Error('Failed to load ' + url)); }, { once: true });
+        return;
+      }
+      var script = document.createElement('script');
+      script.src = url;
+      script.async = false;
+      script.addEventListener('load', function () {
+        script.dataset.loaded = 'true';
+        resolve();
+      }, { once: true });
+      script.addEventListener('error', function () {
+        reject(new Error('Failed to load ' + url));
+      }, { once: true });
+      document.head.appendChild(script);
+    });
+  }
+
+  // Kick off GSAP early so CDN download overlaps with the rest of init
+  var motionSettled = false;
+  var motionFallbackTimer = null;
+  var motionReadyPromise = null;
+
+  if (!prefersReducedMotion) {
+    motionReadyPromise = loadScript(GSAP_CORE_URL)
+      .then(function () { return loadScript(GSAP_ST_URL); })
+      .then(function () { return loadScript(resolveSiblingAsset('animations.js')); });
+
+    motionFallbackTimer = window.setTimeout(function () {
+      if (!window.gsap || !window.ModelAnyMotion) {
+        enableMotionFallback();
+      }
+    }, 2500);
+  }
+
+  function enableMotionFallback() {
+    if (motionSettled) return;
+    motionSettled = true;
+    if (motionFallbackTimer) {
+      window.clearTimeout(motionFallbackTimer);
+      motionFallbackTimer = null;
+    }
+    document.documentElement.classList.add('motion-fallback');
+    document.documentElement.classList.remove('has-motion');
+    if (typeof initScrollRevealFallback === 'function') {
+      initScrollRevealFallback();
+    }
+  }
 
   // --- Mobile Menu Toggle with Focus Trap ---
   const menuToggle = document.getElementById('menu-toggle');
@@ -318,7 +393,7 @@
     });
   }
 
-  function playOrbitLaunchAnimation() {
+  function playOrbitLaunchAnimationFallback() {
     if (!orbitContainer || !orbitLines || prefersReducedMotion) return;
 
     orbitContainer.classList.add('active');
@@ -351,6 +426,18 @@
     setTimeout(function () {
       orbitContainer.classList.remove('active');
     }, delay + 800);
+  }
+
+  function playOrbitLaunchAnimation() {
+    if (!orbitContainer || !orbitLines) return;
+    if (
+      window.ModelAnyMotion &&
+      typeof window.ModelAnyMotion.playOrbitLaunch === 'function' &&
+      window.ModelAnyMotion.playOrbitLaunch(orbitContainer, orbitLines, selectedModels)
+    ) {
+      return;
+    }
+    playOrbitLaunchAnimationFallback();
   }
 
   let resizeTimer;
@@ -556,8 +643,10 @@
     }
   }
 
-  // --- Scroll Reveal Animation ---
-  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+  // --- Scroll Reveal fallback (used only if GSAP fails to load) ---
+  function initScrollRevealFallback() {
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+
     const revealTargets = [
       '.feature-card',
       '.model-card',
@@ -565,7 +654,7 @@
       '.step',
       '.popup-mockup',
       '.privacy-card',
-      '.faq-item',
+      '.faq-list',
       '.popular-link'
     ];
 
@@ -579,7 +668,6 @@
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          // Add slight stagger for grouped elements
           const target = entry.target;
           const siblings = target.parentElement ? target.parentElement.children : [];
           let index = 0;
@@ -600,6 +688,25 @@
     elements.forEach(function (el) {
       observer.observe(el);
     });
+  }
+
+  if (motionReadyPromise) {
+    motionReadyPromise
+      .then(function () {
+        if (motionSettled) return;
+        if (!window.gsap || !window.ModelAnyMotion) {
+          enableMotionFallback();
+          return;
+        }
+        motionSettled = true;
+        if (motionFallbackTimer) {
+          window.clearTimeout(motionFallbackTimer);
+          motionFallbackTimer = null;
+        }
+      })
+      .catch(function () {
+        enableMotionFallback();
+      });
   }
 
   // --- Smooth scroll for anchor links ---
@@ -665,30 +772,7 @@
 
   highlightStep('1');
 
-  // --- FAQ accordion smooth animation ---
-  // Use grid-template-rows trick for smooth height transition
-  var faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(function (item) {
-    var summary = item.querySelector('summary');
-    if (!summary) return;
-
-    item.addEventListener('toggle', function () {
-      var answer = item.querySelector('.faq-answer');
-      if (!answer) return;
-      if (item.open) {
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        // After transition, set to none to allow content reflow
-        setTimeout(function () {
-          if (item.open) answer.style.maxHeight = 'none';
-        }, 300);
-      } else {
-        // Set explicit height first, then collapse
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        requestAnimationFrame(function () {
-          answer.style.maxHeight = '0';
-        });
-      }
-    });
-  });
+  // FAQ open/close uses CSS grid-template-rows (see styles.css).
+  // GSAP enhances it in animations.js when available — do not animate max-height here.
 
 })();

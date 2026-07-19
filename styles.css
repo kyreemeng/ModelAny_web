@@ -333,15 +333,19 @@ ul {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 18px;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .nav-menu a {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink-soft);
   transition: color var(--dur) var(--ease);
   position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-menu a:hover,
@@ -380,8 +384,10 @@ ul {
 }
 
 .nav-cta {
-  padding: 10px 20px;
+  padding: 9px 18px;
   font-size: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-download {
@@ -484,7 +490,7 @@ ul {
   max-width: 560px;
 }
 
-/* Hero entrance animation */
+/* Hero entrance: CSS fallback; GSAP takes over when .has-motion is set */
 .hero-content > * {
   animation: fade-up 0.6s var(--ease-out) both;
 }
@@ -508,6 +514,18 @@ ul {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* While awaiting GSAP, hold hero at rest-opacity 0 to avoid CSS+GSAP double entrance */
+.has-motion:not(.gsap-ready):not(.motion-fallback) .hero-content > *,
+.has-motion:not(.gsap-ready):not(.motion-fallback) .hero-visual {
+  animation: none;
+  opacity: 0;
+}
+
+.has-motion.gsap-ready .hero-content > *,
+.has-motion.gsap-ready .hero-visual {
+  animation: none;
 }
 
 .eyebrow {
@@ -1822,11 +1840,12 @@ ul {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   margin-bottom: 12px;
-  overflow: hidden;
+  overflow: clip;
   transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 
-.faq-item[open] {
+.faq-item[open],
+.faq-item.is-open {
   border-color: var(--brand-accent);
   box-shadow: var(--shadow-sm);
 }
@@ -1835,6 +1854,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   padding: 18px 24px;
   font-size: 16px;
   font-weight: 600;
@@ -1859,21 +1879,29 @@ ul {
 
 .faq-chevron {
   flex-shrink: 0;
-  transition: transform var(--dur) var(--ease);
+  transition: transform 0.35s var(--ease-out);
 }
 
-.faq-item[open] .faq-chevron {
+.faq-item[open] .faq-chevron,
+.faq-item.is-open .faq-chevron {
   transform: rotate(180deg);
 }
 
+/* Smooth open/close via grid (no max-height jump) */
 .faq-answer {
-  padding: 0 24px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s var(--ease), padding 0.3s var(--ease);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-out);
 }
 
-.faq-item[open] .faq-answer {
+.faq-item[open] .faq-answer,
+.faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+  min-height: 0;
   padding: 0 24px 18px;
 }
 
@@ -1881,6 +1909,7 @@ ul {
   font-size: 15px;
   color: var(--ink-soft);
   line-height: 1.7;
+  margin: 0;
 }
 
 .faq-answer code {
@@ -1888,6 +1917,15 @@ ul {
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 13px;
+}
+
+/* When GSAP drives height, disable grid trick to avoid double animation */
+.faq-item.faq-gsap .faq-answer {
+  display: block;
+  grid-template-rows: unset;
+  transition: none;
+  overflow: hidden;
+  height: 0;
 }
 
 /* --- Legal / Privacy page --- */
@@ -2069,7 +2107,7 @@ ul {
   color: var(--brand-primary);
 }
 
-/* --- Scroll Reveal Animation --- */
+/* --- Scroll Reveal Animation (CSS fallback when GSAP unavailable) --- */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -2079,6 +2117,11 @@ ul {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* GSAP reveal targets stay compositor-friendly */
+[data-reveal] {
+  will-change: transform, opacity;
 }
 
 /* --- Locale Switch --- */
@@ -2144,6 +2187,26 @@ ul {
     border: 1px solid var(--border);
     border-radius: var(--radius-pill);
     font-size: 13px;
+  }
+}
+
+/* --- Responsive: Compact desktop nav (avoid wrap/overflow) --- */
+@media (max-width: 1180px) and (min-width: 769px) {
+  .nav-menu {
+    gap: 12px;
+  }
+
+  .nav-menu a {
+    font-size: 13px;
+  }
+
+  .nav-cta {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .nav-container {
+    gap: 16px;
   }
 }
 
@@ -2399,5 +2462,14 @@ ul {
   .hero-content > *,
   .hero-visual {
     animation: none;
+  }
+
+  .has-motion:not(.gsap-ready):not(.motion-fallback) .hero-content > *,
+  .has-motion:not(.gsap-ready):not(.motion-fallback) .hero-visual {
+    opacity: 1;
+  }
+
+  [data-reveal] {
+    will-change: auto;
   }
 }

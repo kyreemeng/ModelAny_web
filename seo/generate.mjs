@@ -282,7 +282,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
       ? `<li aria-current="page">${esc(item.name)}</li>`
       : `<li><a href="${item.href}">${esc(item.name)}</a></li>`
   )).join('\n          ');
-  const faqHtml = faqs(lang).map((item) => `<details class="faq-item"><summary><span>${esc(item.q)}</span></summary><div class="faq-answer"><p>${esc(item.a)}</p></div></details>`).join('\n          ');
+  const faqHtml = faqs(lang).map((item) => `<details class="faq-item"><summary><span>${esc(item.q)}</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>${esc(item.a)}</p></div></div></details>`).join('\n          ');
   const xDefault = lang === 'en'
     ? `\n  <link rel="alternate" hreflang="x-default" href="${pageUrl}">`
     : '';
