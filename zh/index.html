@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#6D5DFB">
 
   <!-- Primary Meta Tags -->
-  <title>一次提问，比较多个 AI 大模型 | ModelAny</title>
-  <meta name="title" content="一次提问，比较多个 AI 大模型 | ModelAny">
+  <title>一次提问，发送给多个 AI 大模型 | ModelAny</title>
+  <meta name="title" content="一次提问，发送给多个 AI 大模型 | ModelAny">
   <meta name="description" content="使用 ModelAny，只需输入一次问题，即可同时获取 ChatGPT、DeepSeek、豆包等多个 AI 大模型的回答并进行比较。免费、开源、本地优先。">
   <meta name="author" content="ModelAny">
   <meta name="application-name" content="ModelAny">
@@ -65,6 +65,13 @@
   <link rel="preconnect" href="https://cdn.vercel-insights.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
+  <!-- Prevent the CSS fallback from starting before GSAP initializes. -->
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('has-motion');
+    }
+  </script>
+
   <!-- Styles -->
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../seo-pages.css">
@@ -116,7 +123,7 @@
         "@type": "WebPage",
         "@id": "https://modelany.app/zh/#webpage",
         "url": "https://modelany.app/zh/",
-        "name": "一次提问，比较多个 AI 大模型 | ModelAny",
+        "name": "一次提问，发送给多个 AI 大模型 | ModelAny",
         "description": "使用 ModelAny，只需输入一次问题，即可同时获取 ChatGPT、DeepSeek、豆包等多个 AI 大模型的回答并进行比较。免费、开源、本地优先。",
         "isPartOf": { "@id": "https://modelany.app/#website" },
         "about": { "@id": "https://modelany.app/#software" },
