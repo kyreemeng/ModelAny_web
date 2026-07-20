@@ -11,7 +11,7 @@ export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/modela
 /** Primary install CTA target. Non-Chrome browsers are handled in download.js. */
 export const DOWNLOAD = CHROME_STORE_URL;
 export const EDGE_STORE_STATUS = 'review';
-export const GITHUB_REPO = 'https://github.com/kyreemeng/ModelAny-Releases';
+export const GITHUB_REPO = 'https://github.com/kyreemeng/ModelAny';
 
 const source = (url, label) => ({ url, label, verifiedAt: DATE });
 

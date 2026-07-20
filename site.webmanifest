@@ -1,7 +1,7 @@
 {
-  "name": "ModelAny — Send One Prompt to Every AI",
+  "name": "ModelAny — Ask Every AI Model, All at Once",
   "short_name": "ModelAny",
-  "description": "A Chrome extension that sends one prompt to multiple AI models, helping you compare perspectives faster.",
+  "description": "A free Chrome extension that lets you ask multiple AI models the same question at once and compare answers faster.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

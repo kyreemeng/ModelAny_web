@@ -26,8 +26,8 @@
     { id: 'wenxin',   name: 'Wenxin',   color: '#2F6BFF', url: 'https://wenxin.baidu.com/' }
   ];
 
-  const GITHUB_API_URL = 'https://api.github.com/repos/kyreemeng/ModelAny-Releases';
-  const GITHUB_REPO_URL = 'https://github.com/kyreemeng/ModelAny-Releases';
+  const GITHUB_API_URL = 'https://api.github.com/repos/kyreemeng/ModelAny';
+  const GITHUB_REPO_URL = 'https://github.com/kyreemeng/ModelAny';
   const GSAP_CORE_URL = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js';
   const GSAP_ST_URL = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js';
 

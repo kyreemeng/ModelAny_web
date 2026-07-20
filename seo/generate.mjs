@@ -233,6 +233,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   const switchLang = lang === 'zh' ? 'en' : 'zh';
   const switchHreflang = lang === 'zh' ? 'en' : 'zh-CN';
   const downloadLabel = lang === 'zh' ? '安装扩展' : 'Install extension';
+  const ogImage = lang === 'zh' ? `${SITE}/assets/og-image-zh.jpg` : `${SITE}/assets/og-image.jpg`;
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -245,7 +246,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
         author: { '@id': `${SITE}/#organization` },
         publisher: { '@id': `${SITE}/#organization` },
         mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
-        image: `${SITE}/assets/og-image.jpg`,
+        image: ogImage,
         inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
       },
       {
@@ -258,7 +259,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
         breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
         primaryImageOfPage: {
           '@type': 'ImageObject',
-          url: `${SITE}/assets/og-image.jpg`,
+          url: ogImage,
           width: 1200,
           height: 630,
         },
@@ -323,7 +324,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <meta property="og:url" content="${pageUrl}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
-  <meta property="og:image" content="${SITE}/assets/og-image.jpg">
+  <meta property="og:image" content="${ogImage}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${esc(h1)}">
@@ -332,7 +333,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
-  <meta name="twitter:image" content="${SITE}/assets/og-image.jpg">
+  <meta name="twitter:image" content="${ogImage}">
   <meta name="twitter:image:alt" content="${esc(h1)}">
   <link rel="icon" type="image/png" sizes="32x32" href="${base}assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="${base}assets/apple-touch-icon.png">
