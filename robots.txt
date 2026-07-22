@@ -1,4 +1,4 @@
-# robots.txt for ModelAny — https://modelany.app/
+# robots.txt for ModelAny — https://www.modelany.app/
 # Indexing is controlled per page with meta robots. Only reviewed pages are
 # included in sitemap.xml; research drafts remain noindex,follow.
 
@@ -23,4 +23,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://modelany.app/sitemap.xml
+Sitemap: https://www.modelany.app/sitemap.xml

@@ -13,9 +13,9 @@ test('English and Chinese homepages are separate, self-canonical language docume
 
   assert.match(english, /<html lang="en">/);
   assert.match(chinese, /<html lang="zh-CN">/);
-  assert.match(english, /hreflang="zh-CN" href="https:\/\/modelany\.app\/zh\/"/);
-  assert.match(chinese, /hreflang="en" href="https:\/\/modelany\.app\/"/);
-  assert.match(chinese, /<link rel="canonical" href="https:\/\/modelany\.app\/zh\/">/);
+  assert.match(english, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/"/);
+  assert.match(chinese, /hreflang="en" href="https:\/\/www\.modelany\.app\/"/);
+  assert.match(chinese, /<link rel="canonical" href="https:\/\/www\.modelany\.app\/zh\/">/);
   assert.match(english, /data-locale-switch="zh"/);
   assert.match(chinese, /data-locale-switch="en"/);
 });

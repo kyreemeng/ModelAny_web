@@ -5,7 +5,7 @@
  * unless they are tied to a specific official source and verification date.
  */
 export const DATE = '2026-07-19';
-export const SITE = 'https://modelany.app';
+export const SITE = 'https://www.modelany.app';
 export const EXTENSION_VERSION = '1.0.1';
 export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb';
 /** Primary install CTA target. Non-Chrome browsers are handled in download.js. */

@@ -1,151 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://modelany.app/</loc>
+    <loc>https://www.modelany.app/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://modelany.app/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://modelany.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.modelany.app/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.modelany.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.modelany.app/"/>
   </url>
   <url>
-    <loc>https://modelany.app/zh/</loc>
+    <loc>https://www.modelany.app/zh/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://modelany.app/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://modelany.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.modelany.app/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.modelany.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.modelany.app/"/>
   </url>
   <url>
-    <loc>https://modelany.app/benchmarks/</loc>
+    <loc>https://www.modelany.app/benchmarks/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://modelany.app/benchmarks/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/benchmarks/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://modelany.app/benchmarks/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.modelany.app/benchmarks/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.modelany.app/zh/benchmarks/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.modelany.app/benchmarks/"/>
   </url>
   <url>
-    <loc>https://modelany.app/zh/benchmarks/</loc>
+    <loc>https://www.modelany.app/zh/benchmarks/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://modelany.app/benchmarks/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/benchmarks/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://modelany.app/benchmarks/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.modelany.app/benchmarks/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.modelany.app/zh/benchmarks/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.modelany.app/benchmarks/"/>
   </url>
   <url>
-    <loc>https://modelany.app/privacy.html</loc>
+    <loc>https://www.modelany.app/privacy.html</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://modelany.app/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://modelany.app/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.modelany.app/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.modelany.app/zh/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.modelany.app/privacy.html"/>
   </url>
   <url>
-    <loc>https://modelany.app/zh/privacy.html</loc>
+    <loc>https://www.modelany.app/zh/privacy.html</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://modelany.app/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://modelany.app/zh/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://modelany.app/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.modelany.app/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.modelany.app/zh/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.modelany.app/privacy.html"/>
   </url>
   <url>
-    <loc>https://modelany.app/compare/chatgpt-vs-deepseek/</loc>
+    <loc>https://www.modelany.app/compare/chatgpt-vs-deepseek/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/compare/chatgpt-vs-claude/</loc>
+    <loc>https://www.modelany.app/compare/chatgpt-vs-claude/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/compare/chatgpt-vs-gemini/</loc>
+    <loc>https://www.modelany.app/compare/chatgpt-vs-gemini/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/compare/deepseek-vs-claude/</loc>
+    <loc>https://www.modelany.app/compare/deepseek-vs-claude/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/compare/deepseek-vs-gemini/</loc>
+    <loc>https://www.modelany.app/compare/deepseek-vs-gemini/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/compare/claude-vs-gemini/</loc>
+    <loc>https://www.modelany.app/compare/claude-vs-gemini/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/wenxin-vs-chatgpt/</loc>
+    <loc>https://www.modelany.app/zh/compare/wenxin-vs-chatgpt/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/qwen-vs-chatgpt/</loc>
+    <loc>https://www.modelany.app/zh/compare/qwen-vs-chatgpt/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/doubao-vs-chatgpt/</loc>
+    <loc>https://www.modelany.app/zh/compare/doubao-vs-chatgpt/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/kimi-vs-chatgpt/</loc>
+    <loc>https://www.modelany.app/zh/compare/kimi-vs-chatgpt/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/glm-vs-chatgpt/</loc>
+    <loc>https://www.modelany.app/zh/compare/glm-vs-chatgpt/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/qwen-vs-deepseek/</loc>
+    <loc>https://www.modelany.app/zh/compare/qwen-vs-deepseek/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/glm-vs-deepseek/</loc>
+    <loc>https://www.modelany.app/zh/compare/glm-vs-deepseek/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/kimi-vs-deepseek/</loc>
+    <loc>https://www.modelany.app/zh/compare/kimi-vs-deepseek/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/zh/compare/doubao-vs-deepseek/</loc>
+    <loc>https://www.modelany.app/zh/compare/doubao-vs-deepseek/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://modelany.app/compare/</loc>
+    <loc>https://www.modelany.app/compare/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

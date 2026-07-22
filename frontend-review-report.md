@@ -39,7 +39,7 @@
 |---|------|--------|----------|
 | UX-16 | **切换机制是整页跳转**（`/` ↔ `/zh/`），无任何过渡动画，体验割裂；`locale.js` 仅写 cookie，无转场 | P1 | 方案 A（轻量）：跳转前 `document.body.classList.add('locale-transitioning')`，CSS 加 200ms 淡出；方案 B（重）：用 `fetch` + `morphdom` 做局部替换，保持滚动位置 |
 | UX-17 | **`zh/index.html` 的 JSON-LD 结构化数据未完全本地化**：`WebPage.name` / `HowTo.name` / `FAQPage` 的 `Question.name` 仍是英文，但 `acceptedAnswer.text` 是中文 — Google 抓取时中英混杂，影响中文 SEO | P0 | 将 `zh/index.html` 的 JSON-LD 中所有 `name` 字段本地化为中文（如 "什么是 ModelAny？" / "如何使用 ModelAny"） |
-| UX-18 | `zh/index.html` 的 `WebPage.@id` 仍指向 `https://modelany.app/#webpage`（与英文版冲突），且 `url` 仍指向 `/` 而非 `/zh/` | P0 | `@id` 改为 `https://modelany.app/zh/#webpage`，`url` 改为 `https://modelany.app/zh/` |
+| UX-18 | `zh/index.html` 的 `WebPage.@id` 仍指向 `https://www.modelany.app/#webpage`（与英文版冲突），且 `url` 仍指向 `/` 而非 `/zh/` | P0 | `@id` 改为 `https://www.modelany.app/zh/#webpage`，`url` 改为 `https://www.modelany.app/zh/` |
 | UX-19 | `script.js:111` 通过 `document.documentElement.lang === 'zh-CN'` 判断语言，但 `index.html` 的 `<html lang="en">` 与 `zh/index.html` 的 `<html lang="zh-CN">` 已正确设置 — 逻辑可行，但冗余判断 `body.classList.contains('locale-zh')` 可移除 | P2 | 保留 `lang` 判断，删除 `classList` 冗余检查 |
 | UX-20 | 语言切换为 `<a>` 链接，键盘可达，但**没有 `aria-current` 标识当前语言**，辅助技术无法感知"当前在英文站" | P2 | 当前语言的链接加 `aria-current="true"` 并用样式区分 |
 

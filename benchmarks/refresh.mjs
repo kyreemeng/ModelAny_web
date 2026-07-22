@@ -17,7 +17,7 @@ const timeout = AbortSignal.timeout(25_000);
 
 async function fetchText(url) {
   const response = await fetch(url, {
-    headers: { accept: 'application/json,text/html;q=0.9,*/*;q=0.1', 'user-agent': 'ModelAnyBenchmarkBot/1.0 (+https://modelany.app/benchmarks/)' },
+    headers: { accept: 'application/json,text/html;q=0.9,*/*;q=0.1', 'user-agent': 'ModelAnyBenchmarkBot/1.0 (+https://www.modelany.app/benchmarks/)' },
     signal: timeout,
   });
   if (!response.ok) throw new Error(`${response.status} ${url}`);

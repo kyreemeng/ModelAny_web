@@ -4,12 +4,12 @@
 
 # ModelAny：一次提问，发送给多个 AI 大模型
 
-[ModelAny](https://modelany.app) 是一款免费开源的 Chrome 扩展。只需输入一次问题，即可同时获取 ChatGPT、Gemini、DeepSeek、Kimi、通义千问、豆包、文心和智谱 GLM 等多个 AI 大模型的回答并进行比较。
+[ModelAny](https://www.modelany.app) 是一款免费开源的 Chrome 扩展。只需输入一次问题，即可同时获取 ChatGPT、Gemini、DeepSeek、Kimi、通义千问、豆包、文心和智谱 GLM 等多个 AI 大模型的回答并进行比较。
 
 不用在多个 AI 标签页之间反复复制粘贴，让研究、写作、编程、学习和头脑风暴更高效。
 
 <p align="center">
-  <a href="https://modelany.app">访问官网</a> ·
+  <a href="https://www.modelany.app">访问官网</a> ·
   <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb">Chrome 商店安装</a>
 </p>
 
@@ -73,7 +73,7 @@ ModelAny 采用本地优先设计：
 
 ## 项目链接
 
-- 官网：[modelany.app](https://modelany.app)
+- 官网：[modelany.app](https://www.modelany.app)
 - 下载：[Chrome Web Store](https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb)
 - GitHub：[kyreemeng/ModelAny](https://github.com/kyreemeng/ModelAny)
 - 联系邮箱：kyreemeng@gmail.com

@@ -1,7 +1,7 @@
 # ModelAny — SEO Optimization Audit Report
 
 **Date:** 2026-07-12
-**Site:** https://modelany.app/
+**Site:** https://www.modelany.app/
 **Scope:** Full on-page + technical SEO optimization of the ModelAny landing page
 
 ---
@@ -45,7 +45,7 @@ The landing page had a solid semantic foundation but contained several **critica
 
 ### 3.1 Critical HTML & Canonical Fixes
 - Moved Google Analytics (gtag.js) from invalid position into `<head>` with `async`
-- Canonical, `og:url`, all absolute URLs → `https://modelany.app/`
+- Canonical, `og:url`, all absolute URLs → `https://www.modelany.app/`
 - Verified `modelany.app` is live (HTTP 308 → www, 200); `modelany.ai` does not resolve
 - Eliminated all `modelany.ai` references (0 remaining)
 
@@ -153,8 +153,8 @@ Generated a full icon set from the 512×512 master using `sips` + Pillow:
 These cannot be completed in code and require manual action:
 
 1. **Google Search Console** (highest priority)
-   - Add property `modelany.app` (or `https://modelany.app/` URL-prefix)
-   - Submit `sitemap.xml` at `https://modelany.app/sitemap.xml`
+   - Add property `modelany.app` (or `https://www.modelany.app/` URL-prefix)
+   - Submit `sitemap.xml` at `https://www.modelany.app/sitemap.xml`
    - Request indexing of the homepage
    - Monitor Coverage + Core Web Vitals report after first crawl
 2. **Bing Webmaster Tools** — submit sitemap for Bing indexing

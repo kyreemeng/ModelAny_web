@@ -29,8 +29,8 @@ test('English and Chinese benchmark pages are paired and explain limits', async 
     projectFile('benchmarks.js'),
   ]);
 
-  assert.match(english, /hreflang="zh-CN" href="https:\/\/modelany\.app\/zh\/benchmarks\//);
-  assert.match(chinese, /hreflang="en" href="https:\/\/modelany\.app\/benchmarks\//);
+  assert.match(english, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/benchmarks\//);
+  assert.match(chinese, /hreflang="en" href="https:\/\/www\.modelany\.app\/benchmarks\//);
   assert.match(english, /Scores from different benchmarks cannot be added together/);
   assert.match(chinese, /不同基准的分数不能相加或直接比较/);
   assert.match(english, /data-benchmark-url="\.\/data\/latest\.json"/);

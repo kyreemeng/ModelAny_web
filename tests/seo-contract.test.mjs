@@ -75,7 +75,7 @@ test('core compare pages with shared evidence are indexable; research drafts sta
   assert.doesNotMatch(comparison, /<meta name="robots" content="noindex, follow/);
   assert.doesNotMatch(hub, /<meta name="robots" content="noindex, follow/);
   assert.match(useCase, /<meta name="robots" content="noindex, follow/);
-  assert.match(sitemap, /https:\/\/modelany\.app\/compare\/</);
+  assert.match(sitemap, /https:\/\/www\.modelany\.app\/compare\/</);
   assert.match(sitemap, /\/compare\/chatgpt-vs-deepseek\//);
   assert.doesNotMatch(sitemap, /\/best-for\/coding\//);
   assert.match(comparison, /public benchmark/i);
@@ -89,20 +89,20 @@ test('generated comparison pages avoid unsupported rankings and FAQ rich-result 
   assert.match(html, /"@type":"WebPage"/);
   assert.match(html, /More evidence-backed model comparisons/);
   assert.match(html, /hreflang="x-default"/);
-  assert.doesNotMatch(html, /hreflang="zh-CN" href="https:\/\/modelany\.app\/zh\/benchmarks\//);
+  assert.doesNotMatch(html, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/benchmarks\//);
 });
 
 test('sitemap declares reciprocal language alternates only for equivalent pages', async () => {
   const sitemap = await projectFile('sitemap.xml');
   assert.match(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/);
-  assert.match(sitemap, /hreflang="zh-CN" href="https:\/\/modelany\.app\/zh\/benchmarks\/"/);
-  const comparisonEntry = sitemap.match(/<url>\s*<loc>https:\/\/modelany\.app\/compare\/chatgpt-vs-deepseek\/<\/loc>[\s\S]*?<\/url>/)?.[0] || '';
+  assert.match(sitemap, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/benchmarks\/"/);
+  const comparisonEntry = sitemap.match(/<url>\s*<loc>https:\/\/www\.modelany\.app\/compare\/chatgpt-vs-deepseek\/<\/loc>[\s\S]*?<\/url>/)?.[0] || '';
   assert.doesNotMatch(comparisonEntry, /hreflang="zh-CN"/);
 });
 
 test('every sitemap page includes first-party traffic measurement', async () => {
   const sitemap = await projectFile('sitemap.xml');
-  const urls = [...sitemap.matchAll(/<loc>https:\/\/modelany\.app(.*?)<\/loc>/g)].map((match) => match[1]);
+  const urls = [...sitemap.matchAll(/<loc>https:\/\/www\.modelany\.app(.*?)<\/loc>/g)].map((match) => match[1]);
 
   for (const url of urls) {
     const path = url === '/'
