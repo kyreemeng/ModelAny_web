@@ -46,6 +46,14 @@ function loadTests() {
   return JSON.parse(readFileSync(TEST_RECORD_PATH, 'utf8'));
 }
 
+function approvedReview(tests, section, slug) {
+  const review = tests[`${section}/${slug}`];
+  if (!review || review.status !== 'approved' || review.method !== 'editorial-source-review') return null;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(review.reviewedAt || '')) return null;
+  if (!review.summary || !review.methodology || !Array.isArray(review.criteria) || review.criteria.length < 3) return null;
+  return review;
+}
+
 function resolveModels(ids) {
   return ids.map((id) => {
     if (!models[id]) throw new Error(`Unknown model: ${id}`);
@@ -186,7 +194,7 @@ function relatedComparisonsHtml(currentPage, lang) {
         </section>`;
 }
 
-function researchBody(page, items, lang = 'en') {
+function researchBody(page, items, lang = 'en', review = null) {
   const names = items.map((item) => item.name).join(lang === 'zh' ? '、' : ', ');
   const modelIds = page.models || (page.target ? [page.target] : items.map((item) => item.id));
   const evidence = modelIds.length >= 2 && hasSharedBenchmarkData(modelIds)
@@ -194,6 +202,26 @@ function researchBody(page, items, lang = 'en') {
     : `<section class="seo-section"><h2>${lang === 'zh' ? '公开评测' : 'Public benchmarks'}</h2><p>${lang === 'zh'
       ? '当前快照里还没有足以支撑本页全部产品并列比较的公开评测结果，因此本页不发布能力排名。'
       : 'The current snapshot does not yet contain shared public benchmark coverage for every product on this page, so no capability ranking is published.'}</p><p><a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '查看已有公开评测数据' : 'Browse available public benchmark data'}</a></p></section>`;
+  if (review) {
+    const criteria = review.criteria.map((criterion) => `<li>${esc(criterion)}</li>`).join('\n            ');
+    return `<div class="quick-verdict">
+          <h2>${lang === 'zh' ? '编辑审校结论' : 'Editorially reviewed guide'}</h2>
+          <p>${esc(review.summary)}</p>
+        </div>
+        <section class="seo-section" aria-labelledby="selection-criteria-heading">
+          <h2 id="selection-criteria-heading">${lang === 'zh' ? '选择时要核对什么' : 'What to evaluate'}</h2>
+          <ul>
+            ${criteria}
+          </ul>
+        </section>
+        <section class="seo-section" aria-labelledby="review-method-heading">
+          <h2 id="review-method-heading">${lang === 'zh' ? '审校方法与范围' : 'Review method and scope'}</h2>
+          <p>${esc(review.methodology)}</p>
+          <p>${lang === 'zh' ? `最后审校：${esc(review.reviewedAt)}。` : `Last editorial review: ${esc(review.reviewedAt)}.`}</p>
+        </section>
+        ${evidence}
+        ${sourcesHtml(items, lang)}`;
+  }
   return `<div class="quick-verdict">
           <h2>${lang === 'zh' ? '研究稿状态' : 'Research-draft status'}</h2>
           <p>${lang === 'zh'
@@ -224,7 +252,7 @@ function faqs(lang) {
       ];
 }
 
-function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', indexable = false, breadcrumbs, localeHref }) {
+function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', indexable = false, breadcrumbs, localeHref, dateModified = DATE }) {
   const base = assetBase(path);
   const pageUrl = `${SITE}${canonical}`;
   const robots = indexable ? 'index, follow, max-image-preview:large, max-snippet:-1' : 'noindex, follow, max-image-preview:large, max-snippet:-1';
@@ -242,7 +270,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
         '@id': `${pageUrl}#article`,
         headline: h1,
         description,
-        dateModified: DATE,
+        dateModified,
         author: { '@id': `${SITE}/#organization` },
         publisher: { '@id': `${SITE}/#organization` },
         mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
@@ -264,7 +292,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
           height: 630,
         },
         inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
-        dateModified: DATE,
+        dateModified,
       },
       {
         '@type': 'BreadcrumbList',
@@ -351,7 +379,9 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <main id="main" class="seo-main"><div class="container seo-container">
     <nav class="seo-breadcrumb" aria-label="Breadcrumb"><ol>${crumbHtml}</ol></nav>
     <article class="seo-article">
-      <header class="seo-header"><p class="seo-eyebrow">${lang === 'zh' ? '公开评测快照' : 'Public benchmark snapshot'}: ${DATE}</p><h1>${esc(h1)}</h1></header>
+      <header class="seo-header"><p class="seo-eyebrow">${dateModified === DATE
+        ? `${lang === 'zh' ? '公开评测快照' : 'Public benchmark snapshot'}: ${DATE}`
+        : `${lang === 'zh' ? '最后编辑审校' : 'Last editorial review'}: ${dateModified}`}</p><h1>${esc(h1)}</h1></header>
       ${body}
       <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">${lang === 'zh' ? '常见问题' : 'Frequently asked questions'}</h2><div class="faq-list">${faqHtml}</div></section>
       <section class="seo-cta"><h2>${lang === 'zh' ? '用同一提示词比较多个模型' : 'Compare multiple models with one prompt'}</h2><p>${lang === 'zh' ? 'ModelAny 已在 Chrome 网上应用店上架；Microsoft Edge 扩展仍在审核中。草稿、设置与历史保留在浏览器本地。' : 'ModelAny is available on the Chrome Web Store. The Microsoft Edge Add-ons listing is still under review. Drafts, settings, and history remain in your browser.'}</p><a href="${DOWNLOAD}" data-download-cta class="btn btn-primary btn-pill">${downloadLabel}</a></section>
@@ -408,20 +438,29 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
 function generateDraft(page, section, items, tests, lang = 'en') {
   const canonical = `/${section}/${page.slug}/`;
   const path = `${section}/${page.slug}/index.html`;
-  const h1 = lang === 'zh' ? `${page.keyword}：研究稿` : `${titleCase(page.keyword)}: research draft`;
+  const review = approvedReview(tests, section, page.slug);
+  const indexable = Boolean(review);
+  const h1 = review
+    ? (lang === 'zh' ? page.keyword : titleCase(page.keyword))
+    : (lang === 'zh' ? `${page.keyword}：研究稿` : `${titleCase(page.keyword)}: research draft`);
+  const description = review
+    ? review.summary
+    : (lang === 'zh' ? `待补充第一方测试与人工审校的 ${page.keyword} 研究稿。` : `A ${page.keyword} research draft awaiting first-party testing and editorial review.`);
   return {
     path,
     url: canonical,
-    indexable: false,
+    indexable,
+    lastmod: review?.reviewedAt || DATE,
     content: htmlPage({
       path,
       canonical,
       title: `${h1} | ModelAny`,
-      description: lang === 'zh' ? `待补充第一方测试与人工审校的 ${page.keyword} 研究稿。` : `A ${page.keyword} research draft awaiting first-party testing and editorial review.`,
+      description,
       h1,
       lang,
-      body: researchBody(page, items, lang),
-      indexable: false,
+      body: researchBody(page, items, lang, review),
+      indexable,
+      dateModified: review?.reviewedAt || DATE,
       breadcrumbs: [{ name: 'Home', href: '/' }, { name: section, href: `/${section}/` }, { name: page.keyword, href: canonical }],
     }),
   };
@@ -470,7 +509,11 @@ function writeRedirectConfig() {
         permanent: true,
       },
     ]);
-  const redirects = [...pairRedirects, ...removedCompareRedirects];
+  const redirects = [
+    { source: '/index.html', destination: '/', permanent: true },
+    ...pairRedirects,
+    ...removedCompareRedirects,
+  ];
   writeFileSync(join(ROOT, 'vercel.json'), `${JSON.stringify({ redirects }, null, 2)}\n`, 'utf8');
 }
 
@@ -505,7 +548,12 @@ function writeSitemap(records) {
     { url: '/zh/benchmarks/', priority: '0.8', changefreq: 'daily' },
     { url: '/privacy.html', priority: '0.3', changefreq: 'yearly' },
     { url: '/zh/privacy.html', priority: '0.3', changefreq: 'yearly' },
-    ...indexable.map((record) => ({ url: record.url, priority: '0.8', changefreq: 'weekly' })),
+    ...indexable.map((record) => ({
+      url: record.url,
+      priority: '0.8',
+      changefreq: 'weekly',
+      lastmod: record.lastmod || DATE,
+    })),
   ];
   const languagePairs = {
     '/': { en: '/', zh: '/zh/' },
@@ -525,7 +573,7 @@ function writeSitemap(records) {
       : '';
     return `  <url>
     <loc>${SITE}${entry.url}</loc>
-    <lastmod>${DATE}</lastmod>
+    <lastmod>${entry.lastmod || DATE}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
     <priority>${entry.priority}</priority>${alternates}
   </url>`;

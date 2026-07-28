@@ -1,1 +1,62 @@
-{}
+{
+  "best-for/research": {
+    "status": "approved",
+    "reviewedAt": "2026-07-28",
+    "method": "editorial-source-review",
+    "summary": "A neutral guide for choosing an AI research assistant by source traceability, task fit, privacy requirements, and the ability to verify outputs.",
+    "methodology": "The editorial review checked the page scope, linked each product to its official entry point or plan information, and removed unsupported universal rankings. This guide does not claim benchmark or first-party performance results.",
+    "criteria": [
+      "Can the tool show links or citations that you can open and verify?",
+      "Can it turn a broad question into a research plan, while separating facts from assumptions?",
+      "Do its privacy, account, and regional-access terms fit the material you will share?"
+    ]
+  },
+  "best-for/essays": {
+    "status": "approved",
+    "reviewedAt": "2026-07-28",
+    "method": "editorial-source-review",
+    "summary": "A neutral guide for selecting an AI writing assistant for outlining, revision, citation checking, and retaining the writer's own voice.",
+    "methodology": "The editorial review checked the page scope, linked each product to its official entry point or plan information, and removed unsupported universal rankings. This guide does not claim benchmark or first-party performance results.",
+    "criteria": [
+      "Can you use the model to outline and revise without submitting work you are not permitted to share?",
+      "Can you verify every quotation, citation, statistic, and reference against the original source?",
+      "Does the output need substantial editing to meet your course, publisher, or style requirements?"
+    ]
+  },
+  "best-for/data-analysis": {
+    "status": "approved",
+    "reviewedAt": "2026-07-28",
+    "method": "editorial-source-review",
+    "summary": "A neutral guide for assessing AI tools for data-analysis workflows, including data handling, reproducible calculations, and review of generated code.",
+    "methodology": "The editorial review checked the page scope, linked each product to its official entry point or plan information, and removed unsupported universal rankings. This guide does not claim benchmark or first-party performance results.",
+    "criteria": [
+      "Can you keep sensitive data out of prompts or use an approved workspace for it?",
+      "Can a teammate rerun the generated steps, formulas, SQL, or code against the same input?",
+      "Can you inspect assumptions, missing values, and calculations before acting on a result?"
+    ]
+  },
+  "best-for/blog-posts": {
+    "status": "approved",
+    "reviewedAt": "2026-07-28",
+    "method": "editorial-source-review",
+    "summary": "A neutral guide for choosing an AI assistant for blog planning, drafting, fact checking, and editorial revision.",
+    "methodology": "The editorial review checked the page scope, linked each product to its official entry point or plan information, and removed unsupported universal rankings. This guide does not claim benchmark or first-party performance results.",
+    "criteria": [
+      "Can you supply a clear audience, brief, examples, and editorial constraints?",
+      "Can every factual claim be checked against an authoritative source before publication?",
+      "Does the final draft add original reporting, experience, analysis, or useful examples beyond a generic rewrite?"
+    ]
+  },
+  "pricing/api-startups": {
+    "status": "approved",
+    "reviewedAt": "2026-07-28",
+    "method": "editorial-source-review",
+    "summary": "A neutral API selection guide for startups that need to compare provider documentation, operational fit, cost measurement, and migration risk.",
+    "methodology": "The editorial review checked the page scope, linked each product to its official entry point or plan information, and removed unsupported price or performance claims. Prices, quotas, and availability must be confirmed with each provider before deployment.",
+    "criteria": [
+      "Can you estimate cost from your own prompt, output, retry, and peak-traffic patterns rather than a headline price?",
+      "Do the provider's API documentation, availability, rate limits, and data-handling terms fit your product?",
+      "Can you log quality, latency, failures, and spend so that a provider change remains possible?"
+    ]
+  }
+}

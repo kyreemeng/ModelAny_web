@@ -64,19 +64,24 @@ test('Chinese comparison hub is not published as a standalone page', async () =>
   assert.equal(await exists('zh/compare/index.html'), false);
 });
 
-test('core compare pages with shared evidence are indexable; research drafts stay noindex', async () => {
-  const [comparison, hub, useCase, sitemap] = await Promise.all([
+test('core compare pages and editorially approved guides are indexable; unreviewed drafts stay noindex', async () => {
+  const [comparison, hub, approvedGuide, unreviewedGuide, sitemap] = await Promise.all([
     projectFile('compare/chatgpt-vs-deepseek/index.html'),
     projectFile('compare/index.html'),
+    projectFile('best-for/research/index.html'),
     projectFile('best-for/coding/index.html'),
     projectFile('sitemap.xml'),
   ]);
 
   assert.doesNotMatch(comparison, /<meta name="robots" content="noindex, follow/);
   assert.doesNotMatch(hub, /<meta name="robots" content="noindex, follow/);
-  assert.match(useCase, /<meta name="robots" content="noindex, follow/);
+  assert.doesNotMatch(approvedGuide, /<meta name="robots" content="noindex, follow/);
+  assert.match(approvedGuide, /Editorially reviewed guide/);
+  assert.match(approvedGuide, /Review method and scope/);
+  assert.match(unreviewedGuide, /<meta name="robots" content="noindex, follow/);
   assert.match(sitemap, /https:\/\/www\.modelany\.app\/compare\/</);
   assert.match(sitemap, /\/compare\/chatgpt-vs-deepseek\//);
+  assert.match(sitemap, /\/best-for\/research\//);
   assert.doesNotMatch(sitemap, /\/best-for\/coding\//);
   assert.match(comparison, /public benchmark/i);
 });
@@ -130,7 +135,55 @@ test('reverse comparison routes are permanent Vercel redirects', async () => {
   }
 });
 
-test('test registry is valid JSON and starts empty', async () => {
+test('index.html permanently redirects to the canonical root URL', async () => {
+  const vercel = JSON.parse(await projectFile('vercel.json'));
+  const redirect = vercel.redirects.find((item) => item.source === '/index.html');
+
+  assert.deepEqual(redirect, {
+    source: '/index.html',
+    destination: '/',
+    permanent: true,
+  });
+});
+
+test('editorial review registry only publishes complete, scoped guides', async () => {
   const registry = JSON.parse(await projectFile('seo/data/test-results.json'));
-  assert.deepEqual(registry, {});
+  const expected = [
+    'best-for/research',
+    'best-for/essays',
+    'best-for/data-analysis',
+    'best-for/blog-posts',
+    'pricing/api-startups',
+  ];
+
+  assert.deepEqual(Object.keys(registry).sort(), expected.sort());
+  for (const key of expected) {
+    const review = registry[key];
+    assert.equal(review.status, 'approved');
+    assert.equal(review.method, 'editorial-source-review');
+    assert.match(review.reviewedAt, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(review.summary.length > 80);
+    assert.ok(review.methodology.length > 100);
+    assert.ok(review.criteria.length >= 3);
+  }
+});
+
+test('every editorially approved guide has a self-canonical URL and current sitemap lastmod', async () => {
+  const sitemap = await projectFile('sitemap.xml');
+  const guides = [
+    'best-for/research',
+    'best-for/essays',
+    'best-for/data-analysis',
+    'best-for/blog-posts',
+    'pricing/api-startups',
+  ];
+
+  for (const guide of guides) {
+    const url = `https://www.modelany.app/${guide}/`;
+    const html = await projectFile(`${guide}/index.html`);
+    assert.match(html, new RegExp(`<link rel="canonical" href="${url}">`));
+    assert.match(html, /<meta name="robots" content="index, follow/);
+    assert.doesNotMatch(html, /research draft|Research-draft status/i);
+    assert.match(sitemap, new RegExp(`<loc>${url}</loc>\\s*<lastmod>2026-07-28</lastmod>`));
+  }
 });
