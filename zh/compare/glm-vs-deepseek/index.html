@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#6D5DFB">
+  <meta name="color-scheme" content="light dark">
   <title>GLM / 智谱清言 vs DeepSeek 公开评测对比 | ModelAny</title>
   <meta name="description" content="GLM / 智谱清言 vs DeepSeek 的公开第三方评测结果、精确模型版本与官方来源说明。">
   <meta name="author" content="ModelAny">
@@ -29,17 +30,30 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/apple-touch-icon.png">
   <link rel="manifest" href="../../../site.webmanifest">
-  <link rel="stylesheet" href="../../../styles.css">
+    <script>
+    (function() {
+      var stored = localStorage.getItem('modelany-theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+    })();
+  </script>
+<link rel="stylesheet" href="../../../styles.css">
   <link rel="stylesheet" href="../../../seo-pages.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#article","headline":"GLM / 智谱清言 vs DeepSeek 公开评测对比","description":"GLM / 智谱清言 vs DeepSeek 的公开第三方评测结果、精确模型版本与官方来源说明。","dateModified":"2026-07-19","author":{"@id":"https://www.modelany.app/#organization"},"publisher":{"@id":"https://www.modelany.app/#organization"},"mainEntityOfPage":{"@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#webpage"},"image":"https://www.modelany.app/assets/og-image-zh.jpg","inLanguage":"zh-CN"},{"@type":"WebPage","@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#webpage","url":"https://www.modelany.app/zh/compare/glm-vs-deepseek/","name":"GLM / 智谱清言 vs DeepSeek 公开评测对比","description":"GLM / 智谱清言 vs DeepSeek 的公开第三方评测结果、精确模型版本与官方来源说明。","isPartOf":{"@id":"https://www.modelany.app/#website"},"breadcrumb":{"@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.modelany.app/assets/og-image-zh.jpg","width":1200,"height":630},"inLanguage":"zh-CN","dateModified":"2026-07-19"},{"@type":"BreadcrumbList","@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.modelany.app/zh/"},{"@type":"ListItem","position":2,"name":"评测数据","item":"https://www.modelany.app/zh/benchmarks/"},{"@type":"ListItem","position":3,"name":"GLM / 智谱清言 vs DeepSeek","item":"https://www.modelany.app/zh/compare/glm-vs-deepseek/"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#article","headline":"GLM / 智谱清言 vs DeepSeek 公开评测对比","description":"GLM / 智谱清言 vs DeepSeek 的公开第三方评测结果、精确模型版本与官方来源说明。","dateModified":"2026-07-26","author":{"@id":"https://www.modelany.app/#organization"},"publisher":{"@id":"https://www.modelany.app/#organization"},"mainEntityOfPage":{"@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#webpage"},"image":"https://www.modelany.app/assets/og-image-zh.jpg","inLanguage":"zh-CN"},{"@type":"WebPage","@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#webpage","url":"https://www.modelany.app/zh/compare/glm-vs-deepseek/","name":"GLM / 智谱清言 vs DeepSeek 公开评测对比","description":"GLM / 智谱清言 vs DeepSeek 的公开第三方评测结果、精确模型版本与官方来源说明。","isPartOf":{"@id":"https://www.modelany.app/#website"},"breadcrumb":{"@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.modelany.app/assets/og-image-zh.jpg","width":1200,"height":630},"inLanguage":"zh-CN","dateModified":"2026-07-26"},{"@type":"BreadcrumbList","@id":"https://www.modelany.app/zh/compare/glm-vs-deepseek/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.modelany.app/zh/"},{"@type":"ListItem","position":2,"name":"评测数据","item":"https://www.modelany.app/zh/benchmarks/"},{"@type":"ListItem","position":3,"name":"GLM / 智谱清言 vs DeepSeek","item":"https://www.modelany.app/zh/compare/glm-vs-deepseek/"}]}]}</script>
 </head>
 <body class="seo-page locale-zh">
   <a href="#main" class="skip-link">跳到主要内容</a>
   <header class="site-header"><div class="container nav-container">
     <a href="/zh/" class="brand" aria-label="ModelAny 首页"><img src="../../../assets/favicon-192.png" alt="" class="brand-icon" width="36" height="36"><span class="brand-text">ModelAny</span></a>
-    <nav class="nav-menu" id="nav-menu" aria-label="主导航"><a href="/zh/benchmarks/">评测数据</a><a href="/compare/" data-locale-switch="en" hreflang="en">English</a><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta>安装扩展</a></nav>
+    <nav class="nav-menu" id="nav-menu" aria-label="主导航"><a href="/zh/benchmarks/">评测数据</a><a href="/compare/" data-locale-switch="en">English</a><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta>安装扩展</a></nav>
     <div class="nav-actions">
-      <a href="/compare/" data-locale-switch="en" class="locale-switch locale-switch-compact" hreflang="en" lang="en" aria-current="false">English</a>
+      
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+<a href="/compare/" data-locale-switch="en" class="locale-switch locale-switch-compact" lang="en" aria-current="false">English</a>
       <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill nav-cta">安装扩展</a>
       <button class="menu-toggle" id="menu-toggle" aria-label="切换导航菜单" aria-expanded="false" aria-controls="nav-menu">
         <span class="menu-bar"></span>
@@ -53,18 +67,18 @@
           <li><a href="/zh/benchmarks/">评测数据</a></li>
           <li aria-current="page">GLM / 智谱清言 vs DeepSeek</li></ol></nav>
     <article class="seo-article">
-      <header class="seo-header"><p class="seo-eyebrow">公开评测快照: 2026-07-19</p><h1>GLM / 智谱清言 vs DeepSeek 公开评测对比</h1></header>
+      <header class="seo-header"><p class="seo-eyebrow">内容更新: 2026-07-26</p><h1>GLM / 智谱清言 vs DeepSeek 公开评测对比</h1></header>
       <div class="quick-verdict">
           <h2>如何阅读本页</h2>
-          <p>本页用通俗方式汇总公开第三方评测。它帮助你快速了解公开数据里两边的相对位置，但不能替代你用真实任务亲自试用。</p>
+          <p>本页汇总双方共同出现在同一公开第三方评测中的结果，并标明精确模型版本与原始来源。它便于快速核对公开证据，但不能替代你用真实任务亲自试用。</p>
         </div>
         <section class="seo-section" aria-labelledby="public-evidence-heading">
           <h2 id="public-evidence-heading">公开评测怎么说</h2>
-          <p>下面只展示这些模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，也不能直接宣布谁全面更好。</p>
+          <p>下面只展示这些模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，也不能据此宣布谁全面更好。</p>
           <article class="seo-evidence-card">
           <h3>Arena · 编程偏好</h3>
-          <p>Arena 会让用户在不知道模型身份的情况下选出更好的回答。Elo 越高，说明该类别里越多人偏好这个模型。</p>
-          <p class="seo-evidence-meta">数据抓取时间: 2026年7月21日 14:43 · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">查看原始排行榜</a></p>
+          <p>Arena 让用户在不知道模型身份的情况下选出更好的回答。Elo 越高，说明该类别里偏好票越多——并不等于产品的全面最优。</p>
+          <p class="seo-evidence-meta">数据抓取时间: 2026年7月26日 21:40 · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">查看原始排行榜</a></p>
           <div class="seo-table-wrap">
             <table class="seo-table">
               <thead><tr><th>产品</th><th>精确模型版本</th><th>排名</th><th>成绩</th><th>指标</th></tr></thead>
@@ -72,14 +86,14 @@
               <th scope="row">GLM</th>
               <td>glm-5.2 (max)</td>
               <td>4</td>
-              <td>1593</td>
+              <td>1588</td>
               <td>Elo (Elo)</td>
             </tr>
             <tr>
               <th scope="row">DeepSeek</th>
               <td>deepseek-v4-pro-thinking</td>
-              <td>30</td>
-              <td>1459</td>
+              <td>31</td>
+              <td>1464</td>
               <td>Elo (Elo)</td>
             </tr></tbody>
             </table>
@@ -87,8 +101,8 @@
         </article>
         <article class="seo-evidence-card">
           <h3>SWE-bench Verified · 真实软件问题修复</h3>
-          <p>SWE-bench Verified 衡量的是 AI 编程系统修好真实 GitHub 问题的比例。解决率越高，说明那次测试里修好的问题越多。</p>
-          <p class="seo-evidence-meta">数据抓取时间: 2026年7月21日 14:43 · <a href="https://www.swebench.com/verified" target="_blank" rel="noopener noreferrer">查看原始排行榜</a></p>
+          <p>SWE-bench Verified 衡量 AI 编程系统修好真实 GitHub 问题的比例。解决率越高，说明在该次测试设置中修好的问题越多。</p>
+          <p class="seo-evidence-meta">数据抓取时间: 2026年7月26日 21:40 · <a href="https://www.swebench.com/verified" target="_blank" rel="noopener noreferrer">查看原始排行榜</a></p>
           <div class="seo-table-wrap">
             <table class="seo-table">
               <thead><tr><th>产品</th><th>精确模型版本</th><th>排名</th><th>成绩</th><th>指标</th></tr></thead>
@@ -133,11 +147,11 @@
           </div>
         </section>
         <section class="seo-section">
-          <h2>自己试用时可以看什么</h2>
+          <h2>亲自试用时可核对的事项</h2>
           <ul>
-            <li>你的真实问题能否一次答对，还是还要大量修改。</li>
-            <li>当前套餐下够不够用，以及价格是否可接受。</li>
-            <li>隐私、登录方式和团队协作是否适合你。</li>
+            <li>对你的真实任务，答案是否准确、完整，以及还需要多少人工修改。</li>
+            <li>当前套餐的配额、价格与地区可用性是否满足长期使用。</li>
+            <li>隐私条款、登录方式与团队协作是否符合你的工作要求。</li>
           </ul>
         </section>
         <section class="seo-section" aria-labelledby="related-comparisons-heading">
@@ -155,14 +169,14 @@
           <h2 id="sources-heading">官方来源与核验时间</h2>
           <p>下列链接是本页产品身份与套餐信息的官方来源，最后核验于 2026-07-19。价格、可用模型、配额与地区限制可能变化，请在购买或部署前以官网为准。</p>
           <ul>
-            <li><a href="https://chatglm.cn/" target="_blank" rel="noopener noreferrer">智谱清言官网</a> - 2026-07-19</li>
+            <li><a href="https://chatglm.cn/" target="_blank" rel="noopener noreferrer">GLM / ChatGLM official site</a> - 2026-07-19</li>
             <li><a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener noreferrer">DeepSeek API models and pricing</a> - 2026-07-19</li>
           </ul>
         </section>
-      <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">常见问题</h2><div class="faq-list"><details class="faq-item"><summary><span>这页是否给出绝对排名？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>不会。只有在公开测试条件、原始输出与人工方法完整披露时，才会发布限定条件下的结论。</p></div></div></details>
-          <details class="faq-item"><summary><span>价格和套餐信息可靠吗？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>页面链接到官方来源并标注核验日期；购买前仍应以提供方官网和你所在地区显示的价格为准。</p></div></div></details>
-          <details class="faq-item"><summary><span>ModelAny 会保存提示词吗？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny 采用本地优先设计；提示词仅发送到你选择的 AI 服务，不会上传到 ModelAny 自有服务器。</p></div></div></details></div></section>
-      <section class="seo-cta"><h2>用同一提示词比较多个模型</h2><p>ModelAny 已在 Chrome 网上应用店上架；Microsoft Edge 扩展仍在审核中。草稿、设置与历史保留在浏览器本地。</p><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">安装扩展</a></section>
+      <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">常见问题</h2><div class="faq-list"><details class="faq-item"><summary><span>本页是否给出绝对排名？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>不会。本站只在公开测试条件、原始来源与审校方法可核验时，才呈现限定条件下的结论；不会发布脱离场景的“全面最优”名单。</p></div></div></details>
+          <details class="faq-item"><summary><span>价格和套餐信息是否最终有效？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>页面会链接官方来源并标注核验日期。购买或部署前，请以提供方官网及你所在地区显示的价格与条款为准。</p></div></div></details>
+          <details class="faq-item"><summary><span>ModelAny 会保存提示词吗？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny 采用本地优先设计：草稿、设置与历史保留在浏览器本地；提示词仅发送到你选择的 AI 服务，不会上传到 ModelAny 自有服务器。</p></div></div></details></div></section>
+      <section class="seo-cta"><h2>用同一提示词比较多个模型</h2><p>ModelAny 是免费开源的浏览器扩展，已在 <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Chrome 网上应用店</a> 与 <a href="https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli" target="_blank" rel="noopener noreferrer">Microsoft Edge 加载项</a> 上架。草稿、设置与历史保留在浏览器本地。</p><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">安装扩展</a></section>
     </article>
   </div></main>
   <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="页脚导航"><a href="/zh/privacy.html">隐私</a><a href="/compare/" data-locale-switch="en">English</a><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta>安装扩展</a></nav></div></footer>
@@ -178,5 +192,15 @@
     gtag('config', 'G-CX4BMB7829');
   </script>
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Scroll-to-top button -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" type="button">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile CTA bar -->
+  <div class="mobile-cta-bar">
+    <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install ModelAny — Free</a>
+  </div>
 </body>
 </html>

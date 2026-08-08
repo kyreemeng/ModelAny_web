@@ -1,6 +1,6 @@
 # robots.txt for ModelAny — https://www.modelany.app/
-# Indexing is controlled per page with meta robots. Only reviewed pages are
-# included in sitemap.xml; research drafts remain noindex,follow.
+# Indexing is controlled per page with meta robots. The sitemap contains
+# canonical product, benchmark, comparison, and task-guide URLs.
 
 User-agent: *
 Allow: /

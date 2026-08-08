@@ -18,12 +18,13 @@ test('primary install actions use Chrome Web Store without GitHub release downlo
   assert.ok(html.includes(storeUrl));
   assert.match(html, /data-download-cta/);
   assert.match(html, /Chrome Web Store/);
-  assert.match(html, /Under review/);
+  assert.match(html, /microsoftedge\.microsoft\.com\/addons\/detail\/lfeckjibcfbjfdlepidpmnalpfimhdli/);
   assert.match(html, /browser-icon-chrome/);
   assert.match(html, /browser-icon-edge/);
   assert.doesNotMatch(html, /github\.com\/kyreemeng\/ModelAny-Releases\/releases\/tag/);
   assert.match(download, /isChromeBrowser/);
-  assert.match(download, /Chrome 商店可用|Available on Chrome Web Store/);
+  assert.match(download, /isEdgeBrowser/);
+  assert.match(download, /microsoftedge\.microsoft\.com\/addons\/detail\/lfeckjibcfbjfdlepidpmnalpfimhdli/);
 });
 
 test('the interactive launcher remains available to assistive technology', async () => {

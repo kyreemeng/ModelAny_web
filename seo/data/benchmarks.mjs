@@ -31,16 +31,16 @@ const CATEGORY_LABEL = {
 
 const SOURCE_PLAIN = {
   arena: {
-    en: 'Arena asks people to pick the better answer without knowing which model wrote it. Higher Elo means more people preferred that model in that category.',
-    zh: 'Arena 会让用户在不知道模型身份的情况下选出更好的回答。Elo 越高，说明该类别里越多人偏好这个模型。',
+    en: 'Arena asks people to pick the better answer without knowing which model wrote it. A higher Elo means more preference votes in that category—not an overall product ranking.',
+    zh: 'Arena 让用户在不知道模型身份的情况下选出更好的回答。Elo 越高，说明该类别里偏好票越多——并不等于产品的全面最优。',
   },
   swebench: {
-    en: 'SWE-bench Verified measures how often an AI coding setup can fix real GitHub issues. A higher resolved percentage means more issues were fixed in that test.',
-    zh: 'SWE-bench Verified 衡量的是 AI 编程系统修好真实 GitHub 问题的比例。解决率越高，说明那次测试里修好的问题越多。',
+    en: 'SWE-bench Verified measures how often an AI coding setup can fix real GitHub issues. A higher resolved percentage means more issues were fixed in that specific test setup.',
+    zh: 'SWE-bench Verified 衡量 AI 编程系统修好真实 GitHub 问题的比例。解决率越高，说明在该次测试设置中修好的问题越多。',
   },
   livebench: {
-    en: 'LiveBench scores models on regularly refreshed objective tasks. Higher category scores mean better measured performance on that task type.',
-    zh: 'LiveBench 用定期更新的客观题目给模型打分。类别分数越高，说明该类任务上的测量表现更好。',
+    en: 'LiveBench scores models on regularly refreshed objective tasks. Higher category scores mean better measured performance on that task type—not a universal ranking.',
+    zh: 'LiveBench 用定期更新的客观题目给模型打分。类别分数越高，说明该类任务上的测量表现更好——并不构成通用总排名。',
   },
 };
 

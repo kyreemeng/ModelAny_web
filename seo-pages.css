@@ -98,7 +98,7 @@
   margin: 8px 0 8px;
   padding: 20px 22px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, #F5F3FF 0%, #EEF6FF 100%);
+  background: linear-gradient(135deg, var(--brand-lavender) 0%, var(--brand-mist) 100%);
   border: 1px solid var(--border);
 }
 

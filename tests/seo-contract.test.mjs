@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { hasSharedBenchmarkData } from '../seo/data/benchmarks.mjs';
+import { alternativePages, bestForPages, freePages, pricingPages, productPages } from '../seo/data/pages.mjs';
 
 const root = new URL('../', import.meta.url);
 
@@ -64,8 +65,8 @@ test('Chinese comparison hub is not published as a standalone page', async () =>
   assert.equal(await exists('zh/compare/index.html'), false);
 });
 
-test('core compare pages and editorially approved guides are indexable; unreviewed drafts stay noindex', async () => {
-  const [comparison, hub, approvedGuide, unreviewedGuide, sitemap] = await Promise.all([
+test('core comparisons and task guides are indexable with selection content', async () => {
+  const [comparison, hub, approvedGuide, guide, sitemap] = await Promise.all([
     projectFile('compare/chatgpt-vs-deepseek/index.html'),
     projectFile('compare/index.html'),
     projectFile('best-for/research/index.html'),
@@ -76,13 +77,14 @@ test('core compare pages and editorially approved guides are indexable; unreview
   assert.doesNotMatch(comparison, /<meta name="robots" content="noindex, follow/);
   assert.doesNotMatch(hub, /<meta name="robots" content="noindex, follow/);
   assert.doesNotMatch(approvedGuide, /<meta name="robots" content="noindex, follow/);
-  assert.match(approvedGuide, /Editorially reviewed guide/);
-  assert.match(approvedGuide, /Review method and scope/);
-  assert.match(unreviewedGuide, /<meta name="robots" content="noindex, follow/);
+  assert.match(approvedGuide, /Selection framework/);
+  assert.match(approvedGuide, /What to evaluate/);
+  assert.doesNotMatch(guide, /<meta name="robots" content="noindex, follow/);
+  assert.match(guide, /Validate the same task with ModelAny/);
   assert.match(sitemap, /https:\/\/www\.modelany\.app\/compare\/</);
   assert.match(sitemap, /\/compare\/chatgpt-vs-deepseek\//);
   assert.match(sitemap, /\/best-for\/research\//);
-  assert.doesNotMatch(sitemap, /\/best-for\/coding\//);
+  assert.match(sitemap, /\/best-for\/coding\//);
   assert.match(comparison, /public benchmark/i);
 });
 
@@ -185,5 +187,38 @@ test('every editorially approved guide has a self-canonical URL and current site
     assert.match(html, /<meta name="robots" content="index, follow/);
     assert.doesNotMatch(html, /research draft|Research-draft status/i);
     assert.match(sitemap, new RegExp(`<loc>${url}</loc>\\s*<lastmod>2026-07-28</lastmod>`));
+  }
+});
+
+test('every registered guide and product page is indexable, unique, and uses lightweight navigation', async () => {
+  const guides = [
+    ...bestForPages.map((page) => ({ path: `best-for/${page.slug}/index.html`, url: `/best-for/${page.slug}/` })),
+    ...alternativePages.map((page) => ({ path: `alternatives/${page.slug}/index.html`, url: `/alternatives/${page.slug}/` })),
+    ...freePages.map((page) => ({ path: `free/${page.slug}/index.html`, url: `/free/${page.slug}/` })),
+    ...pricingPages.map((page) => ({ path: `pricing/${page.slug}/index.html`, url: `/pricing/${page.slug}/` })),
+    ...productPages.map((page) => {
+      const prefix = page.pathPrefix ? `${page.pathPrefix}/` : '';
+      return { path: `${prefix}${page.slug}/index.html`, url: `/${prefix}${page.slug}/` };
+    }),
+  ];
+  const sitemap = await projectFile('sitemap.xml');
+  const titles = new Set();
+  const descriptions = new Set();
+
+  for (const guide of guides) {
+    const html = await projectFile(guide.path);
+    const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+    const description = html.match(/<meta name="description" content="([^"]+)">/)?.[1];
+    assert.ok(title, `${guide.url} should have a title`);
+    assert.ok(description, `${guide.url} should have a description`);
+    assert.ok(!titles.has(title), `${guide.url} should have a unique title`);
+    assert.ok(!descriptions.has(description), `${guide.url} should have a unique description`);
+    titles.add(title);
+    descriptions.add(description);
+    assert.match(html, /<meta name="robots" content="index, follow/);
+    assert.doesNotMatch(html, /Research-draft status|research draft/i);
+    assert.match(html, /nav\.js/);
+    assert.doesNotMatch(html, /src="(?:\.\.\/)*script\.js"/);
+    assert.match(sitemap, new RegExp(`<loc>https://www\\.modelany\\.app${guide.url}</loc>`));
   }
 });

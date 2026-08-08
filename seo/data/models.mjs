@@ -8,9 +8,10 @@ export const DATE = '2026-07-19';
 export const SITE = 'https://www.modelany.app';
 export const EXTENSION_VERSION = '1.0.1';
 export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb';
-/** Primary install CTA target. Non-Chrome browsers are handled in download.js. */
+export const EDGE_STORE_URL = 'https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli';
+/** Primary install CTA target. Browser-specific links are handled in download.js. */
 export const DOWNLOAD = CHROME_STORE_URL;
-export const EDGE_STORE_STATUS = 'review';
+export const EDGE_STORE_STATUS = 'available';
 export const GITHUB_REPO = 'https://github.com/kyreemeng/ModelAny';
 
 const source = (url, label) => ({ url, label, verifiedAt: DATE });
@@ -94,7 +95,7 @@ export const models = {
     vendor: '百度',
     productUrl: 'https://wenxin.baidu.com/',
     inModelAny: true,
-    sources: [source('https://wenxin.baidu.com/', '文心一言官网')],
+    sources: [source('https://wenxin.baidu.com/', 'Wenxin (文心一言) official site')],
   },
   qwen: {
     id: 'qwen',
@@ -102,7 +103,7 @@ export const models = {
     vendor: '阿里云',
     productUrl: 'https://qianwen.com/',
     inModelAny: true,
-    sources: [source('https://qianwen.com/', '通义千问官网')],
+    sources: [source('https://qianwen.com/', 'Qwen (通义千问) official site')],
   },
   doubao: {
     id: 'doubao',
@@ -110,7 +111,7 @@ export const models = {
     vendor: '字节跳动',
     productUrl: 'https://www.doubao.com/chat/',
     inModelAny: true,
-    sources: [source('https://www.doubao.com/', '豆包官网')],
+    sources: [source('https://www.doubao.com/', 'Doubao (豆包) official site')],
   },
   kimi: {
     id: 'kimi',
@@ -118,7 +119,7 @@ export const models = {
     vendor: '月之暗面',
     productUrl: 'https://www.kimi.com/',
     inModelAny: true,
-    sources: [source('https://www.kimi.com/', 'Kimi 官网')],
+    sources: [source('https://www.kimi.com/', 'Kimi official site')],
   },
   glm: {
     id: 'glm',
@@ -126,7 +127,7 @@ export const models = {
     vendor: '智谱 AI',
     productUrl: 'https://chatglm.cn/',
     inModelAny: true,
-    sources: [source('https://chatglm.cn/', '智谱清言官网')],
+    sources: [source('https://chatglm.cn/', 'GLM / ChatGLM official site')],
   },
   cursor: {
     id: 'cursor',

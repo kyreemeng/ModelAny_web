@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#6D5DFB">
+  <meta name="color-scheme" content="light dark">
   <title>Claude vs Gemini: public benchmark comparison | ModelAny</title>
   <meta name="description" content="Public third-party benchmark results, exact model versions, and official sources for Claude vs Gemini.">
   <meta name="author" content="ModelAny">
@@ -30,17 +31,30 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
   <link rel="manifest" href="../../site.webmanifest">
-  <link rel="stylesheet" href="../../styles.css">
+    <script>
+    (function() {
+      var stored = localStorage.getItem('modelany-theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+    })();
+  </script>
+<link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../seo-pages.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.modelany.app/compare/claude-vs-gemini/#article","headline":"Claude vs Gemini: public benchmark comparison","description":"Public third-party benchmark results, exact model versions, and official sources for Claude vs Gemini.","dateModified":"2026-07-19","author":{"@id":"https://www.modelany.app/#organization"},"publisher":{"@id":"https://www.modelany.app/#organization"},"mainEntityOfPage":{"@id":"https://www.modelany.app/compare/claude-vs-gemini/#webpage"},"image":"https://www.modelany.app/assets/og-image.jpg","inLanguage":"en"},{"@type":"WebPage","@id":"https://www.modelany.app/compare/claude-vs-gemini/#webpage","url":"https://www.modelany.app/compare/claude-vs-gemini/","name":"Claude vs Gemini: public benchmark comparison","description":"Public third-party benchmark results, exact model versions, and official sources for Claude vs Gemini.","isPartOf":{"@id":"https://www.modelany.app/#website"},"breadcrumb":{"@id":"https://www.modelany.app/compare/claude-vs-gemini/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.modelany.app/assets/og-image.jpg","width":1200,"height":630},"inLanguage":"en","dateModified":"2026-07-19"},{"@type":"BreadcrumbList","@id":"https://www.modelany.app/compare/claude-vs-gemini/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.modelany.app/"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://www.modelany.app/compare/"},{"@type":"ListItem","position":3,"name":"Claude vs Gemini","item":"https://www.modelany.app/compare/claude-vs-gemini/"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.modelany.app/compare/claude-vs-gemini/#article","headline":"Claude vs Gemini: public benchmark comparison","description":"Public third-party benchmark results, exact model versions, and official sources for Claude vs Gemini.","dateModified":"2026-07-26","author":{"@id":"https://www.modelany.app/#organization"},"publisher":{"@id":"https://www.modelany.app/#organization"},"mainEntityOfPage":{"@id":"https://www.modelany.app/compare/claude-vs-gemini/#webpage"},"image":"https://www.modelany.app/assets/og-image.jpg","inLanguage":"en"},{"@type":"WebPage","@id":"https://www.modelany.app/compare/claude-vs-gemini/#webpage","url":"https://www.modelany.app/compare/claude-vs-gemini/","name":"Claude vs Gemini: public benchmark comparison","description":"Public third-party benchmark results, exact model versions, and official sources for Claude vs Gemini.","isPartOf":{"@id":"https://www.modelany.app/#website"},"breadcrumb":{"@id":"https://www.modelany.app/compare/claude-vs-gemini/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.modelany.app/assets/og-image.jpg","width":1200,"height":630},"inLanguage":"en","dateModified":"2026-07-26"},{"@type":"BreadcrumbList","@id":"https://www.modelany.app/compare/claude-vs-gemini/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.modelany.app/"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://www.modelany.app/compare/"},{"@type":"ListItem","position":3,"name":"Claude vs Gemini","item":"https://www.modelany.app/compare/claude-vs-gemini/"}]}]}</script>
 </head>
 <body class="seo-page locale-en">
   <a href="#main" class="skip-link">Skip to main content</a>
   <header class="site-header"><div class="container nav-container">
     <a href="/" class="brand" aria-label="ModelAny home"><img src="../../assets/favicon-192.png" alt="" class="brand-icon" width="36" height="36"><span class="brand-text">ModelAny</span></a>
-    <nav class="nav-menu" id="nav-menu" aria-label="Primary navigation"><a href="/compare/">Compare</a><a href="/benchmarks/">Benchmarks</a><a href="/zh/benchmarks/" data-locale-switch="zh" hreflang="zh-CN">中文</a><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta>Install extension</a></nav>
+    <nav class="nav-menu" id="nav-menu" aria-label="Primary navigation"><a href="/compare/">Compare</a><a href="/benchmarks/">Benchmarks</a><a href="/zh/benchmarks/" data-locale-switch="zh">中文</a><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta>Install extension</a></nav>
     <div class="nav-actions">
-      <a href="/zh/benchmarks/" data-locale-switch="zh" class="locale-switch locale-switch-compact" hreflang="zh-CN" lang="zh-CN" aria-current="false">中文</a>
+      
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+<a href="/zh/benchmarks/" data-locale-switch="zh" class="locale-switch locale-switch-compact" lang="zh-CN" aria-current="false">中文</a>
       <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill nav-cta">Install extension</a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
         <span class="menu-bar"></span>
@@ -54,18 +68,18 @@
           <li><a href="/compare/">Compare</a></li>
           <li aria-current="page">Claude vs Gemini</li></ol></nav>
     <article class="seo-article">
-      <header class="seo-header"><p class="seo-eyebrow">Public benchmark snapshot: 2026-07-19</p><h1>Claude vs Gemini: public benchmark comparison</h1></header>
+      <header class="seo-header"><p class="seo-eyebrow">Content updated: 2026-07-26</p><h1>Claude vs Gemini: public benchmark comparison</h1></header>
       <div class="quick-verdict">
           <h2>How to read this page</h2>
-          <p>This page summarizes public third-party benchmarks in plain language. It helps you see where the models stand in published data, but it does not replace trying them on your own tasks.</p>
+          <p>This page summarizes results from public third-party benchmarks where both products appear in the same category, with exact model versions and original sources. It helps you inspect published evidence quickly, but it does not replace testing the models on your own tasks.</p>
         </div>
         <section class="seo-section" aria-labelledby="public-evidence-heading">
           <h2 id="public-evidence-heading">What public benchmarks show</h2>
           <p>Below are results only from public benchmark categories where every model on this page appears together. Scores from different sources cannot be added up, and they do not prove one model is best overall.</p>
           <article class="seo-evidence-card">
           <h3>Arena · coding preference</h3>
-          <p>Arena asks people to pick the better answer without knowing which model wrote it. Higher Elo means more people preferred that model in that category.</p>
-          <p class="seo-evidence-meta">Retrieved: Jul 21, 2026, 2:43 PM · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
+          <p>Arena asks people to pick the better answer without knowing which model wrote it. A higher Elo means more preference votes in that category—not an overall product ranking.</p>
+          <p class="seo-evidence-meta">Retrieved: Jul 26, 2026, 9:40 PM · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
           <div class="seo-table-wrap">
             <table class="seo-table">
               <thead><tr><th>Product</th><th>Exact model version</th><th>Rank</th><th>Score</th><th>Metric</th></tr></thead>
@@ -73,14 +87,14 @@
               <th scope="row">Claude</th>
               <td>claude-fable-5</td>
               <td>2</td>
-              <td>1636</td>
+              <td>1630</td>
               <td>Elo (Elo)</td>
             </tr>
             <tr>
               <th scope="row">Gemini</th>
-              <td>gemini-3.5-flash</td>
-              <td>20</td>
-              <td>1504</td>
+              <td>gemini-3.6-flash</td>
+              <td>15</td>
+              <td>1526</td>
               <td>Elo (Elo)</td>
             </tr></tbody>
             </table>
@@ -88,8 +102,8 @@
         </article>
         <article class="seo-evidence-card">
           <h3>Arena · search-style preference</h3>
-          <p>Arena asks people to pick the better answer without knowing which model wrote it. Higher Elo means more people preferred that model in that category.</p>
-          <p class="seo-evidence-meta">Retrieved: Jul 21, 2026, 2:43 PM · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
+          <p>Arena asks people to pick the better answer without knowing which model wrote it. A higher Elo means more preference votes in that category—not an overall product ranking.</p>
+          <p class="seo-evidence-meta">Retrieved: Jul 26, 2026, 9:40 PM · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
           <div class="seo-table-wrap">
             <table class="seo-table">
               <thead><tr><th>Product</th><th>Exact model version</th><th>Rank</th><th>Score</th><th>Metric</th></tr></thead>
@@ -97,14 +111,14 @@
               <th scope="row">Claude</th>
               <td>claude-opus-4-6-search</td>
               <td>1</td>
-              <td>1255</td>
+              <td>1253</td>
               <td>Elo (Elo)</td>
             </tr>
             <tr>
               <th scope="row">Gemini</th>
               <td>gemini-3.1-pro-grounding</td>
               <td>7</td>
-              <td>1211</td>
+              <td>1212</td>
               <td>Elo (Elo)</td>
             </tr></tbody>
             </table>
@@ -112,8 +126,8 @@
         </article>
         <article class="seo-evidence-card">
           <h3>Arena · general chat preference</h3>
-          <p>Arena asks people to pick the better answer without knowing which model wrote it. Higher Elo means more people preferred that model in that category.</p>
-          <p class="seo-evidence-meta">Retrieved: Jul 21, 2026, 2:43 PM · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
+          <p>Arena asks people to pick the better answer without knowing which model wrote it. A higher Elo means more preference votes in that category—not an overall product ranking.</p>
+          <p class="seo-evidence-meta">Retrieved: Jul 26, 2026, 9:40 PM · <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
           <div class="seo-table-wrap">
             <table class="seo-table">
               <thead><tr><th>Product</th><th>Exact model version</th><th>Rank</th><th>Score</th><th>Metric</th></tr></thead>
@@ -126,8 +140,8 @@
             </tr>
             <tr>
               <th scope="row">Gemini</th>
-              <td>gemini-3-pro</td>
-              <td>10</td>
+              <td>gemini-3.1-pro-preview</td>
+              <td>8</td>
               <td>1486</td>
               <td>Elo (Elo)</td>
             </tr></tbody>
@@ -136,8 +150,8 @@
         </article>
         <article class="seo-evidence-card">
           <h3>SWE-bench Verified · real software-issue fixing</h3>
-          <p>SWE-bench Verified measures how often an AI coding setup can fix real GitHub issues. A higher resolved percentage means more issues were fixed in that test.</p>
-          <p class="seo-evidence-meta">Retrieved: Jul 21, 2026, 2:43 PM · <a href="https://www.swebench.com/verified" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
+          <p>SWE-bench Verified measures how often an AI coding setup can fix real GitHub issues. A higher resolved percentage means more issues were fixed in that specific test setup.</p>
+          <p class="seo-evidence-meta">Retrieved: Jul 26, 2026, 9:40 PM · <a href="https://www.swebench.com/verified" target="_blank" rel="noopener noreferrer">Open original leaderboard</a></p>
           <div class="seo-table-wrap">
             <table class="seo-table">
               <thead><tr><th>Product</th><th>Exact model version</th><th>Rank</th><th>Score</th><th>Metric</th></tr></thead>
@@ -182,11 +196,11 @@
           </div>
         </section>
         <section class="seo-section">
-          <h2>What to check when you try them yourself</h2>
+          <h2>What to verify in your own trial</h2>
           <ul>
-            <li>Whether your real question is answered well, or still needs heavy editing.</li>
-            <li>Whether the current plan is enough, and whether the price fits.</li>
-            <li>Whether privacy, sign-in, and team features fit your needs.</li>
+            <li>Whether answers to your real tasks are accurate and complete, and how much editing they still need.</li>
+            <li>Whether the current plan’s quotas, pricing, and regional availability fit long-term use.</li>
+            <li>Whether privacy terms, sign-in, and team collaboration match your requirements.</li>
           </ul>
         </section>
         <section class="seo-section" aria-labelledby="related-comparisons-heading">
@@ -207,10 +221,10 @@
             <li><a href="https://gemini.google.com/advanced" target="_blank" rel="noopener noreferrer">Google Gemini plans</a> - 2026-07-19</li>
           </ul>
         </section>
-      <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">Frequently asked questions</h2><div class="faq-list"><details class="faq-item"><summary><span>Does this page publish an absolute ranking?</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>No. Conditional findings are published only when test conditions, raw outputs, and a review method are disclosed.</p></div></div></details>
-          <details class="faq-item"><summary><span>Are pricing and plan details definitive?</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>This page links to official sources and verification dates. Confirm the provider price shown for your region before purchasing.</p></div></div></details>
-          <details class="faq-item"><summary><span>Does ModelAny store prompts?</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny is local-first. Prompts are sent only to the AI services you choose and are not uploaded to ModelAny servers.</p></div></div></details></div></section>
-      <section class="seo-cta"><h2>Compare multiple models with one prompt</h2><p>ModelAny is available on the Chrome Web Store. The Microsoft Edge Add-ons listing is still under review. Drafts, settings, and history remain in your browser.</p><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install extension</a></section>
+      <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">Frequently asked questions</h2><div class="faq-list"><details class="faq-item"><summary><span>Does this page publish an absolute ranking?</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>No. We compare models only where they share the same public test conditions, and we link to the original sources so you can verify. We don't publish a “best overall” list outside a stated context.</p></div></div></details>
+          <details class="faq-item"><summary><span>Are pricing and plan details definitive?</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>This page links to official sources and verification dates. Confirm the price and terms shown for your region on the provider site before purchasing or deploying.</p></div></div></details>
+          <details class="faq-item"><summary><span>Does ModelAny store prompts?</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny is local-first: drafts, settings, and history stay in your browser. Prompts are sent only to the AI services you choose and are not uploaded to ModelAny servers.</p></div></div></details></div></section>
+      <section class="seo-cta"><h2>Compare multiple models with one prompt</h2><p>ModelAny is a free, open-source browser extension available on the <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Chrome Web Store</a> and <a href="https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a>. Drafts, settings, and history remain in your browser.</p><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install extension</a></section>
     </article>
   </div></main>
   <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="Footer navigation"><a href="/privacy.html">Privacy</a><a href="/zh/benchmarks/" data-locale-switch="zh">中文</a><a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta>Install extension</a></nav></div></footer>
@@ -226,5 +240,15 @@
     gtag('config', 'G-CX4BMB7829');
   </script>
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Scroll-to-top button -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" type="button">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile CTA bar -->
+  <div class="mobile-cta-bar">
+    <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install ModelAny — Free</a>
+  </div>
 </body>
 </html>

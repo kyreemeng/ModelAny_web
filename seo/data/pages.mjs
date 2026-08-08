@@ -208,3 +208,67 @@ export const pricingPages = [
   { slug: 'api-startups', keyword: 'best ai api for startups', models: ['deepseek', 'gemini', 'mistral', 'chatgpt'], priority: 'P1' },
   { slug: 'api-small-business', keyword: 'best ai api for small business', models: ['deepseek', 'gemini', 'chatgpt', 'claude'], priority: 'P1' },
 ];
+
+/**
+ * Product-led pages target installation and comparison workflows rather than
+ * unsupported capability rankings. These map to durable search intents that
+ * directly match ModelAny's documented extension features.
+ */
+export const productPages = [
+  {
+    slug: 'compare-ai-models',
+    keyword: 'compare AI models',
+    intent: 'model-comparison-workflow',
+    models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
+    priority: 'P0',
+  },
+  {
+    slug: 'ai-browser-extension',
+    keyword: 'AI browser extension',
+    intent: 'browser-extension',
+    models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
+    priority: 'P0',
+  },
+  {
+    slug: 'side-by-side-ai-comparison',
+    keyword: 'side by side AI comparison',
+    intent: 'model-comparison-workflow',
+    models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
+    priority: 'P1',
+  },
+  {
+    slug: 'ai-browser-extension',
+    pathPrefix: 'zh',
+    keyword: 'AI 浏览器扩展',
+    intent: 'browser-extension',
+    lang: 'zh',
+    models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
+    priority: 'P0',
+  },
+];
+
+const focusCluster = {
+  coding: 'developer-workflows',
+  writing: 'writing-workflows',
+  reasoning: 'reasoning-workflows',
+  research: 'research-workflows',
+  business: 'business-workflows',
+  students: 'learning-workflows',
+};
+
+for (const page of bestForPages) {
+  page.intent = 'use-case-selection';
+  page.cluster = focusCluster[page.focus] || 'use-case-selection';
+}
+for (const page of alternativePages) {
+  page.intent = 'product-substitution';
+  page.cluster = page.focus ? `alternative-${page.focus}` : `alternative-${page.filter || page.target}`;
+}
+for (const page of freePages) {
+  page.intent = 'free-access';
+  page.cluster = page.special || 'free-access';
+}
+for (const page of pricingPages) {
+  page.intent = 'pricing-api-economics';
+  page.cluster = page.keyword.includes('api') ? 'api-economics' : 'plan-economics';
+}

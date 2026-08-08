@@ -4,11 +4,13 @@
  * - Interactive Prompt Launcher simulation (prompt flowing to model nodes)
  * - GitHub Stars API with graceful degradation
  * - Mobile menu toggle with focus trap
- * - GSAP motion layer (hero, scroll reveal, orbit) with CSS fallback
+ * - Native IntersectionObserver scroll reveal (no GSAP dependency)
  * - Prefers-reduced-motion support
  * - Touch-friendly step highlight
  * - Copy success feedback
- * - Error/success status colorization
+ * - Dark mode toggle with localStorage persistence
+ * - Scroll-to-top button
+ * - FAQ accordion with smooth animation
  */
 
 (function () {
@@ -27,84 +29,31 @@
   ];
 
   const GITHUB_API_URL = 'https://api.github.com/repos/kyreemeng/ModelAny';
-  const GITHUB_REPO_URL = 'https://github.com/kyreemeng/ModelAny';
-  const GSAP_CORE_URL = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js';
-  const GSAP_ST_URL = 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js';
+  const BRIDGE_TIMEOUT_MS = 5000;
+  const MAX_PROMPT_LENGTH = 5000;
+  const ORBIT_PULSE_DELAY = 120;
+  const ORBIT_PULSE_DURATION = 600;
+  const ORBIT_CLEANUP_DELAY = 800;
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Opt into JS-driven motion (CSS keeps content visible until GSAP is ready / fallback)
-  if (!prefersReducedMotion) {
-    document.documentElement.classList.add('has-motion');
-  }
-
-  function resolveSiblingAsset(filename) {
-    var current = document.currentScript;
-    var src = current && current.src ? current.src : '';
-    if (!src) {
-      var el = document.querySelector('script[src*="script.js"]');
-      src = el ? el.src : '';
-    }
-    if (!src) return filename;
-    return src.replace(/script\.js(?:\?.*)?$/i, filename);
-  }
-
-  function loadScript(url) {
-    return new Promise(function (resolve, reject) {
-      var existing = document.querySelector('script[src="' + url + '"]');
-      if (existing) {
-        if (existing.dataset.loaded === 'true' || existing.getAttribute('data-loaded') === 'true') {
-          resolve();
-          return;
-        }
-        existing.addEventListener('load', function () { resolve(); }, { once: true });
-        existing.addEventListener('error', function () { reject(new Error('Failed to load ' + url)); }, { once: true });
-        return;
+  // --- Theme Toggle ---
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      const current = document.documentElement.getAttribute('data-theme');
+      const isDark = current === 'dark' ||
+        (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('modelany-theme', next);
+      // Update meta theme-color
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) {
+        metaTheme.setAttribute('content', next === 'dark' ? '#16162A' : '#6D5DFB');
       }
-      var script = document.createElement('script');
-      script.src = url;
-      script.async = false;
-      script.addEventListener('load', function () {
-        script.dataset.loaded = 'true';
-        resolve();
-      }, { once: true });
-      script.addEventListener('error', function () {
-        reject(new Error('Failed to load ' + url));
-      }, { once: true });
-      document.head.appendChild(script);
     });
-  }
-
-  // Kick off GSAP early so CDN download overlaps with the rest of init
-  var motionSettled = false;
-  var motionFallbackTimer = null;
-  var motionReadyPromise = null;
-
-  if (!prefersReducedMotion) {
-    motionReadyPromise = loadScript(GSAP_CORE_URL)
-      .then(function () { return loadScript(GSAP_ST_URL); })
-      .then(function () { return loadScript(resolveSiblingAsset('animations.js')); });
-
-    motionFallbackTimer = window.setTimeout(function () {
-      if (!window.gsap || !window.ModelAnyMotion) {
-        enableMotionFallback();
-      }
-    }, 2500);
-  }
-
-  function enableMotionFallback() {
-    if (motionSettled) return;
-    motionSettled = true;
-    if (motionFallbackTimer) {
-      window.clearTimeout(motionFallbackTimer);
-      motionFallbackTimer = null;
-    }
-    document.documentElement.classList.add('motion-fallback');
-    document.documentElement.classList.remove('has-motion');
-    if (typeof initScrollRevealFallback === 'function') {
-      initScrollRevealFallback();
-    }
   }
 
   // --- Mobile Menu Toggle with Focus Trap ---
@@ -142,13 +91,12 @@
       document.body.classList.add('menu-open');
       menuTriggerBeforeOpen = document.activeElement;
 
-      // Focus trap: keep Tab within menu while open
       focusTrapHandler = function (event) {
         if (event.key !== 'Tab') return;
-        var focusable = getFocusableElements(navMenu);
+        const focusable = getFocusableElements(navMenu);
         if (focusable.length === 0) return;
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
         if (event.shiftKey && document.activeElement === first) {
           event.preventDefault();
           last.focus();
@@ -159,8 +107,7 @@
       };
       document.addEventListener('keydown', focusTrapHandler);
 
-      // Move focus into the menu for screen reader users
-      var firstLink = navMenu.querySelector('a, button');
+      const firstLink = navMenu.querySelector('a, button');
       if (firstLink) {
         setTimeout(function () { firstLink.focus(); }, 100);
       }
@@ -199,16 +146,32 @@
   function handleHeaderScroll() {
     const scrollY = window.scrollY;
     if (scrollY > 10) {
-      header.style.boxShadow = '0 4px 24px rgba(109, 93, 251, 0.08)';
-      header.style.background = 'rgba(255, 255, 255, 0.85)';
+      header.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.06)';
+      header.style.background = 'var(--header-bg-scrolled)';
     } else {
       header.style.boxShadow = 'none';
-      header.style.background = 'rgba(255, 255, 255, 0.7)';
+      header.style.background = 'var(--header-bg)';
     }
   }
 
   if (header) {
     window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  }
+
+  // --- Scroll-to-top Button ---
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 800) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    scrollTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
   }
 
   // --- Interactive Prompt Launcher ---
@@ -224,8 +187,6 @@
   const openSitesButton = document.getElementById('launcher-open-sites');
   const orbitContainer = document.getElementById('orbit-container');
   const orbitLines = document.getElementById('orbit-lines');
-  const MAX_PROMPT_LENGTH = 5000;
-  const BRIDGE_TIMEOUT_MS = 5000;
 
   // Track selected models
   const selectedModels = new Set(MODELS.map(function (m) { return m.id; }));
@@ -259,7 +220,7 @@
     opened: 'Opened the selected model sites. Paste the question yourself.'
   };
 
-  // Toggle chip selection (chips are static in HTML)
+  // Toggle chip selection
   if (launcherChips) {
     launcherChips.querySelectorAll('[data-model]').forEach(function (chip) {
       chip.setAttribute('aria-pressed', String(selectedModels.has(chip.dataset.model)));
@@ -280,48 +241,16 @@
 
   function updateLauncherCounter() {
     if (!launcherInput || !launcherCounter) return;
-    var text = launcherInput.textContent;
-    var chars = Array.from(text);
+    const text = launcherInput.value;
+    const chars = Array.from(text);
     if (chars.length > MAX_PROMPT_LENGTH) {
-      // Preserve cursor position when truncating
-      var selection = window.getSelection();
-      var cursorOffset = 0;
-      if (selection && selection.rangeCount > 0 && launcherInput.contains(selection.anchorNode)) {
-        var range = selection.getRangeAt(0);
-        var preRange = document.createRange();
-        preRange.selectNodeContents(launcherInput);
-        preRange.setEnd(range.startContainer, range.startOffset);
-        cursorOffset = Array.from(preRange.toString()).length;
-      }
-
-      var limited = chars.slice(0, MAX_PROMPT_LENGTH).join('');
-      launcherInput.textContent = limited;
-
-      // Restore cursor
-      if (cursorOffset > 0 && cursorOffset <= MAX_PROMPT_LENGTH) {
-        var newRange = document.createRange();
-        var textNode = launcherInput.firstChild;
-        if (textNode) {
-          var charCount = 0;
-          var pos = 0;
-          var allChars = Array.from(textNode.textContent);
-          for (var i = 0; i < allChars.length; i++) {
-            if (charCount >= cursorOffset) { pos = i; break; }
-            charCount++;
-          }
-          newRange.setStart(textNode, Math.min(pos, textNode.textContent.length));
-          newRange.collapse(true);
-          var sel = window.getSelection();
-          sel.removeAllRanges();
-          sel.addRange(newRange);
-        }
-      }
+      const limited = chars.slice(0, MAX_PROMPT_LENGTH).join('');
+      launcherInput.value = limited;
     }
-    var trimmedLength = Array.from(launcherInput.textContent.trim()).length;
+    const trimmedLength = Array.from(launcherInput.value.trim()).length;
     launcherCounter.textContent = trimmedLength + ' / ' + MAX_PROMPT_LENGTH;
 
-    // Color warning as user approaches limit
-    var ratio = trimmedLength / MAX_PROMPT_LENGTH;
+    const ratio = trimmedLength / MAX_PROMPT_LENGTH;
     launcherCounter.classList.remove('is-warning', 'is-danger');
     if (ratio >= 0.95) {
       launcherCounter.classList.add('is-danger');
@@ -330,7 +259,6 @@
     }
   }
 
-  // Update send button count
   function updateSendCount() {
     if (sendCount) {
       sendCount.textContent = String(selectedModels.size);
@@ -393,8 +321,14 @@
     });
   }
 
-  function playOrbitLaunchAnimationFallback() {
-    if (!orbitContainer || !orbitLines || prefersReducedMotion) return;
+  function playOrbitLaunchAnimation() {
+    if (!orbitContainer || !orbitLines || prefersReducedMotion) {
+      if (orbitContainer) {
+        orbitContainer.classList.add('active');
+        setTimeout(function () { orbitContainer.classList.remove('active'); }, 400);
+      }
+      return;
+    }
 
     orbitContainer.classList.add('active');
     const nodes = orbitContainer.querySelectorAll('.orbit-node');
@@ -411,7 +345,7 @@
           line.style.strokeWidth = '2.5';
         }
       }, delay);
-      delay += 120;
+      delay += ORBIT_PULSE_DELAY;
 
       setTimeout(function () {
         node.classList.remove('pulse');
@@ -420,24 +354,12 @@
           line.style.opacity = '';
           line.style.strokeWidth = '';
         }
-      }, delay + 600);
+      }, delay + ORBIT_PULSE_DURATION);
     });
 
     setTimeout(function () {
       orbitContainer.classList.remove('active');
-    }, delay + 800);
-  }
-
-  function playOrbitLaunchAnimation() {
-    if (!orbitContainer || !orbitLines) return;
-    if (
-      window.ModelAnyMotion &&
-      typeof window.ModelAnyMotion.playOrbitLaunch === 'function' &&
-      window.ModelAnyMotion.playOrbitLaunch(orbitContainer, orbitLines, selectedModels)
-    ) {
-      return;
-    }
-    playOrbitLaunchAnimationFallback();
+    }, delay + ORBIT_CLEANUP_DELAY);
   }
 
   let resizeTimer;
@@ -468,7 +390,7 @@
   }
 
   function selectedPrompt() {
-    return launcherInput ? launcherInput.textContent.trim() : '';
+    return launcherInput ? launcherInput.value.trim() : '';
   }
 
   function requestExtensionLaunch(payload) {
@@ -503,7 +425,6 @@
       if (!prompt) return showLauncherFallback(copy.enterPrompt, true);
       if (!selectedModels.size) return showLauncherFallback(copy.selectModel, true);
 
-      // Apply sending state for visual feedback
       launcherSend.classList.add('sending');
       launcherSend.disabled = true;
       setLauncherStatus(copy.checking, 'info');
@@ -531,13 +452,12 @@
   }
 
   if (copyButton) {
-    var originalCopyText = copyButton.textContent;
+    const originalCopyText = copyButton.textContent;
     copyButton.addEventListener('click', async function () {
       try {
         await navigator.clipboard.writeText(selectedPrompt());
         setLauncherStatus(copy.copied, 'success');
-        // Visual confirmation on button
-        copyButton.textContent = '✓ ' + copy.copied.split('.')[0];
+        copyButton.textContent = '\u2713 ' + copy.copied.split('.')[0];
         copyButton.classList.add('is-success');
         setTimeout(function () {
           copyButton.textContent = originalCopyText;
@@ -545,7 +465,6 @@
         }, 2000);
       } catch {
         setLauncherStatus(copy.copyFailed, 'error');
-        // Add retry button text
         copyButton.textContent = copy.copyRetry;
         copyButton.classList.add('is-error');
         setTimeout(function () {
@@ -628,14 +547,11 @@
         showGithubFallback();
       }
     } catch (err) {
-      // Graceful degradation: show generic text, no fake data
       showGithubFallback();
     }
   }
 
-  // Fetch GitHub stats on load (with slight delay to prioritize above-fold)
   if (githubStarText) {
-    // Use requestIdleCallback if available, otherwise setTimeout
     if ('requestIdleCallback' in window) {
       requestIdleCallback(fetchGitHubStats, { timeout: 3000 });
     } else {
@@ -643,8 +559,8 @@
     }
   }
 
-  // --- Scroll Reveal fallback (used only if GSAP fails to load) ---
-  function initScrollRevealFallback() {
+  // --- Scroll Reveal (native IntersectionObserver, no GSAP) ---
+  function initScrollReveal() {
     if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
 
     const revealTargets = [
@@ -655,7 +571,9 @@
       '.popup-mockup',
       '.privacy-card',
       '.faq-list',
-      '.popular-link'
+      '.popular-link',
+      '.trust-item',
+      '.section-header'
     ];
 
     const selector = revealTargets.join(', ');
@@ -671,7 +589,7 @@
           const target = entry.target;
           const siblings = target.parentElement ? target.parentElement.children : [];
           let index = 0;
-          for (var i = 0; i < siblings.length; i++) {
+          for (let i = 0; i < siblings.length; i++) {
             if (siblings[i] === target) { index = i; break; }
           }
           setTimeout(function () {
@@ -690,24 +608,47 @@
     });
   }
 
-  if (motionReadyPromise) {
-    motionReadyPromise
-      .then(function () {
-        if (motionSettled) return;
-        if (!window.gsap || !window.ModelAnyMotion) {
-          enableMotionFallback();
-          return;
+  initScrollReveal();
+
+  // --- FAQ Accordion (native, no GSAP) ---
+  function initFaqAccordion() {
+    const items = document.querySelectorAll('details.faq-item');
+    items.forEach(function (item) {
+      if (item.dataset.faqBound === '1') return;
+      item.dataset.faqBound = '1';
+
+      const summary = item.querySelector('summary');
+      if (!summary) return;
+
+      // Ensure initial state
+      if (item.open) {
+        item.classList.add('is-open');
+      }
+
+      summary.addEventListener('click', function (event) {
+        event.preventDefault();
+        const isOpen = item.classList.contains('is-open');
+
+        if (isOpen) {
+          // Closing: remove class, wait for transition, then close details
+          item.classList.remove('is-open');
+          setTimeout(function () {
+            if (!item.classList.contains('is-open')) {
+              item.open = false;
+            }
+          }, 400);
+        } else {
+          // Opening: set open, then add class in next frame for transition
+          item.open = true;
+          requestAnimationFrame(function () {
+            item.classList.add('is-open');
+          });
         }
-        motionSettled = true;
-        if (motionFallbackTimer) {
-          window.clearTimeout(motionFallbackTimer);
-          motionFallbackTimer = null;
-        }
-      })
-      .catch(function () {
-        enableMotionFallback();
       });
+    });
   }
+
+  initFaqAccordion();
 
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
@@ -737,7 +678,13 @@
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         sectionLinks.forEach(function (link) {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          const isActive = link.getAttribute('href') === '#' + entry.target.id;
+          link.classList.toggle('active', isActive);
+          if (isActive) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
         });
       });
     }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
@@ -763,7 +710,6 @@
   steps.forEach(function (step) {
     ['mouseenter', 'focus', 'click', 'touchstart'].forEach(function (eventName) {
       step.addEventListener(eventName, function (e) {
-        // For click/touch, prevent default scroll on touchstart
         if (eventName === 'touchstart') e.preventDefault();
         highlightStep(step.dataset.step);
       }, { passive: false });
@@ -772,7 +718,14 @@
 
   highlightStep('1');
 
-  // FAQ open/close uses CSS grid-template-rows (see styles.css).
-  // GSAP enhances it in animations.js when available — do not animate max-height here.
+  // --- Email obfuscation ---
+  document.querySelectorAll('[data-email]').forEach(function (el) {
+    const user = el.dataset.email.split('|')[0];
+    const domain = el.dataset.email.split('|')[1];
+    if (user && domain) {
+      el.textContent = user + '@' + domain;
+      el.setAttribute('href', 'mailto:' + user + '@' + domain);
+    }
+  });
 
 })();

@@ -38,11 +38,11 @@
 
 ## 安装 ModelAny
 
-Chrome 网上应用店已上架。Microsoft Edge Add-ons 仍在审核中。
+Chrome 网上应用店与 Microsoft Edge 加载项均已上架。
 
-1. 打开 [ModelAny Chrome Web Store](https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb)。
-2. 点击“添加至 Chrome”完成安装。
-3. 非 Chrome 浏览器请改用 Google Chrome 安装；Edge 商店上架前暂不提供其他安装入口。
+1. 打开 [ModelAny Chrome Web Store](https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb) 或 [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli)。
+2. 点击“添加至 Chrome”或“获取”完成安装。
+3. 其他 Chromium 浏览器请优先使用上述官方商店入口。
 
 ## 使用方法
 
@@ -90,7 +90,7 @@ python3 -m http.server 8765
 
 ### 程序化 SEO 页面
 
-P0/P1 对比长尾页由 `seo/generate.mjs` 生成，覆盖 `/compare/`、`/best-for/`、`/alternatives/`、`/free/`、`/pricing/`、`/zh/compare/`。页面只有在具备官方来源、完成第一方多模型测试并通过人工审校后才允许索引；未达标页面统一输出 `noindex,follow` 且不会进入 sitemap。
+P0/P1 对比长尾页由 `seo/generate.mjs` 生成，覆盖 `/compare/`、`/best-for/`、`/alternatives/`、`/free/`、`/pricing/`、`/zh/compare/` 和产品工作流页面。比较页只在共享公开评测数据存在时生成；指南页提供任务化选择标准、官方来源、适用范围和同题验证流程，不发布脱离条件的绝对排名。
 
 ```bash
 npm run generate:seo
@@ -104,4 +104,4 @@ npm run generate:seo
 npm run render:benchmarks
 ```
 
-真实测试的采集格式见 [`seo/TESTING_TEMPLATE.md`](seo/TESTING_TEMPLATE.md)。完整原始输出归档后，在 `seo/data/test-results.json` 增加对应 URL 的日期、地区、模型/套餐、方法、人工结论和公开证据链接，再重新运行生成器。
+完整原始输出归档后，可在 `seo/data/test-results.json` 增加对应 URL 的日期、地区、模型/套餐、方法、人工结论和公开证据链接，再重新运行生成器。

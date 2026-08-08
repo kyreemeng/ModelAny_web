@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#6D5DFB">
+  <meta name="color-scheme" content="light dark">
   <title>AI benchmark data by scenario | ModelAny</title>
   <meta name="description" content="Compare independently published AI benchmark results by research, writing, coding, learning, creative work, and everyday assistance. Updated from source snapshots daily.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -26,7 +27,15 @@
   <meta name="twitter:description" content="Public AI benchmark snapshots with exact model versions, metrics, and source links.">
   <meta name="twitter:image" content="https://www.modelany.app/assets/og-image.jpg">
   <link rel="manifest" href="../site.webmanifest">
-  <link rel="stylesheet" href="../styles.css">
+    <script>
+    (function() {
+      var stored = localStorage.getItem('modelany-theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+    })();
+  </script>
+<link rel="stylesheet" href="../styles.css">
   <link rel="icon" type="image/png" href="../assets/favicon-32.png">
   <script type="application/ld+json">
   {
@@ -38,7 +47,7 @@
     "description": "Public AI benchmark snapshots organized by real work scenario, with exact model versions, metrics, and source links.",
     "isPartOf": { "@id": "https://www.modelany.app/#website" },
     "inLanguage": "en",
-    "dateModified": "2026-07-19"
+    "dateModified": "2026-07-26"
   }
   </script>
 </head>
@@ -56,6 +65,12 @@
         <a href="/zh/benchmarks/" data-locale-switch="zh" hreflang="zh-CN" lang="zh-CN">中文</a>
         <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install extension</a>
       </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -281,5 +296,15 @@
   <script src="../benchmarks.js" defer></script>
   <script src="../locale.js" defer></script>
   <script src="../download.js" defer></script>
+
+  <!-- Scroll-to-top button -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" type="button">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile CTA bar -->
+  <div class="mobile-cta-bar">
+    <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install ModelAny — Free</a>
+  </div>
 </body>
 </html>
