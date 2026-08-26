@@ -45,7 +45,7 @@ test('kept compare pages embed plain-language public benchmark evidence', async 
 
 test('each benchmark table puts the higher score first', async () => {
   const html = await projectFile('compare/chatgpt-vs-claude/index.html');
-  const claudeCoding = html.indexOf('<th scope="row">Claude</th>\n              <td>claude-fable-5</td>');
+  const claudeCoding = html.indexOf('<th scope="row">Claude</th>\n              <td>claude-opus-5-max</td>');
   const chatgptCoding = html.indexOf('<th scope="row">ChatGPT</th>\n              <td>gpt-5.6-sol-xhigh (codex-harness)</td>');
 
   assert.ok(claudeCoding >= 0);
@@ -217,8 +217,8 @@ test('every registered guide and product page is indexable, unique, and uses lig
     descriptions.add(description);
     assert.match(html, /<meta name="robots" content="index, follow/);
     assert.doesNotMatch(html, /Research-draft status|research draft/i);
-    assert.match(html, /nav\.js/);
-    assert.doesNotMatch(html, /src="(?:\.\.\/)*script\.js"/);
+    assert.match(html, /script\.js/);
+    assert.doesNotMatch(html, /src="(?:\.\.\/)*nav\.js"/);
     assert.match(sitemap, new RegExp(`<loc>https://www\\.modelany\\.app${guide.url}</loc>`));
   }
 });

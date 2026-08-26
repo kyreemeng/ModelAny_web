@@ -315,7 +315,7 @@ function faqs(lang) {
       ];
 }
 
-function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', indexable = false, breadcrumbs, localeHref, dateModified = CONTENT_UPDATED, pageType = 'Article' }) {
+function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', indexable = false, breadcrumbs, localeHref, dateModified = CONTENT_UPDATED, pageType = 'Article', alternateUrl }) {
   const base = assetBase(path);
   const pageUrl = `${SITE}${canonical}`;
   const robots = indexable ? 'index, follow, max-image-preview:large, max-snippet:-1' : 'noindex, follow, max-image-preview:large, max-snippet:-1';
@@ -325,6 +325,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   const switchHreflang = lang === 'zh' ? 'en' : 'zh-CN';
   const downloadLabel = lang === 'zh' ? '安装扩展' : 'Install extension';
   const ogImage = lang === 'zh' ? `${SITE}/assets/og-image-zh.jpg` : `${SITE}/assets/og-image.jpg`;
+  const datePublished = '2026-07-12';
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -333,6 +334,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
         '@id': `${pageUrl}#article`,
         headline: h1,
         description,
+        datePublished,
         dateModified,
         author: { '@id': `${SITE}/#organization` },
         publisher: { '@id': `${SITE}/#organization` },
@@ -355,6 +357,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
           height: 630,
         },
         inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+        datePublished,
         dateModified,
       },
       {
@@ -375,9 +378,28 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
       : `<li><a href="${item.href}">${esc(item.name)}</a></li>`
   )).join('\n          ');
   const faqHtml = faqs(lang).map((item) => `<details class="faq-item"><summary><span>${esc(item.q)}</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>${esc(item.a)}</p></div></div></details>`).join('\n          ');
-  const xDefault = lang === 'en'
-    ? `\n  <link rel="alternate" hreflang="x-default" href="${pageUrl}">`
-    : '';
+  if (canonical.startsWith('/pricing')) {
+    schema['@graph'].push({
+      '@type': 'SoftwareApplication',
+      '@id': `${SITE}/#software`,
+      name: 'ModelAny',
+      applicationCategory: 'BrowserExtension',
+      operatingSystem: 'Chrome, Edge',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    });
+  }
+  const hreflangBlock = alternateUrl
+    ? `
+  <link rel="alternate" hreflang="en" href="${lang === 'zh' ? `${SITE}${alternateUrl}` : pageUrl}">
+  <link rel="alternate" hreflang="zh-CN" href="${lang === 'zh' ? pageUrl : `${SITE}${alternateUrl}`}">
+  <link rel="alternate" hreflang="x-default" href="${lang === 'zh' ? `${SITE}${alternateUrl}` : pageUrl}">`
+    : `
+  <link rel="alternate" hreflang="${lang === 'zh' ? 'zh-CN' : 'en'}" href="${pageUrl}">
+  <link rel="alternate" hreflang="x-default" href="${pageUrl}">`;
   const themeToggleBtn = `<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
         <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -415,8 +437,7 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <meta name="author" content="ModelAny">
   <meta name="robots" content="${robots}">
   <meta name="googlebot" content="${robots}">
-  <link rel="canonical" href="${pageUrl}">
-  <link rel="alternate" hreflang="${lang === 'zh' ? 'zh-CN' : 'en'}" href="${pageUrl}">${xDefault}
+  <link rel="canonical" href="${pageUrl}">${hreflangBlock}
   <meta property="og:type" content="article">
   <meta property="og:url" content="${pageUrl}">
   <meta property="og:title" content="${esc(title)}">
@@ -566,7 +587,7 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
   const names = items.map((item) => item.name).join(' vs ');
   const h1 = lang === 'zh' ? `${names} 公开评测对比` : `${names}: public benchmark comparison`;
   const description = lang === 'zh'
-    ? `${names} 的公开第三方评测结果、精确模型版本与官方来源说明。`
+    ? `${names} 公开第三方评测对比：列出双方共有的测试项、精确模型版本、原始来源与适用边界，便于用同一提示词自行验证。`
     : `Public third-party benchmark results, exact model versions, and official sources for ${names}.`;
   const retrievedAt = sharedBenchmarkGroups(page.models)
     .map((group) => group.retrievedAt)
@@ -613,8 +634,12 @@ function productBody(page, items, lang) {
       ? '不要把不同模型在不同提示词下的单次输出当作结论。先定义同一个任务和成功标准，再并排检查结果、修改量与限制条件。'
       : 'Do not treat one-off outputs from different prompts as a conclusion. Define one task and success criteria first, then compare results, edits, and constraints side by side.');
   const relatedProduct = browserExtension
-    ? (lang === 'zh' ? { href: '/', label: '了解 ModelAny 多模型工作流' } : { href: '/compare-ai-models/', label: 'Compare AI models with the same prompt' })
-    : (lang === 'zh' ? { href: '/zh/ai-browser-extension/', label: 'AI 浏览器扩展安装说明' } : { href: '/ai-browser-extension/', label: 'AI browser extension installation guide' });
+    ? (lang === 'zh' ? { href: '/zh/compare-ai-models/', label: '对比大模型：同一提示词验证' } : { href: '/compare-ai-models/', label: 'Compare AI models with the same prompt' })
+    : (lang === 'zh' ? { href: '/zh/ai-browser-extension/', label: 'AI 浏览器插件安装说明' } : { href: '/ai-browser-extension/', label: 'ChatGPT Chrome extension installation guide' });
+  const extraRelated = lang === 'zh'
+    ? `<li><a href="/zh/compare/kimi-vs-chatgpt/">查看 Kimi vs ChatGPT 公开评测</a></li>`
+    : `<li><a href="/side-by-side-ai-comparison/">Side-by-side AI comparison workflow</a></li>
+            <li><a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini public benchmarks</a></li>`;
   return `<div class="quick-verdict"><h2>${heading}</h2><p>${intro}</p></div>
         <section class="seo-section" aria-labelledby="workflow-heading">
           <h2 id="workflow-heading">${lang === 'zh' ? '建议工作流' : 'Suggested workflow'}</h2>
@@ -634,6 +659,7 @@ function productBody(page, items, lang) {
           <ul class="seo-index-list">
             <li><a href="${lang === 'zh' ? '/zh/benchmarks/' : '/compare/'}">${lang === 'zh' ? '查看公开评测数据' : 'Browse public model comparisons'}</a></li>
             <li><a href="${relatedProduct.href}">${relatedProduct.label}</a></li>
+            ${extraRelated}
           </ul>
         </section>
         ${publicEvidenceHtml(page.models, lang)}
@@ -646,20 +672,20 @@ function generateProductPage(page) {
   const canonical = `/${prefix}${page.slug}/`;
   const path = `${prefix}${page.slug}/index.html`;
   const items = resolveModels(page.models);
-  const h1 = lang === 'zh'
+  const h1 = page.h1 || (lang === 'zh'
     ? (page.intent === 'browser-extension' ? 'AI 浏览器扩展：用同一提示词比较多个模型' : '并排比较 AI 模型：用同一提示词验证答案')
     : (page.intent === 'browser-extension'
       ? 'AI Browser Extension for Comparing Multiple Models'
       : page.slug === 'side-by-side-ai-comparison'
         ? 'Side-by-Side AI Comparison with the Same Prompt'
-        : 'Compare AI Models Side by Side with the Same Prompt');
-  const description = lang === 'zh'
+        : 'Compare AI Models Side by Side with the Same Prompt'));
+  const description = page.description || (lang === 'zh'
     ? '了解如何通过 ModelAny 在 Chrome 和 Microsoft Edge 中用同一提示词比较多个 AI 服务。'
     : page.intent === 'browser-extension'
       ? 'Install a Chrome or Microsoft Edge AI browser extension for a local-first, same-prompt model comparison workflow.'
       : page.slug === 'side-by-side-ai-comparison'
         ? 'Use a repeatable side-by-side AI comparison workflow to evaluate multiple model responses against the same task.'
-        : 'Compare AI models with the same prompt in Chrome or Microsoft Edge, then review answers, edits, and provider terms side by side.';
+        : 'Compare AI models with the same prompt in Chrome or Microsoft Edge, then review answers, edits, and provider terms side by side.');
   return {
     path,
     url: canonical,
@@ -668,13 +694,14 @@ function generateProductPage(page) {
     content: htmlPage({
       path,
       canonical,
-      title: `${h1} | ModelAny`,
+      title: page.title || `${h1} | ModelAny`,
       description,
       h1,
       lang,
       indexable: true,
       dateModified: CONTENT_UPDATED,
-      localeHref: lang === 'zh' ? '/' : '/zh/',
+      localeHref: page.localePath || (lang === 'zh' ? '/' : '/zh/'),
+      alternateUrl: page.localePath,
       body: productBody(page, items, lang),
       breadcrumbs: [
         { name: lang === 'zh' ? '首页' : 'Home', href: lang === 'zh' ? '/zh/' : '/' },
@@ -746,7 +773,7 @@ function generateHub(section, label, pages, lang = 'en') {
       indexable,
       pageType: 'CollectionPage',
       body: section === 'compare'
-        ? `<div class="quick-verdict"><h2>Evidence before rankings</h2><p>Every comparison below uses results where the models appear in the same public benchmark category. Metrics stay separate, exact model versions are shown, and no single score is treated as a universal ranking.</p></div><section class="seo-section"><h2>Published AI model comparisons</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>Try the same prompt yourself</h2><p>Define a repeatable task, compare answers side by side, and review editing cost before choosing a workflow.</p><ul class="seo-index-list"><li><a href="/compare-ai-models/">Compare AI models with the same prompt</a></li><li><a href="/ai-browser-extension/">AI browser extension for Chrome and Edge</a></li></ul></section><section class="seo-section"><h2>How these comparisons are reviewed</h2><p>Each page preserves the source leaderboard, retrieval time, metric, exact model version, and stated test limitations.</p><p><a href="/benchmarks/">Browse all benchmark snapshots by scenario</a></p></section>`
+        ? `<div class="quick-verdict"><h2>Evidence before rankings</h2><p>Every comparison below uses results where the models appear in the same public benchmark category. Metrics stay separate, exact model versions are shown, and no single score is treated as a universal ranking.</p></div><section class="seo-section"><h2>Published AI model comparisons</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>ChatGPT vs Gemini vs Claude</h2><p>Searches for three-way comparisons still resolve to pairwise evidence. Read each shared-benchmark page, then run the same prompt in ModelAny instead of treating a single blended score as a ranking.</p><ul class="seo-index-list"><li><a href="/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>Try the same prompt yourself</h2><p>Define a repeatable task, compare answers side by side, and review editing cost before choosing a workflow.</p><ul class="seo-index-list"><li><a href="/compare-ai-models/">Compare AI models with the same prompt</a></li><li><a href="/side-by-side-ai-comparison/">Side-by-side AI comparison workflow</a></li><li><a href="/ai-browser-extension/">ChatGPT Chrome extension for comparing models</a></li></ul></section><section class="seo-section"><h2>How these comparisons are reviewed</h2><p>Each page preserves the source leaderboard, retrieval time, metric, exact model version, and stated test limitations.</p><p><a href="/benchmarks/">Browse all benchmark snapshots by scenario</a></p></section>`
         : `<div class="quick-verdict"><h2>Browse by intent</h2><p>${esc(hubCopy[section] || `${label} pages are organized around a distinct search and product-selection intent.`)}</p></div><section class="seo-section"><h2>${label}</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>Use these guides responsibly</h2><p>Availability, prices, and model behavior can change. Open the official sources, test a representative task, and keep human review for decisions with meaningful impact.</p></section>`,
       breadcrumbs: [{ name: 'Home', href: '/' }, { name: label, href: canonical }],
     }),
@@ -754,6 +781,8 @@ function generateHub(section, label, pages, lang = 'en') {
 }
 
 function writeRedirectConfig() {
+  const vercelPath = join(ROOT, 'vercel.json');
+  const existing = existsSync(vercelPath) ? JSON.parse(readFileSync(vercelPath, 'utf8')) : {};
   const pairRedirects = comparePages
     .filter((page) => page.canonicalSlug)
     .flatMap((page) => [
@@ -773,7 +802,7 @@ function writeRedirectConfig() {
     ...pairRedirects,
     ...removedCompareRedirects,
   ];
-  writeFileSync(join(ROOT, 'vercel.json'), `${JSON.stringify({ redirects }, null, 2)}\n`, 'utf8');
+  writeFileSync(vercelPath, `${JSON.stringify({ ...existing, redirects }, null, 2)}\n`, 'utf8');
 }
 
 function pruneRemovedCompareDirs() {
@@ -819,6 +848,10 @@ function writeSitemap(records) {
     '/zh/benchmarks/': { en: '/benchmarks/', zh: '/zh/benchmarks/' },
     '/privacy.html': { en: '/privacy.html', zh: '/zh/privacy.html' },
     '/zh/privacy.html': { en: '/privacy.html', zh: '/zh/privacy.html' },
+    '/ai-browser-extension/': { en: '/ai-browser-extension/', zh: '/zh/ai-browser-extension/' },
+    '/zh/ai-browser-extension/': { en: '/ai-browser-extension/', zh: '/zh/ai-browser-extension/' },
+    '/compare-ai-models/': { en: '/compare-ai-models/', zh: '/zh/compare-ai-models/' },
+    '/zh/compare-ai-models/': { en: '/compare-ai-models/', zh: '/zh/compare-ai-models/' },
   };
   const body = entries.map((entry) => {
     const pair = languagePairs[entry.url];

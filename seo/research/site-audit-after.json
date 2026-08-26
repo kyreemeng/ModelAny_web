@@ -1,0 +1,1104 @@
+{
+  "summary": {
+    "sitemap_urls": 109,
+    "html_files": 114,
+    "total_issues": 164,
+    "errors": 8,
+    "warnings": 26
+  },
+  "issues": [
+    {
+      "type": "orphan_page",
+      "severity": "warning",
+      "path": "/",
+      "detail": "In sitemap but no internal links found"
+    },
+    {
+      "type": "orphan_page",
+      "severity": "warning",
+      "path": "/zh/compare/doubao-vs-deepseek",
+      "detail": "In sitemap but no internal links found"
+    },
+    {
+      "type": "orphan_page",
+      "severity": "warning",
+      "path": "/zh/compare/kimi-vs-deepseek",
+      "detail": "In sitemap but no internal links found"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "404.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "privacy.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "side-by-side-ai-comparison/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/privacy.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "benchmarks/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare-ai-models/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "pricing/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "ai-browser-extension/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "pricing/chatgpt-vs-deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "pricing/cheapest-api/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "pricing/cheapest-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "pricing/ai-comparison/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "pricing/api-startups/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "pricing/api-small-business/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-open-source/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-business/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/claude-code/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-chinese/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-writing/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/gemini/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-free/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/cursor/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/claude/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-image/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/github-copilot/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/free-chatgpt-2026/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/perplexity/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-no-login/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/windsurf/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/best-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-students/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/cheap-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/free-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-coding/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "alternatives/chatgpt-api/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare/chatgpt-vs-deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare/chatgpt-vs-gemini/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare/chatgpt-vs-claude/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare/deepseek-vs-gemini/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare/deepseek-vs-claude/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "compare/claude-vs-gemini/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/research/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/statistics/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/customer-support/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/essays/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/content-creation/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/analysis/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/creative-writing/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/coding-interviews/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/sales/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/chinese-to-english/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/translation/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/python/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/leetcode/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/emails/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/code-review/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/debugging/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/spreadsheets/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/business/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/science/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/excel/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/java/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/reasoning/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/math/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/blog-posts/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/students/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/powerpoint/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/data-analysis/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/hr/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/marketing/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/system-design/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/finance/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/coding/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/refactoring/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/javascript/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/academic-writing/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/coding-2026/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/writing/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "best-for/sql/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/benchmarks/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare-ai-models/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/ai-browser-extension/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/qwen-vs-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/qwen-vs-deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/wenxin-vs-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/kimi-vs-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/kimi-vs-deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/glm-vs-deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/doubao-vs-deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/glm-vs-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/zh/privacy.html",
+      "source": "zh/compare/doubao-vs-chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/ai-no-limits/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/best-ai-chatbot-2026/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/gemini/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/claude/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/ai-tools-2026/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/deepseek/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/best-ai-chatbot/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/ai-no-login/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/ai-api/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/chatgpt/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_trailing_slash",
+      "severity": "info",
+      "path": "/privacy.html",
+      "source": "free/best-ai-coding/index.html",
+      "detail": "May cause 301 redirect"
+    },
+    {
+      "type": "missing_canonical",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "No canonical tag found"
+    },
+    {
+      "type": "missing_canonical",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "No canonical tag found"
+    },
+    {
+      "type": "missing_canonical",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "No canonical tag found"
+    },
+    {
+      "type": "missing_canonical",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "No canonical tag found"
+    },
+    {
+      "type": "short_meta_description",
+      "severity": "warning",
+      "path": "privacy.html",
+      "detail": "8 chars — too short (aim for 70-160)"
+    },
+    {
+      "type": "missing_meta_description",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "No meta description tag"
+    },
+    {
+      "type": "missing_meta_description",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "No meta description tag"
+    },
+    {
+      "type": "missing_meta_description",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "No meta description tag"
+    },
+    {
+      "type": "missing_meta_description",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "No meta description tag"
+    },
+    {
+      "type": "short_meta_description",
+      "severity": "warning",
+      "path": "zh/benchmarks/index.html",
+      "detail": "45 chars — too short (aim for 70-160)"
+    },
+    {
+      "type": "missing_h1",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "No H1 tag in server HTML"
+    },
+    {
+      "type": "missing_h1",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "No H1 tag in server HTML"
+    },
+    {
+      "type": "missing_h1",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "No H1 tag in server HTML"
+    },
+    {
+      "type": "missing_h1",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "No H1 tag in server HTML"
+    },
+    {
+      "type": "long_title",
+      "severity": "info",
+      "path": "ai-browser-extension/index.html",
+      "detail": "\"ChatGPT Chrome Extension for Comparing M...\" 68 chars — may get truncated in SERP"
+    },
+    {
+      "type": "missing_title",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "No <title> tag"
+    },
+    {
+      "type": "missing_title",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "No <title> tag"
+    },
+    {
+      "type": "missing_title",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "No <title> tag"
+    },
+    {
+      "type": "missing_title",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "No <title> tag"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "Missing og:title"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "Missing og:description"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "Missing og:image"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "Missing og:url"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "Missing og:title"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "Missing og:description"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "Missing og:image"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "Missing og:url"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "Missing og:title"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "Missing og:description"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "Missing og:image"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "Missing og:url"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "Missing og:title"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "Missing og:description"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "Missing og:image"
+    },
+    {
+      "type": "missing_open_graph",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "Missing og:url"
+    },
+    {
+      "type": "missing_json_ld",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "No JSON-LD structured data (important for GEO/AI visibility)"
+    },
+    {
+      "type": "missing_json_ld",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "No JSON-LD structured data (important for GEO/AI visibility)"
+    },
+    {
+      "type": "missing_json_ld",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "No JSON-LD structured data (important for GEO/AI visibility)"
+    },
+    {
+      "type": "missing_json_ld",
+      "severity": "info",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "No JSON-LD structured data (important for GEO/AI visibility)"
+    },
+    {
+      "type": "missing_viewport",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "No viewport meta tag (mobile rendering broken)"
+    },
+    {
+      "type": "missing_viewport",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "No viewport meta tag (mobile rendering broken)"
+    },
+    {
+      "type": "missing_viewport",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "No viewport meta tag (mobile rendering broken)"
+    },
+    {
+      "type": "missing_viewport",
+      "severity": "error",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "No viewport meta tag (mobile rendering broken)"
+    },
+    {
+      "type": "thin_content",
+      "severity": "warning",
+      "path": "zh/privacy.html",
+      "detail": "~75 words of body text (threshold: 100)"
+    },
+    {
+      "type": "thin_content",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43233-1783842592/content/waiting.html",
+      "detail": "~1 words of body text (threshold: 100)"
+    },
+    {
+      "type": "thin_content",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/hero-conversion-design.html",
+      "detail": "~91 words of body text (threshold: 100)"
+    },
+    {
+      "type": "thin_content",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/waiting.html",
+      "detail": "~1 words of body text (threshold: 100)"
+    },
+    {
+      "type": "thin_content",
+      "severity": "warning",
+      "path": ".superpowers/brainstorm/43511-1783842667/content/landing-optimization-directions.html",
+      "detail": "~87 words of body text (threshold: 100)"
+    },
+    {
+      "type": "missing_favicon",
+      "severity": "info",
+      "path": "/",
+      "detail": "No favicon file found in dist root"
+    },
+    {
+      "type": "missing_llms_full",
+      "severity": "info",
+      "path": "llms-full.txt",
+      "detail": "No llms-full.txt — consider a comprehensive version for deep AI crawling"
+    },
+    {
+      "type": "missing_ai_input_signal",
+      "severity": "info",
+      "path": "robots.txt",
+      "detail": "No ai-input signal — AI search engines may not index you"
+    },
+    {
+      "type": "sitemap_inventory",
+      "severity": "info",
+      "path": "sitemap.xml",
+      "detail": "Sitemap URL inventory (109 URLs across 18 directories):\n  /best-for/: 38 URLs (e.g. /best-for/academic-writing)\n  /alternatives/: 23 URLs (e.g. /alternatives/best-chatgpt)\n  /zh/: 13 URLs (e.g. /zh/ai-browser-extension)\n  /free/: 11 URLs (e.g. /free/ai-api)\n  /compare/: 6 URLs (e.g. /compare/chatgpt-vs-claude)\n  /pricing/: 6 URLs (e.g. /pricing/ai-comparison)\n  / (root): 1 URLs (e.g. /)\n  /ai-browser-extension: 1 URLs (e.g. /ai-browser-extension)\n  /alternatives: 1 URLs (e.g. /alternatives)\n  /benchmarks: 1 URLs (e.g. /benchmarks)\n  /best-for: 1 URLs (e.g. /best-for)\n  /compare: 1 URLs (e.g. /compare)\n  /compare-ai-models: 1 URLs (e.g. /compare-ai-models)\n  /free: 1 URLs (e.g. /free)\n  /pricing: 1 URLs (e.g. /pricing)\n  /privacy.html: 1 URLs (e.g. /privacy.html)\n  /side-by-side-ai-comparison: 1 URLs (e.g. /side-by-side-ai-comparison)\n  /zh: 1 URLs (e.g. /zh)"
+    }
+  ]
+}

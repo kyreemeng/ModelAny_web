@@ -1,0 +1,31 @@
+{
+  "keyword": "compare AI models",
+  "niche": "llm comparison chrome extension",
+  "subreddits_searched": [
+    "(API unavailable — Google demand only)"
+  ],
+  "google_demand": {
+    "keyword": "compare AI models",
+    "total_queries_found": 1,
+    "blue_ocean_count": 0,
+    "reddit_demand_queries": [
+      {
+        "query": "reddit compare ai models",
+        "source_search": "reddit compare AI models",
+        "has_commercial_intent": false,
+        "competition_estimate": "medium",
+        "word_count": 4,
+        "blue_ocean_score": 0
+      }
+    ],
+    "blue_ocean_queries": []
+  },
+  "total_posts": 0,
+  "blue_ocean_count": 0,
+  "blue_ocean_posts": [],
+  "all_posts": [],
+  "recommendations": [
+    "No clear blue ocean posts found for 'compare AI models'. Try a more specific long-tail variant.",
+    "  Search: 'reddit compare ai models' (medium competition, informational)"
+  ]
+}

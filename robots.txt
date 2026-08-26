@@ -4,6 +4,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /.superpowers/
 
 # Third-party crawlers (Googlebot, Bingbot, etc.) may crawl freely so they can
 # follow canonical and noindex directives.
@@ -24,3 +25,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.modelany.app/sitemap.xml
+# AI crawlers: also see https://www.modelany.app/llms.txt

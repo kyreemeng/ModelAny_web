@@ -1,3 +1,7 @@
 /.DS_Store
 /.workbuddy
 /.superpowers
+.env
+.env.local
+*.pem
+dr-cache.json

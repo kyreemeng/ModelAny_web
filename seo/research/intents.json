@@ -1,0 +1,4279 @@
+{
+  "summary": {
+    "total": 604,
+    "by_intent": {
+      "commercial": 485,
+      "informational": 108,
+      "transactional": 10,
+      "navigational": 1
+    },
+    "by_flag": {
+      "buyer": 13,
+      "problem": 1
+    },
+    "pct": {
+      "informational": 18,
+      "commercial": 80,
+      "transactional": 2,
+      "navigational": 0
+    }
+  },
+  "results": [
+    {
+      "keyword": "AI browser extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension builder",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension chatgpt",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension chrome",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension creator",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension for chrome",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension for interview",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension for safari",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension free",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension github",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension maker",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension reddit",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension safari",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai browser extension try interview buddy",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ai comparison answers",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "AI comparison tool",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai comparison tool free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai comparison tool online",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "AI model comparison chrome",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai tool comparison table",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai tool comparison website",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai tools comparison 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai tools comparison 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai tools comparison chart",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai tools comparison for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "ai tools comparison reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "AI浏览器插件",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask chatgpt and gemini at the same time",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask multi ai",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask multiple AI",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask multiple ai at once",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask multiple ai at the same time",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask multiple ai models at once",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask multiple ais",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "ask same question to multiple ai",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "best free ai chrome extensions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Ranked list / top-N listicle",
+      "flags": []
+    },
+    {
+      "keyword": "chatbot vs gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative academic",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ai app",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ai for image generation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ai free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ai tools",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative and free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative android",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative app",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative app free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative best",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Ranked list / top-N listicle",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative best free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Ranked list / top-N listicle",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative better for environment",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative blackbox",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative business",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative but better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative but free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative by china",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative by google",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative cheaper",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative china",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative china app",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative chinese",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative client",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative compass",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative crossword",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative dark",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative data analysis",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative deep",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative deep ai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative deepseek",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative design",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative desktop app",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Ranked list / top-N listicle",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative domain",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative download",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Product / pricing / landing page",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative eco friendly",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative elon musk",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative environmentally friendly",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ethical",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative europe",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative european",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative excel",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for answering questions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for coding questions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for image editing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for image generation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for image generation free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for images",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for images free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for job application",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for mac",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for questions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for research",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative for writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative free online",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative github",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative good for environment",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative google",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative google gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative gpt",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative green",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative grok",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative gui",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative history",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative hk",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative hong kong",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative human",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative image creation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative image editor",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative image generator",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative image generator free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative image upload",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative images",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative in china",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative in hong kong",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative in india",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative in russia",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative jan",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative japan",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative jura",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative less restrictions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative link",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative linux",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative list",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative llm",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative local",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative login",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative lumo",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative made in india",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative math",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative medical",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative medicine",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative microsoft",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative microsoft copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative mit quellen",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative mit quellenangabe",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative mod apk",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative models",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative more ethical",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative name",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no account",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no ai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no censorship",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no filter",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no limit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no login",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no restrictions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no sign in",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative no sign up",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Product / pricing / landing page",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative offline",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ohne zensur",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative online",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative online free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative online free without login",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative open",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative open source",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative openai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative option",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative option free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative paid",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative perplexity",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative photo",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative photo editor",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative picture upload",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative pictures",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative platform",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative privacy",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative private",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative programming",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative quora",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative qwen",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative r",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative reddit 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative reddit 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative reddit free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative research",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative review",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative russia",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative safe",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative school",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative science",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative search engine",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative self hosted",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative sites",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative software",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative story writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative study",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative that doesn't censor",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative that doesn't use water",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative that is free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative that plants trees",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative to claude code",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative to claude cowork",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative to claude design",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative to create images",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative to generate image",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative tool",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative toolbaz",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative ui",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative uk",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative um bilder zu erstellen",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative unblocked",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative unfiltered",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative unlimited",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative unlimited uploads",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative unrestricted",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative upload file",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative upload image",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative url",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative version",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative video",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative vietnam",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative voice",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative website",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative where you can upload documents",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative where you can upload images",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative with image generation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative with image upload",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative with image upload free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative with no filter",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative with no limit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative with no restrictions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative without login",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative without nsfw filter",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative without restrictions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative x",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative z",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative zum bilder bearbeiten",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative zum lernen",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative zum programmieren",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternative zur bildbearbeitung",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternatives",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternatives free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt alternatives ranked",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension agent",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension aiprm",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension and youtube summary",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension android",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension by openai",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension chrome",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension codex",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension export",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension for writing",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension for youtube",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension free",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension github",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension gmail",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension how to use",
+      "intent": "informational",
+      "confidence": 0.85,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension install",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension lag",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension like claude",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension mac",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension mobile",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension not available",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension not connecting",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension not found",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension not working",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Troubleshooting guide / FAQ",
+      "flags": [
+        "problem"
+      ]
+    },
+    {
+      "keyword": "chatgpt chrome extension official",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension openai",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension pdf",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension plugin",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension reddit",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension review",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension sidebar",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension slow",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension speed",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension summarize",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension this item is not available",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension translate",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension voice",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension vs claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension web store",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension without login",
+      "intent": "navigational",
+      "confidence": 0.85,
+      "content_type": "Existing page (optimize for brand)",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt chrome extension youtube",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude ai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude for personal use",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs claude reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude vs gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude vs gemini vs grok",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude vs gemini vs perplexity",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs claude which is better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek vs claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek vs gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek vs gemini vs claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek vs gemini vs copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek vs grok",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek vs perplexity",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs deepseek which is better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini accuracy",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini advanced",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ai pro",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ai reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ai vs copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ai which is better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini and copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini api pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs gemini app",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini bagus mana",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini banana",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini bangla",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini benchmark",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini business",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini chess",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini chess game",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini comparison",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini context window",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini conversation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini cost",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs gemini creative writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini cual es mejor",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini daily active users",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini daily users",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini data analysis",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini data privacy",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini dau",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini dec 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini december 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini deep research",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini deep research reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini difference",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini en 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini energy consumption",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini engineering",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini enterprise",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini environmental impact",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini essay writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ethics",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini excel",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for general questions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for health",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for healthcare",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for image editing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for image generation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for job applications",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for job search",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for language learning",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for math",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for medical questions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for medical students",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for research",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for studying",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for travel planning",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini for writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini google",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini hallucination",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini hindi",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini home assistant",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini image creation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini image editing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini image generation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini image generation comparison",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini image generation reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini images",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini in 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini in coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini intelligence",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini jaden williams",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini january 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini jjk",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini july 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini july 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini june 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini june 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini kon best hai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini language learning",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini latest",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini leaderboard",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini learning",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini legal",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini limits",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini live",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini live chat",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini llm",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini logo",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini mana yang lebih bagus",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini mana yang lebih baik",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini market share",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini math",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini mau",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini may 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini medical advice",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini meme",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini memory",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini monthly active users",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini nano banana",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini net worth",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini news",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini notebooklm",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini november 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini now",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini now reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini number of users",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini on coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini on iphone",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini on research",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini on writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini paid",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini paid versions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini photo editing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini photo generation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini plus",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs gemini privacy",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini pro",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini pro which is better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini pros and cons",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini qual o melhor",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini quale scegliere",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini quien es mejor",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini quien gana",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini quora",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini reasoning",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini reddit 2025",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini reddit 2026",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini relationship advice",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini research",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini review",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini right now",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini roast battle",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini roleplay",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini siapa yang menang",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini speed",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini story writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini strengths and weaknesses",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini study mode",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini studying",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini subscription",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs gemini subscription price",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs gemini subscription price in india",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs gemini subscription reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "chatgpt vs gemini survey results",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini tests",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini therapy",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini therapy reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini thinking",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini today",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini token limit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini tokens",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini trading",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini traffic",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini translation",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ultra",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini usage",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini usage limits",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini usage statistics",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini use",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini use cases",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini user base",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini user count",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini user numbers",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini users",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini ventajas y desventajas",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs claude reddit",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs claude vs grok",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs claude vs kimi",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs claude vs perplexity",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs claude vs perplexity vs grok",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs copilot vs claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs deepseek",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs grok",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs kimi",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs openai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs others",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs perplexity",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini vs qwen",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which is best",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which is better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which is better for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which is better for research",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which is better for studying",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which is better in hindi",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which is more accurate",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini which one is better",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini who has more users",
+      "intent": "commercial",
+      "confidence": 0.95,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini writing",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini youtube",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs gemini.on job applications documents updating",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chatgpt vs 通义千问",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "chrome AI扩展",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt bulk delete",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt export",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt lightsession",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt rtl",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt sidebar",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt to markdown",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt to pdf",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt to word",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome extension chatgpt to word or pdf",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "chrome插件 chatgpt",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai answers",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai answers free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai model answers",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare AI models",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models and pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Product / pricing / landing page",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "compare ai models api pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Product / pricing / landing page",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "compare ai models arena",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models benchmark",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models for personal use",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models free",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models in coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models intelligence",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models llm",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models online",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models performance",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Product / pricing / landing page",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "compare ai models side by side",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare ai models website",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chat gpt claude gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt and gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt and gemini ai",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt and gemini and claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt and gemini and copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt and google gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt gemini and claude for studying",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt gemini claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt gemini claude and copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt gemini claude and perplexity",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt gemini claude grok",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare chatgpt plus and gemini pro",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare LLM",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llm api pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Product / pricing / landing page",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "compare llm benchmarks",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llm models",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llm models for coding",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llm models side by side",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llm performance",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llm pricing",
+      "intent": "transactional",
+      "confidence": 0.95,
+      "content_type": "Product / pricing / landing page",
+      "flags": [
+        "buyer"
+      ]
+    },
+    {
+      "keyword": "compare llm subscriptions",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llms",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare llms side by side",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "compare products side by side",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "comparison chatgpt and gemini",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "comparison chatgpt claude gemini copilot",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "comparison chatgpt gemini and claude",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "difference between chatgpt and gemini",
+      "intent": "informational",
+      "confidence": 0.85,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "difference between chatgpt and gemini ai",
+      "intent": "informational",
+      "confidence": 0.85,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "difference between chatgpt gemini claude and copilot",
+      "intent": "informational",
+      "confidence": 0.85,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "difference between chatgpt gemini claude and grok",
+      "intent": "informational",
+      "confidence": 0.85,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "difference between chatgpt gemini claude and perplexity",
+      "intent": "informational",
+      "confidence": 0.85,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "firefox ai browser extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai assistant chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free AI chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai chrome extension builder",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai chrome extension reddit",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai chrome extensions",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai detector chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai reader chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai summarizer chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free ai translator chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "free math ai chrome extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "instantly compare ai answers",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat app",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat extension",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat free",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat github",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat platform",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat room",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chat tool",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi ai chatbot",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multi query llm",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "multiple ai chat",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "query multiple LLMs",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "query multiple llms at once",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "send prompt to multiple ai",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "send to multiple AI",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "side by side AI comparison",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "side by side ai model comparison",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "side by side comparison of ai tools",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Comparison / listicle / review",
+      "flags": []
+    },
+    {
+      "keyword": "side by side comparisons",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "免费AI对比",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "同时问chatgpt",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "同时问多个AI",
+      "intent": "informational",
+      "confidence": 0.5,
+      "content_type": "Guide / blog post",
+      "flags": []
+    },
+    {
+      "keyword": "多模型对比",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "大模型对比工具",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "对比大模型",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "豆包 ai vs chatgpt",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "豆包 vs chatgpt",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    },
+    {
+      "keyword": "豆包 vs deepseek vs chatgpt",
+      "intent": "commercial",
+      "confidence": 0.85,
+      "content_type": "Side-by-side comparison table",
+      "flags": []
+    }
+  ]
+}

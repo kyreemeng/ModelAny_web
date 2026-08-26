@@ -1,0 +1,126 @@
+  [warn] no sitemap found for https://poe.com
+  [warn] no sitemap found for https://www.perplexity.ai/sitemap/api-platform.xml
+  [warn] no sitemap found for https://www.perplexity.ai/sitemap/comet-resources.xml
+  [warn] no sitemap found for https://www.perplexity.ai/sitemap/comet-v2.xml
+  [warn] no sitemap found for https://www.perplexity.ai/sitemap/core.xml
+  [warn] no sitemap found for https://www.perplexity.ai/sitemap/enterprise.xml
+  [warn] no sitemap found for https://www.perplexity.ai/sitemap/hub.xml
+  [warn] no sitemap found for https://www.perplexity.ai/sitemap/sanity.xml
+
+============================================================
+  lmarena.ai
+============================================================
+  Total pages: 32
+  Languages: {'root': 32}
+
+  Content patterns [ALL] (30 unique):
+      1x  side-by-side
+      1x  direct
+      1x  image
+      1x  search
+      1x  video
+      1x  code
+      1x  history/search
+      1x  agent
+      1x  leaderboard
+      1x  leaderboard/overview
+      1x  leaderboard/text
+      1x  leaderboard/code/webdev
+      1x  leaderboard/code/webdev/html
+      1x  leaderboard/code/webdev/react
+      1x  leaderboard/code/image-to-webdev
+      1x  leaderboard/agent
+      1x  leaderboard/vision
+      1x  leaderboard/document
+      1x  leaderboard/text-to-image
+      1x  leaderboard/image-edit
+      1x  leaderboard/search
+      1x  leaderboard/text-to-video
+      1x  leaderboard/image-to-video
+      1x  leaderboard/video-edit
+      1x  about
+
+============================================================
+  poe.com
+============================================================
+  Total pages: 0
+  No URLs found — sitemap may be blocked.
+
+============================================================
+  chatboxai.app
+============================================================
+  Total pages: 598
+  Languages: {'root': 283, 'en': 45, 'zh': 45, 'ja': 45, 'de': 45, 'fr': 45, 'ru': 45, 'es': 45}
+
+  Content patterns [ALL] (326 unique):
+      7x  help-center
+      7x  help-center/access-user-portal
+      7x  help-center/changelog
+      7x  help-center/chatbox-ai-service-faqs
+      7x  help-center/chatbox-keyboard-shortcuts
+      7x  help-center/connect-chatbox-lm-studio-guide
+      7x  help-center/embracing-ai-essential-skill
+      7x  help-center/feedback
+      7x  help-center/how-to-use-license
+      7x  help-center/retrieve-license-key
+      7x  model-pricing
+      7x  privacy
+      7x  terms
+      7x  guide
+      7x  guide/byok
+      7x  guide/byok/claude
+      7x  guide/byok/gemini
+      7x  guide/byok/lm-studio
+      7x  guide/byok/ollama
+      7x  guide/byok/openai
+      7x  guide/byok/openrouter
+      7x  guide/chatbox-ai
+      7x  guide/chatbox-ai/billing
+      7x  guide/chatbox-ai/license
+      7x  guide/chatbox-ai/plans
+
+============================================================
+  www.perplexity.ai
+============================================================
+  Total pages: 0
+  No URLs found — sitemap may be blocked.
+
+============================================================
+  Cross-site comparison
+============================================================
+
+  Shared topics (0):
+
+  Unique to lmarena.ai (30):
+    about
+    agent
+    code
+    cookie-policy
+    direct
+    faq
+    history/search
+    how-it-works
+    image
+    leaderboard
+    leaderboard/agent
+    leaderboard/code/image-to-webdev
+    leaderboard/code/webdev
+    leaderboard/code/webdev/html
+    leaderboard/code/webdev/react
+
+  Unique to chatboxai.app (326):
+    ar
+    ar/blog
+    ar/blog/work-mode-launch
+    ar/guide
+    ar/guide/byok
+    ar/guide/byok/claude
+    ar/guide/byok/gemini
+    ar/guide/byok/lm-studio
+    ar/guide/byok/ollama
+    ar/guide/byok/openai
+    ar/guide/byok/openrouter
+    ar/guide/chatbox-ai
+    ar/guide/chatbox-ai/billing
+    ar/guide/chatbox-ai/license
+    ar/guide/chatbox-ai/plans

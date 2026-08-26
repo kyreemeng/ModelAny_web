@@ -1,0 +1,848 @@
+{
+  "seed_keyword": "对比大模型",
+  "icp": "需要同时比较多个国产和海外大模型的用户",
+  "language": "zh",
+  "total_subqueries": 55,
+  "gold_mine_count": 15,
+  "live_suggestions_found": 0,
+  "dimensions": {
+    "icp": "ICP / Persona",
+    "scenario": "Use Case / Scenario",
+    "pricing": "Pricing / Cost",
+    "features": "Features / Capabilities",
+    "competitors": "Competitors / Alternatives",
+    "objection": "Objections / Concerns",
+    "education": "Educational / Awareness"
+  },
+  "sub_queries": [
+    {
+      "query": "对比大模型 free alternative",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 5
+    },
+    {
+      "query": "对比大模型 vs free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 5
+    },
+    {
+      "query": "对比大模型 vs competitors",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 5
+    },
+    {
+      "query": "对比大模型 pricing",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 cost",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "cheapest 对比大模型",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 discount",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 roi",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 alternatives",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "best 对比大模型",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "top 对比大模型",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 review",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 compared",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 showdown",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 for small business",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 4,
+      "gold_score": 3
+    },
+    {
+      "query": "对比大模型 for 需要同时比较多个国产和海外大模型的用户",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 3
+    },
+    {
+      "query": "对比大模型 for enterprise",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 3
+    },
+    {
+      "query": "对比大模型 for startups",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 3
+    },
+    {
+      "query": "对比大模型 for healthcare",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 3
+    },
+    {
+      "query": "对比大模型 for ecommerce",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 3
+    },
+    {
+      "query": "对比大模型 for agencies",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 3
+    },
+    {
+      "query": "对比大模型 for developers",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 3
+    },
+    {
+      "query": "how to use 对比大模型 for 需要同时比较多个国产和海外大模型的用户",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": false,
+      "word_count": 6,
+      "gold_score": 2
+    },
+    {
+      "query": "对比大模型 for social media",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 4,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 for content marketing",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 4,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 for lead generation",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 4,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 pros and cons",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 4,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 use cases",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 in action",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 ai powered",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 open source",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 no code",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 worth it",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 1
+    },
+    {
+      "query": "is 对比大模型 legit",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 1
+    },
+    {
+      "query": "对比大模型 workflow",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 examples",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 features",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 comparison",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 integrations",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 api",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 automation",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 safe",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 limitations",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 problems",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 scam",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "对比大模型 reliable",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 0
+    },
+    {
+      "query": "how does 对比大模型 work",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 4,
+      "gold_score": -1
+    },
+    {
+      "query": "what is 对比大模型",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": -1
+    },
+    {
+      "query": "对比大模型 vs alternatives",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": -1
+    },
+    {
+      "query": "对比大模型 explained",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": -2
+    },
+    {
+      "query": "对比大模型 guide",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": -2
+    },
+    {
+      "query": "对比大模型 tutorial",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": -2
+    },
+    {
+      "query": "对比大模型 meaning",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": -2
+    },
+    {
+      "query": "对比大模型 basics",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": -2
+    }
+  ],
+  "gold_mines": [
+    {
+      "query": "对比大模型 free alternative",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 5
+    },
+    {
+      "query": "对比大模型 vs free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 5
+    },
+    {
+      "query": "对比大模型 vs competitors",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": false,
+      "word_count": 3,
+      "gold_score": 5
+    },
+    {
+      "query": "对比大模型 pricing",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 cost",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "cheapest 对比大模型",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 discount",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 roi",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 alternatives",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "best 对比大模型",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "top 对比大模型",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 review",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 compared",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    },
+    {
+      "query": "对比大模型 showdown",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "high",
+      "live_demand": false,
+      "word_count": 2,
+      "gold_score": 4
+    }
+  ],
+  "pillar_cluster_plan": {
+    "pillar_keyword": "对比大模型",
+    "recommended_pillar_article": "对比大模型 完全指南",
+    "cluster_articles": [
+      {
+        "title": "对比大模型 free alternative",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition"
+      },
+      {
+        "title": "对比大模型 vs free",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition"
+      },
+      {
+        "title": "对比大模型 vs competitors",
+        "dimension": "Competitors / Alternatives",
+        "why": "very_high commercial intent, medium competition"
+      },
+      {
+        "title": "对比大模型 pricing",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, high competition"
+      },
+      {
+        "title": "对比大模型 cost",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, high competition"
+      },
+      {
+        "title": "对比大模型 free",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, high competition"
+      },
+      {
+        "title": "cheapest 对比大模型",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, high competition"
+      },
+      {
+        "title": "对比大模型 discount",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, high competition"
+      },
+      {
+        "title": "对比大模型 roi",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, high competition"
+      },
+      {
+        "title": "对比大模型 alternatives",
+        "dimension": "Competitors / Alternatives",
+        "why": "very_high commercial intent, high competition"
+      }
+    ]
+  },
+  "uncovered_live_suggestions": []
+}

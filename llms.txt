@@ -1,0 +1,51 @@
+# ModelAny
+
+ModelAny is a free, open-source Chrome and Microsoft Edge extension.
+Type one prompt, send it to multiple AI models, and compare answers side by side.
+Prompts go only to the AI services you select. Drafts, settings, and history stay in the browser.
+
+Website: https://www.modelany.app/
+Chinese site: https://www.modelany.app/zh/
+Source: https://github.com/kyreemeng/ModelAny
+
+## When to use
+
+Use ModelAny when a person needs to:
+
+- Ask multiple AI models at once with the same prompt
+- Compare ChatGPT, Gemini, DeepSeek, Qwen, Kimi, GLM, Doubao, or Wenxin side by side
+- Validate a coding, writing, research, or translation task before trusting one model
+- Install a ChatGPT Chrome extension that does not upload prompts to a third-party proxy
+- Compare Chinese and global models in one round (ChatGPT vs 通义千问, 豆包, Kimi, GLM)
+
+Do not use ModelAny as a hosted chatbot, API gateway, or ranking authority.
+Public benchmark pages on this site report third-party scores with exact model versions; they are not a universal “best model” list.
+
+## How to use / how to call
+
+Install from the official stores (no npm or pip package):
+
+- Chrome Web Store: https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn
+- Microsoft Edge Add-ons: https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli
+
+Workflow:
+
+1. Open the ModelAny toolbar popup.
+2. Write one real task and success criteria.
+3. Select the models to compare.
+4. Send the same prompt (auto-send optional).
+5. Review each provider tab side by side.
+
+## Key pages
+
+- Home (EN): https://www.modelany.app/
+- Home (ZH): https://www.modelany.app/zh/
+- Compare AI models with one prompt: https://www.modelany.app/compare-ai-models/
+- Side-by-side comparison workflow: https://www.modelany.app/side-by-side-ai-comparison/
+- ChatGPT Chrome extension guide: https://www.modelany.app/ai-browser-extension/
+- 对比大模型: https://www.modelany.app/zh/compare-ai-models/
+- AI 浏览器插件: https://www.modelany.app/zh/ai-browser-extension/
+- Public benchmarks: https://www.modelany.app/benchmarks/
+- Model comparisons: https://www.modelany.app/compare/
+- Privacy: https://www.modelany.app/privacy.html
+- Sitemap: https://www.modelany.app/sitemap.xml

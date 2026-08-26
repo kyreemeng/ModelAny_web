@@ -1,0 +1,952 @@
+{
+  "seed_keyword": "compare AI models",
+  "icp": "developers and researchers comparing LLMs",
+  "language": "en",
+  "total_subqueries": 55,
+  "gold_mine_count": 23,
+  "live_suggestions_found": 49,
+  "dimensions": {
+    "icp": "ICP / Persona",
+    "scenario": "Use Case / Scenario",
+    "pricing": "Pricing / Cost",
+    "features": "Features / Capabilities",
+    "competitors": "Competitors / Alternatives",
+    "objection": "Objections / Concerns",
+    "education": "Educational / Awareness"
+  },
+  "sub_queries": [
+    {
+      "query": "compare AI models free alternative",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 7
+    },
+    {
+      "query": "compare AI models vs free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 7
+    },
+    {
+      "query": "compare AI models vs competitors",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 7
+    },
+    {
+      "query": "compare AI models pricing",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models cost",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "cheapest compare AI models",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models discount",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models roi",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models alternatives",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "best compare AI models",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "top compare AI models",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models review",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models compared",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models showdown",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models for developers and researchers comparing LLMs",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 9,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for small business",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 6,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for enterprise",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for startups",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for healthcare",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for ecommerce",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for agencies",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for developers",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "how to use compare AI models for developers and researchers comparing LLMs",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 12,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models for social media",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 6,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models for content marketing",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 6,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models for lead generation",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 6,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models pros and cons",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 6,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models use cases",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models in action",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models ai powered",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models open source",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models no code",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models worth it",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 3
+    },
+    {
+      "query": "is compare AI models legit",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 3
+    },
+    {
+      "query": "compare AI models workflow",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models examples",
+      "dimension": "scenario",
+      "dimension_label": "Use Case / Scenario",
+      "description": "What are they trying to do? Specific workflow or goal",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models features",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models comparison",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models integrations",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models api",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models automation",
+      "dimension": "features",
+      "dimension_label": "Features / Capabilities",
+      "description": "Functional requirements — comparing what each tool does",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models safe",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models limitations",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models problems",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models scam",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "compare AI models reliable",
+      "dimension": "objection",
+      "dimension_label": "Objections / Concerns",
+      "description": "What's stopping them? Risk and trust signals",
+      "commercial_intent": "medium",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 2
+    },
+    {
+      "query": "how does compare AI models work",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 6,
+      "gold_score": 1
+    },
+    {
+      "query": "what is compare AI models",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 1
+    },
+    {
+      "query": "compare AI models vs alternatives",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 1
+    },
+    {
+      "query": "compare AI models explained",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 0
+    },
+    {
+      "query": "compare AI models guide",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 0
+    },
+    {
+      "query": "compare AI models tutorial",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 0
+    },
+    {
+      "query": "compare AI models meaning",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 0
+    },
+    {
+      "query": "compare AI models basics",
+      "dimension": "education",
+      "dimension_label": "Educational / Awareness",
+      "description": "Top-of-funnel — learning what this thing is",
+      "commercial_intent": "low",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 0
+    }
+  ],
+  "gold_mines": [
+    {
+      "query": "compare AI models free alternative",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 7
+    },
+    {
+      "query": "compare AI models vs free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 7
+    },
+    {
+      "query": "compare AI models vs competitors",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 7
+    },
+    {
+      "query": "compare AI models pricing",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models cost",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models free",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "cheapest compare AI models",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models discount",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models roi",
+      "dimension": "pricing",
+      "dimension_label": "Pricing / Cost",
+      "description": "Buying decision — these users have wallet out",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models alternatives",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "best compare AI models",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "top compare AI models",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models review",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models compared",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models showdown",
+      "dimension": "competitors",
+      "dimension_label": "Competitors / Alternatives",
+      "description": "Direct comparison — strongest commercial intent",
+      "commercial_intent": "very_high",
+      "competition_estimate": "medium",
+      "live_demand": true,
+      "word_count": 4,
+      "gold_score": 6
+    },
+    {
+      "query": "compare AI models for developers and researchers comparing LLMs",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 9,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for small business",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 6,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for enterprise",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for startups",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for healthcare",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for ecommerce",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for agencies",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    },
+    {
+      "query": "compare AI models for developers",
+      "dimension": "icp",
+      "dimension_label": "ICP / Persona",
+      "description": "Who is searching? Role, industry, company size",
+      "commercial_intent": "high",
+      "competition_estimate": "low",
+      "live_demand": true,
+      "word_count": 5,
+      "gold_score": 5
+    }
+  ],
+  "pillar_cluster_plan": {
+    "pillar_keyword": "compare AI models",
+    "recommended_pillar_article": "The Ultimate Guide to Compare Ai Models",
+    "cluster_articles": [
+      {
+        "title": "compare AI models free alternative",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, low competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models vs free",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, low competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models vs competitors",
+        "dimension": "Competitors / Alternatives",
+        "why": "very_high commercial intent, low competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models pricing",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models cost",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models free",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition, validated by live search demand"
+      },
+      {
+        "title": "cheapest compare AI models",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models discount",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models roi",
+        "dimension": "Pricing / Cost",
+        "why": "very_high commercial intent, medium competition, validated by live search demand"
+      },
+      {
+        "title": "compare AI models alternatives",
+        "dimension": "Competitors / Alternatives",
+        "why": "very_high commercial intent, medium competition, validated by live search demand"
+      }
+    ]
+  },
+  "uncovered_live_suggestions": [
+    "compare ai models",
+    "compare ai models and pricing",
+    "compare ai models api pricing",
+    "compare ai models benchmark",
+    "compare ai models for coding",
+    "compare ai models for different tasks",
+    "compare ai models for free",
+    "compare ai models for personal use",
+    "compare ai models for programming",
+    "compare ai models for research",
+    "compare ai models online",
+    "compare ai models performance",
+    "compare ai models side by side",
+    "compare ai models website",
+    "how to compare ai models"
+  ]
+}

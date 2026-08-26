@@ -1,0 +1,6360 @@
+{
+  "summary": {
+    "total_pages": 109,
+    "avg_score": 61.4,
+    "grade_distribution": {
+      "D": 2,
+      "C": 106,
+      "B": 1
+    },
+    "total_issues": 110,
+    "total_tips": 178
+  },
+  "pages": [
+    {
+      "path": "/404.html",
+      "score": 49,
+      "grade": "D",
+      "title": "Page Not Found | ModelAny",
+      "word_count": 111,
+      "h1_count": 1,
+      "img_total": 2,
+      "img_missing_alt": 0,
+      "internal_links": 9,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 12,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 2,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text",
+        "Thin content (111 words)"
+      ],
+      "tips": [
+        "Title is 25 chars — optimal is 30-60",
+        "Meta description is 113 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/ai-browser-extension",
+      "score": 56,
+      "grade": "C",
+      "title": "AI Browser Extension for Comparing Multiple Models | ModelAny",
+      "word_count": 738,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 61 chars — optimal is 30-60",
+        "Meta description is 113 chars — optimal is 120-160",
+        "Content is 738 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/best-chatgpt",
+      "score": 60,
+      "grade": "C",
+      "title": "Best ChatGPT Alternative | ModelAny",
+      "word_count": 694,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 171 chars — optimal is 120-160",
+        "Content is 694 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative | ModelAny",
+      "word_count": 679,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 166 chars — optimal is 120-160",
+        "Content is 679 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-api",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative API | ModelAny",
+      "word_count": 694,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 170 chars — optimal is 120-160",
+        "Content is 694 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-business",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative for Business | ModelAny",
+      "word_count": 702,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 179 chars — optimal is 120-160",
+        "Content is 702 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-chinese",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative for Chinese | ModelAny",
+      "word_count": 702,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 178 chars — optimal is 120-160",
+        "Content is 702 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-coding",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative for Coding | ModelAny",
+      "word_count": 702,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 177 chars — optimal is 120-160",
+        "Content is 702 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-free",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative Free | ModelAny",
+      "word_count": 694,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 171 chars — optimal is 120-160",
+        "Content is 694 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-image",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative with Image Generation | ModelAny",
+      "word_count": 710,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 188 chars — optimal is 120-160",
+        "Content is 710 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-no-login",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative without Login | ModelAny",
+      "word_count": 709,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 180 chars — optimal is 120-160",
+        "Content is 709 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-open-source",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative Open Source | ModelAny",
+      "word_count": 709,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 178 chars — optimal is 120-160",
+        "Content is 709 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-students",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative for Students | ModelAny",
+      "word_count": 702,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 179 chars — optimal is 120-160",
+        "Content is 702 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/chatgpt-writing",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT Alternative for Writing | ModelAny",
+      "word_count": 702,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 178 chars — optimal is 120-160",
+        "Content is 702 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/cheap-chatgpt",
+      "score": 60,
+      "grade": "C",
+      "title": "Cheap ChatGPT Alternative | ModelAny",
+      "word_count": 694,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 172 chars — optimal is 120-160",
+        "Content is 694 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/claude",
+      "score": 56,
+      "grade": "C",
+      "title": "Claude Alternative | ModelAny",
+      "word_count": 678,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Meta description is 164 chars — optimal is 120-160",
+        "Content is 678 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/claude-code",
+      "score": 60,
+      "grade": "C",
+      "title": "Claude Code Alternative | ModelAny",
+      "word_count": 696,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 174 chars — optimal is 120-160",
+        "Content is 696 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/cursor",
+      "score": 56,
+      "grade": "C",
+      "title": "Cursor Alternative | ModelAny",
+      "word_count": 676,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Meta description is 164 chars — optimal is 120-160",
+        "Content is 676 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/deepseek",
+      "score": 60,
+      "grade": "C",
+      "title": "DeepSeek Alternative | ModelAny",
+      "word_count": 679,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 168 chars — optimal is 120-160",
+        "Content is 679 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/free-chatgpt",
+      "score": 60,
+      "grade": "C",
+      "title": "Free ChatGPT Alternative | ModelAny",
+      "word_count": 694,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 171 chars — optimal is 120-160",
+        "Content is 694 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/free-chatgpt-2026",
+      "score": 60,
+      "grade": "C",
+      "title": "Best Free ChatGPT Alternative 2026 | ModelAny",
+      "word_count": 702,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 181 chars — optimal is 120-160",
+        "Content is 702 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/gemini",
+      "score": 56,
+      "grade": "C",
+      "title": "Gemini Alternative | ModelAny",
+      "word_count": 677,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Meta description is 164 chars — optimal is 120-160",
+        "Content is 677 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/github-copilot",
+      "score": 60,
+      "grade": "C",
+      "title": "GitHub Copilot Alternative | ModelAny",
+      "word_count": 698,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 183 chars — optimal is 120-160",
+        "Content is 698 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives",
+      "score": 58,
+      "grade": "C",
+      "title": "AI alternatives | ModelAny",
+      "word_count": 501,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 28,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 15,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 26 chars — optimal is 30-60",
+        "Meta description is 103 chars — optimal is 120-160",
+        "Content is 501 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/perplexity",
+      "score": 60,
+      "grade": "C",
+      "title": "Perplexity Alternative | ModelAny",
+      "word_count": 676,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 172 chars — optimal is 120-160",
+        "Content is 676 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/alternatives/windsurf",
+      "score": 60,
+      "grade": "C",
+      "title": "Windsurf Alternative | ModelAny",
+      "word_count": 676,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 168 chars — optimal is 120-160",
+        "Content is 676 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/benchmarks",
+      "score": 62,
+      "grade": "C",
+      "title": "AI benchmark data by scenario | ModelAny",
+      "word_count": 396,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 5,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 15,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 169 chars — optimal is 120-160",
+        "Content is 396 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/academic-writing",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Academic Writing | ModelAny",
+      "word_count": 981,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 172 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/analysis",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Analysis | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 164 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/blog-posts",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Blog Posts | ModelAny",
+      "word_count": 963,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 112 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/business",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Business | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 164 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/chinese-to-english",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Chinese to English | ModelAny",
+      "word_count": 816,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 174 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/code-review",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Code Review | ModelAny",
+      "word_count": 860,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 169 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/coding",
+      "score": 56,
+      "grade": "C",
+      "title": "Best AI for Coding | ModelAny",
+      "word_count": 714,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Meta description is 172 chars — optimal is 120-160",
+        "Content is 714 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/coding-2026",
+      "score": 60,
+      "grade": "C",
+      "title": "Best AI for Coding 2026 | ModelAny",
+      "word_count": 714,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 177 chars — optimal is 120-160",
+        "Content is 714 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/coding-interviews",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Coding Interviews | ModelAny",
+      "word_count": 860,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 175 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/content-creation",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Content Creation | ModelAny",
+      "word_count": 981,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 172 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/creative-writing",
+      "score": 60,
+      "grade": "C",
+      "title": "Best AI for Creative Writing | ModelAny",
+      "word_count": 719,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 170 chars — optimal is 120-160",
+        "Content is 719 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/customer-support",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Customer Support | ModelAny",
+      "word_count": 981,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 172 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/data-analysis",
+      "score": 69,
+      "grade": "C",
+      "title": "Best AI for Data Analysis | ModelAny",
+      "word_count": 854,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": []
+    },
+    {
+      "path": "/best-for/debugging",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Debugging | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 167 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/emails",
+      "score": 61,
+      "grade": "C",
+      "title": "Best AI for Emails | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Meta description is 162 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/essays",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Essays | ModelAny",
+      "word_count": 964,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60"
+      ]
+    },
+    {
+      "path": "/best-for/excel",
+      "score": 56,
+      "grade": "C",
+      "title": "Best AI for Excel | ModelAny",
+      "word_count": 710,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 28 chars — optimal is 30-60",
+        "Meta description is 172 chars — optimal is 120-160",
+        "Content is 710 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/finance",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Finance | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 163 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/hr",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for HR | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 25 chars — optimal is 30-60"
+      ]
+    },
+    {
+      "path": "/best-for",
+      "score": 66,
+      "grade": "C",
+      "title": "Best AI by use case | ModelAny",
+      "word_count": 650,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 43,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 15,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 650 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/java",
+      "score": 61,
+      "grade": "C",
+      "title": "Best AI for Java | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 27 chars — optimal is 30-60",
+        "Meta description is 162 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/javascript",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for JavaScript | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 168 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/leetcode",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for LeetCode | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 166 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/marketing",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Marketing | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 165 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/math",
+      "score": 61,
+      "grade": "C",
+      "title": "Best AI for Math | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 27 chars — optimal is 30-60",
+        "Meta description is 162 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/powerpoint",
+      "score": 60,
+      "grade": "C",
+      "title": "Best AI for PowerPoint | ModelAny",
+      "word_count": 710,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 177 chars — optimal is 120-160",
+        "Content is 710 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/python",
+      "score": 61,
+      "grade": "C",
+      "title": "Best AI for Python | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Meta description is 164 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/reasoning",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Reasoning | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 167 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/refactoring",
+      "score": 60,
+      "grade": "C",
+      "title": "Best AI for Refactoring | ModelAny",
+      "word_count": 704,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 168 chars — optimal is 120-160",
+        "Content is 704 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/research",
+      "score": 64,
+      "grade": "C",
+      "title": "Best AI for Research | ModelAny",
+      "word_count": 699,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 699 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/sales",
+      "score": 61,
+      "grade": "C",
+      "title": "Best AI for Sales | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 28 chars — optimal is 30-60",
+        "Meta description is 161 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/science",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Science | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 163 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/spreadsheets",
+      "score": 60,
+      "grade": "C",
+      "title": "Best AI for Spreadsheets | ModelAny",
+      "word_count": 710,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 179 chars — optimal is 120-160",
+        "Content is 710 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/sql",
+      "score": 61,
+      "grade": "C",
+      "title": "Best AI for SQL | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 26 chars — optimal is 30-60",
+        "Meta description is 161 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/statistics",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Statistics | ModelAny",
+      "word_count": 845,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 168 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/students",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Students | ModelAny",
+      "word_count": 866,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 174 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/system-design",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for System Design | ModelAny",
+      "word_count": 981,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 169 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/best-for/translation",
+      "score": 60,
+      "grade": "C",
+      "title": "Best AI for Translation | ModelAny",
+      "word_count": 786,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 167 chars — optimal is 120-160",
+        "Content is 786 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/best-for/writing",
+      "score": 65,
+      "grade": "C",
+      "title": "Best AI for Writing | ModelAny",
+      "word_count": 966,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 163 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/compare/chatgpt-vs-claude",
+      "score": 65,
+      "grade": "C",
+      "title": "ChatGPT vs Claude: public benchmark comparison | ModelAny",
+      "word_count": 908,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 103 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/compare/chatgpt-vs-deepseek",
+      "score": 60,
+      "grade": "C",
+      "title": "ChatGPT vs DeepSeek: public benchmark comparison | ModelAny",
+      "word_count": 797,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 105 chars — optimal is 120-160",
+        "Content is 797 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/compare/chatgpt-vs-gemini",
+      "score": 65,
+      "grade": "C",
+      "title": "ChatGPT vs Gemini: public benchmark comparison | ModelAny",
+      "word_count": 907,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 103 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/compare/claude-vs-gemini",
+      "score": 65,
+      "grade": "C",
+      "title": "Claude vs Gemini: public benchmark comparison | ModelAny",
+      "word_count": 906,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 102 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/compare/deepseek-vs-claude",
+      "score": 60,
+      "grade": "C",
+      "title": "DeepSeek vs Claude: public benchmark comparison | ModelAny",
+      "word_count": 796,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 104 chars — optimal is 120-160",
+        "Content is 796 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/compare/deepseek-vs-gemini",
+      "score": 60,
+      "grade": "C",
+      "title": "DeepSeek vs Gemini: public benchmark comparison | ModelAny",
+      "word_count": 794,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 104 chars — optimal is 120-160",
+        "Content is 794 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/compare",
+      "score": 64,
+      "grade": "C",
+      "title": "AI model comparisons | ModelAny",
+      "word_count": 521,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 13,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 521 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/compare-ai-models",
+      "score": 60,
+      "grade": "C",
+      "title": "Compare AI Models Side by Side with the Same Prompt | ModelAny",
+      "word_count": 764,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 62 chars — optimal is 30-60",
+        "Content is 764 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/ai-api",
+      "score": 60,
+      "grade": "C",
+      "title": "Free AI API | ModelAny",
+      "word_count": 704,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 22 chars — optimal is 30-60",
+        "Content is 704 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/ai-no-limits",
+      "score": 64,
+      "grade": "C",
+      "title": "Best Free AI without Limits | ModelAny",
+      "word_count": 725,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 725 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/ai-no-login",
+      "score": 64,
+      "grade": "C",
+      "title": "Best Free AI without Login | ModelAny",
+      "word_count": 725,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 725 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/ai-tools-2026",
+      "score": 60,
+      "grade": "C",
+      "title": "Free AI Tools 2026 | ModelAny",
+      "word_count": 710,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Content is 710 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/best-ai-chatbot",
+      "score": 64,
+      "grade": "C",
+      "title": "Best Free AI Chatbot | ModelAny",
+      "word_count": 723,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 723 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/best-ai-chatbot-2026",
+      "score": 64,
+      "grade": "C",
+      "title": "Best Free AI Chatbot 2026 | ModelAny",
+      "word_count": 723,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 723 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/best-ai-coding",
+      "score": 69,
+      "grade": "C",
+      "title": "Best Free AI for Coding | ModelAny",
+      "word_count": 866,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": []
+    },
+    {
+      "path": "/free/chatgpt",
+      "score": 60,
+      "grade": "C",
+      "title": "Free ChatGPT | ModelAny",
+      "word_count": 681,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 23 chars — optimal is 30-60",
+        "Content is 681 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/claude",
+      "score": 60,
+      "grade": "C",
+      "title": "Free Claude | ModelAny",
+      "word_count": 683,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 22 chars — optimal is 30-60",
+        "Content is 683 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/deepseek",
+      "score": 60,
+      "grade": "C",
+      "title": "Free DeepSeek | ModelAny",
+      "word_count": 681,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 24 chars — optimal is 30-60",
+        "Content is 681 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free/gemini",
+      "score": 60,
+      "grade": "C",
+      "title": "Free Gemini | ModelAny",
+      "word_count": 679,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 22 chars — optimal is 30-60",
+        "Content is 679 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/free",
+      "score": 58,
+      "grade": "C",
+      "title": "Free AI guides | ModelAny",
+      "word_count": 476,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 16,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 15,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 25 chars — optimal is 30-60",
+        "Meta description is 101 chars — optimal is 120-160",
+        "Content is 476 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/",
+      "score": 71,
+      "grade": "B",
+      "title": "Ask Multiple AI Models at Once | ModelAny",
+      "word_count": 1696,
+      "h1_count": 1,
+      "img_total": 18,
+      "img_missing_alt": 0,
+      "internal_links": 18,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 2,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": []
+    },
+    {
+      "path": "/pricing/ai-comparison",
+      "score": 60,
+      "grade": "C",
+      "title": "AI Pricing Comparison | ModelAny",
+      "word_count": 686,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 113 chars — optimal is 120-160",
+        "Content is 686 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/pricing/api-small-business",
+      "score": 69,
+      "grade": "C",
+      "title": "Best AI API for Small Business | ModelAny",
+      "word_count": 865,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": []
+    },
+    {
+      "path": "/pricing/api-startups",
+      "score": 64,
+      "grade": "C",
+      "title": "Best AI API for Startups | ModelAny",
+      "word_count": 717,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 717 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/pricing/chatgpt-vs-deepseek",
+      "score": 65,
+      "grade": "C",
+      "title": "ChatGPT vs DeepSeek Pricing | ModelAny",
+      "word_count": 815,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 119 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/pricing/cheapest-api",
+      "score": 56,
+      "grade": "C",
+      "title": "Cheapest AI API | ModelAny",
+      "word_count": 678,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 26 chars — optimal is 30-60",
+        "Meta description is 107 chars — optimal is 120-160",
+        "Content is 678 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/pricing/cheapest-chatgpt",
+      "score": 64,
+      "grade": "C",
+      "title": "Cheapest ChatGPT Alternative | ModelAny",
+      "word_count": 676,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 10,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Content is 676 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/pricing",
+      "score": 56,
+      "grade": "C",
+      "title": "AI pricing guides | ModelAny",
+      "word_count": 451,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 11,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 28 chars — optimal is 30-60",
+        "Meta description is 96 chars — optimal is 120-160",
+        "Content is 451 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/privacy.html",
+      "score": 50,
+      "grade": "C",
+      "title": "Privacy Policy — ModelAny | Local-First AI Extension",
+      "word_count": 602,
+      "h1_count": 1,
+      "img_total": 2,
+      "img_missing_alt": 0,
+      "internal_links": 1,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 3,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 164 chars — optimal is 120-160",
+        "Only 1 internal link(s) — aim for 3+",
+        "Content is 602 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/side-by-side-ai-comparison",
+      "score": 60,
+      "grade": "C",
+      "title": "Side-by-Side AI Comparison with the Same Prompt | ModelAny",
+      "word_count": 764,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 6,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 112 chars — optimal is 120-160",
+        "Content is 764 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/zh/ai-browser-extension",
+      "score": 56,
+      "grade": "C",
+      "title": "AI 浏览器扩展：用同一提示词比较多个模型 | ModelAny",
+      "word_count": 1105,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 4,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 8,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 60 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/benchmarks",
+      "score": 54,
+      "grade": "C",
+      "title": "按场景查看 AI 模型评测数据 | ModelAny",
+      "word_count": 581,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 5,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 15,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 26 chars — optimal is 30-60",
+        "Meta description is 45 chars — optimal is 120-160",
+        "Content is 581 words — top-ranking pages often have 800+"
+      ]
+    },
+    {
+      "path": "/zh/compare/doubao-vs-chatgpt",
+      "score": 61,
+      "grade": "C",
+      "title": "豆包 vs ChatGPT 公开评测对比 | ModelAny",
+      "word_count": 1189,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 39 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/doubao-vs-deepseek",
+      "score": 61,
+      "grade": "C",
+      "title": "豆包 vs DeepSeek 公开评测对比 | ModelAny",
+      "word_count": 1188,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 40 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/glm-vs-chatgpt",
+      "score": 61,
+      "grade": "C",
+      "title": "GLM / 智谱清言 vs ChatGPT 公开评测对比 | ModelAny",
+      "word_count": 1215,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 47 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/glm-vs-deepseek",
+      "score": 61,
+      "grade": "C",
+      "title": "GLM / 智谱清言 vs DeepSeek 公开评测对比 | ModelAny",
+      "word_count": 1217,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 48 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/kimi-vs-chatgpt",
+      "score": 61,
+      "grade": "C",
+      "title": "Kimi vs ChatGPT 公开评测对比 | ModelAny",
+      "word_count": 1274,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 41 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/kimi-vs-deepseek",
+      "score": 61,
+      "grade": "C",
+      "title": "Kimi vs DeepSeek 公开评测对比 | ModelAny",
+      "word_count": 1176,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 42 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/qwen-vs-chatgpt",
+      "score": 61,
+      "grade": "C",
+      "title": "通义千问 vs ChatGPT 公开评测对比 | ModelAny",
+      "word_count": 1115,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 41 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/qwen-vs-deepseek",
+      "score": 61,
+      "grade": "C",
+      "title": "通义千问 vs DeepSeek 公开评测对比 | ModelAny",
+      "word_count": 1118,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 42 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/compare/wenxin-vs-chatgpt",
+      "score": 61,
+      "grade": "C",
+      "title": "文心一言 vs ChatGPT 公开评测对比 | ModelAny",
+      "word_count": 1108,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 10,
+      "details": {
+        "title": {
+          "score": 10,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Meta description is 41 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh",
+      "score": 63,
+      "grade": "C",
+      "title": "一次提问，发送给多个 AI 大模型 | ModelAny",
+      "word_count": 2426,
+      "h1_count": 1,
+      "img_total": 18,
+      "img_missing_alt": 0,
+      "internal_links": 15,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 6,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 2,
+          "max": 10
+        },
+        "links": {
+          "score": 13,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 10,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 28 chars — optimal is 30-60",
+        "Meta description is 93 chars — optimal is 120-160"
+      ]
+    },
+    {
+      "path": "/zh/privacy.html",
+      "score": 49,
+      "grade": "D",
+      "title": "隐私政策 — ModelAny | 本地优先的 AI 扩展",
+      "word_count": 574,
+      "h1_count": 1,
+      "img_total": 1,
+      "img_missing_alt": 0,
+      "internal_links": 5,
+      "details": {
+        "title": {
+          "score": 6,
+          "max": 15
+        },
+        "meta": {
+          "score": 2,
+          "max": 15
+        },
+        "headings": {
+          "score": 16,
+          "max": 20
+        },
+        "images": {
+          "score": 0,
+          "max": 10
+        },
+        "links": {
+          "score": 10,
+          "max": 15
+        },
+        "url": {
+          "score": 10,
+          "max": 10
+        },
+        "content": {
+          "score": 5,
+          "max": 15
+        }
+      },
+      "issues": [
+        "0 images missing alt text"
+      ],
+      "tips": [
+        "Title is 29 chars — optimal is 30-60",
+        "Meta description is 55 chars — optimal is 120-160",
+        "Content is 574 words — top-ranking pages often have 800+"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "path": "/404.html",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/404.html",
+      "issue": "Thin content (111 words)"
+    },
+    {
+      "path": "/ai-browser-extension",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/best-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-api",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-business",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-chinese",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-coding",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-free",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-image",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-no-login",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-open-source",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-students",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/chatgpt-writing",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/cheap-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/claude",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/claude-code",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/cursor",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/free-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/free-chatgpt-2026",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/gemini",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/github-copilot",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/perplexity",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/alternatives/windsurf",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/benchmarks",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/academic-writing",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/analysis",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/blog-posts",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/business",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/chinese-to-english",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/code-review",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/coding",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/coding-2026",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/coding-interviews",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/content-creation",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/creative-writing",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/customer-support",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/data-analysis",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/debugging",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/emails",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/essays",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/excel",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/finance",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/hr",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/java",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/javascript",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/leetcode",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/marketing",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/math",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/powerpoint",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/python",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/reasoning",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/refactoring",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/research",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/sales",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/science",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/spreadsheets",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/sql",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/statistics",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/students",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/system-design",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/translation",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/best-for/writing",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare/chatgpt-vs-claude",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare/chatgpt-vs-deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare/chatgpt-vs-gemini",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare/claude-vs-gemini",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare/deepseek-vs-claude",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare/deepseek-vs-gemini",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/compare-ai-models",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/ai-api",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/ai-no-limits",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/ai-no-login",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/ai-tools-2026",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/best-ai-chatbot",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/best-ai-chatbot-2026",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/best-ai-coding",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/claude",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free/gemini",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/free",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/pricing/ai-comparison",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/pricing/api-small-business",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/pricing/api-startups",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/pricing/chatgpt-vs-deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/pricing/cheapest-api",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/pricing/cheapest-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/pricing",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/privacy.html",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/side-by-side-ai-comparison",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/ai-browser-extension",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/benchmarks",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/doubao-vs-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/doubao-vs-deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/glm-vs-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/glm-vs-deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/kimi-vs-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/kimi-vs-deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/qwen-vs-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/qwen-vs-deepseek",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/compare/wenxin-vs-chatgpt",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh",
+      "issue": "0 images missing alt text"
+    },
+    {
+      "path": "/zh/privacy.html",
+      "issue": "0 images missing alt text"
+    }
+  ],
+  "tips": [
+    {
+      "path": "/404.html",
+      "tip": "Title is 25 chars — optimal is 30-60"
+    },
+    {
+      "path": "/404.html",
+      "tip": "Meta description is 113 chars — optimal is 120-160"
+    },
+    {
+      "path": "/ai-browser-extension",
+      "tip": "Title is 61 chars — optimal is 30-60"
+    },
+    {
+      "path": "/ai-browser-extension",
+      "tip": "Meta description is 113 chars — optimal is 120-160"
+    },
+    {
+      "path": "/ai-browser-extension",
+      "tip": "Content is 738 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/best-chatgpt",
+      "tip": "Meta description is 171 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/best-chatgpt",
+      "tip": "Content is 694 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt",
+      "tip": "Meta description is 166 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt",
+      "tip": "Content is 679 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-api",
+      "tip": "Meta description is 170 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-api",
+      "tip": "Content is 694 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-business",
+      "tip": "Meta description is 179 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-business",
+      "tip": "Content is 702 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-chinese",
+      "tip": "Meta description is 178 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-chinese",
+      "tip": "Content is 702 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-coding",
+      "tip": "Meta description is 177 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-coding",
+      "tip": "Content is 702 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-free",
+      "tip": "Meta description is 171 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-free",
+      "tip": "Content is 694 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-image",
+      "tip": "Meta description is 188 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-image",
+      "tip": "Content is 710 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-no-login",
+      "tip": "Meta description is 180 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-no-login",
+      "tip": "Content is 709 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-open-source",
+      "tip": "Meta description is 178 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-open-source",
+      "tip": "Content is 709 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-students",
+      "tip": "Meta description is 179 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-students",
+      "tip": "Content is 702 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/chatgpt-writing",
+      "tip": "Meta description is 178 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/chatgpt-writing",
+      "tip": "Content is 702 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/cheap-chatgpt",
+      "tip": "Meta description is 172 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/cheap-chatgpt",
+      "tip": "Content is 694 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/claude",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/alternatives/claude",
+      "tip": "Meta description is 164 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/claude",
+      "tip": "Content is 678 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/claude-code",
+      "tip": "Meta description is 174 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/claude-code",
+      "tip": "Content is 696 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/cursor",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/alternatives/cursor",
+      "tip": "Meta description is 164 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/cursor",
+      "tip": "Content is 676 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/deepseek",
+      "tip": "Meta description is 168 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/deepseek",
+      "tip": "Content is 679 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/free-chatgpt",
+      "tip": "Meta description is 171 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/free-chatgpt",
+      "tip": "Content is 694 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/free-chatgpt-2026",
+      "tip": "Meta description is 181 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/free-chatgpt-2026",
+      "tip": "Content is 702 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/gemini",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/alternatives/gemini",
+      "tip": "Meta description is 164 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/gemini",
+      "tip": "Content is 677 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/github-copilot",
+      "tip": "Meta description is 183 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/github-copilot",
+      "tip": "Content is 698 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives",
+      "tip": "Title is 26 chars — optimal is 30-60"
+    },
+    {
+      "path": "/alternatives",
+      "tip": "Meta description is 103 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives",
+      "tip": "Content is 501 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/perplexity",
+      "tip": "Meta description is 172 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/perplexity",
+      "tip": "Content is 676 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/alternatives/windsurf",
+      "tip": "Meta description is 168 chars — optimal is 120-160"
+    },
+    {
+      "path": "/alternatives/windsurf",
+      "tip": "Content is 676 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/benchmarks",
+      "tip": "Meta description is 169 chars — optimal is 120-160"
+    },
+    {
+      "path": "/benchmarks",
+      "tip": "Content is 396 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/academic-writing",
+      "tip": "Meta description is 172 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/analysis",
+      "tip": "Meta description is 164 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/blog-posts",
+      "tip": "Meta description is 112 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/business",
+      "tip": "Meta description is 164 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/chinese-to-english",
+      "tip": "Meta description is 174 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/code-review",
+      "tip": "Meta description is 169 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/coding",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/coding",
+      "tip": "Meta description is 172 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/coding",
+      "tip": "Content is 714 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/coding-2026",
+      "tip": "Meta description is 177 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/coding-2026",
+      "tip": "Content is 714 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/coding-interviews",
+      "tip": "Meta description is 175 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/content-creation",
+      "tip": "Meta description is 172 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/creative-writing",
+      "tip": "Meta description is 170 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/creative-writing",
+      "tip": "Content is 719 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/customer-support",
+      "tip": "Meta description is 172 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/debugging",
+      "tip": "Meta description is 167 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/emails",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/emails",
+      "tip": "Meta description is 162 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/essays",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/excel",
+      "tip": "Title is 28 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/excel",
+      "tip": "Meta description is 172 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/excel",
+      "tip": "Content is 710 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/finance",
+      "tip": "Meta description is 163 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/hr",
+      "tip": "Title is 25 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for",
+      "tip": "Content is 650 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/java",
+      "tip": "Title is 27 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/java",
+      "tip": "Meta description is 162 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/javascript",
+      "tip": "Meta description is 168 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/leetcode",
+      "tip": "Meta description is 166 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/marketing",
+      "tip": "Meta description is 165 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/math",
+      "tip": "Title is 27 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/math",
+      "tip": "Meta description is 162 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/powerpoint",
+      "tip": "Meta description is 177 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/powerpoint",
+      "tip": "Content is 710 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/python",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/python",
+      "tip": "Meta description is 164 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/reasoning",
+      "tip": "Meta description is 167 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/refactoring",
+      "tip": "Meta description is 168 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/refactoring",
+      "tip": "Content is 704 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/research",
+      "tip": "Content is 699 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/sales",
+      "tip": "Title is 28 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/sales",
+      "tip": "Meta description is 161 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/science",
+      "tip": "Meta description is 163 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/spreadsheets",
+      "tip": "Meta description is 179 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/spreadsheets",
+      "tip": "Content is 710 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/sql",
+      "tip": "Title is 26 chars — optimal is 30-60"
+    },
+    {
+      "path": "/best-for/sql",
+      "tip": "Meta description is 161 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/statistics",
+      "tip": "Meta description is 168 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/students",
+      "tip": "Meta description is 174 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/system-design",
+      "tip": "Meta description is 169 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/translation",
+      "tip": "Meta description is 167 chars — optimal is 120-160"
+    },
+    {
+      "path": "/best-for/translation",
+      "tip": "Content is 786 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/best-for/writing",
+      "tip": "Meta description is 163 chars — optimal is 120-160"
+    },
+    {
+      "path": "/compare/chatgpt-vs-claude",
+      "tip": "Meta description is 103 chars — optimal is 120-160"
+    },
+    {
+      "path": "/compare/chatgpt-vs-deepseek",
+      "tip": "Meta description is 105 chars — optimal is 120-160"
+    },
+    {
+      "path": "/compare/chatgpt-vs-deepseek",
+      "tip": "Content is 797 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/compare/chatgpt-vs-gemini",
+      "tip": "Meta description is 103 chars — optimal is 120-160"
+    },
+    {
+      "path": "/compare/claude-vs-gemini",
+      "tip": "Meta description is 102 chars — optimal is 120-160"
+    },
+    {
+      "path": "/compare/deepseek-vs-claude",
+      "tip": "Meta description is 104 chars — optimal is 120-160"
+    },
+    {
+      "path": "/compare/deepseek-vs-claude",
+      "tip": "Content is 796 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/compare/deepseek-vs-gemini",
+      "tip": "Meta description is 104 chars — optimal is 120-160"
+    },
+    {
+      "path": "/compare/deepseek-vs-gemini",
+      "tip": "Content is 794 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/compare",
+      "tip": "Content is 521 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/compare-ai-models",
+      "tip": "Title is 62 chars — optimal is 30-60"
+    },
+    {
+      "path": "/compare-ai-models",
+      "tip": "Content is 764 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/ai-api",
+      "tip": "Title is 22 chars — optimal is 30-60"
+    },
+    {
+      "path": "/free/ai-api",
+      "tip": "Content is 704 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/ai-no-limits",
+      "tip": "Content is 725 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/ai-no-login",
+      "tip": "Content is 725 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/ai-tools-2026",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/free/ai-tools-2026",
+      "tip": "Content is 710 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/best-ai-chatbot",
+      "tip": "Content is 723 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/best-ai-chatbot-2026",
+      "tip": "Content is 723 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/chatgpt",
+      "tip": "Title is 23 chars — optimal is 30-60"
+    },
+    {
+      "path": "/free/chatgpt",
+      "tip": "Content is 681 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/claude",
+      "tip": "Title is 22 chars — optimal is 30-60"
+    },
+    {
+      "path": "/free/claude",
+      "tip": "Content is 683 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/deepseek",
+      "tip": "Title is 24 chars — optimal is 30-60"
+    },
+    {
+      "path": "/free/deepseek",
+      "tip": "Content is 681 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free/gemini",
+      "tip": "Title is 22 chars — optimal is 30-60"
+    },
+    {
+      "path": "/free/gemini",
+      "tip": "Content is 679 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/free",
+      "tip": "Title is 25 chars — optimal is 30-60"
+    },
+    {
+      "path": "/free",
+      "tip": "Meta description is 101 chars — optimal is 120-160"
+    },
+    {
+      "path": "/free",
+      "tip": "Content is 476 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/pricing/ai-comparison",
+      "tip": "Meta description is 113 chars — optimal is 120-160"
+    },
+    {
+      "path": "/pricing/ai-comparison",
+      "tip": "Content is 686 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/pricing/api-startups",
+      "tip": "Content is 717 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/pricing/chatgpt-vs-deepseek",
+      "tip": "Meta description is 119 chars — optimal is 120-160"
+    },
+    {
+      "path": "/pricing/cheapest-api",
+      "tip": "Title is 26 chars — optimal is 30-60"
+    },
+    {
+      "path": "/pricing/cheapest-api",
+      "tip": "Meta description is 107 chars — optimal is 120-160"
+    },
+    {
+      "path": "/pricing/cheapest-api",
+      "tip": "Content is 678 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/pricing/cheapest-chatgpt",
+      "tip": "Content is 676 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/pricing",
+      "tip": "Title is 28 chars — optimal is 30-60"
+    },
+    {
+      "path": "/pricing",
+      "tip": "Meta description is 96 chars — optimal is 120-160"
+    },
+    {
+      "path": "/pricing",
+      "tip": "Content is 451 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/privacy.html",
+      "tip": "Meta description is 164 chars — optimal is 120-160"
+    },
+    {
+      "path": "/privacy.html",
+      "tip": "Only 1 internal link(s) — aim for 3+"
+    },
+    {
+      "path": "/privacy.html",
+      "tip": "Content is 602 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/side-by-side-ai-comparison",
+      "tip": "Meta description is 112 chars — optimal is 120-160"
+    },
+    {
+      "path": "/side-by-side-ai-comparison",
+      "tip": "Content is 764 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/zh/ai-browser-extension",
+      "tip": "Meta description is 60 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/benchmarks",
+      "tip": "Title is 26 chars — optimal is 30-60"
+    },
+    {
+      "path": "/zh/benchmarks",
+      "tip": "Meta description is 45 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/benchmarks",
+      "tip": "Content is 581 words — top-ranking pages often have 800+"
+    },
+    {
+      "path": "/zh/compare/doubao-vs-chatgpt",
+      "tip": "Meta description is 39 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/doubao-vs-deepseek",
+      "tip": "Meta description is 40 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/glm-vs-chatgpt",
+      "tip": "Meta description is 47 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/glm-vs-deepseek",
+      "tip": "Meta description is 48 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/kimi-vs-chatgpt",
+      "tip": "Meta description is 41 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/kimi-vs-deepseek",
+      "tip": "Meta description is 42 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/qwen-vs-chatgpt",
+      "tip": "Meta description is 41 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/qwen-vs-deepseek",
+      "tip": "Meta description is 42 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/compare/wenxin-vs-chatgpt",
+      "tip": "Meta description is 41 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh",
+      "tip": "Title is 28 chars — optimal is 30-60"
+    },
+    {
+      "path": "/zh",
+      "tip": "Meta description is 93 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/privacy.html",
+      "tip": "Title is 29 chars — optimal is 30-60"
+    },
+    {
+      "path": "/zh/privacy.html",
+      "tip": "Meta description is 55 chars — optimal is 120-160"
+    },
+    {
+      "path": "/zh/privacy.html",
+      "tip": "Content is 574 words — top-ranking pages often have 800+"
+    }
+  ]
+}
