@@ -36,4 +36,9 @@ if [[ $# -eq 0 ]]; then
   exec zens-ink --help
 fi
 
+# Non-interactive GSC finish: ./seo/zens.sh setup_gsc 'http://localhost:8484/?code=...'
+if [[ "${1:-}" == "setup_gsc" && -n "${2:-}" ]]; then
+  printf '%s\n' "$2" | exec zens-ink setup_gsc
+fi
+
 exec zens-ink "$@"
