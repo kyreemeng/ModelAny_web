@@ -51,7 +51,7 @@
       // Update meta theme-color
       const metaTheme = document.querySelector('meta[name="theme-color"]');
       if (metaTheme) {
-        metaTheme.setAttribute('content', next === 'dark' ? '#16162A' : '#6D5DFB');
+        metaTheme.setAttribute('content', next === 'dark' ? '#17171A' : '#FDFDFB');
       }
     });
   }
@@ -561,7 +561,7 @@
 
   // --- Scroll Reveal (native IntersectionObserver, no GSAP) ---
   function initScrollReveal() {
-    if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+    if (!('IntersectionObserver' in window)) return;
 
     const revealTargets = [
       '.feature-card',
@@ -579,9 +579,16 @@
     const selector = revealTargets.join(', ');
     const elements = document.querySelectorAll(selector);
 
+    // Add reveal + reveal-hide so elements start hidden ONLY when JS runs
+    // Without JS: .reveal has no opacity:0 → content is visible (progressive enhancement)
+    const useAnimation = !prefersReducedMotion;
     elements.forEach(function (el) {
       el.classList.add('reveal');
+      if (useAnimation) el.classList.add('reveal-hide');
     });
+
+    // If reduced motion or no animation needed, show everything immediately
+    if (!useAnimation) return;
 
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -594,6 +601,7 @@
           }
           setTimeout(function () {
             target.classList.add('visible');
+            target.classList.remove('reveal-hide');
           }, Math.min(index * 80, 400));
           observer.unobserve(target);
         }
