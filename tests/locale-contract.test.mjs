@@ -30,6 +30,10 @@ test('locale middleware preserves explicit locales and avoids bots', async () =>
   assert.match(middleware, /url\.pathname !== '\/'/);
   assert.match(middleware, /function readCookie/);
   assert.doesNotMatch(middleware, /request\.cookies/);
+  // Geo-IP must not drive a hard homepage redirect (hurts EN SERP CTR in CN/HK/TW).
+  assert.match(middleware, /Do not use x-vercel-ip-country for hard redirects/);
+  assert.match(middleware, /primary\.startsWith\('zh'\)/);
+  assert.doesNotMatch(middleware, /CHINESE_COUNTRIES\.has\(country\)/);
 });
 
 test('Vercel treats middleware as native ESM', async () => {

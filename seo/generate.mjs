@@ -33,7 +33,7 @@ const CORE_COMPARE_SLUGS = new Set([
   'claude-vs-gemini',
 ]);
 const TEST_RECORD_PATH = join(ROOT, 'seo', 'data', 'test-results.json');
-const CONTENT_UPDATED = '2026-07-31';
+const CONTENT_UPDATED = '2026-09-26';
 
 function esc(value) {
   return String(value)
@@ -103,10 +103,15 @@ function formatRetrievedAt(value, lang) {
   return new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : 'en-US', { dateStyle: 'medium', timeStyle: 'short' }).format(date);
 }
 
-function publicEvidenceHtml(modelIds, lang) {
-  const groups = sharedBenchmarkGroups(modelIds);
+function publicEvidenceHtml(modelIds, lang, focus) {
+  const groups = sharedBenchmarkGroups(modelIds, { focus });
   if (!groups.length) return '';
   const hub = lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/';
+  const scopeNote = focus
+    ? (lang === 'zh'
+      ? `下列结果已按本页场景优先筛选公开评测类别；不相关类别不会并入结论。`
+      : `Results below prefer public benchmark categories relevant to this page’s focus. Unrelated categories are omitted.`)
+    : null;
   const blocks = groups.map((group) => {
     const rows = [...group.rows].sort((a, b) => b.score - a.score || a.rank - b.rank).map((row) => `<tr>
               <th scope="row">${esc(row.product)}</th>
@@ -133,6 +138,7 @@ function publicEvidenceHtml(modelIds, lang) {
           <p>${lang === 'zh'
             ? '下面只展示这些模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，也不能据此宣布谁全面更好。'
             : 'Below are results only from public benchmark categories where every model on this page appears together. Scores from different sources cannot be added up, and they do not prove one model is best overall.'}</p>
+          ${scopeNote ? `<p>${scopeNote}</p>` : ''}
           ${blocks}
           <p><a href="${hub}">${lang === 'zh' ? '查看按场景整理的全部公开评测数据' : 'Browse all public benchmark data by scenario'}</a></p>
         </section>`;
@@ -279,7 +285,7 @@ function modelAnyWorkflow(page, section, items, lang) {
 function researchBody(page, section, items, lang = 'en', review = null) {
   const modelIds = page.models || (page.target ? [page.target] : items.map((item) => item.id));
   const evidence = modelIds.length >= 2 && hasSharedBenchmarkData(modelIds)
-    ? publicEvidenceHtml(modelIds, lang)
+    ? publicEvidenceHtml(modelIds, lang, page.focus)
     : `<section class="seo-section"><h2>${lang === 'zh' ? '公开评测的适用范围' : 'Where public benchmarks apply'}</h2><p>${lang === 'zh'
       ? '当前公开快照未覆盖本页所有产品的同类测试，因此这里不发布能力排名。请依据本页的选择标准，用真实任务自行验证。'
       : 'The current public snapshot does not cover every product on this page in the same test, so this guide does not publish a capability ranking. Use the selection criteria below and validate with a real task.'}</p><p><a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '查看可比较的公开评测数据' : 'Browse comparable public benchmark data'}</a></p></section>`;
@@ -287,9 +293,10 @@ function researchBody(page, section, items, lang = 'en', review = null) {
   const reviewNote = review
     ? `<p class="seo-note">${lang === 'zh' ? `本页最近编辑审校：${esc(review.reviewedAt)}。` : `Last editorial review: ${esc(review.reviewedAt)}.`}</p>`
     : '';
+  const intro = page.intro || guideIntroduction(page, section, items, lang);
   return `<div class="quick-verdict">
           <h2>${lang === 'zh' ? '选择框架' : 'Selection framework'}</h2>
-          <p>${esc(guideIntroduction(page, section, items, lang))}</p>
+          <p>${esc(intro)}</p>
         </div>
         <section class="seo-section" aria-labelledby="selection-criteria-heading">
           <h2 id="selection-criteria-heading">${lang === 'zh' ? '选择时要核对什么' : 'What to evaluate'}</h2>
@@ -561,20 +568,21 @@ function sectionLabel(section, lang = 'en') {
 }
 
 function guideMetaDescription(page, section, items, review, lang) {
+  if (page.description) return page.description;
   if (review?.summary) return review.summary;
   const names = items.map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '、' : ', ');
   const topic = titleCase(page.keyword);
   const target = displayModelName(items[0] || { name: names, id: '' }, lang);
   if (lang === 'zh') {
-    if (section === 'alternatives') return `${topic}：评估 ${target || names} 替代方案的筛选条件、官方来源、公开评测适用范围与同题验证方法。`;
+    if (section === 'alternatives') return `${topic}：用可核对条件评估 ${target || names} 的替代方案，并附官方来源与同题验证方法。`;
     if (section === 'free') return `${topic}：区分试用、免费套餐、免登录入口与开放 API，并说明如何核对官方条件。`;
     if (section === 'pricing') return `${topic}：按真实用量估算成本，并交叉检查官方文档与迁移风险。`;
-    return `${topic}：面向 ${names} 的任务选择标准、官方来源、公开评测适用范围与同题验证方法。`;
+    return `${topic}：用同一提示词比较 ${names}。含选择标准、官方来源与可核验的公开评测范围。`;
   }
-  if (section === 'alternatives') return `${topic}: how to evaluate alternatives to ${target || names} with selection criteria, official sources, public-benchmark scope, and a same-prompt validation workflow.`;
-  if (section === 'free') return `${topic}: how to distinguish trials, free tiers, no-login entry points, and open APIs—plus how to verify official conditions.`;
-  if (section === 'pricing') return `${topic}: estimate cost from real usage, then cross-check official documentation and migration risk.`;
-  return `${topic}: task-specific selection criteria for ${names}, official sources, public-benchmark scope, and a same-prompt validation workflow.`;
+  if (section === 'alternatives') return `${topic}: evaluate replacements for ${target || names} with clear constraints, official sources, and a same-prompt trial.`;
+  if (section === 'free') return `${topic}: tell trials, free tiers, no-login entry points, and open APIs apart—then verify official conditions.`;
+  if (section === 'pricing') return `${topic}: estimate cost from real usage, then cross-check official docs and migration risk.`;
+  return `${topic}: compare ${names} on the same prompt. Selection criteria, official sources, and public-benchmark scope you can verify.`;
 }
 
 function generateCompare(page, prefix = 'compare', lang = 'en') {
@@ -716,7 +724,13 @@ function generateDraft(page, section, items, tests, lang = 'en') {
   const path = `${section}/${page.slug}/index.html`;
   const review = approvedReview(tests, section, page.slug);
   const indexable = true;
-  const h1 = lang === 'zh' ? page.keyword : titleCase(page.keyword);
+  const h1 = page.h1 || (lang === 'zh' ? page.keyword : titleCase(page.keyword));
+  const names = items.map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '、' : ', ');
+  const title = page.title || (lang === 'zh'
+    ? `${h1} | ModelAny`
+    : section === 'best-for'
+      ? `${h1}: Compare ${names} | ModelAny`
+      : `${h1} | ModelAny`);
   const description = guideMetaDescription(page, section, items, review, lang);
   return {
     path,
@@ -726,7 +740,7 @@ function generateDraft(page, section, items, tests, lang = 'en') {
     content: htmlPage({
       path,
       canonical,
-      title: `${h1} | ModelAny`,
+      title,
       description,
       h1,
       lang,

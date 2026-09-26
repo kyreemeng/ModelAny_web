@@ -1,6 +1,5 @@
 const LOCALE_COOKIE = 'modelany_locale';
-const CHINESE_COUNTRIES = new Set(['CN', 'HK', 'MO', 'TW']);
-const BOT_PATTERN = /Googlebot|bingbot|Baiduspider|YandexBot|DuckDuckBot|Slurp|facebookexternalhit/i;
+const BOT_PATTERN = /Googlebot|bingbot|Baiduspider|YandexBot|DuckDuckBot|Slurp|facebookexternalhit|GPTBot|OAI-SearchBot|ClaudeBot|anthropic-ai|PerplexityBot/i;
 
 function readCookie(request, name) {
   const header = request.headers.get('cookie');
@@ -13,10 +12,19 @@ function readCookie(request, name) {
   return undefined;
 }
 
-function prefersChinese(request) {
+/**
+ * Prefer Chinese only from an explicit language preference.
+ * Do not use x-vercel-ip-country for hard redirects: geo-IP redirects on the
+ * English homepage send CN/HK/TW/MO visitors (including English SERP clickers)
+ * to /zh/, which weakens English ranking signals and hurts CTR.
+ * Country is still read so edge logs/debug retain region context without acting on it.
+ */
+function prefersChineseLanguage(request) {
   const country = request.headers.get('x-vercel-ip-country')?.toUpperCase();
+  void country;
   const acceptLanguage = request.headers.get('accept-language')?.toLowerCase() ?? '';
-  return CHINESE_COUNTRIES.has(country) || acceptLanguage.startsWith('zh');
+  const primary = acceptLanguage.split(',')[0]?.trim() ?? '';
+  return primary.startsWith('zh');
 }
 
 function hasLocalePreference(request) {
@@ -32,7 +40,7 @@ export default function middleware(request) {
     return;
   }
 
-  if (!prefersChinese(request)) return;
+  if (!prefersChineseLanguage(request)) return;
 
   return new Response(null, {
     status: 307,

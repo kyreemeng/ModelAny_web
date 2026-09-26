@@ -5,6 +5,13 @@
 User-agent: *
 Allow: /
 Disallow: /.superpowers/
+# Internal audit/report markdown — keep out of discovery; not product content
+Disallow: /*.md$
+Disallow: /overview.md
+Disallow: /seo-audit-report.md
+Disallow: /website-audit-report.md
+Disallow: /frontend-review-report.md
+Disallow: /ai-writing-audit.md
 
 # Third-party crawlers (Googlebot, Bingbot, etc.) may crawl freely so they can
 # follow canonical and noindex directives.

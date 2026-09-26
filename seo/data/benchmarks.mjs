@@ -57,7 +57,21 @@ function productKeys(modelIds) {
   return modelIds.map((id) => PRODUCT_BY_MODEL_ID[id]).filter(Boolean);
 }
 
-export function sharedBenchmarkGroups(modelIds) {
+/**
+ * Map editorial focus areas to public benchmark categories that are relevant
+ * enough to show on the page. Unrelated categories (e.g. SWE-bench on an HR
+ * guide) dilute usefulness and confuse searchers.
+ */
+const FOCUS_CATEGORY_ALLOWLIST = {
+  coding: new Set(['code', 'Verified']),
+  writing: new Set(['text']),
+  reasoning: new Set(['text']),
+  research: new Set(['search', 'text']),
+  business: new Set(['text', 'search']),
+  students: new Set(['text', 'search']),
+};
+
+export function sharedBenchmarkGroups(modelIds, { focus } = {}) {
   const snapshot = loadBenchmarkSnapshot();
   if (!snapshot?.records?.length) return [];
   const products = productKeys(modelIds);
@@ -90,7 +104,14 @@ export function sharedBenchmarkGroups(modelIds) {
     }
   }
 
-  return groups.sort((a, b) => a.source.localeCompare(b.source) || a.category.localeCompare(b.category));
+  const sorted = groups.sort((a, b) => a.source.localeCompare(b.source) || a.category.localeCompare(b.category));
+  const allow = FOCUS_CATEGORY_ALLOWLIST[focus];
+  if (!allow) return sorted;
+  const filtered = sorted.filter((group) => allow.has(group.category));
+  // Prefer focus-relevant evidence; fall back to general chat preference, then unfiltered.
+  if (filtered.length) return filtered;
+  const chatOnly = sorted.filter((group) => group.category === 'text');
+  return chatOnly.length ? chatOnly : sorted;
 }
 
 export function hasSharedBenchmarkData(modelIds) {
