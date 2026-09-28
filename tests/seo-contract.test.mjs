@@ -45,12 +45,15 @@ test('kept compare pages embed plain-language public benchmark evidence', async 
 
 test('each benchmark table puts the higher score first', async () => {
   const html = await projectFile('compare/chatgpt-vs-claude/index.html');
-  const claudeCoding = html.indexOf('<th scope="row">Claude</th>\n              <td>claude-opus-5-max</td>');
-  const chatgptCoding = html.indexOf('<th scope="row">ChatGPT</th>\n              <td>gpt-5.6-sol-xhigh (codex-harness)</td>');
+  const sweStart = html.indexOf('SWE-bench Verified');
+  assert.ok(sweStart >= 0);
+  const tableSlice = html.slice(sweStart, sweStart + 1200);
+  const claudeRow = tableSlice.indexOf('<th scope="row">Claude</th>');
+  const chatgptRow = tableSlice.indexOf('<th scope="row">ChatGPT</th>');
 
-  assert.ok(claudeCoding >= 0);
-  assert.ok(chatgptCoding >= 0);
-  assert.ok(claudeCoding < chatgptCoding);
+  assert.ok(claudeRow >= 0);
+  assert.ok(chatgptRow >= 0);
+  assert.ok(claudeRow < chatgptRow);
 });
 
 test('Chinese comparison hub is not published as a standalone page', async () => {

@@ -22,6 +22,7 @@ import {
   removedCompareRedirects,
   zhComparePages,
 } from './data/pages.mjs';
+import { resolveProductCopy } from './data/product-copy.mjs';
 import { syncChrome } from './sync-chrome.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -323,7 +324,25 @@ function faqs(lang) {
       ];
 }
 
-function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', indexable = false, breadcrumbs, localeHref, dateModified = CONTENT_UPDATED, pageType = 'Article', alternateUrl }) {
+function htmlPage({
+  path,
+  canonical,
+  title,
+  description,
+  h1,
+  body,
+  lang = 'en',
+  indexable = false,
+  breadcrumbs,
+  localeHref,
+  dateModified = CONTENT_UPDATED,
+  pageType = 'Article',
+  alternateUrl,
+  eyebrow,
+  faqItems,
+  ctaHeading,
+  ctaBody,
+}) {
   const base = assetBase(path);
   const pageUrl = `${SITE}${canonical}`;
   const robots = indexable ? 'index, follow, max-image-preview:large, max-snippet:-1' : 'noindex, follow, max-image-preview:large, max-snippet:-1';
@@ -385,7 +404,15 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
       ? `<li aria-current="page">${esc(item.name)}</li>`
       : `<li><a href="${item.href}">${esc(item.name)}</a></li>`
   )).join('\n          ');
-  const faqHtml = faqs(lang).map((item) => `<details class="faq-item"><summary><span>${esc(item.q)}</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>${esc(item.a)}</p></div></div></details>`).join('\n          ');
+  const resolvedFaqs = (faqItems && faqItems.length ? faqItems : faqs(lang));
+  const faqHtml = resolvedFaqs.map((item) => `<details class="faq-item"><summary><span>${esc(item.q)}</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>${esc(item.a)}</p></div></div></details>`).join('\n          ');
+  const resolvedEyebrow = eyebrow || (dateModified === DATE
+    ? `${lang === 'zh' ? '公开评测快照' : 'Public benchmark snapshot'}: ${DATE}`
+    : `${lang === 'zh' ? '内容更新' : 'Content updated'}: ${dateModified}`);
+  const resolvedCtaHeading = ctaHeading || (lang === 'zh' ? '用同一提示词比较多个模型' : 'Compare multiple models with one prompt');
+  const resolvedCtaBody = ctaBody || (lang === 'zh'
+    ? `ModelAny 是免费开源的浏览器扩展，已在 <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome 网上应用店</a> 与 <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge 加载项</a> 上架。草稿、设置与历史保留在浏览器本地。`
+    : `ModelAny is a free, open-source browser extension available on the <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome Web Store</a> and <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a>. Drafts, settings, and history remain in your browser.`);
   if (canonical.startsWith('/pricing')) {
     schema['@graph'].push({
       '@type': 'SoftwareApplication',
@@ -485,12 +512,10 @@ function htmlPage({ path, canonical, title, description, h1, body, lang = 'en', 
   <main id="main" class="seo-main"><div class="container seo-container">
     <nav class="seo-breadcrumb" aria-label="Breadcrumb"><ol>${crumbHtml}</ol></nav>
     <article class="seo-article">
-      <header class="seo-header"><p class="seo-eyebrow">${dateModified === DATE
-        ? `${lang === 'zh' ? '公开评测快照' : 'Public benchmark snapshot'}: ${DATE}`
-        : `${lang === 'zh' ? '内容更新' : 'Content updated'}: ${dateModified}`}</p><h1>${esc(h1)}</h1></header>
+      <header class="seo-header"><p class="seo-eyebrow">${esc(resolvedEyebrow)}</p><h1>${esc(h1)}</h1></header>
       ${body}
       <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">${lang === 'zh' ? '常见问题' : 'Frequently asked questions'}</h2><div class="faq-list">${faqHtml}</div></section>
-      <section class="seo-cta"><h2>${lang === 'zh' ? '用同一提示词比较多个模型' : 'Compare multiple models with one prompt'}</h2><p>${lang === 'zh' ? `ModelAny 是免费开源的浏览器扩展，已在 <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome 网上应用店</a> 与 <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge 加载项</a> 上架。草稿、设置与历史保留在浏览器本地。` : `ModelAny is a free, open-source browser extension available on the <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome Web Store</a> and <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a>. Drafts, settings, and history remain in your browser.`}</p><a href="${DOWNLOAD}" data-download-cta class="btn btn-primary btn-pill">${downloadLabel}</a></section>
+      <section class="seo-cta"><h2>${esc(resolvedCtaHeading)}</h2><p>${resolvedCtaBody}</p><a href="${DOWNLOAD}" data-download-cta class="btn btn-primary btn-pill">${downloadLabel}</a></section>
     </article>
   </div></main>
   <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="${lang === 'zh' ? '页脚导航' : 'Footer navigation'}"><a href="${lang === 'zh' ? '/zh/privacy.html' : '/privacy.html'}">${lang === 'zh' ? '隐私' : 'Privacy'}</a><a href="${switchHref}" data-locale-switch="${switchLang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav></div></footer>
@@ -629,47 +654,74 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
   };
 }
 
-function productBody(page, items, lang) {
-  const supported = items.filter((item) => item.inModelAny).map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '、' : ', ');
-  const browserExtension = page.intent === 'browser-extension';
-  const heading = browserExtension
-    ? (lang === 'zh' ? '为现有浏览器增加多模型工作流' : 'Add a multi-model workflow to your current browser')
-    : (lang === 'zh' ? '把模型选择变成可重复的同题比较' : 'Make model selection a repeatable same-task comparison');
-  const intro = browserExtension
-    ? (lang === 'zh'
-      ? `ModelAny 是一款 Chrome 与 Microsoft Edge 扩展，可把同一个提示词发送到你选择的服务。当前启动列表包括 ${supported}。`
-      : `ModelAny is a Chrome and Microsoft Edge extension that sends the same prompt to services you choose. Its current launcher includes ${supported}.`)
-    : (lang === 'zh'
-      ? '不要把不同模型在不同提示词下的单次输出当作结论。先定义同一个任务和成功标准，再并排检查结果、修改量与限制条件。'
-      : 'Do not treat one-off outputs from different prompts as a conclusion. Define one task and success criteria first, then compare results, edits, and constraints side by side.');
-  const relatedProduct = browserExtension
-    ? (lang === 'zh' ? { href: '/zh/compare-ai-models/', label: '对比大模型：同一提示词验证' } : { href: '/compare-ai-models/', label: 'Compare AI models with the same prompt' })
-    : (lang === 'zh' ? { href: '/zh/ai-browser-extension/', label: 'AI 浏览器插件安装说明' } : { href: '/ai-browser-extension/', label: 'ChatGPT Chrome extension installation guide' });
-  const extraRelated = lang === 'zh'
-    ? `<li><a href="/zh/compare/kimi-vs-chatgpt/">查看 Kimi vs ChatGPT 公开评测</a></li>`
-    : `<li><a href="/side-by-side-ai-comparison/">Side-by-side AI comparison workflow</a></li>
-            <li><a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini public benchmarks</a></li>`;
-  return `<div class="quick-verdict"><h2>${heading}</h2><p>${intro}</p></div>
-        <section class="seo-section" aria-labelledby="workflow-heading">
-          <h2 id="workflow-heading">${lang === 'zh' ? '建议工作流' : 'Suggested workflow'}</h2>
-          <ol>
-            <li>${lang === 'zh' ? '写下一个真实任务、输入材料和成功标准。' : 'Write down a real task, its input material, and success criteria.'}</li>
-            <li>${lang === 'zh' ? '在 ModelAny 中选择要比较的服务，并使用相同提示词。' : 'Choose the services to compare in ModelAny and use the same prompt.'}</li>
-            <li>${lang === 'zh' ? '并排检查事实、可执行性、修改成本和各服务的条款。' : 'Review facts, actionability, editing effort, and each service’s terms side by side.'}</li>
-          </ol>
-        </section>
+function renderCopySections(sections) {
+  return sections.map((block) => {
+    const paragraphs = (block.paragraphs || []).map((p) => `<p>${esc(p)}</p>`).join('');
+    let list = '';
+    if (block.list?.length) {
+      const tag = block.listOrdered ? 'ol' : 'ul';
+      list = `<${tag}>${block.list.map((item) => `<li>${esc(item)}</li>`).join('')}</${tag}>`;
+    }
+    return `<section class="seo-section" aria-labelledby="${esc(block.id)}-heading">
+          <h2 id="${esc(block.id)}-heading">${esc(block.heading)}</h2>
+          ${paragraphs}
+          ${list}
+        </section>`;
+  }).join('\n        ');
+}
+
+function productBody(page, items, lang, copy) {
+  if (copy) {
+    const leadParas = (copy.lead || []).map((p) => `<p>${esc(p)}</p>`).join('');
+    const related = (copy.related || [])
+      .map((item) => `<li><a href="${esc(item.href)}">${esc(item.label)}</a></li>`)
+      .join('\n            ');
+    const evidence = copy.includeEvidence ? publicEvidenceHtml(page.models, lang) : '';
+    const sources = copy.includeEvidence ? sourcesHtml(items, lang) : '';
+    return `<div class="quick-verdict"><h2>${esc(copy.leadHeading)}</h2>${leadParas}</div>
+        ${renderCopySections(copy.sections || [])}
         <section class="seo-section" aria-labelledby="install-heading">
-          <h2 id="install-heading">${lang === 'zh' ? '安装 ModelAny' : 'Install ModelAny'}</h2>
-          <p>${lang === 'zh' ? '请选择与你当前浏览器匹配的官方商店。扩展采用本地优先设计：草稿、设置和历史保留在浏览器中；提示词只会发送到你选择的 AI 服务。' : 'Choose the official store for your current browser. The extension is local-first: drafts, settings, and history remain in your browser, while prompts are sent only to the AI services you choose.'}</p>
+          <h2 id="install-heading">${lang === 'zh' ? '安装入口' : 'Get the extension'}</h2>
+          <p>${lang === 'zh'
+            ? '请从与当前浏览器对应的官方商店安装。草稿、设置、历史与记忆库留在本机；提示词只发送到你勾选的 AI 官网。'
+            : 'Install from the official store for your browser. Drafts, settings, history and memory stay on your device; prompts go only to the AI sites you select.'}</p>
           <p><a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome Web Store</a> · <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a></p>
         </section>
         <section class="seo-section" aria-labelledby="next-step-heading">
-          <h2 id="next-step-heading">${lang === 'zh' ? '相关资源' : 'Related resources'}</h2>
+          <h2 id="next-step-heading">${lang === 'zh' ? '相关页面' : 'Related pages'}</h2>
           <ul class="seo-index-list">
-            <li><a href="${lang === 'zh' ? '/zh/benchmarks/' : '/compare/'}">${lang === 'zh' ? '查看公开评测数据' : 'Browse public model comparisons'}</a></li>
-            <li><a href="${relatedProduct.href}">${relatedProduct.label}</a></li>
-            ${extraRelated}
+            ${related}
           </ul>
+        </section>
+        ${evidence}
+        ${sources}`;
+  }
+
+  const supported = items.filter((item) => item.inModelAny).map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '、' : ', ');
+  const browserExtension = page.intent === 'browser-extension';
+  const heading = browserExtension
+    ? (lang === 'zh' ? '装在现有浏览器里的多模型工具' : 'Multi-model tools inside your current browser')
+    : (lang === 'zh' ? '把选型变成可重复的同题对比' : 'Make model choice a repeatable same-prompt check');
+  const intro = browserExtension
+    ? (lang === 'zh'
+      ? `ModelAny 是 Chrome 与 Microsoft Edge 扩展，把同一提示词发到你勾选的官网。当前启动列表包括 ${supported}。`
+      : `ModelAny is a Chrome and Microsoft Edge extension that sends one prompt to the official sites you select. The launcher currently includes ${supported}.`)
+    : (lang === 'zh'
+      ? '不要把不同提示词下的零散回答当成结论。先固定任务与合格标准，再并排检查事实、修改成本与各站点限制。'
+      : 'Do not treat answers from different prompts as comparable. Fix the task and success criteria first, then review facts, edit cost and each site’s limits side by side.');
+  return `<div class="quick-verdict"><h2>${heading}</h2><p>${intro}</p></div>
+        <section class="seo-section" aria-labelledby="workflow-heading">
+          <h2 id="workflow-heading">${lang === 'zh' ? '建议步骤' : 'Suggested steps'}</h2>
+          <ol>
+            <li>${lang === 'zh' ? '写下真实任务、输入材料与合格标准。' : 'Write the real task, inputs and success criteria.'}</li>
+            <li>${lang === 'zh' ? '在 ModelAny 中勾选要对比的服务，使用同一提示词。' : 'In ModelAny, select the services to compare and use one prompt.'}</li>
+            <li>${lang === 'zh' ? '并排检查事实、可执行性、修改成本与各服务条款。' : 'Review facts, actionability, edit cost and each service’s terms side by side.'}</li>
+          </ol>
+        </section>
+        <section class="seo-section" aria-labelledby="install-heading">
+          <h2 id="install-heading">${lang === 'zh' ? '安装入口' : 'Get the extension'}</h2>
+          <p>${lang === 'zh' ? '请从与当前浏览器对应的官方商店安装。草稿、设置与历史留在浏览器本地；提示词只发送到你勾选的 AI 官网。' : 'Install from the official store for your browser. Drafts, settings and history stay in the browser; prompts go only to the AI sites you select.'}</p>
+          <p><a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome Web Store</a> · <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a></p>
         </section>
         ${publicEvidenceHtml(page.models, lang)}
         ${sourcesHtml(items, lang)}`;
@@ -681,20 +733,12 @@ function generateProductPage(page) {
   const canonical = `/${prefix}${page.slug}/`;
   const path = `${prefix}${page.slug}/index.html`;
   const items = resolveModels(page.models);
-  const h1 = page.h1 || (lang === 'zh'
-    ? (page.intent === 'browser-extension' ? 'AI 浏览器扩展：用同一提示词比较多个模型' : '并排比较 AI 模型：用同一提示词验证答案')
-    : (page.intent === 'browser-extension'
-      ? 'AI Browser Extension for Comparing Multiple Models'
-      : page.slug === 'side-by-side-ai-comparison'
-        ? 'Side-by-Side AI Comparison with the Same Prompt'
-        : 'Compare AI Models Side by Side with the Same Prompt'));
-  const description = page.description || (lang === 'zh'
-    ? '了解如何通过 ModelAny 在 Chrome 和 Microsoft Edge 中用同一提示词比较多个 AI 服务。'
-    : page.intent === 'browser-extension'
-      ? 'Install a Chrome or Microsoft Edge AI browser extension for a local-first, same-prompt model comparison workflow.'
-      : page.slug === 'side-by-side-ai-comparison'
-        ? 'Use a repeatable side-by-side AI comparison workflow to evaluate multiple model responses against the same task.'
-        : 'Compare AI models with the same prompt in Chrome or Microsoft Edge, then review answers, edits, and provider terms side by side.');
+  const copy = resolveProductCopy(page.slug, lang);
+  const h1 = page.h1;
+  const description = page.description;
+  const ctaBody = copy?.ctaBody
+    ? `${esc(copy.ctaBody)} <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? 'Chrome 网上应用店' : 'Chrome Web Store'}</a> · <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a>`
+    : undefined;
   return {
     path,
     url: canonical,
@@ -711,7 +755,11 @@ function generateProductPage(page) {
       dateModified: CONTENT_UPDATED,
       localeHref: page.localePath || (lang === 'zh' ? '/' : '/zh/'),
       alternateUrl: page.localePath,
-      body: productBody(page, items, lang),
+      eyebrow: copy?.eyebrow ? `${copy.eyebrow} · ${CONTENT_UPDATED}` : undefined,
+      faqItems: copy?.faqs,
+      ctaHeading: copy?.ctaHeading,
+      ctaBody,
+      body: productBody(page, items, lang, copy),
       breadcrumbs: [
         { name: lang === 'zh' ? '首页' : 'Home', href: lang === 'zh' ? '/zh/' : '/' },
         { name: h1, href: canonical },
