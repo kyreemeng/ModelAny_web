@@ -33,6 +33,10 @@ test('the interactive launcher remains available to assistive technology', async
   assert.doesNotMatch(html, /<div class="hero-visual" aria-hidden="true">/);
   assert.match(html, /aria-live="polite"/);
   assert.match(html, /aria-label="Prompt to distribute"/);
+  assert.match(html, /id="launcher-chips"/);
+  assert.match(html, /data-model="claude"/);
+  assert.match(html, /data-model="grok"/);
+  assert.match(html, /data-model="yuanbao"/);
 });
 
 test('launcher validates prompts and uses the verified extension bridge with a fallback', async () => {
@@ -44,8 +48,8 @@ test('launcher validates prompts and uses the verified extension bridge with a f
   assert.match(script, /crypto\.randomUUID\(\)/);
   assert.match(script, /BRIDGE_TIMEOUT_MS = 5000/);
   assert.match(script, /function showLauncherFallback\(/);
-  assert.match(script, /function drawOrbitLines\(\)/);
-  assert.match(script, /function playOrbitLaunchAnimation\(\)/);
+  assert.match(script, /id: 'claude'/);
+  assert.match(script, /id: 'yuanbao'/);
   assert.doesNotMatch(script, /\.innerHTML/);
 });
 
@@ -57,13 +61,19 @@ test('the mobile navigation supports an accessible dismissal path', async () => 
   assert.match(script, /document\.body\.classList\.(add|toggle)\('menu-open'/);
 });
 
-test('orbit model icons keep circular positions and hover scaling', async () => {
-  const styles = await readProjectFile('styles.css');
+test('homepage chrome and product sections use the v2 design system', async () => {
+  const [html, styles] = await Promise.all([
+    readProjectFile('index.html'),
+    readProjectFile('styles.css'),
+  ]);
 
-  assert.match(styles, /\.orbit-node-1 \{ top: 0%; left: 50%; transform: translate\(-50%, 0\); \}/);
-  assert.match(styles, /\.orbit-node-3 \{ top: 50%; left: 95%; transform: translate\(-50%, -50%\); \}/);
-  assert.match(styles, /\.orbit-node-7 \{ top: 50%; left: 5%; transform: translate\(-50%, -50%\); \}/);
-  assert.match(styles, /\.orbit-node-1:hover \{ transform: translate\(-50%, 0\) scale\(1\.12\); \}/);
-  assert.match(styles, /\.orbit-node-3:hover \{ transform: translate\(-50%, -50%\) scale\(1\.12\); \}/);
-  assert.doesNotMatch(styles, /\.orbit-node-1,\s*\.orbit-node-2,\s*\.orbit-node-3,\s*\.orbit-node-4 \{ left: 12%; \}/);
+  assert.match(html, /chrome:header:start/);
+  assert.match(html, /chrome:footer:start/);
+  assert.match(html, /softwareVersion": "2\.0\.0"/);
+  assert.match(html, /id="features"/);
+  assert.match(html, /id="install"/);
+  assert.match(styles, /--signal:/);
+  assert.match(styles, /\.launcher-card/);
+  assert.match(styles, /\.bento/);
+  assert.match(styles, /\.privacy-panel/);
 });

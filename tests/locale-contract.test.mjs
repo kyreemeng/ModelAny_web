@@ -52,9 +52,11 @@ test('English homepage has no mixed Chinese body copy', async () => {
 test('Chinese homepage mirrors English structure with localized chrome', async () => {
   const chinese = await projectFile('zh/index.html');
   assert.match(chinese, /class="hero-visual"/);
-  assert.match(chinese, /id="orbit-container"/);
-  assert.match(chinese, /href="\.\.\/styles\.css"/);
+  assert.match(chinese, /id="launcher-chips"/);
+  assert.match(chinese, /href="\/styles\.css"/);
   assert.match(chinese, /data-locale-switch="en"/);
+  assert.match(chinese, /一次提问/);
+  assert.match(chinese, /data-model="deepseek"/);
   assert.doesNotMatch(chinese, />How it works</);
   assert.doesNotMatch(chinese, />Features</);
 });

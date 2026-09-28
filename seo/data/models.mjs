@@ -4,9 +4,9 @@
  * Do not add capability rankings, context windows, free-tier limits, or prices
  * unless they are tied to a specific official source and verification date.
  */
-export const DATE = '2026-07-19';
+export const DATE = '2026-09-28';
 export const SITE = 'https://www.modelany.app';
-export const EXTENSION_VERSION = '1.0.1';
+export const EXTENSION_VERSION = '2.0.0';
 export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb';
 export const EDGE_STORE_URL = 'https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli';
 /** Primary install CTA target. Browser-specific links are handled in download.js. */
@@ -30,7 +30,7 @@ export const models = {
     name: 'Claude',
     vendor: 'Anthropic',
     productUrl: 'https://claude.ai/',
-    inModelAny: false,
+    inModelAny: true,
     sources: [source('https://www.anthropic.com/pricing', 'Anthropic plans and pricing')],
   },
   gemini: {
@@ -69,9 +69,17 @@ export const models = {
     id: 'grok',
     name: 'Grok',
     vendor: 'xAI',
-    productUrl: 'https://grok.com/',
-    inModelAny: false,
+    productUrl: 'https://x.com/i/grok',
+    inModelAny: true,
     sources: [source('https://x.ai/grok', 'xAI Grok')],
+  },
+  yuanbao: {
+    id: 'yuanbao',
+    name: '腾讯元宝',
+    vendor: '腾讯',
+    productUrl: 'https://yuanbao.tencent.com/',
+    inModelAny: true,
+    sources: [source('https://yuanbao.tencent.com/', 'Tencent Yuanbao official site')],
   },
   mistral: {
     id: 'mistral',
@@ -91,11 +99,11 @@ export const models = {
   },
   wenxin: {
     id: 'wenxin',
-    name: '文心一言',
+    name: '文小言',
     vendor: '百度',
     productUrl: 'https://wenxin.baidu.com/',
     inModelAny: true,
-    sources: [source('https://wenxin.baidu.com/', 'Wenxin (文心一言) official site')],
+    sources: [source('https://wenxin.baidu.com/', 'Wenxin (文小言) official site')],
   },
   qwen: {
     id: 'qwen',

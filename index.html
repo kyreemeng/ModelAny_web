@@ -3,83 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#FDFDFB">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B0C14" media="(prefers-color-scheme: dark)">
 
-  <!-- Primary Meta Tags -->
-  <title>Ask Any Model — Compare Multiple AIs at Once | ModelAny</title>
-  <meta name="title" content="Ask Any Model — Compare Multiple AIs at Once | ModelAny">
-  <meta name="description" content="Ask any model—or several at once. Compare ChatGPT, Gemini, DeepSeek, and more side by side with ModelAny, a free open-source Chrome and Edge extension.">
-  <meta name="keywords" content="ask any model, ask multiple AI models at once, compare AI models side by side, chatgpt chrome extension, chatgpt vs gemini, multi AI chat, ModelAny">
+  <title>Ask Any Model at Once: ChatGPT, Claude, Gemini &amp; 8 More | ModelAny</title>
+  <meta name="description" content="Free Chrome &amp; Edge extension: ask 11 AIs at once and compare answers side by side, export any chat to PDF, Word or Markdown, and summarize YouTube videos. Your own accounts, no API key.">
   <meta name="author" content="ModelAny">
   <meta name="application-name" content="ModelAny">
   <meta name="apple-mobile-web-app-title" content="ModelAny">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="color-scheme" content="light dark">
   <meta name="format-detection" content="telephone=no">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-  <!-- Canonical (live domain: modelany.app) -->
   <link rel="canonical" href="https://www.modelany.app/">
-
-  <!-- Language variants -->
   <link rel="alternate" hreflang="en" href="https://www.modelany.app/">
   <link rel="alternate" hreflang="zh-CN" href="https://www.modelany.app/zh/">
   <link rel="alternate" hreflang="x-default" href="https://www.modelany.app/">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.modelany.app/">
-  <meta property="og:title" content="Ask Any Model — Compare Multiple AIs at Once">
-  <meta property="og:description" content="Ask any model—or several at once. Type once, compare ChatGPT, Gemini, DeepSeek, and more with a free Chrome and Edge extension.">
+  <meta property="og:title" content="ModelAny — Ask ChatGPT, Claude, Gemini &amp; 8 more AIs at once">
+  <meta property="og:description" content="One question, 11 AI answers side by side. Export chats to PDF/Word/Markdown, summarize YouTube videos, continue in another AI. Free, with your own accounts.">
   <meta property="og:image" content="https://www.modelany.app/assets/og-image.jpg">
   <meta property="og:image:secure_url" content="https://www.modelany.app/assets/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ModelAny — Ask every AI model, all at once. Type your question once and compare answers from ChatGPT, Gemini, DeepSeek, and more.">
+  <meta property="og:image:alt" content="ModelAny — ask ChatGPT, Claude, Gemini, DeepSeek and 7 more AIs at once. Free browser extension for Chrome and Edge.">
   <meta property="og:site_name" content="ModelAny">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ask Any Model — Compare Multiple AIs at Once">
-  <meta name="twitter:description" content="Ask any model—or several at once. Compare ChatGPT, Gemini, DeepSeek, and more side by side.">
+  <meta name="twitter:title" content="ModelAny — Ask ChatGPT, Claude, Gemini &amp; 8 more AIs at once">
+  <meta name="twitter:description" content="One question, 11 AI answers side by side. Export chats, summarize videos, continue in another AI. Free Chrome &amp; Edge extension.">
   <meta name="twitter:image" content="https://www.modelany.app/assets/og-image.jpg">
-  <meta name="twitter:image:alt" content="ModelAny — Ask every AI model, all at once.">
+  <meta name="twitter:image:alt" content="ModelAny — ask 11 AIs at once.">
 
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="site.webmanifest">
-
-  <!-- Icons (multiple sizes; compressed) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-
-  <!-- Resource hints: preconnect & dns-prefetch -->
-  <link rel="preconnect" href="https://api.github.com" crossorigin>
-  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://cdn.vercel-insights.com">
 
-  <!-- Theme detection (prevent FOUC) — must run before CSS paints -->
   <script>
-    (function() {
+    (function () {
       var stored = localStorage.getItem('modelany-theme');
-      if (stored) {
-        document.documentElement.setAttribute('data-theme', stored);
-      }
+      if (stored) document.documentElement.setAttribute('data-theme', stored);
     })();
   </script>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/seo-pages.css">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="seo-pages.css">
-
-  <!-- JSON-LD Structured Data (@graph: Organization, WebSite, SoftwareApplication, HowTo, FAQPage, BreadcrumbList) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,29 +66,20 @@
         "@id": "https://www.modelany.app/#organization",
         "name": "ModelAny",
         "url": "https://www.modelany.app/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.modelany.app/assets/favicon-512.png",
-          "width": 512,
-          "height": 512
-        },
+        "logo": { "@type": "ImageObject", "url": "https://www.modelany.app/assets/favicon-512.png", "width": 512, "height": 512 },
         "sameAs": [
           "https://github.com/kyreemeng/ModelAny",
           "https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn",
           "https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli"
         ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "kyreemeng@gmail.com",
-          "contactType": "customer support"
-        }
+        "contactPoint": { "@type": "ContactPoint", "email": "kyreemeng@gmail.com", "contactType": "customer support", "availableLanguage": ["English", "Chinese"] }
       },
       {
         "@type": "WebSite",
         "@id": "https://www.modelany.app/#website",
         "url": "https://www.modelany.app/",
         "name": "ModelAny",
-        "description": "Ask any model—or several at once. ModelAny is a free Chrome and Edge extension for comparing answers from ChatGPT, Gemini, DeepSeek, and more.",
+        "description": "ModelAny is a free Chrome and Edge extension to ask ChatGPT, Claude, Gemini, DeepSeek and 7 more AIs at once, export AI chats, and summarize videos.",
         "publisher": { "@id": "https://www.modelany.app/#organization" },
         "inLanguage": ["en", "zh-CN"]
       },
@@ -119,204 +87,105 @@
         "@type": "WebPage",
         "@id": "https://www.modelany.app/#webpage",
         "url": "https://www.modelany.app/",
-        "name": "Ask Any Model — Compare Multiple AIs at Once",
-        "description": "Ask any model—or several at once. Compare ChatGPT, Gemini, DeepSeek, and more side by side with ModelAny, a free open-source Chrome and Edge extension.",
+        "name": "Ask Any Model at Once: ChatGPT, Claude, Gemini & 8 More | ModelAny",
+        "description": "Free Chrome & Edge extension: ask 11 AIs at once and compare answers side by side, export any chat to PDF, Word or Markdown, and summarize YouTube videos.",
         "isPartOf": { "@id": "https://www.modelany.app/#website" },
         "about": { "@id": "https://www.modelany.app/#software" },
-        "primaryImageOfPage": {
-          "@type": "ImageObject",
-          "url": "https://www.modelany.app/assets/og-image.jpg",
-          "width": 1200,
-          "height": 630
-        },
-        "breadcrumb": { "@id": "https://www.modelany.app/#breadcrumb" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://www.modelany.app/assets/og-image.jpg", "width": 1200, "height": 630 },
         "inLanguage": "en",
         "datePublished": "2026-07-12",
-        "dateModified": "2026-08-26"
+        "dateModified": "2026-09-28"
       },
       {
         "@type": "SoftwareApplication",
         "@id": "https://www.modelany.app/#software",
         "name": "ModelAny",
-        "applicationCategory": "BrowserExtension",
-        "operatingSystem": "Chrome, Edge",
-        "description": "ModelAny is a free Chrome and Edge extension that lets you ask multiple AI models the same question at once. Enter your question once, choose your models, and compare their answers side by side.",
+        "applicationCategory": "BrowserApplication",
+        "applicationSubCategory": "AI productivity extension",
+        "operatingSystem": "Google Chrome, Microsoft Edge (Windows, macOS, Linux, ChromeOS)",
+        "description": "ModelAny is a free browser extension that sends one question to ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM, Yuanbao and Wenxiaoyan at once using your own accounts. It also exports AI chats to Markdown, Word or PDF, continues a conversation in another AI, attaches YouTube and Bilibili transcripts, web pages and PDFs, and keeps a local memory library.",
         "url": "https://www.modelany.app/",
-        "downloadUrl": "https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb",
-        "softwareVersion": "1.0.1",
-        "dateModified": "2026-08-26",
+        "downloadUrl": "https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn",
+        "installUrl": "https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn",
+        "softwareVersion": "2.0.0",
+        "datePublished": "2026-07-12",
+        "dateModified": "2026-09-28",
         "image": "https://www.modelany.app/assets/og-image.jpg",
         "screenshot": "https://www.modelany.app/assets/og-image.jpg",
+        "isAccessibleForFree": true,
         "author": { "@id": "https://www.modelany.app/#organization" },
         "publisher": { "@id": "https://www.modelany.app/#organization" },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "featureList": [
-          "Ask multiple AI models the same question at once",
-          "Automatically open selected model conversations",
-          "Fill prompts and optionally submit them automatically",
-          "Group the tabs opened for the current task",
-          "Keep drafts and recent history locally in your browser",
-          "Use selected webpage text as a prompt from the context menu"
-        ],
-        "supports": [
-          "ChatGPT", "Gemini", "DeepSeek", "Kimi", "GLM", "Qwen", "Doubao", "Wenxin"
+          "Ask up to 11 AI websites the same question at once and compare answers side by side",
+          "Export ChatGPT, Claude, Gemini and other AI chats to Markdown, Word or PDF",
+          "Continue the current conversation in another AI with its context",
+          "Attach YouTube and Bilibili transcripts with timestamps, web page text or local PDFs",
+          "Local AI memory library with full-text search, tags and notes",
+          "Reusable prompt library with {{variables}}, available inside AI sites",
+          "Sensitive information check with one-click masking before sending",
+          "Right-click menu, address bar command, side panel and keyboard shortcuts"
         ]
       },
       {
         "@type": "HowTo",
-        "name": "How to use ModelAny",
-        "description": "Ask multiple AI models the same question in three steps.",
+        "name": "How to ask multiple AI models at once with ModelAny",
+        "description": "Install ModelAny, sign in to the AI websites you already use, then send one question to several of them.",
         "totalTime": "PT1M",
+        "tool": [{ "@type": "HowToTool", "name": "Google Chrome or Microsoft Edge" }],
         "step": [
-          {
-            "@type": "HowToStep",
-            "position": 1,
-            "name": "Write your question",
-            "text": "Open the ModelAny popup and type your question—up to 5,000 characters."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 2,
-            "name": "Choose your models",
-            "text": "Select one or more of the eight supported models. Enable auto-send only if you want automatic submission."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 3,
-            "name": "Compare the answers",
-            "text": "ModelAny opens each model’s chat, fills in your question, and optionally sends it. Review the responses side by side."
-          }
+          { "@type": "HowToStep", "position": 1, "name": "Install ModelAny", "text": "Add ModelAny from the Chrome Web Store or Microsoft Edge Add-ons and pin it to the toolbar.", "url": "https://www.modelany.app/#install" },
+          { "@type": "HowToStep", "position": 2, "name": "Sign in to your AI sites", "text": "Open ChatGPT, Claude, Gemini, DeepSeek or any supported AI website and sign in. ModelAny uses these existing sessions.", "url": "https://www.modelany.app/#install" },
+          { "@type": "HowToStep", "position": 3, "name": "Ask once, compare answers", "text": "Click the ModelAny icon or press Ctrl+Shift+Y, type your question, choose models and click Send. Open the comparison page to review answers side by side.", "url": "https://www.modelany.app/#install" }
         ]
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is ModelAny?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "ModelAny is a free, open-source browser extension for Chrome and Edge. Type one question, ask several AI models at the same time, and compare their answers side by side."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which models does ModelAny support?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "ModelAny currently supports eight models: ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, and Wenxin."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is ModelAny free to use?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. ModelAny is free and open source. Install it from the Chrome Web Store or Microsoft Edge Add-ons, and review the source code on GitHub."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does ModelAny store my prompts?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. ModelAny is local-first: drafts, settings, and history stay in your browser. Prompts are sent only to the model services you choose. ModelAny does not upload your prompts to its own servers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I install ModelAny?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Open the Chrome Web Store or Microsoft Edge Add-ons listing for ModelAny and click the install button for your browser."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I compare model answers with ModelAny?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes—that is the core workflow. ModelAny opens a separate tab for each selected model, fills in your prompt, and optionally sends it, so you can compare responses in one round."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I ask any model—or multiple AIs—at once?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Type one prompt in ModelAny, choose ChatGPT, Gemini, DeepSeek, and other supported models, then send the same question in one round so you can compare answers side by side."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I compare ChatGPT and Gemini in Chrome?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. ModelAny is a Chrome and Edge extension: select ChatGPT and Gemini (or more models), use the same prompt, and review each answer in its own tab."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does ModelAny submit my prompt automatically?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Only if you enable auto-send. Leave it off to fill the prompt for review, then send manually."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.modelany.app/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.modelany.app/"
-          }
+          { "@type": "Question", "name": "What is ModelAny?", "acceptedAnswer": { "@type": "Answer", "text": "ModelAny is a free browser extension for Chrome and Edge. Type one question and send it to ChatGPT, Claude, Gemini, DeepSeek and up to 7 more AI websites at once, then compare the answers side by side. It also exports AI chats to Markdown, Word or PDF, carries a conversation into another AI, summarizes videos and web pages, and keeps a local memory library." } },
+          { "@type": "Question", "name": "Is ModelAny really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ModelAny has no subscription, no credits and no in-app purchases. Answers come from the official AI websites under their own plans: free accounts use free quotas, and your ChatGPT Plus, Claude Pro or Gemini subscription works exactly as it does today." } },
+          { "@type": "Question", "name": "Do I need an API key?", "acceptedAnswer": { "@type": "Answer", "text": "No. ModelAny works with the AI websites you are already signed in to. It opens the page, fills in your question and clicks send, just as you would by hand." } },
+          { "@type": "Question", "name": "Which AI models does ModelAny support?", "acceptedAnswer": { "@type": "Answer", "text": "ModelAny supports 11 AI websites: ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM (ChatGLM), Tencent Yuanbao and Wenxiaoyan (ERNIE). Video transcripts work on YouTube and Bilibili, and page text works on any regular website." } },
+          { "@type": "Question", "name": "Does ModelAny upload my prompts or conversations?", "acceptedAnswer": { "@type": "Answer", "text": "No. There is no ModelAny server. Your question goes directly to the AI websites you choose. Drafts, settings, history and the memory library stay in your browser, and exports are generated locally." } },
+          { "@type": "Question", "name": "Can using ModelAny get my AI account restricted?", "acceptedAnswer": { "@type": "Answer", "text": "ModelAny only performs the steps you would do yourself: open the site, paste your question and press send. Every action is started by you; it does not send bulk requests, bypass usage limits, solve captchas or get around any security check. Each AI website's own terms still apply." } },
+          { "@type": "Question", "name": "How do I export a ChatGPT conversation to PDF or Word?", "acceptedAnswer": { "@type": "Answer", "text": "Open the conversation on ChatGPT (or Claude, Gemini, DeepSeek and other supported sites), click the small ModelAny tab on the right edge of the page, and choose Markdown, Word or PDF. The file is generated in your browser and saved to your computer." } },
+          { "@type": "Question", "name": "How do I summarize a YouTube video with ChatGPT or Claude?", "acceptedAnswer": { "@type": "Answer", "text": "Open the video on YouTube or Bilibili, click the ModelAny icon and choose Attach transcript. ModelAny reads the captions with timestamps, then you can pick Key points or Chapter timeline and send it to any AI. The video must have captions or auto-generated captions." } },
+          { "@type": "Question", "name": "What can I do when I hit a message limit in ChatGPT?", "acceptedAnswer": { "@type": "Answer", "text": "Use Continue in another AI. On the chat page, open the ModelAny toolbar and click another model such as Claude, Gemini or DeepSeek. ModelAny packs the current conversation into context and opens it in a new tab so you can keep going without re-explaining." } },
+          { "@type": "Question", "name": "Which browsers are supported?", "acceptedAnswer": { "@type": "Answer", "text": "ModelAny is available on the Chrome Web Store and Microsoft Edge Add-ons. Other Chromium-based browsers that can install from the Chrome Web Store can usually use it too. Firefox, Safari and mobile browsers are not supported." } },
+          { "@type": "Question", "name": "Is the source code available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The source code is public on GitHub so anyone can review how ModelAny handles data. It is released under a proprietary license: you can read and audit it, but not repackage or redistribute it." } }
         ]
       }
     ]
   }
   </script>
 </head>
-<body class="locale-en">
-  <!-- Skip link for accessibility -->
+<body class="locale-en home">
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- ==================== 1. TOP NAVIGATION ==================== -->
+  <!-- chrome:header:start -->
   <header class="site-header" id="site-header">
     <div class="container nav-container">
       <a href="#top" class="brand" aria-label="ModelAny home">
-        <img src="assets/favicon-192.png" alt="" class="brand-icon" width="36" height="36">
+        <img src="/assets/favicon-192.png" alt="" class="brand-icon" width="32" height="32">
         <span class="brand-text">ModelAny</span>
       </a>
-
       <nav class="nav-menu" id="nav-menu" aria-label="Primary navigation">
         <a href="#features">Features</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#models">Models</a>
-        <a href="#use-cases">Use cases</a>
-        <a href="/benchmarks/">Benchmarks</a>
-        <a href="#popular-compare">Compare</a>
+        <a href="/how-to-use/">How to use</a>
+        <a href="#models">Supported AIs</a>
+        <a href="/compare/">Compare</a>
         <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
-        <a href="/zh/" data-locale-switch="zh" class="locale-switch" hreflang="zh-CN" lang="zh-CN" aria-current="false">中文</a>
-        <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-keep-label class="btn btn-primary btn-pill nav-download">Install</a>
+        <a href="/zh/" data-locale-switch="zh" class="locale-switch nav-menu-locale" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-cta="short" class="btn btn-primary nav-download">Add to Chrome</a>
       </nav>
-
       <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
-          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
         <a href="/zh/" data-locale-switch="zh" class="locale-switch locale-switch-compact" hreflang="zh-CN" lang="zh-CN">中文</a>
-        <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-keep-label class="btn btn-primary btn-pill nav-cta">Install</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-cta="short" class="btn btn-primary nav-cta"><span class="cta-icon" aria-hidden="true"><svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg><svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg></span><span data-cta-text>Add to Chrome</span></a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
           <span class="menu-bar"></span>
           <span class="menu-bar"></span>
@@ -325,630 +194,605 @@
       </div>
     </div>
   </header>
+  <!-- chrome:header:end -->
 
   <main id="main">
     <span id="top"></span>
 
-    <!-- ==================== 2. HERO ==================== -->
+    <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-grid" aria-hidden="true"></div>
-
       <div class="container hero-container">
         <div class="hero-content">
-          <span class="eyebrow">Multi-model launcher</span>
-          <h1 id="hero-title">Ask every AI model, <span class="gradient-text">all at once</span></h1>
+          <a class="hero-badge" href="#features"><span class="hero-badge-tag">New in 2.0</span>Export chats, video summaries &amp; local memory</a>
+          <h1 id="hero-title">Ask ChatGPT, Claude, Gemini <span class="gradient-text">&amp; 8 more AIs at once</span></h1>
           <p class="hero-description">
-            Type your question once, send it to the models you choose, and compare answers from ChatGPT, Gemini, DeepSeek, and more—side by side.
+            ModelAny is a free browser extension that sends one question to the AI websites you already use and puts the answers side by side. It also <strong>exports any AI chat to PDF, Word or Markdown</strong>, <strong>summarizes YouTube videos</strong> and <strong>moves a conversation to another AI</strong>—with your own accounts.
           </p>
           <div class="hero-cta">
-<a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install from Chrome Web Store</a>
-            <a href="#how-it-works" class="btn btn-secondary btn-pill">See how it works</a>
+            <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-cta="long" class="btn btn-primary btn-large"><span class="cta-icon" aria-hidden="true"><svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg><svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg></span><span data-cta-text>Add to Chrome — it’s free</span></a>
+            <a href="/how-to-use/" class="btn btn-secondary btn-large">How it works <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <p class="install-availability">
-            <a class="browser-status browser-store-link" href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer"><svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg>Chrome <em>Available on Chrome Web Store</em></a>
-            <a class="browser-status browser-store-link" href="https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli" target="_blank" rel="noopener noreferrer"><svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg>Edge <em>Available on Microsoft Edge Add-ons</em></a>
-          </p>
+          <ul class="hero-proof" aria-label="Key facts">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>100% free, no credits</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No API key</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No ModelAny server—data stays local</li>
+          </ul>
+          <div class="hero-stores">
+            <a class="store-chip browser-store-link" href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer"><svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg>Chrome Web Store <em>· Available</em></a>
+            <a class="store-chip browser-store-link" href="https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli" target="_blank" rel="noopener noreferrer"><svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg>Microsoft Edge Add-ons <em>· Available</em></a>
+          </div>
         </div>
 
-        <!-- Interactive Prompt Launcher Visual -->
+        <!-- Interactive launcher: sends to the installed extension through the website bridge -->
         <div class="hero-visual" role="group" aria-label="Interactive ModelAny prompt launcher">
+          <div class="float-card fc-export" aria-hidden="true">
+            <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span>
+            <span><strong>Export this chat</strong><span class="fc-pills"><span>Markdown</span><span>Word</span><span>PDF</span></span></span>
+          </div>
+          <div class="float-card fc-compare" aria-hidden="true">
+            <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg></span>
+            <span><strong>4 answers ready</strong><span class="fc-status">Compare side by side →</span></span>
+          </div>
+
           <div class="launcher-card">
-            <div class="launcher-header">
-              <span class="launcher-dot"></span>
-              <span class="launcher-dot"></span>
-              <span class="launcher-dot"></span>
-              <span class="launcher-title">ModelAny</span>
+            <div class="launcher-top">
+              <img src="/assets/favicon-192.png" alt="" width="30" height="30">
+              <div>
+                <strong>ModelAny</strong>
+                <small>Your accounts · Local memory · No middleman</small>
+              </div>
+              <div class="launcher-top-icons" aria-hidden="true">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/></svg></span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15 3v18"/></svg></span>
+              </div>
             </div>
             <div class="launcher-body">
-              <div class="launcher-input-wrap">
-                <textarea class="launcher-input" id="launcher-input" aria-label="Prompt to distribute" aria-describedby="launcher-counter" placeholder="Type a question you want to ask multiple models…" rows="2">Help me plan a product launch.</textarea>
-                <span class="launcher-counter" id="launcher-counter" role="status" aria-live="polite">26 / 5000</span>
+              <div class="launcher-composer">
+                <textarea class="launcher-input" id="launcher-input" aria-label="Prompt to distribute" aria-describedby="launcher-counter" placeholder="Ask anything once—send it to every AI you pick" rows="3">Compare the pros and cons of PostgreSQL and MongoDB for a new SaaS app.</textarea>
+                <div class="launcher-templates" aria-label="Prompt templates">
+                  <button type="button" class="template-chip" data-template="Explain this simply, then give one real-world example: ">Explain simply</button>
+                  <button type="button" class="template-chip" data-template="List the pros, cons and hidden risks of: ">Pros &amp; cons</button>
+                  <button type="button" class="template-chip" data-template="Write a step-by-step plan for: ">Make a plan</button>
+                  <button type="button" class="template-chip" data-template="Find the flaws in this argument: ">Find flaws</button>
+                </div>
+                <div class="launcher-composer-foot">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.4 11.1-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.9-2.9l8.5-8.5"/></svg>Video · Page · PDF</span>
+                  <span class="launcher-counter" id="launcher-counter" role="status" aria-live="polite">0 / 5000</span>
+                </div>
+              </div>
+
+              <div class="launcher-models-head">
+                <span>Send to <strong><span id="send-count">4</span>/11</strong> AIs</span>
+                <button type="button" class="launcher-select-all" id="launcher-select-all">Select all</button>
               </div>
               <div class="launcher-chips" id="launcher-chips">
-                <button class="chip active" data-model="chatgpt" aria-pressed="true">ChatGPT</button>
-                <button class="chip active" data-model="gemini" aria-pressed="true">Gemini</button>
-                <button class="chip active" data-model="deepseek" aria-pressed="true">DeepSeek</button>
-                <button class="chip active" data-model="kimi" aria-pressed="true">Kimi</button>
-                <button class="chip active" data-model="glm" aria-pressed="true">GLM</button>
-                <button class="chip active" data-model="qwen" aria-pressed="true">Qwen</button>
-                <button class="chip active" data-model="doubao" aria-pressed="true">Doubao</button>
-                <button class="chip active" data-model="wenxin" aria-pressed="true">Wenxin</button>
+                <button type="button" class="chip active" data-model="chatgpt" aria-pressed="true"><img src="/assets/models/chatgpt.svg" alt="" width="18" height="18"><span>ChatGPT</span></button>
+                <button type="button" class="chip active" data-model="claude" aria-pressed="true"><img src="/assets/models/claude.svg" alt="" width="18" height="18"><span>Claude</span></button>
+                <button type="button" class="chip active" data-model="gemini" aria-pressed="true"><img src="/assets/models/gemini.svg" alt="" width="18" height="18"><span>Gemini</span></button>
+                <button type="button" class="chip active" data-model="deepseek" aria-pressed="true"><img src="/assets/models/deepseek.png" alt="" width="18" height="18"><span>DeepSeek</span></button>
+                <button type="button" class="chip" data-model="grok" aria-pressed="false"><img src="/assets/models/grok.svg" alt="" width="18" height="18"><span>Grok</span></button>
+                <button type="button" class="chip" data-model="kimi" aria-pressed="false"><img src="/assets/models/kimi.png" alt="" width="18" height="18"><span>Kimi</span></button>
+                <button type="button" class="chip" data-model="qwen" aria-pressed="false"><img src="/assets/models/qwen.png" alt="" width="18" height="18"><span>Qwen</span></button>
+                <button type="button" class="chip" data-model="doubao" aria-pressed="false"><img src="/assets/models/doubao.png" alt="" width="18" height="18"><span>Doubao</span></button>
+                <button type="button" class="chip" data-model="glm" aria-pressed="false"><img src="/assets/models/glm.png" alt="" width="18" height="18"><span>GLM</span></button>
+                <button type="button" class="chip" data-model="yuanbao" aria-pressed="false"><img src="/assets/models/yuanbao.svg" alt="" width="18" height="18"><span>Yuanbao</span></button>
+                <button type="button" class="chip" data-model="wenxin" aria-pressed="false"><img src="/assets/models/wenxin.png" alt="" width="18" height="18"><span>Wenxiaoyan</span></button>
               </div>
-              <label class="launcher-option"><input id="launcher-auto-submit" type="checkbox"> Automatically send after filling (off by default)</label>
+              <label class="launcher-option"><input id="launcher-auto-submit" type="checkbox"> Auto-send after filling (off = review first)</label>
               <button class="launcher-send" id="launcher-send" type="button">
-                <span id="launcher-send-label" data-loading-text="Sending…">Send to <span id="send-count">8</span> models</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <span id="launcher-send-label">Send to <span id="send-count-button">4</span> AIs</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
               <p class="launcher-status" id="launcher-status" role="status" aria-live="polite"></p>
               <div class="launcher-fallback" id="launcher-fallback" hidden>
-                <button class="btn btn-secondary btn-pill" id="launcher-copy" type="button">Copy prompt</button>
-                <button class="btn btn-secondary btn-pill" id="launcher-open-sites" type="button">Open selected model sites</button>
+                <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-cta="short" class="btn btn-primary">Add to Chrome</a>
+                <button class="btn btn-secondary" id="launcher-copy" type="button">Copy question</button>
+                <button class="btn btn-secondary" id="launcher-open-sites" type="button">Open selected sites</button>
               </div>
+              <p class="launcher-note">Try it: with ModelAny installed, this box sends your question for real.</p>
             </div>
           </div>
-
-          <!-- Orbiting model nodes -->
-          <div class="orbit-container" id="orbit-container">
-            <svg class="orbit-lines" id="orbit-lines" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
-            <div class="orbit-node orbit-node-1" data-model="chatgpt" aria-hidden="true"><img src="assets/models/chatgpt.svg" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-2" data-model="gemini" aria-hidden="true"><img src="assets/models/gemini.svg" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-3" data-model="deepseek" aria-hidden="true"><img src="assets/models/deepseek.png" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-4" data-model="kimi" aria-hidden="true"><img src="assets/models/kimi.png" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-5" data-model="glm" aria-hidden="true"><img src="assets/models/glm.png" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-6" data-model="qwen" aria-hidden="true"><img src="assets/models/qwen.png" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-7" data-model="doubao" aria-hidden="true"><img src="assets/models/doubao.png" alt="" width="40" height="40"></div>
-            <div class="orbit-node orbit-node-8" data-model="wenxin" aria-hidden="true"><img src="assets/models/wenxin.png" alt="" width="40" height="40"></div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 3. TRUST & GITHUB DATA BAR ==================== -->
-    <section class="trust-bar" aria-label="Project highlights">
-      <div class="container trust-container">
-        <div class="trust-items">
-          <div class="trust-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            <span>Open source</span>
-          </div>
-          <div class="trust-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
-            <span>Chrome &amp; Edge</span>
-          </div>
-          <div class="trust-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Local-first</span>
-          </div>
-        </div>
-
-        <div class="github-stats" id="github-stats" aria-live="polite">
-          <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" class="github-stat-link" id="github-star-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            <span class="github-stat-label" id="github-star-text">Star on GitHub</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 4. FEATURES ==================== -->
-    <section class="features section" id="features" aria-labelledby="features-title">
+    <!-- ============ MODEL STRIP ============ -->
+    <section class="model-strip" aria-label="Supported AI websites">
       <div class="container">
-        <div class="section-header" data-index="01 · Features">
-          <h2 id="features-title">Why ModelAny</h2>
-          <p class="section-subtitle">Less tab-switching. Clearer comparisons.</p>
-          </div>
+        <p class="model-strip-title">Works with the AI you already use—free or paid plans</p>
+        <ul class="model-strip-list">
+          <li><img src="/assets/models/chatgpt.svg" alt="" width="22" height="22" loading="lazy">ChatGPT</li>
+          <li><img src="/assets/models/claude.svg" alt="" width="22" height="22" loading="lazy">Claude</li>
+          <li><img src="/assets/models/gemini.svg" alt="" width="22" height="22" loading="lazy">Gemini</li>
+          <li><img src="/assets/models/deepseek.png" alt="" width="22" height="22" loading="lazy">DeepSeek</li>
+          <li><img src="/assets/models/grok.svg" alt="" width="22" height="22" loading="lazy">Grok</li>
+          <li><img src="/assets/models/kimi.png" alt="" width="22" height="22" loading="lazy">Kimi</li>
+          <li><img src="/assets/models/qwen.png" alt="" width="22" height="22" loading="lazy">Qwen</li>
+          <li><img src="/assets/models/doubao.png" alt="" width="22" height="22" loading="lazy">Doubao</li>
+          <li><img src="/assets/models/glm.png" alt="" width="22" height="22" loading="lazy">GLM</li>
+          <li><img src="/assets/models/yuanbao.svg" alt="" width="22" height="22" loading="lazy">Yuanbao</li>
+          <li><img src="/assets/models/wenxin.png" alt="" width="22" height="22" loading="lazy">Wenxiaoyan</li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="features-grid">
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3>One question, many AI models</h3>
-            <p>Enter your question once and send it to every model you select—no more pasting the same text into separate tabs.</p>
-            </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
-            </div>
-            <h3>Compare perspectives faster</h3>
-            <p>See how different models approach the same question side by side, so you can judge quality without going back and forth.</p>
-            </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <h3>Open model chats automatically</h3>
-            <p>ModelAny opens a dedicated conversation tab for each selected model and fills in your question for you.</p>
-            </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </div>
-            <h3>Optional auto-send</h3>
-            <p>Let ModelAny submit for you, or keep auto-send off so you can review the filled prompt before sending. You stay in control.</p>
-            </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
-            </div>
-            <h3>Keep conversations organized</h3>
-            <p>Tabs opened in the same round are grouped together, so your workspace stays organized across multiple models.</p>
-            </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
-            <h3>Local-first privacy</h3>
-            <p>Drafts, settings, and history stay in your browser. ModelAny does not upload your prompts to its own servers.</p>
-            </article>
+    <!-- ============ PAIN → SOLUTION ============ -->
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Why people install ModelAny</p>
+          <h2 id="why-title">The missing toolbar for every AI website</h2>
+          <p class="section-subtitle">ChatGPT, Claude and Gemini are great on their own. Using them together is where the friction starts.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="pain-card"><p class="pain-q">“I paste the same question into five tabs to compare answers.”</p><p class="pain-a">Type once, send to up to 11 AIs, compare side by side.</p></article>
+          <article class="pain-card"><p class="pain-q">“There’s no clean way to save a great AI conversation as a document.”</p><p class="pain-a">One-click export to Markdown, Word or PDF.</p></article>
+          <article class="pain-card"><p class="pain-q">“I hit the message limit and had to explain everything again elsewhere.”</p><p class="pain-a">Continue in another AI with the full context.</p></article>
+          <article class="pain-card"><p class="pain-q">“Summarizing a long video means hunting for the transcript first.”</p><p class="pain-a">Attach YouTube or Bilibili captions with timestamps.</p></article>
+          <article class="pain-card"><p class="pain-q">“My best chats are scattered across six AI apps.”</p><p class="pain-a">A searchable memory library that lives on your computer.</p></article>
+          <article class="pain-card"><p class="pain-q">“AI tools keep asking for another subscription or credits.”</p><p class="pain-a">Free. Your existing free or paid accounts, nothing extra.</p></article>
+        </div>
+        <div class="stats-row" aria-label="ModelAny at a glance">
+          <div class="stat"><strong>11</strong><span>AI websites supported</span></div>
+          <div class="stat"><strong>3</strong><span>export formats: MD · Word · PDF</span></div>
+          <div class="stat"><strong>$0</strong><span>no subscription, credits or API key</span></div>
+          <div class="stat"><strong>0</strong><span>ModelAny servers touching your data</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 5. HOW IT WORKS ==================== -->
-    <section class="how-it-works section" id="how-it-works" aria-labelledby="how-title">
+    <!-- ============ FEATURES ============ -->
+    <section class="section section-tint" id="features" aria-labelledby="features-title">
       <div class="container">
-        <div class="section-header" data-index="02 · Workflow">
-          <h2 id="how-title">How it works</h2>
-          <p class="section-subtitle">Three steps to a clearer comparison.</p>
-          </div>
-
-        <div class="steps">
-          <div class="step" data-step="1" tabindex="0">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h3>Write your question</h3>
-              <p>Open the ModelAny popup and type your question—up to 5,000 characters.</p>
-              </div>
-          </div>
-
-          <div class="step-connector" aria-hidden="true"></div>
-
-          <div class="step" data-step="2" tabindex="0">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h3>Choose your models</h3>
-              <p>Select one or more of the eight supported models. Enable auto-send only if you want automatic submission.</p>
-              </div>
-          </div>
-
-          <div class="step-connector" aria-hidden="true"></div>
-
-          <div class="step" data-step="3" tabindex="0">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h3>Compare the answers</h3>
-              <p>ModelAny opens each model’s chat, fills in your question, and optionally sends it. Review the responses side by side.</p>
-              </div>
-          </div>
+        <div class="section-header">
+          <p class="eyebrow">Features</p>
+          <h2 id="features-title">Everything you do with AI, in one extension</h2>
+          <p class="section-subtitle">Six core tools that work across ChatGPT, Claude, Gemini, DeepSeek and the rest—without changing how you use them.</p>
         </div>
 
-        <!-- Popup UI mockup -->
-        <div class="popup-mockup" aria-label="ModelAny extension popup preview">
-          <div class="mockup-window">
-            <div class="mockup-titlebar">
-              <span class="mockup-dot"></span>
-              <span class="mockup-dot"></span>
-              <span class="mockup-dot"></span>
-              <span class="mockup-tab-label">ModelAny</span>
+        <div class="bento">
+          <article class="feature-card span-4">
+            <div class="feature-copy">
+              <p class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg>Ask many, compare</p>
+              <h3>Ask 11 AIs at once and compare the answers side by side</h3>
+              <p>Pick the models, send once. ModelAny opens each official site, fills in your question and (optionally) sends it. The comparison page collects every answer, highlights where models agree or disagree, and exports a Markdown report.</p>
+              <a class="feature-link" href="/compare-ai-models/">Compare AI models with one prompt →</a>
             </div>
-            <div class="mockup-body">
-              <div class="mockup-header">
-                <div class="mockup-brand">
-                  <div class="mockup-logo"></div>
-                  <div>
-                    <strong>ModelAny</strong>
-                    <small>One question, many AI models</small>
-                  </div>
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mock">
+                <div class="mock-row"><span class="mock-title">Answers compared</span><span class="mock-pill brand">4 AIs</span><span class="mock-kbd">Export .md</span></div>
+                <div class="mock-compare" style="margin-top:10px">
+                  <div class="mock-answer"><div class="mock-row"><span class="mock-model"><img src="/assets/models/chatgpt.svg" alt="" width="16" height="16" loading="lazy">ChatGPT</span><span class="mock-pill ok">Sent</span></div><div class="mock-line" style="width:92%"></div><div class="mock-line" style="width:78%"></div><div class="mock-line" style="width:85%"></div></div>
+                  <div class="mock-answer"><div class="mock-row"><span class="mock-model"><img src="/assets/models/claude.svg" alt="" width="16" height="16" loading="lazy">Claude</span><span class="mock-pill ok">Sent</span></div><div class="mock-line" style="width:88%"></div><div class="mock-line" style="width:95%"></div><div class="mock-line" style="width:60%"></div></div>
+                  <div class="mock-answer"><div class="mock-row"><span class="mock-model"><img src="/assets/models/gemini.svg" alt="" width="16" height="16" loading="lazy">Gemini</span><span class="mock-pill ok">Sent</span></div><div class="mock-line" style="width:80%"></div><div class="mock-line" style="width:70%"></div><div class="mock-line" style="width:90%"></div></div>
                 </div>
-                <div class="mockup-gear" aria-hidden="true">⚙</div>
               </div>
-              <div class="mockup-input" data-step-target="1">Explain what a language model is in one sentence.</div>
-              <div class="mockup-models" data-step-target="2">
-                <span class="mockup-model-chip selected">ChatGPT</span>
-                <span class="mockup-model-chip selected">Gemini</span>
-                <span class="mockup-model-chip selected">DeepSeek</span>
-                <span class="mockup-model-chip selected">Kimi</span>
-                <span class="mockup-model-chip">GLM</span>
-                <span class="mockup-model-chip selected">Qwen</span>
-                <span class="mockup-model-chip">Doubao</span>
-                <span class="mockup-model-chip">Wenxin</span>
-              </div>
-              <div class="mockup-toggle">
-                <span>Auto-send</span>
-                <span class="mockup-switch" aria-hidden="true"></span>
-              </div>
-              <button class="mockup-send" type="button" data-step-target="3">Send to 5 models</button>
             </div>
-          </div>
+          </article>
 
-          <div class="mockup-tabs" aria-hidden="true">
-            <div class="mockup-tab-chip">
-              <span class="mockup-tab-color" style="background:#10A37F"></span>
-              ChatGPT
+          <article class="feature-card span-2">
+            <div class="feature-copy">
+              <p class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Export</p>
+              <h3>Export any AI chat to PDF, Word or Markdown</h3>
+              <p>A small tab on the edge of every supported AI site turns the current conversation into a clean document. Generated in your browser, saved as a local file.</p>
+              <a class="feature-link" href="/export-chatgpt-conversation/">How to export ChatGPT chats →</a>
             </div>
-            <div class="mockup-tab-chip">
-              <span class="mockup-tab-color" style="background:#4285F4"></span>
-              Gemini
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mock">
+                <div class="mock-row"><span class="mock-title">ModelAny</span><span class="mock-muted">12 messages</span></div>
+                <div class="mock-row"><span class="mock-btn">Markdown</span><span class="mock-btn">Word</span><span class="mock-btn">PDF</span></div>
+                <div class="mock-row"><span class="mock-btn dark" style="flex:1;text-align:center">Save to memory</span></div>
+              </div>
             </div>
-            <div class="mockup-tab-chip">
-              <span class="mockup-tab-color" style="background:#4D6BFE"></span>
-              DeepSeek
+          </article>
+
+          <article class="feature-card span-3">
+            <div class="feature-copy">
+              <p class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>Continue elsewhere</p>
+              <h3>Hit a limit? Continue in another AI</h3>
+              <p>One click carries the current conversation into Claude, Gemini, DeepSeek or any other model in a new tab. Long chats keep the most recent turns so the context still fits.</p>
+              <a class="feature-link" href="/continue-chat-in-another-ai/">Switch AI without losing context →</a>
             </div>
-            <div class="mockup-tab-chip">
-              <span class="mockup-tab-color" style="background:#111827"></span>
-              Kimi
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mock">
+                <div class="mock-row"><span class="mock-muted">Continue with context</span></div>
+                <div class="mock-row" style="flex-wrap:wrap"><span class="mock-btn">Claude</span><span class="mock-btn">Gemini</span><span class="mock-btn">DeepSeek</span><span class="mock-btn">Grok</span><span class="mock-btn">Kimi</span></div>
+                <div class="mock-row"><span class="mock-pill brand">Context · 1,284 words</span></div>
+              </div>
             </div>
-            <div class="mockup-tab-chip">
-              <span class="mockup-tab-color" style="background:#6954E8"></span>
-              Qwen
+          </article>
+
+          <article class="feature-card span-3">
+            <div class="feature-copy">
+              <p class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>Video · Page · PDF</p>
+              <h3>Summarize YouTube videos, articles and PDFs</h3>
+              <p>“Attach transcript” pulls YouTube or Bilibili captions with timestamps. “Attach text” grabs the article without ads. PDFs are parsed locally. Then tap Key points, Chapter timeline or Translate.</p>
+              <a class="feature-link" href="/youtube-video-summarizer/">Free YouTube summarizer →</a>
             </div>
-          </div>
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mock">
+                <div class="mock-row"><span class="mock-pill warn">Transcript</span><span class="mock-title">Vector databases in 10 min</span></div>
+                <div class="mock-row" style="flex-wrap:wrap"><span class="mock-btn">Key points</span><span class="mock-btn">Chapters</span><span class="mock-btn">Quotes</span></div>
+                <div class="mock-row"><span class="mock-muted">[02:14] indexing · [05:40] recall vs speed</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-card span-3">
+            <div class="feature-copy">
+              <p class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Local memory</p>
+              <h3>A searchable memory of all your AI chats</h3>
+              <p>Save conversations from any AI into a library stored only in your browser. Full-text search, tags and notes—then bring any memory back into any model as context.</p>
+              <a class="feature-link" href="/ai-chat-memory/">Keep AI chats locally →</a>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mock">
+                <div class="mock-search">Search “<span class="mock-mark">vector</span>”…</div>
+                <div class="mock-row" style="margin-top:8px"><span class="mock-model"><img src="/assets/models/chatgpt.svg" alt="" width="16" height="16" loading="lazy">What is a <span class="mock-mark">vector</span> DB?</span></div>
+                <div class="mock-row"><span class="mock-pill">AI chat</span><span class="mock-pill ok">100% local</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-card span-3">
+            <div class="feature-copy">
+              <p class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Prompt library</p>
+              <h3>Your best prompts, one click away on every AI site</h3>
+              <p>Save prompts once and insert them from the popup or right inside ChatGPT, Claude and others. Use <code>{{variables}}</code> to fill in the blanks before inserting.</p>
+              <a class="feature-link" href="/how-to-use/#prompts">Set up prompt templates →</a>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mock">
+                <div class="mock-row"><span class="mock-title">Weekly report</span></div>
+                <div class="mock-row"><span class="mock-muted">Summarize <span class="mock-var">{{notes}}</span> for <span class="mock-var">{{team}}</span></span></div>
+                <div class="mock-row"><span class="mock-btn dark">Insert</span><span class="mock-btn">Edit</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mini-grid" aria-label="More ways to use ModelAny">
+          <div class="mini-card"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4"/><path d="M3 15v4a2 2 0 0 0 2 2h4"/><path d="M15 21h4a2 2 0 0 0 2-2v-4"/><path d="M21 9V5a2 2 0 0 0-2-2h-4"/><path d="M8 12h8"/></svg></span><div><h3>Right-click any text</h3><p>Explain, translate, shorten or rewrite a selection, or send it straight to one model.</p></div></div>
+          <div class="mini-card"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span><div><h3>Ask from the address bar</h3><p>Type <kbd>ma</kbd> + space + your question, press Enter and choose models.</p></div></div>
+          <div class="mini-card"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15 3v18"/></svg></span><div><h3>Side panel mode</h3><p>Keep ModelAny docked on the right; it follows the tab you switch to.</p></div></div>
+          <div class="mini-card"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><h3>Sensitive info check</h3><p>Flags emails, phone and card numbers or API keys before sending, with one-click masking.</p></div></div>
+          <div class="mini-card"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg></span><div><h3>Keyboard shortcuts</h3><p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd> opens ModelAny; <kbd>Ctrl</kbd>+<kbd>Enter</kbd> sends.</p></div></div>
+          <div class="mini-card"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><div><h3>Built-in diagnostics</h3><p>If an AI site changes its layout, run a check or point to the input box manually.</p></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 6. SUPPORTED MODELS ==================== -->
-    <section class="models section" id="models" aria-labelledby="models-title">
+    <!-- ============ INSTALL & HOW TO USE ============ -->
+    <section class="section" id="install" aria-labelledby="install-title">
       <div class="container">
-        <div class="section-header" data-index="03 · Coverage">
-          <h2 id="models-title">Supported models, one starting point</h2>
-          </div>
+        <div class="section-header">
+          <p class="eyebrow">Get started in 30 seconds</p>
+          <h2 id="install-title">Install ModelAny and ask your first question</h2>
+          <p class="section-subtitle">No sign-up, no API key. ModelAny uses the AI websites you are already signed in to.</p>
+        </div>
+        <ol class="install-grid">
+          <li class="install-step">
+            <span class="install-step-num">1</span>
+            <h3>Add the extension</h3>
+            <p>Install from the official store for your browser, then pin the ModelAny icon to the toolbar.</p>
+            <div class="store-buttons">
+              <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg>Get it on Chrome Web Store</a>
+              <a href="https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg>Get it on Edge Add-ons</a>
+            </div>
+          </li>
+          <li class="install-step">
+            <span class="install-step-num">2</span>
+            <h3>Sign in to your AI sites</h3>
+            <p>Open ChatGPT, Claude, Gemini, DeepSeek—whichever you use—and sign in as usual. Free accounts work; paid plans keep their full limits.</p>
+          </li>
+          <li class="install-step">
+            <span class="install-step-num">3</span>
+            <h3>Ask once, compare</h3>
+            <p>Click the icon or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd>, type your question, tick the models and hit <strong>Send</strong>. Open the comparison page to read every answer side by side.</p>
+          </li>
+        </ol>
 
+        <div class="recipes">
+          <article class="recipe">
+            <div class="recipe-head"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></span><h3>Summarize a YouTube video</h3></div>
+            <ol>
+              <li>Open the video on YouTube or Bilibili.</li>
+              <li>Click ModelAny → <strong>Attach transcript</strong>.</li>
+              <li>Tap <strong>Key points</strong> or <strong>Chapter timeline</strong> and send.</li>
+            </ol>
+            <a class="feature-link" href="/youtube-video-summarizer/">Full guide →</a>
+          </article>
+          <article class="recipe">
+            <div class="recipe-head"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Export a chat to PDF</h3></div>
+            <ol>
+              <li>Open the conversation in ChatGPT, Claude or Gemini.</li>
+              <li>Click the <strong>ModelAny tab</strong> on the right edge.</li>
+              <li>Choose <strong>PDF</strong>, <strong>Word</strong> or <strong>Markdown</strong>.</li>
+            </ol>
+            <a class="feature-link" href="/export-chatgpt-conversation/">Full guide →</a>
+          </article>
+          <article class="recipe">
+            <div class="recipe-head"><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><h3>Move a chat to Claude</h3></div>
+            <ol>
+              <li>On the ChatGPT chat, open the ModelAny tab.</li>
+              <li>Under <strong>Continue in another AI</strong>, click Claude.</li>
+              <li>Keep chatting in the new tab—context included.</li>
+            </ol>
+            <a class="feature-link" href="/continue-chat-in-another-ai/">Full guide →</a>
+          </article>
+        </div>
+        <p class="install-note">Need the full walkthrough? Read the <a href="/how-to-use/" style="color:var(--signal);font-weight:600">ModelAny user guide</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============ COMPARISON ============ -->
+    <section class="section section-tint" id="compare-tools" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">How it’s different</p>
+          <h2 id="compare-title">Not another AI wrapper</h2>
+          <p class="section-subtitle">ModelAny doesn’t resell models or proxy your prompts. It makes the official sites you already trust work better together.</p>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <caption class="visually-hidden">ModelAny compared with credit-based AI sidebars and built-in browser AI</caption>
+            <thead>
+              <tr><th scope="col"></th><th scope="col">Credit-based AI sidebars</th><th scope="col">Built-in browser AI</th><th scope="col" class="is-us">ModelAny</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Price</th><td>Subscription + credits</td><td>Basic free, advanced paid</td><td class="is-us">Free</td></tr>
+              <tr><th scope="row">Whose account</th><td>The platform’s quota</td><td>The vendor’s own account</td><td class="is-us">Your own official accounts</td></tr>
+              <tr><th scope="row">Models</th><td>Whatever they integrate</td><td>One vendor only</td><td class="is-us">11 official AI sites, any mix</td></tr>
+              <tr><th scope="row">Who sees your prompt</th><td>Relayed via their servers</td><td>The vendor</td><td class="is-us">Only the AI sites you pick</td></tr>
+              <tr><th scope="row">Export chats (MD / Word / PDF)</th><td class="no">Rarely</td><td class="no">No</td><td class="is-us yes">Yes</td></tr>
+              <tr><th scope="row">Continue in another AI</th><td class="no">Rarely</td><td class="no">No</td><td class="is-us yes">Yes</td></tr>
+              <tr><th scope="row">DeepSeek, Kimi, Qwen, Doubao…</th><td>Sometimes</td><td class="no">No</td><td class="is-us yes">Yes</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODELS ============ -->
+    <section class="section" id="models" aria-labelledby="models-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Supported AI websites</p>
+          <h2 id="models-title">11 AI assistants, one starting point</h2>
+          <p class="section-subtitle">Global and Chinese models side by side. ModelAny talks to each official site—never a copy or a proxy.</p>
+        </div>
         <div class="models-grid">
-          <a class="model-card" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ChatGPT">
-            <img src="assets/models/chatgpt.svg" alt="ChatGPT logo" width="64" height="64" loading="lazy">
-            <h3>ChatGPT</h3>
-            <p>chatgpt.com</p>
-          </a>
-          <a class="model-card" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Gemini">
-            <img src="assets/models/gemini.svg" alt="Gemini logo" width="64" height="64" loading="lazy">
-            <h3>Gemini</h3>
-            <p>gemini.google.com</p>
-          </a>
-          <a class="model-card" href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer" aria-label="Open DeepSeek">
-            <img src="assets/models/deepseek.png" alt="DeepSeek logo" width="64" height="64" loading="lazy">
-            <h3>DeepSeek</h3>
-            <p>chat.deepseek.com</p>
-          </a>
-          <a class="model-card" href="https://www.kimi.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Kimi">
-            <img src="assets/models/kimi.png" alt="Kimi logo" width="64" height="64" loading="lazy">
-            <h3>Kimi</h3>
-            <p>kimi.com</p>
-          </a>
-          <a class="model-card" href="https://chatglm.cn/" target="_blank" rel="noopener noreferrer" aria-label="Open GLM">
-            <img src="assets/models/glm.png" alt="GLM logo" width="64" height="64" loading="lazy">
-            <h3>GLM</h3>
-            <p>chatglm.cn</p>
-          </a>
-          <a class="model-card" href="https://www.qianwen.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Qwen">
-            <img src="assets/models/qwen.png" alt="Qwen logo" width="64" height="64" loading="lazy">
-            <h3>Qwen</h3>
-            <p>qianwen.com</p>
-          </a>
-          <a class="model-card" href="https://www.doubao.com/chat/" target="_blank" rel="noopener noreferrer" aria-label="Open Doubao">
-            <img src="assets/models/doubao.png" alt="Doubao logo" width="64" height="64" loading="lazy">
-            <h3>Doubao</h3>
-            <p>doubao.com</p>
-          </a>
-          <a class="model-card" href="https://wenxin.baidu.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Wenxin">
-            <img src="assets/models/wenxin.png" alt="Wenxin logo" width="64" height="64" loading="lazy">
-            <h3>Wenxin</h3>
-            <p>wenxin.baidu.com</p>
-          </a>
+          <a class="model-card" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/chatgpt.svg" alt="ChatGPT logo" width="36" height="36" loading="lazy"><div><h3>ChatGPT</h3><p>chatgpt.com · OpenAI</p></div></a>
+          <a class="model-card" href="https://claude.ai/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/claude.svg" alt="Claude logo" width="36" height="36" loading="lazy"><div><h3>Claude</h3><p>claude.ai · Anthropic</p></div></a>
+          <a class="model-card" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/gemini.svg" alt="Gemini logo" width="36" height="36" loading="lazy"><div><h3>Gemini</h3><p>gemini.google.com · Google</p></div></a>
+          <a class="model-card" href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/deepseek.png" alt="DeepSeek logo" width="36" height="36" loading="lazy"><div><h3>DeepSeek</h3><p>chat.deepseek.com</p></div></a>
+          <a class="model-card" href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer"><img src="/assets/models/grok.svg" alt="Grok logo" width="36" height="36" loading="lazy"><div><h3>Grok</h3><p>x.com/i/grok · xAI</p></div></a>
+          <a class="model-card" href="https://www.kimi.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/kimi.png" alt="Kimi logo" width="36" height="36" loading="lazy"><div><h3>Kimi</h3><p>kimi.com · Moonshot AI</p></div></a>
+          <a class="model-card" href="https://www.qianwen.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/qwen.png" alt="Qwen logo" width="36" height="36" loading="lazy"><div><h3>Qwen</h3><p>qianwen.com · Alibaba</p></div></a>
+          <a class="model-card" href="https://www.doubao.com/chat/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/doubao.png" alt="Doubao logo" width="36" height="36" loading="lazy"><div><h3>Doubao</h3><p>doubao.com · ByteDance</p></div></a>
+          <a class="model-card" href="https://chatglm.cn/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/glm.png" alt="GLM logo" width="36" height="36" loading="lazy"><div><h3>GLM</h3><p>chatglm.cn · Zhipu AI</p></div></a>
+          <a class="model-card" href="https://yuanbao.tencent.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/yuanbao.svg" alt="Tencent Yuanbao logo" width="36" height="36" loading="lazy"><div><h3>Yuanbao</h3><p>yuanbao.tencent.com · Tencent</p></div></a>
+          <a class="model-card" href="https://wenxin.baidu.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/models/wenxin.png" alt="Wenxiaoyan logo" width="36" height="36" loading="lazy"><div><h3>Wenxiaoyan</h3><p>wenxin.baidu.com · Baidu</p></div></a>
+        </div>
+        <div class="models-extra">
+          <div><strong>Video transcripts</strong>YouTube and Bilibili, with timestamps; auto-generated captions included.</div>
+          <div><strong>Web pages &amp; files</strong>Any regular article page, plus local PDF, TXT, Markdown and HTML files.</div>
+          <div><strong>Resilient to redesigns</strong>Multiple fallback rules per site, diagnostics, and manual input-box selection.</div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 7. USE CASES ==================== -->
-    <section class="use-cases section" id="use-cases" aria-labelledby="usecases-title">
+    <!-- ============ USE CASES ============ -->
+    <section class="section section-tint" id="use-cases" aria-labelledby="usecases-title">
       <div class="container">
-        <div class="section-header" data-index="04 · In practice">
-          <h2 id="usecases-title">Built for real work</h2>
-          </div>
-
+        <div class="section-header">
+          <p class="eyebrow">Who it’s for</p>
+          <h2 id="usecases-title">Built for people who use AI every day</h2>
+        </div>
         <div class="usecases-grid">
           <article class="usecase-card">
-            <div class="usecase-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-            <h3>Research</h3>
-            <p>Ask the same research question across models to compare framings, coverage, and citations in one pass.</p>
-            <a class="usecase-benchmark-link" href="/benchmarks/#research">View benchmark data</a>
-            </article>
-
+            <div class="usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+            <h3>Students &amp; researchers</h3>
+            <p>Cross-check facts across models, summarize lecture videos and paper PDFs, and export the good answers into notes.</p>
+            <div class="usecase-links"><a href="/best-for/research/">Best AI for research</a><a href="/best-for/students/">For students</a></div>
+          </article>
           <article class="usecase-card">
-            <div class="usecase-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            </div>
-            <h3>Writing</h3>
-            <p>Compare tone, structure, and phrasing from different models to choose the version that fits your voice.</p>
-            <a class="usecase-benchmark-link" href="/benchmarks/#writing">View benchmark data</a>
-            </article>
-
+            <div class="usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+            <h3>Professionals</h3>
+            <p>Turn meeting recordings and industry articles into key points and action items; draft reports and emails from saved prompts.</p>
+            <div class="usecase-links"><a href="/best-for/business/">Best AI for business</a><a href="/best-for/emails/">For emails</a></div>
+          </article>
           <article class="usecase-card">
-            <div class="usecase-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <h3>Coding</h3>
-            <p>Send a bug or design problem to multiple models and cross-check solutions, edge cases, and explanations.</p>
-            <a class="usecase-benchmark-link" href="/benchmarks/#coding">View benchmark data</a>
-            </article>
-
+            <div class="usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></div>
+            <h3>Writers &amp; creators</h3>
+            <p>Compare how different AIs pitch the same idea, pull timelines and quotes from videos, and keep drafts in one library.</p>
+            <div class="usecase-links"><a href="/best-for/writing/">Best AI for writing</a><a href="/best-for/content-creation/">For creators</a></div>
+          </article>
           <article class="usecase-card">
-            <div class="usecase-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            </div>
-            <h3>Learning</h3>
-            <p>Get multiple explanations of a concept at once and keep the ones that are clearest for your topic.</p>
-            <a class="usecase-benchmark-link" href="/benchmarks/#learning">View benchmark data</a>
-            </article>
-
+            <div class="usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
+            <h3>Developers</h3>
+            <p>Send the same bug to ChatGPT, Claude and DeepSeek, compare fixes, and export the thread to Markdown for your docs.</p>
+            <div class="usecase-links"><a href="/best-for/coding/">Best AI for coding</a><a href="/best-for/debugging/">For debugging</a></div>
+          </article>
           <article class="usecase-card">
-            <div class="usecase-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 2 7h10c0-2 2-4 2-7a7 7 0 0 0-7-7z"/></svg>
-            </div>
-            <h3>Brainstorming</h3>
-            <p>Ask several models the same creative prompt, then combine the strongest ideas into one direction.</p>
-            <a class="usecase-benchmark-link" href="/benchmarks/#creative">View benchmark data</a>
-            </article>
+            <div class="usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <h3>Heavy AI users</h3>
+            <p>Several subscriptions in one place. When one hits its limit, carry the conversation to another in a click.</p>
+            <div class="usecase-links"><a href="/alternatives/chatgpt/">ChatGPT alternatives</a><a href="/free/">Free AI guides</a></div>
+          </article>
           <article class="usecase-card">
-            <div class="usecase-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18"/><path d="M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
-            </div>
-            <h3>Everyday life</h3>
-            <p>Compare options for planning, decisions, and daily tasks—see what different models suggest before you commit.</p>
-            <a class="usecase-benchmark-link" href="/benchmarks/#everyday">View benchmark data</a>
+            <div class="usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+            <h3>Bilingual teams</h3>
+            <p>Ask global and Chinese models the same question—ChatGPT next to DeepSeek, Kimi or Qwen—in English or Chinese.</p>
+            <div class="usecase-links"><a href="/best-for/translation/">Best AI for translation</a><a href="/compare/chatgpt-vs-deepseek/">ChatGPT vs DeepSeek</a></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 8. POPULAR COMPARISONS (SEO hub) ==================== -->
-    <section class="popular-compare section" id="popular-compare" aria-labelledby="popular-compare-title">
+    <!-- ============ PRIVACY ============ -->
+    <section class="section" id="privacy" aria-labelledby="privacy-title">
       <div class="container">
-        <div class="section-header" data-index="05 · Evidence">
-          <h2 id="popular-compare-title">Popular model comparisons</h2>
-          <p class="section-description" style="max-width:40rem;margin:8px auto 0;">Evidence-backed shortlists from public benchmarks—then validate the same prompt across models in ModelAny.</p>
+        <div class="privacy-panel">
+          <div>
+            <p class="eyebrow">Privacy by design</p>
+            <h2 id="privacy-title">Your data only travels between your browser and the AI you pick</h2>
+            <p>There is no ModelAny server in the middle. No accounts, no analytics inside the extension, nothing to leak.</p>
+            <a href="/privacy.html" class="btn btn-secondary">Read the privacy policy</a>
+          </div>
+          <ul class="privacy-list">
+            <li><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No middleman server</strong><p>Prompts go straight to the official AI websites you choose.</p></li>
+            <li><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Stored on your device</strong><p>Drafts, history and the memory library stay in your browser; the memory library never syncs.</p></li>
+            <li><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reads a page only when you click</strong><p>Uses the browser’s activeTab permission—no “read all websites” access.</p></li>
+            <li><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Processed locally</strong><p>PDF parsing, exports, search and sensitive-info checks run in your browser.</p></li>
+            <li><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No remote code or tracking</strong><p>No eval, no third-party analytics, no remotely loaded scripts.</p></li>
+            <li><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Source you can read</strong><p>The code is public on <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline">GitHub</a> for review.</p></li>
+          </ul>
         </div>
+      </div>
+    </section>
 
+    <!-- ============ GUIDES HUB ============ -->
+    <section class="section section-tint popular-compare" id="popular-compare" aria-labelledby="popular-compare-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Guides &amp; comparisons</p>
+          <h2 id="popular-compare-title">Choose the right AI for the job</h2>
+          <p class="section-subtitle">Evidence-backed comparisons from public benchmarks—then check with your own prompt in ModelAny.</p>
+        </div>
         <div class="popular-grid">
-          <a class="popular-link" href="/compare/chatgpt-vs-deepseek/">
-            <strong>ChatGPT vs DeepSeek</strong>
-            <span>Public benchmark results with exact model versions</span>
-          </a>
-          <a class="popular-link" href="/compare/chatgpt-vs-claude/">
-            <strong>ChatGPT vs Claude</strong>
-            <span>Arena preference and SWE-bench coding evidence</span>
-          </a>
-          <a class="popular-link" href="/compare/chatgpt-vs-gemini/">
-            <strong>ChatGPT vs Gemini</strong>
-            <span>Shared public scores, not a total ranking</span>
-          </a>
-          <a class="popular-link" href="/best-for/java/">
-            <strong>Best AI for Java</strong>
-            <span>Same-prompt comparison for Java tickets</span>
-          </a>
-          <a class="popular-link" href="/best-for/academic-writing/">
-            <strong>Best AI for academic writing</strong>
-            <span>Compare Claude, Gemini, and ChatGPT on one draft</span>
-          </a>
-          <a class="popular-link" href="/best-for/code-review/">
-            <strong>Best AI for code review</strong>
-            <span>Score the same PR across models</span>
-          </a>
-          <a class="popular-link" href="/best-for/hr/">
-            <strong>Best AI for HR</strong>
-            <span>Job posts and policy drafts—with privacy in mind</span>
-          </a>
-          <a class="popular-link" href="/compare-ai-models/">
-            <strong>Ask any model side by side</strong>
-            <span>One prompt, multiple AI tabs in Chrome or Edge</span>
-          </a>
-          <a class="popular-link" href="/ai-browser-extension/">
-            <strong>ChatGPT Chrome extension</strong>
-            <span>Ask ChatGPT, Gemini, and DeepSeek from one popup</span>
-          </a>
+          <a class="popular-link" href="/compare/chatgpt-vs-claude/"><strong>ChatGPT vs Claude</strong><span>Arena preference and SWE-bench coding results</span></a>
+          <a class="popular-link" href="/compare/chatgpt-vs-gemini/"><strong>ChatGPT vs Gemini</strong><span>Shared public scores with exact model versions</span></a>
+          <a class="popular-link" href="/compare/chatgpt-vs-deepseek/"><strong>ChatGPT vs DeepSeek</strong><span>Public benchmark results, side by side</span></a>
+          <a class="popular-link" href="/best-for/coding/"><strong>Best AI for coding</strong><span>What to test and how to compare fixes</span></a>
+          <a class="popular-link" href="/best-for/academic-writing/"><strong>Best AI for academic writing</strong><span>Compare Claude, Gemini and ChatGPT on one draft</span></a>
+          <a class="popular-link" href="/best-for/java/"><strong>Best AI for Java</strong><span>Same-prompt comparison for Java tickets</span></a>
+          <a class="popular-link" href="/ai-browser-extension/"><strong>ChatGPT Chrome extension</strong><span>Ask ChatGPT, Claude and Gemini from one popup</span></a>
+          <a class="popular-link" href="/side-by-side-ai-comparison/"><strong>Side-by-side AI comparison</strong><span>A repeatable workflow for testing answers</span></a>
+          <a class="popular-link" href="/benchmarks/"><strong>Public AI benchmarks</strong><span>Arena and SWE-bench snapshots by scenario</span></a>
         </div>
-
-        <p class="popular-more" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
-          <a href="/compare/" class="btn btn-secondary btn-pill">Browse all comparisons</a>
-          <a href="/best-for/" class="btn btn-secondary btn-pill">Best models by use case</a>
-          <a href="/pricing/" class="btn btn-secondary btn-pill">Model pricing guides</a>
-          <a href="/ai-browser-extension/" class="btn btn-secondary btn-pill">AI browser extension guide</a>
+        <p class="popular-more">
+          <a href="/compare/" class="btn btn-secondary">All comparisons</a>
+          <a href="/best-for/" class="btn btn-secondary">Best AI by use case</a>
+          <a href="/alternatives/" class="btn btn-secondary">Alternatives</a>
+          <a href="/pricing/" class="btn btn-secondary">Pricing guides</a>
         </p>
       </div>
     </section>
 
-    <!-- ==================== 9. PRIVACY ==================== -->
-    <section class="privacy section" id="privacy" aria-labelledby="privacy-title">
-      <div class="container">
-        <div class="privacy-card">
-          <div class="privacy-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <h2 id="privacy-title">Your prompts stay yours</h2>
-          <ul class="privacy-list">
-            <li>
-              <p>Prompts are sent only to the model services you choose.</p>
-              </li>
-            <li>
-              <p>ModelAny does not upload prompts, history, or diagnostics to its own servers.</p>
-              </li>
-            <li>
-              <p>Drafts and settings remain in your browser.</p>
-              </li>
-          </ul>
-
-          <a href="privacy.html" class="btn btn-secondary btn-pill privacy-link">Read the privacy policy</a>
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div class="section-header">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Questions, answered</h2>
+          <p class="section-subtitle">Still stuck? Email <a href="#" data-email="kyreemeng|gmail.com">us</a> or open an issue on <a href="https://github.com/kyreemeng/ModelAny/issues" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ==================== 9. FAQ ==================== -->
-    <section class="faq section" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <div class="section-header" data-index="06 · Questions">
-          <h2 id="faq-title">Frequently asked questions</h2>
-          </div>
-
         <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>
-              <span class="faq-q-en">What is ModelAny?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>ModelAny is a free, open-source browser extension for Chrome and Edge. Type one question, ask several AI models at the same time, and compare their answers side by side.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">Which models does ModelAny support?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>ModelAny currently supports eight models: ChatGPT, Gemini, DeepSeek, Kimi, GLM, Qwen, Doubao, and Wenxin.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">Is ModelAny free to use?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>Yes. ModelAny is free and open source. Install it from the Chrome Web Store or Microsoft Edge Add-ons, and review the source code on GitHub.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">Does ModelAny store my prompts?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>No. ModelAny is local-first: drafts, settings, and history stay in your browser. Prompts are sent only to the model services you choose. ModelAny does not upload your prompts to its own servers.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">How do I install ModelAny?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>Open the Chrome Web Store or Microsoft Edge Add-ons listing for ModelAny and click the install button for your browser.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">Can I compare model answers with ModelAny?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>Yes—that is the core workflow. ModelAny opens a separate tab for each selected model, fills in your prompt, and optionally sends it, so you can compare responses in one round.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">Can I ask any model—or multiple AIs—at once?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>Yes. Type one prompt in ModelAny, choose ChatGPT, Gemini, DeepSeek, and other supported models, then send the same question in one round so you can compare answers side by side.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">Can I compare ChatGPT and Gemini in Chrome?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>Yes. ModelAny is a Chrome and Edge extension: select ChatGPT and Gemini (or more models), use the same prompt, and review each answer in its own tab.</p>
-              </div>
-            </div>
-</details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q-en">Does ModelAny submit my prompt automatically?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-<p>Only if you enable auto-send. Leave it off to fill the prompt for review, then send manually.</p>
-              </div>
-            </div>
-</details>
+          <details class="faq-item" open><summary>What is ModelAny?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny is a free browser extension for Chrome and Edge. Type one question and send it to ChatGPT, Claude, Gemini, DeepSeek and up to 7 more AI websites at once, then compare the answers side by side. It also exports AI chats to Markdown, Word or PDF, carries a conversation into another AI, summarizes videos and web pages, and keeps a local memory library.</p></div></div></details>
+          <details class="faq-item"><summary>Is ModelAny really free?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. ModelAny has no subscription, no credits and no in-app purchases. Answers come from the official AI websites under their own plans: free accounts use free quotas, and your ChatGPT Plus, Claude Pro or Gemini subscription works exactly as it does today.</p></div></div></details>
+          <details class="faq-item"><summary>Do I need an API key?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>No. ModelAny works with the AI websites you are already signed in to. It opens the page, fills in your question and clicks send, just as you would by hand.</p></div></div></details>
+          <details class="faq-item"><summary>Which AI models does ModelAny support?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny supports 11 AI websites: ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM (ChatGLM), Tencent Yuanbao and Wenxiaoyan (ERNIE). Video transcripts work on YouTube and Bilibili, and page text works on any regular website.</p></div></div></details>
+          <details class="faq-item"><summary>Does ModelAny upload my prompts or conversations?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>No. There is no ModelAny server. Your question goes directly to the AI websites you choose. Drafts, settings, history and the memory library stay in your browser, and exports are generated locally.</p></div></div></details>
+          <details class="faq-item"><summary>Can using ModelAny get my AI account restricted?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny only performs the steps you would do yourself: open the site, paste your question and press send. Every action is started by you; it does not send bulk requests, bypass usage limits, solve captchas or get around any security check. Each AI website’s own terms still apply.</p></div></div></details>
+          <details class="faq-item"><summary>How do I export a ChatGPT conversation to PDF or Word?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>Open the conversation on ChatGPT (or Claude, Gemini, DeepSeek and other supported sites), click the small ModelAny tab on the right edge of the page, and choose Markdown, Word or PDF. The file is generated in your browser and saved to your computer. <a href="/export-chatgpt-conversation/">Step-by-step guide</a>.</p></div></div></details>
+          <details class="faq-item"><summary>How do I summarize a YouTube video with ChatGPT or Claude?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>Open the video on YouTube or Bilibili, click the ModelAny icon and choose Attach transcript. ModelAny reads the captions with timestamps, then you can pick Key points or Chapter timeline and send it to any AI. The video must have captions or auto-generated captions. <a href="/youtube-video-summarizer/">Read the guide</a>.</p></div></div></details>
+          <details class="faq-item"><summary>What can I do when I hit a message limit in ChatGPT?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>Use Continue in another AI. On the chat page, open the ModelAny toolbar and click another model such as Claude, Gemini or DeepSeek. ModelAny packs the current conversation into context and opens it in a new tab so you can keep going without re-explaining.</p></div></div></details>
+          <details class="faq-item"><summary>Which browsers are supported?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>ModelAny is available on the Chrome Web Store and Microsoft Edge Add-ons. Other Chromium-based browsers that can install from the Chrome Web Store can usually use it too. Firefox, Safari and mobile browsers are not supported.</p></div></div></details>
+          <details class="faq-item"><summary>Is the source code available?</summary><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. The source code is public on GitHub so anyone can review how ModelAny handles data. It is released under a proprietary license: you can read and audit it, but not repackage or redistribute it.</p></div></div></details>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 10. FINAL CTA ==================== -->
+    <!-- ============ FINAL CTA ============ -->
     <section class="final-cta" aria-labelledby="cta-title">
-      <div class="cta-bg" aria-hidden="true"></div>
-      <div class="container cta-container">
-        <h2 id="cta-title">Ask once. <span class="gradient-text">Compare with confidence.</span></h2>
-<a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill btn-large">Install from Chrome Web Store</a>
+      <div class="container">
+        <div class="cta-panel">
+          <img src="/assets/favicon-192.png" alt="" width="64" height="64" loading="lazy">
+          <h2 id="cta-title">Stop copy-pasting between AI tabs</h2>
+          <p>Ask once, compare 11 AIs, export what matters, and keep it on your own computer.</p>
+          <div class="hero-cta">
+            <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-cta="long" class="btn btn-primary btn-large"><span class="cta-icon" aria-hidden="true"><svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg><svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg></span><span data-cta-text>Add to Chrome — it’s free</span></a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-large">Get it for Edge</a>
+          </div>
+          <ul class="hero-proof">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chrome Web Store &amp; Edge Add-ons</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Manifest V3, minimal permissions</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ==================== 10. FOOTER ==================== -->
+  <!-- chrome:footer:start -->
   <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <img src="assets/favicon-192.png" alt="" class="footer-logo" width="32" height="32">
-        <span>ModelAny</span>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="/" class="footer-brand"><img src="/assets/favicon-192.png" alt="" class="footer-logo" width="28" height="28"><span>ModelAny</span></a>
+          <p class="footer-tagline">Ask ChatGPT, Claude, Gemini, DeepSeek and 7 more AIs at once—with your own accounts, for free. Your data stays in your browser.</p>
+          <div class="footer-stores">
+            <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer" class="store-chip"><svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg><span>Chrome Web Store</span></a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/lfeckjibcfbjfdlepidpmnalpfimhdli" target="_blank" rel="noopener noreferrer" class="store-chip"><svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg><span>Microsoft Edge Add-ons</span></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-heading">Product</h2>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/how-to-use/">How to use</a></li>
+            <li><a href="/#models">Supported AIs</a></li>
+            <li><a href="/#privacy">Privacy</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-heading">Features</h2>
+          <ul>
+            <li><a href="/compare-ai-models/">Ask multiple AIs at once</a></li>
+            <li><a href="/export-chatgpt-conversation/">Export AI chats to PDF & Word</a></li>
+            <li><a href="/youtube-video-summarizer/">YouTube video summarizer</a></li>
+            <li><a href="/continue-chat-in-another-ai/">Continue in another AI</a></li>
+            <li><a href="/ai-chat-memory/">Local AI chat memory</a></li>
+            <li><a href="/ai-browser-extension/">ChatGPT Chrome extension</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-heading">Guides</h2>
+          <ul>
+            <li><a href="/compare/">AI model comparisons</a></li>
+            <li><a href="/best-for/">Best AI by use case</a></li>
+            <li><a href="/alternatives/">AI alternatives</a></li>
+            <li><a href="/free/">Free AI guides</a></li>
+            <li><a href="/pricing/">AI pricing guides</a></li>
+            <li><a href="/benchmarks/">Public benchmarks</a></li>
+          </ul>
+        </div>
       </div>
-      <p class="footer-tagline">Compare AI answers with the same prompt—locally, in your browser.</p>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#models">Models</a>
-        <a href="#use-cases">Use cases</a>
-        <a href="/compare/">Compare</a>
-        <a href="/benchmarks/">Benchmarks</a>
-        <a href="/ai-browser-extension/">Chrome extension</a>
-        <a href="#faq">FAQ</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="/zh/" data-locale-switch="zh" hreflang="zh-CN" lang="zh-CN">中文</a>
-        <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta>Install extension</a>
-        <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="#" data-email="kyreemeng|gmail.com">kyreemeng@gmail.com</a>
-      </nav>
+      <div class="footer-bottom">
+        <p>© 2026 ModelAny. Free browser extension for Chrome and Edge.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/privacy.html">Privacy policy</a>
+          <a href="https://github.com/kyreemeng/ModelAny" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#" data-email="kyreemeng|gmail.com">Contact</a>
+          <a href="/zh/" data-locale-switch="zh" hreflang="zh-CN" lang="zh-CN">中文</a>
+        </nav>
+      </div>
+      <p class="footer-disclaimer">ChatGPT, Claude, Gemini and other product names are trademarks of their respective owners. ModelAny is an independent tool and is not affiliated with them.</p>
     </div>
   </footer>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" type="button">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <div class="mobile-cta-bar">
+    <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta data-cta="mobile" class="btn btn-primary btn-block"><span data-cta-text>Add to Chrome — free</span></a>
+  </div>
+  <!-- chrome:footer:end -->
 
-  <!-- Vercel Web Analytics -->
+  <script src="/download.js" defer></script>
+  <script src="/script.js" defer></script>
+  <script src="/locale.js" defer></script>
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
-
-  <!-- Google Analytics (deferred to end of body) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX4BMB7829"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -956,19 +800,5 @@
     gtag('js', new Date());
     gtag('config', 'G-CX4BMB7829');
   </script>
-
-  <script src="download.js" defer></script>
-  <script src="script.js" defer></script>
-  <script src="locale.js" defer></script>
-
-  <!-- Scroll-to-top button -->
-  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" type="button">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-
-  <!-- Mobile CTA bar -->
-  <div class="mobile-cta-bar">
-    <a href="https://chromewebstore.google.com/detail/modelany/kbpnggjenonafpcigahfaeiooojepfjn?utm_source=item-share-cb" data-download-cta class="btn btn-primary btn-pill">Install ModelAny — Free</a>
-  </div>
 </body>
 </html>

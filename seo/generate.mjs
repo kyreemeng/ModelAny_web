@@ -22,6 +22,7 @@ import {
   removedCompareRedirects,
   zhComparePages,
 } from './data/pages.mjs';
+import { syncChrome } from './sync-chrome.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CORE_COMPARE_SLUGS = new Set([
@@ -33,7 +34,7 @@ const CORE_COMPARE_SLUGS = new Set([
   'claude-vs-gemini',
 ]);
 const TEST_RECORD_PATH = join(ROOT, 'seo', 'data', 'test-results.json');
-const CONTENT_UPDATED = '2026-09-26';
+const CONTENT_UPDATED = '2026-09-28';
 
 function esc(value) {
   return String(value)
@@ -848,8 +849,8 @@ function writeSitemap(records) {
     { url: '/zh/', lastmod: CONTENT_UPDATED },
     { url: '/benchmarks/', lastmod: '2026-07-26' },
     { url: '/zh/benchmarks/', lastmod: '2026-07-26' },
-    { url: '/privacy.html', lastmod: '2026-07-12' },
-    { url: '/zh/privacy.html', lastmod: '2026-07-14' },
+    { url: '/privacy.html', lastmod: CONTENT_UPDATED },
+    { url: '/zh/privacy.html', lastmod: CONTENT_UPDATED },
     ...indexable.map((record) => ({
       url: record.url,
       lastmod: record.lastmod || CONTENT_UPDATED,
@@ -866,6 +867,16 @@ function writeSitemap(records) {
     '/zh/ai-browser-extension/': { en: '/ai-browser-extension/', zh: '/zh/ai-browser-extension/' },
     '/compare-ai-models/': { en: '/compare-ai-models/', zh: '/zh/compare-ai-models/' },
     '/zh/compare-ai-models/': { en: '/compare-ai-models/', zh: '/zh/compare-ai-models/' },
+    '/how-to-use/': { en: '/how-to-use/', zh: '/zh/how-to-use/' },
+    '/zh/how-to-use/': { en: '/how-to-use/', zh: '/zh/how-to-use/' },
+    '/export-chatgpt-conversation/': { en: '/export-chatgpt-conversation/', zh: '/zh/export-ai-chat/' },
+    '/zh/export-ai-chat/': { en: '/export-chatgpt-conversation/', zh: '/zh/export-ai-chat/' },
+    '/youtube-video-summarizer/': { en: '/youtube-video-summarizer/', zh: '/zh/video-summary/' },
+    '/zh/video-summary/': { en: '/youtube-video-summarizer/', zh: '/zh/video-summary/' },
+    '/continue-chat-in-another-ai/': { en: '/continue-chat-in-another-ai/', zh: '/zh/continue-in-another-ai/' },
+    '/zh/continue-in-another-ai/': { en: '/continue-chat-in-another-ai/', zh: '/zh/continue-in-another-ai/' },
+    '/ai-chat-memory/': { en: '/ai-chat-memory/', zh: '/zh/ai-memory/' },
+    '/zh/ai-memory/': { en: '/ai-chat-memory/', zh: '/zh/ai-memory/' },
   };
   const body = entries.map((entry) => {
     const pair = languagePairs[entry.url];
@@ -915,4 +926,6 @@ pruneRemovedCompareDirs();
 for (const record of records) writePage(record.path, record.content);
 writeRedirectConfig();
 writeSitemap(records);
+syncChrome();
 console.log(`Generated ${records.length} pages; ${records.filter((record) => record.indexable).length} SEO pages are indexable.`);
+console.log(`Synced chrome on static pages.`);
