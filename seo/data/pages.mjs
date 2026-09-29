@@ -6,6 +6,28 @@
  * Removed compare URLs are redirected away so thin research drafts are not kept.
  */
 
+/**
+ * best-for pages that keep participating in search (GSC shows impressions on
+ * these). Every other best-for slug stays live but is served with noindex so
+ * crawl budget and internal links concentrate on pages that earn clicks.
+ */
+export const KEPT_BEST_FOR_SLUGS = new Set(['coding', 'code-review', 'academic-writing', 'excel']);
+
+/**
+ * Free-access and alternatives pages that covered the same intent were merged
+ * into one surviving URL per intent. These 301s consolidate their signals.
+ */
+export const mergeRedirects = [
+  { source: '/alternatives/chatgpt-free', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/alternatives/chatgpt-free/', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/alternatives/free-chatgpt-2026', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/alternatives/free-chatgpt-2026/', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/free/chatgpt', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/free/chatgpt/', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/free/best-ai-chatbot-2026', destination: '/free/best-ai-chatbot/', permanent: true },
+  { source: '/free/best-ai-chatbot-2026/', destination: '/free/best-ai-chatbot/', permanent: true },
+];
+
 export const comparePages = [
   { slug: 'chatgpt-vs-deepseek', models: ['chatgpt', 'deepseek'], keyword: 'chatgpt vs deepseek', priority: 'P0' },
   { slug: 'chatgpt-vs-claude', models: ['chatgpt', 'claude'], keyword: 'chatgpt vs claude', priority: 'P0' },
@@ -177,9 +199,11 @@ export const bestForPages = [
 export const alternativePages = [
   { slug: 'chatgpt', target: 'chatgpt', keyword: 'chatgpt alternative', priority: 'P1' },
   { slug: 'best-chatgpt', target: 'chatgpt', keyword: 'best chatgpt alternative', priority: 'P1' },
-  { slug: 'chatgpt-free', target: 'chatgpt', keyword: 'chatgpt alternative free', priority: 'P1', filter: 'free' },
-  { slug: 'free-chatgpt', target: 'chatgpt', keyword: 'free chatgpt alternative', priority: 'P1', filter: 'free' },
-  { slug: 'free-chatgpt-2026', target: 'chatgpt', keyword: 'best free chatgpt alternative 2026', priority: 'P1', filter: 'free' },
+  {
+    slug: 'free-chatgpt', target: 'chatgpt', keyword: 'free chatgpt alternative', priority: 'P1', filter: 'free',
+    description: 'Free ChatGPT: use the official free tier on chatgpt.com, or compare free alternatives such as DeepSeek, Gemini and Kimi on the same prompt before you switch.',
+    intro: 'There are two honest answers to “free ChatGPT”: the official free tier on chatgpt.com, and free alternatives that cover similar work. This page separates the two, lists what to verify on each official site, and shows how to compare candidates on one prompt instead of brand impressions.',
+  },
   { slug: 'chatgpt-coding', target: 'chatgpt', keyword: 'chatgpt alternative for coding', priority: 'P1', focus: 'coding' },
   { slug: 'chatgpt-writing', target: 'chatgpt', keyword: 'chatgpt alternative for writing', priority: 'P1', focus: 'writing' },
   { slug: 'chatgpt-no-login', target: 'chatgpt', keyword: 'chatgpt alternative without login', priority: 'P1', filter: 'no-login' },
@@ -202,12 +226,10 @@ export const alternativePages = [
 
 export const freePages = [
   { slug: 'best-ai-chatbot', keyword: 'best free ai chatbot', models: ['gemini', 'deepseek', 'chatgpt', 'perplexity'], priority: 'P1' },
-  { slug: 'best-ai-chatbot-2026', keyword: 'best free ai chatbot 2026', models: ['gemini', 'deepseek', 'chatgpt', 'perplexity'], priority: 'P1' },
   { slug: 'best-ai-coding', keyword: 'best free ai for coding', models: ['deepseek', 'gemini', 'chatgpt'], priority: 'P1' },
   { slug: 'ai-no-login', keyword: 'best free ai without login', models: ['gemini', 'deepseek', 'perplexity'], priority: 'P1' },
   { slug: 'ai-no-limits', keyword: 'best free ai without limits', models: ['deepseek', 'gemini', 'llama'], priority: 'P1' },
   { slug: 'ai-api', keyword: 'free ai api', models: ['deepseek', 'gemini', 'mistral', 'llama'], priority: 'P1' },
-  { slug: 'chatgpt', keyword: 'free chatgpt', models: ['chatgpt'], priority: 'P1', special: 'tool-free' },
   { slug: 'claude', keyword: 'free claude', models: ['claude'], priority: 'P1', special: 'tool-free' },
   { slug: 'gemini', keyword: 'free gemini', models: ['gemini'], priority: 'P1', special: 'tool-free' },
   { slug: 'deepseek', keyword: 'free deepseek', models: ['deepseek'], priority: 'P1', special: 'tool-free' },
@@ -253,13 +275,33 @@ export const productPages = [
   },
   {
     slug: 'side-by-side-ai-comparison',
-    keyword: 'compare AI models side by side',
+    keyword: 'compare ai answers side by side',
     intent: 'model-comparison-workflow',
-    h1: 'Side-by-side AI comparison with one prompt',
-    description: 'Run a side-by-side check: one task, one prompt, several official AI sites. Collect answers in ModelAny and judge them against your own criteria.',
-    title: 'Side-by-Side AI Comparison with One Prompt | ModelAny',
+    h1: 'Compare AI answers side by side',
+    description: 'Freeze one prompt, send it to ChatGPT, Claude, Gemini and other AI sites at once, then judge the answers side by side on accuracy, completeness and edit cost.',
+    title: 'Compare AI Answers Side by Side: the Same-Prompt Method | ModelAny',
     models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
     priority: 'P1',
+  },
+  {
+    slug: 'chatgpt-vs-claude-vs-gemini-same-prompt',
+    keyword: 'chatgpt vs claude vs gemini same prompt',
+    intent: 'model-comparison-workflow',
+    h1: 'ChatGPT vs Claude vs Gemini: the same prompt, three answers',
+    description: 'Run the same prompt through ChatGPT, Claude and Gemini, then judge the three answers side by side. Includes a reusable prompt pack, a scoring rubric, and the public benchmarks all three share.',
+    title: 'ChatGPT vs Claude vs Gemini: Same Prompt, Three Answers | ModelAny',
+    models: ['chatgpt', 'claude', 'gemini'],
+    priority: 'P0',
+  },
+  {
+    slug: 'chatgpt-usage-limit-workaround',
+    keyword: 'chatgpt usage limit workaround',
+    intent: 'browser-extension',
+    h1: 'Hit your ChatGPT usage limit? Four ways to keep working',
+    description: 'What actually works when ChatGPT says you have hit your usage limit: wait for the reset, switch model, move the chat to Claude, Gemini or DeepSeek with context, or upgrade—no ban-risk tricks.',
+    title: 'ChatGPT Usage Limit Reached: What Works Right Now | ModelAny',
+    models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
+    priority: 'P0',
   },
   {
     slug: 'ai-browser-extension',
@@ -303,19 +345,19 @@ export const productPages = [
     keyword: 'export chatgpt conversation to pdf',
     intent: 'browser-extension',
     h1: 'Export ChatGPT chats to PDF, Word or Markdown',
-    description: 'Use the ModelAny toolbar on ChatGPT, Claude, Gemini, DeepSeek and other supported sites to export the current conversation as PDF, Word or Markdown in your browser.',
-    title: 'Export ChatGPT Chats to PDF, Word or Markdown | ModelAny',
+    description: 'Export a ChatGPT conversation to PDF, Word or Markdown from the page itself, or to Markdown when you are pasting into Notion, Obsidian or a repo. Works on Claude, Gemini, DeepSeek and other supported sites too.',
+    title: 'Export ChatGPT Conversation to PDF, Word or Markdown | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     localePath: '/zh/export-ai-chat/',
     priority: 'P0',
   },
   {
     slug: 'youtube-video-summarizer',
-    keyword: 'youtube video summarizer chatgpt',
+    keyword: 'summarize youtube video',
     intent: 'browser-extension',
-    h1: 'Summarize YouTube and Bilibili videos with your AI accounts',
-    description: 'Attach captions from a YouTube or Bilibili watch page (with timestamps), then ask ChatGPT, Claude, Gemini or DeepSeek for key points or chapters—no API key.',
-    title: 'YouTube & Bilibili Video Summarizer | ModelAny',
+    h1: 'Summarize YouTube videos with ChatGPT, Claude, Gemini or DeepSeek',
+    description: 'Attach the captions of a YouTube or Bilibili video (with timestamps), then ask the AI accounts you already have for key points, a chapter timeline or a translation—no API key.',
+    title: 'Summarize YouTube Videos with ChatGPT, Claude or Gemini | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     localePath: '/zh/video-summary/',
     priority: 'P0',
@@ -325,19 +367,19 @@ export const productPages = [
     keyword: 'continue chatgpt conversation in claude',
     intent: 'browser-extension',
     h1: 'Continue a ChatGPT chat in Claude or another AI',
-    description: 'When you hit a limit or want a second opinion, carry recent turns from the current page into Claude, Gemini, DeepSeek or another supported site in one step.',
-    title: 'Continue a Chat in Another AI | ModelAny',
+    description: 'When you hit a ChatGPT limit or want a second opinion, carry the recent conversation into Claude, Gemini, DeepSeek or another supported site in one step—context included.',
+    title: 'Continue a ChatGPT Conversation in Claude (or Any AI) | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     localePath: '/zh/continue-in-another-ai/',
-    priority: 'P1',
+    priority: 'P0',
   },
   {
     slug: 'ai-chat-memory',
-    keyword: 'local ai chat history',
+    keyword: 'save chatgpt conversation',
     intent: 'browser-extension',
-    h1: 'Local AI chat memory',
-    description: 'Save chats from ChatGPT, Claude, Gemini and other supported sites into a searchable library stored in your browser, with tags, notes and reuse as context.',
-    title: 'Local AI Chat Memory | ModelAny',
+    h1: 'Save and back up ChatGPT chats (and any AI chat) locally',
+    description: 'Save a ChatGPT conversation to a searchable library in your browser, export it to Markdown, Word or PDF as a backup, and bring it back into any supported model as context.',
+    title: 'Save & Back Up ChatGPT Chats Locally (Searchable Library) | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     localePath: '/zh/ai-memory/',
     priority: 'P1',

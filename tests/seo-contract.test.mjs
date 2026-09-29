@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { hasSharedBenchmarkData } from '../seo/data/benchmarks.mjs';
-import { alternativePages, bestForPages, freePages, pricingPages, productPages } from '../seo/data/pages.mjs';
+import { alternativePages, bestForPages, freePages, KEPT_BEST_FOR_SLUGS, pricingPages, productPages } from '../seo/data/pages.mjs';
 
 const root = new URL('../', import.meta.url);
 
@@ -69,26 +69,46 @@ test('Chinese comparison hub is not published as a standalone page', async () =>
 });
 
 test('core comparisons and task guides are indexable with selection content', async () => {
-  const [comparison, hub, approvedGuide, guide, sitemap] = await Promise.all([
+  const [comparison, hub, keptGuide, guide, sitemap] = await Promise.all([
     projectFile('compare/chatgpt-vs-deepseek/index.html'),
     projectFile('compare/index.html'),
-    projectFile('best-for/research/index.html'),
+    projectFile('best-for/academic-writing/index.html'),
     projectFile('best-for/coding/index.html'),
     projectFile('sitemap.xml'),
   ]);
 
   assert.doesNotMatch(comparison, /<meta name="robots" content="noindex, follow/);
   assert.doesNotMatch(hub, /<meta name="robots" content="noindex, follow/);
-  assert.doesNotMatch(approvedGuide, /<meta name="robots" content="noindex, follow/);
-  assert.match(approvedGuide, /Selection framework/);
-  assert.match(approvedGuide, /What to evaluate/);
+  assert.doesNotMatch(keptGuide, /<meta name="robots" content="noindex, follow/);
+  assert.match(keptGuide, /Selection framework/);
+  assert.match(keptGuide, /What to evaluate/);
   assert.doesNotMatch(guide, /<meta name="robots" content="noindex, follow/);
   assert.match(guide, /Validate the same task with ModelAny/);
   assert.match(sitemap, /https:\/\/www\.modelany\.app\/compare\/</);
   assert.match(sitemap, /\/compare\/chatgpt-vs-deepseek\//);
-  assert.match(sitemap, /\/best-for\/research\//);
   assert.match(sitemap, /\/best-for\/coding\//);
   assert.match(comparison, /public benchmark/i);
+});
+
+test('best-for pages outside the kept list are noindexed and excluded from the sitemap', async () => {
+  const sitemap = await projectFile('sitemap.xml');
+  const withdrawn = await projectFile('best-for/research/index.html');
+
+  assert.match(withdrawn, /<meta name="robots" content="noindex, follow/);
+  assert.doesNotMatch(sitemap, /\/best-for\/research\//);
+  for (const slug of ['coding', 'code-review', 'academic-writing', 'excel']) {
+    const html = await projectFile(`best-for/${slug}/index.html`);
+    assert.doesNotMatch(html, /<meta name="robots" content="noindex, follow/, `${slug} should stay indexable`);
+    assert.match(sitemap, new RegExp(`/best-for/${slug}/`), `${slug} should be in the sitemap`);
+  }
+});
+
+test('the best-for hub only links to kept pages', async () => {
+  const hub = await projectFile('best-for/index.html');
+  assert.match(hub, /href="\/best-for\/coding\/"/);
+  assert.match(hub, /href="\/best-for\/excel\/"/);
+  assert.doesNotMatch(hub, /href="\/best-for\/research\/"/);
+  assert.doesNotMatch(hub, /href="\/best-for\/java\/"/);
 });
 
 test('generated comparison pages avoid unsupported rankings and FAQ rich-result markup', async () => {
@@ -173,35 +193,43 @@ test('editorial review registry only publishes complete, scoped guides', async (
   }
 });
 
-test('every editorially approved guide has a self-canonical URL and current sitemap lastmod', async () => {
+test('every editorially approved guide keeps a self-canonical URL; withdrawn ones are noindexed', async () => {
   const sitemap = await projectFile('sitemap.xml');
-  const guides = [
+  const stillPublished = ['pricing/api-startups'];
+  const withdrawn = [
     'best-for/research',
     'best-for/essays',
     'best-for/data-analysis',
     'best-for/blog-posts',
-    'pricing/api-startups',
   ];
 
-  for (const guide of guides) {
+  for (const guide of stillPublished) {
     const url = `https://www.modelany.app/${guide}/`;
     const html = await projectFile(`${guide}/index.html`);
     assert.match(html, new RegExp(`<link rel="canonical" href="${url}">`));
     assert.match(html, /<meta name="robots" content="index, follow/);
-    assert.doesNotMatch(html, /research draft|Research-draft status/i);
-    assert.match(sitemap, new RegExp(`<loc>${url}</loc>\\s*<lastmod>2026-07-28</lastmod>`));
+    assert.match(sitemap, new RegExp(`<loc>${url}</loc>\\s*<lastmod>\\d{4}-\\d{2}-\\d{2}</lastmod>`));
+  }
+  for (const guide of withdrawn) {
+    const html = await projectFile(`${guide}/index.html`);
+    assert.match(html, /<meta name="robots" content="noindex, follow/, `${guide} should be noindexed`);
+    assert.doesNotMatch(sitemap, new RegExp(`/${guide}/`), `${guide} should be out of the sitemap`);
   }
 });
 
-test('every registered guide and product page is indexable, unique, and uses lightweight navigation', async () => {
+test('every registered guide and product page is unique and uses lightweight navigation', async () => {
   const guides = [
-    ...bestForPages.map((page) => ({ path: `best-for/${page.slug}/index.html`, url: `/best-for/${page.slug}/` })),
-    ...alternativePages.map((page) => ({ path: `alternatives/${page.slug}/index.html`, url: `/alternatives/${page.slug}/` })),
-    ...freePages.map((page) => ({ path: `free/${page.slug}/index.html`, url: `/free/${page.slug}/` })),
-    ...pricingPages.map((page) => ({ path: `pricing/${page.slug}/index.html`, url: `/pricing/${page.slug}/` })),
+    ...bestForPages.map((page) => ({
+      path: `best-for/${page.slug}/index.html`,
+      url: `/best-for/${page.slug}/`,
+      published: KEPT_BEST_FOR_SLUGS.has(page.slug),
+    })),
+    ...alternativePages.map((page) => ({ path: `alternatives/${page.slug}/index.html`, url: `/alternatives/${page.slug}/`, published: true })),
+    ...freePages.map((page) => ({ path: `free/${page.slug}/index.html`, url: `/free/${page.slug}/`, published: true })),
+    ...pricingPages.map((page) => ({ path: `pricing/${page.slug}/index.html`, url: `/pricing/${page.slug}/`, published: true })),
     ...productPages.map((page) => {
       const prefix = page.pathPrefix ? `${page.pathPrefix}/` : '';
-      return { path: `${prefix}${page.slug}/index.html`, url: `/${prefix}${page.slug}/` };
+      return { path: `${prefix}${page.slug}/index.html`, url: `/${prefix}${page.slug}/`, published: true };
     }),
   ];
   const sitemap = await projectFile('sitemap.xml');
@@ -218,10 +246,56 @@ test('every registered guide and product page is indexable, unique, and uses lig
     assert.ok(!descriptions.has(description), `${guide.url} should have a unique description`);
     titles.add(title);
     descriptions.add(description);
-    assert.match(html, /<meta name="robots" content="index, follow/);
-    assert.doesNotMatch(html, /Research-draft status|research draft/i);
+    if (guide.published) {
+      assert.match(html, /<meta name="robots" content="index, follow/, `${guide.url} should be indexable`);
+      assert.match(sitemap, new RegExp(`<loc>https://www\\.modelany\\.app${guide.url}</loc>`));
+    } else {
+      assert.match(html, /<meta name="robots" content="noindex, follow/, `${guide.url} should be noindexed`);
+      assert.doesNotMatch(sitemap, new RegExp(`<loc>https://www\\.modelany\\.app${guide.url}</loc>`));
+    }
     assert.match(html, /script\.js/);
     assert.doesNotMatch(html, /src="(?:\.\.\/)*nav\.js"/);
-    assert.match(sitemap, new RegExp(`<loc>https://www\\.modelany\\.app${guide.url}</loc>`));
   }
+});
+
+test('merged free/alternatives URLs permanently redirect and no longer exist as files', async () => {
+  const vercel = JSON.parse(await projectFile('vercel.json'));
+  const expected = {
+    '/alternatives/chatgpt-free/': '/alternatives/free-chatgpt/',
+    '/alternatives/free-chatgpt-2026/': '/alternatives/free-chatgpt/',
+    '/free/chatgpt/': '/alternatives/free-chatgpt/',
+    '/free/best-ai-chatbot-2026/': '/free/best-ai-chatbot/',
+  };
+
+  for (const [source, destination] of Object.entries(expected)) {
+    const redirect = vercel.redirects.find((item) => item.source === source);
+    assert.ok(redirect, `${source} should have a redirect`);
+    assert.deepEqual(redirect, { source, destination, permanent: true });
+    assert.equal(await exists(`${source.slice(1)}index.html`), false, `${source} should not remain a static file`);
+  }
+
+  const merged = await projectFile('alternatives/free-chatgpt/index.html');
+  assert.match(merged, /official free tier|free alternatives/i);
+});
+
+test('priority Chinese comparisons embed per-pair differences beyond the template', async () => {
+  const pairs = ['glm-vs-chatgpt', 'kimi-vs-chatgpt', 'doubao-vs-chatgpt', 'glm-vs-deepseek'];
+  for (const slug of pairs) {
+    const html = await projectFile(`zh/compare/${slug}/index.html`);
+    assert.match(html, /公开评测快照里的差异/, `${slug} should state snapshot-based differences`);
+    assert.match(html, /产品与使用条件的差异/, `${slug} should state practical differences`);
+    assert.match(html, /建议的同题实测任务/, `${slug} should include a same-prompt test pack`);
+    assert.doesNotMatch(html, /<meta name="robots" content="noindex, follow/);
+  }
+});
+
+test('new keyword-targeted product pages are published and in the sitemap', async () => {
+  const sitemap = await projectFile('sitemap.xml');
+  for (const slug of ['chatgpt-vs-claude-vs-gemini-same-prompt', 'chatgpt-usage-limit-workaround']) {
+    const html = await projectFile(`${slug}/index.html`);
+    assert.match(html, /<meta name="robots" content="index, follow/);
+    assert.match(sitemap, new RegExp(`/${slug}/`));
+  }
+  const threeWay = await projectFile('chatgpt-vs-claude-vs-gemini-same-prompt/index.html');
+  assert.match(threeWay, /What public benchmarks show/);
 });

@@ -17,12 +17,15 @@ import {
   bestForPages,
   comparePages,
   freePages,
+  KEPT_BEST_FOR_SLUGS,
+  mergeRedirects,
   pricingPages,
   productPages,
   removedCompareRedirects,
   zhComparePages,
 } from './data/pages.mjs';
 import { resolveProductCopy } from './data/product-copy.mjs';
+import { zhCompareNotes } from './data/zh-compare-notes.mjs';
 import { syncChrome } from './sync-chrome.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -35,7 +38,7 @@ const CORE_COMPARE_SLUGS = new Set([
   'claude-vs-gemini',
 ]);
 const TEST_RECORD_PATH = join(ROOT, 'seo', 'data', 'test-results.json');
-const CONTENT_UPDATED = '2026-09-28';
+const CONTENT_UPDATED = '2026-09-29';
 
 function esc(value) {
   return String(value)
@@ -146,6 +149,38 @@ function publicEvidenceHtml(modelIds, lang, focus) {
         </section>`;
 }
 
+/**
+ * Priority Chinese comparison pages get a per-pair differences section built
+ * from zh-compare-notes.mjs (dated snapshot evidence + official-site facts +
+ * a reader-run test pack). Pages without a note fall back to the shared body.
+ */
+function zhPairNotesHtml(page, lang) {
+  if (lang !== 'zh') return '';
+  const note = zhCompareNotes[page.slug];
+  if (!note) return '';
+  const labeled = (items) => items
+    .map((item) => `<li><strong>${esc(item.label)}：</strong>${esc(item.text)}</li>`)
+    .join('\n            ');
+  const pack = note.testPack.map((task) => `<li>${esc(task)}</li>`).join('\n            ');
+  return `<section class="seo-section" aria-labelledby="pair-differences-heading">
+          <h2 id="pair-differences-heading">${esc(note.headline)}</h2>
+          <h3>公开评测快照里的差异</h3>
+          <ul>
+            ${labeled(note.snapshot)}
+          </ul>
+          <h3>产品与使用条件的差异</h3>
+          <ul>
+            ${labeled(note.practical)}
+          </ul>
+          <h3>建议的同题实测任务</h3>
+          <ol>
+            ${pack}
+          </ol>
+          <p>${esc(note.bottomLine)}</p>
+          <p class="seo-note">快照证据的抓取时间与原始来源见下方评测表。实测任务请在你自己的账号上运行；本页提供证据与任务设计，不代你下结论。</p>
+        </section>`;
+}
+
 function comparisonBody(page, items, lang) {
   const names = items.map((item) => item.name).join(' vs ');
   const productRows = items.map((item) => `<tr>
@@ -161,6 +196,7 @@ function comparisonBody(page, items, lang) {
             ? '本页汇总双方共同出现在同一公开第三方评测中的结果，并标明精确模型版本与原始来源。它便于快速核对公开证据，但不能替代你用真实任务亲自试用。'
             : 'This page summarizes results from public third-party benchmarks where both products appear in the same category, with exact model versions and original sources. It helps you inspect published evidence quickly, but it does not replace testing the models on your own tasks.'}</p>
         </div>
+        ${zhPairNotesHtml(page, lang)}
         ${publicEvidenceHtml(page.models, lang)}
         <section class="seo-section">
           <h2>${lang === 'zh' ? '产品入口' : 'Product entry points'}</h2>
@@ -772,7 +808,10 @@ function generateDraft(page, section, items, tests, lang = 'en') {
   const canonical = `/${section}/${page.slug}/`;
   const path = `${section}/${page.slug}/index.html`;
   const review = approvedReview(tests, section, page.slug);
-  const indexable = true;
+  // best-for pages outside KEPT_BEST_FOR_SLUGS stay live but are served with
+  // noindex: they keep working for humans and old links without competing for
+  // crawl budget against the pages that earn clicks.
+  const indexable = section === 'best-for' ? KEPT_BEST_FOR_SLUGS.has(page.slug) : true;
   const h1 = page.h1 || (lang === 'zh' ? page.keyword : titleCase(page.keyword));
   const names = items.map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '、' : ', ');
   const title = page.title || (lang === 'zh'
@@ -809,11 +848,17 @@ function generateHub(section, label, pages, lang = 'en') {
   const canonical = `/${section}/`;
   const path = `${section}/index.html`;
   const publishablePages = pages.filter((page) => !page.canonicalSlug);
-  const links = publishablePages.map((page) => {
+  // A pruned section (best-for) only links to the pages that still participate
+  // in search; noindexed drafts stay reachable from this list only when they
+  // are kept, so the hub does not endorse pages it withdrew from Google.
+  const listablePages = section === 'best-for'
+    ? publishablePages.filter((page) => KEPT_BEST_FOR_SLUGS.has(page.slug))
+    : publishablePages;
+  const links = listablePages.map((page) => {
     const linkLabel = lang === 'zh' ? page.keyword : titleCase(page.keyword);
     return `<li><a href="/${section}/${page.slug}/">${esc(linkLabel)}</a></li>`;
   }).join('');
-  const indexable = publishablePages.length > 0;
+  const indexable = listablePages.length > 0;
   const hubCopy = {
     'best-for': 'Practical guides for choosing an AI workflow by task. Each page covers what to evaluate, where public benchmarks apply, and how to validate the same prompt.',
     alternatives: 'Guides for replacing a current AI tool based on clear constraints—without claiming a universal ranking.',
@@ -864,6 +909,7 @@ function writeRedirectConfig() {
     { source: '/index.html', destination: '/', permanent: true },
     ...pairRedirects,
     ...removedCompareRedirects,
+    ...mergeRedirects,
   ];
   writeFileSync(vercelPath, `${JSON.stringify({ ...existing, redirects }, null, 2)}\n`, 'utf8');
 }
@@ -873,12 +919,16 @@ function pruneRemovedCompareDirs() {
     ...comparePages.filter((page) => !page.canonicalSlug).map((page) => `compare/${page.slug}`),
     ...zhComparePages.filter((page) => !page.canonicalSlug).map((page) => `zh/compare/${page.slug}`),
   ]);
+  // mergeRedirects fold duplicate free/alternatives URLs into one survivor per
+  // intent; their directories must not linger as unredirected static copies.
   const pruneTargets = new Set([
     ...removedCompareRedirects.map((item) => item.source.replace(/\/$/, '').replace(/^\//, '')),
     ...comparePages.filter((page) => page.canonicalSlug).map((page) => `compare/${page.slug}`),
+    ...mergeRedirects.map((item) => item.source.replace(/\/$/, '').replace(/^\//, '')),
   ]);
   for (const rel of pruneTargets) {
-    if (rel !== 'zh/compare' && !rel.startsWith('compare/') && !rel.startsWith('zh/compare/')) continue;
+    if (rel !== 'zh/compare' && !rel.startsWith('compare/') && !rel.startsWith('zh/compare/')
+      && !rel.startsWith('free/') && !rel.startsWith('alternatives/')) continue;
     if (keep.has(rel)) continue;
     const full = join(ROOT, rel);
     if (rel === 'zh/compare') {

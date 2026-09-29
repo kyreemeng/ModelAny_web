@@ -72,6 +72,27 @@
           <h2>如何阅读本页</h2>
           <p>本页汇总双方共同出现在同一公开第三方评测中的结果，并标明精确模型版本与原始来源。它便于快速核对公开证据，但不能替代你用真实任务亲自试用。</p>
         </div>
+        <section class="seo-section" aria-labelledby="pair-differences-heading">
+          <h2 id="pair-differences-heading">GLM vs DeepSeek：差异集中在哪</h2>
+          <h3>公开评测快照里的差异</h3>
+          <ul>
+            <li><strong>真实代码修复（SWE-bench Verified）：</strong>在 2026-09-27 抓取的公开快照里，GLM 5 (high) 修好 72.8% 的真实 GitHub 问题（列第 25），DeepSeek V3.2 (high) 为 70%（列第 46），DeepSeek V3.2 Reasoner 为 60%。这批测试里 GLM 新版本领先约 3 个百分点；DeepSeek 的推理向版本在该项反而偏低，说明「选对版本」比「选对品牌」影响更大。</li>
+          </ul>
+          <h3>产品与使用条件的差异</h3>
+          <ul>
+            <li><strong>访问与登录：</strong>两边官网（chatglm.cn 与 chat.deepseek.com）都面向中国大陆用户可直接访问、手机号即可登录，这一点与需要海外访问条件的 ChatGPT 不同，也是中文用户在同题实测里最容易保持公平的一对。</li>
+            <li><strong>产品定位：</strong>DeepSeek 以开放权重与研究向发布见长，推理与数学是它反复被讨论的场景；GLM（智谱清言）则把通用对话、代码与办公场景做进产品入口。两个官网的默认体验差异明显，值得各用一周再下结论。</li>
+            <li><strong>价格与套餐：</strong>两边定价结构不同且经常调整，本页不引用具体数字。请在 chatglm.cn 与 DeepSeek 官网（见下方官方来源）核对当前套餐、免费额度与 API 价格。</li>
+          </ul>
+          <h3>建议的同题实测任务</h3>
+          <ol>
+            <li>数学与推理：同一道多步数学题或逻辑题，要求展示中间步骤，核对哪边的步骤经得起复算</li>
+            <li>中文写作：同一篇产品说明，分别让两边写，再让第三个模型盲评两稿，避免自己偏心</li>
+            <li>代码重构：同一段难读的函数，要求「只改可读性不改行为」，跑测试确认谁真的没改坏</li>
+          </ol>
+          <p>两个都能大陆直连的国产模型，同题实测的成本最低。公开测试显示 GLM 5 在代码修复上暂时领先，但版本迭代很快——把这一页存的快照日期和你实测的日期对齐，再下结论。</p>
+          <p class="seo-note">快照证据的抓取时间与原始来源见下方评测表。实测任务请在你自己的账号上运行；本页提供证据与任务设计，不代你下结论。</p>
+        </section>
         <section class="seo-section" aria-labelledby="public-evidence-heading">
           <h2 id="public-evidence-heading">公开评测怎么说</h2>
           <p>下面只展示这些模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，也不能据此宣布谁全面更好。</p>

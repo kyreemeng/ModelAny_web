@@ -158,8 +158,14 @@ const COPY = {
           'Choose Markdown, Word or PDF—or Copy as Markdown',
           'Save the download your browser offers, or paste from the clipboard',
         ], true),
-        section('formats', 'Formats and typical use', [
-          'Markdown suits notes, Git repos and tools that ingest plain text. Word fits shared docs and light editing. PDF is for fixed layout and print. Copy as Markdown is fastest when you are pasting into Notion, Obsidian or a code editor.',
+        section('to-markdown', 'Export a ChatGPT conversation to Markdown', [
+          'Markdown is the right choice when the chat is going into Notion, Obsidian, a Git repo, or any tool that ingests plain text: headings, lists and code blocks survive the trip, and diffs stay readable. Use Copy as Markdown when you are pasting straight into an editor.',
+        ]),
+        section('to-pdf', 'Export a ChatGPT conversation to PDF', [
+          'PDF fixes the layout: use it for print, email attachments, or a record you do not want to edit again. The file is generated in your browser from the turns currently rendered on the page.',
+        ]),
+        section('to-word', 'Export a ChatGPT conversation to Word', [
+          'Word (.docx) is for documents someone will edit next—shared drafts, reports with tracked changes. Start from the export, then apply your own template and styles.',
         ]),
         section('privacy', 'Privacy notes', [
           'Export reads the conversation already rendered on that page, and only after you click. Generation runs locally. Clearing browser data for the extension, or removing the extension, also removes its local storage.',
@@ -350,6 +356,10 @@ const COPY = {
           'Pick the target model (for example Claude, Gemini, DeepSeek or Kimi)',
           'Review the prepared context in the new tab, then keep chatting there',
         ], true),
+        section('chatgpt-to-claude', 'Moving a ChatGPT conversation into Claude', [
+          'The most common route: a long ChatGPT thread hits its message cap mid-task. Open Continue in another AI on that chat page and pick Claude. ModelAny packs the recent turns of the ChatGPT conversation into a context block and opens claude.ai with it filled in, so your first Claude message is “continue from here”, not a re-explanation.',
+          'Skim the prepared block once before sending: long threads keep the most recent turns, so earlier constraints worth restating (goals, format, deadlines) are better pinned at the top of your next message.',
+        ]),
         section('when', 'When it helps', [], [
           'Daily or hourly caps on one provider',
           'Cross-checking a plan, code review or translation with a second model',
@@ -432,11 +442,11 @@ const COPY = {
 
   'ai-chat-memory': {
     en: {
-      eyebrow: 'Local memory',
-      leadHeading: 'A searchable library that never leaves your browser',
+      eyebrow: 'Save & back up chats',
+      leadHeading: 'Save ChatGPT chats to a library that never leaves your browser',
       lead: [
-        'Save conversations from supported AI sites into ModelAny’s memory library. Entries stay in extension storage on your device. Full-text search covers Chinese and English; you can add tags and notes, then insert a memory back into any supported model as context.',
-        'Use it when good answers are scattered across ChatGPT, Claude, DeepSeek and others—and you want one place to find them later without pasting into a cloud doc by default.',
+        'A ChatGPT conversation only exists on chatgpt.com until you save it somewhere. ModelAny gives you two local copies: save the chat into a searchable memory library in your browser (full-text search, tags, notes), or export it as a Markdown, Word or PDF file for a folder backup. Nothing is uploaded to a ModelAny server.',
+        'The same save-and-back-up loop works on Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM and other supported sites, so conversations scattered across several AI apps end up in one place.',
       ],
       sections: [
         section('save', 'Save a chat', [], [
@@ -444,27 +454,34 @@ const COPY = {
           'Use the ModelAny edge tab → Save to memory (or save from the comparison view after a multi-AI send)',
           'Optional: add tags or a short note so you can filter later',
         ], true),
+        section('backup', 'Back up as a file', [
+          'For a backup you control outside the browser, export the conversation to Markdown (best for Notion, Obsidian, Git repos), Word (shared docs) or PDF (fixed layout). Files are generated in your browser and saved wherever you keep local archives.',
+        ]),
         section('reuse', 'Search and reuse', [
-          'Open the Memory page from the popup. Search by keyword, filter by tag, open an entry, then bring it into the model you are about to use. You can delete individual entries or clear the library from that page; uninstalling the extension removes the data with it.',
+          'Open the Memory page from the popup. Search by keyword, filter by tag, open an entry, then bring it into the model you are about to use as context. You can delete individual entries or clear the library from that page; uninstalling the extension removes the data with it.',
         ]),
         section('privacy', 'Local by design', [
           'Memory is not synced to a ModelAny cloud. Device backups or sync products you configure yourself (for example browser profile sync) are outside ModelAny’s control—turn those off for the extension if you need a strict local-only setup.',
         ]),
       ],
       related: [
-        link('/how-to-use/', 'How to use ModelAny'),
-        link('/export-chatgpt-conversation/', 'Export a chat as a file'),
+        link('/export-chatgpt-conversation/', 'Export a chat as PDF, Word or Markdown'),
         link('/continue-chat-in-another-ai/', 'Continue in another AI'),
+        link('/how-to-use/', 'How to use ModelAny'),
         link('/privacy.html', 'Privacy policy'),
       ],
       faqs: [
         {
-          q: 'Is memory uploaded for “AI sync”?',
-          a: 'No. ModelAny does not operate a sync server for memory. Data stays in local extension storage unless you export it yourself.',
+          q: 'How do I save a ChatGPT conversation?',
+          a: 'Open the conversation on chatgpt.com, click the ModelAny tab on the right edge, and choose Save to memory (searchable library) or Markdown / Word / PDF (a file backup). Both copies stay on your machine.',
         },
         {
-          q: 'Can I back up the library?',
-          a: 'Use export options available in the product (such as Markdown / JSON style backups where offered), or export important threads as files before clearing data.',
+          q: 'Can I back up my whole chat history?',
+          a: 'ModelAny saves the conversations you deliberately save, one chat at a time—unlike OpenAI’s account-level data export. Save important threads when you finish them; the library stays searchable on your device.',
+        },
+        {
+          q: 'Is memory uploaded for “AI sync”?',
+          a: 'No. ModelAny does not operate a sync server for memory. Data stays in local extension storage unless you export it yourself.',
         },
         {
           q: 'Does search work for Chinese?',
@@ -681,47 +698,71 @@ const COPY = {
   'side-by-side-ai-comparison': {
     en: {
       eyebrow: 'Comparison pattern',
-      leadHeading: 'Read multiple answers against one brief',
+      leadHeading: 'Compare AI answers side by side against one brief',
       lead: [
-        'Side-by-side comparison means one task definition, one prompt, and several answers reviewed together—not screenshots from unrelated chats. ModelAny’s comparison view is built for that loop: send, collect, skim agreements and gaps, then export or save.',
+        'Comparing AI answers side by side means one task definition, one frozen prompt, and several answers read together against the same criteria—not screenshots from unrelated chats. ModelAny’s comparison view is built for that loop: send once, collect every answer, skim agreements and gaps, then export or save.',
+        'The comparison is only as good as the criteria you read with. Most real decisions come down to four questions: is it factually right, is it complete, how much editing does it need, and can you verify the claims it makes.',
       ],
       sections: [
+        section('criteria', 'What to judge, in order', [], [
+          'Facts first: can every claim, number and citation be checked against a source you trust?',
+          'Completeness: does it cover the constraints you actually stated (length, tone, framework, region)?',
+          'Edit cost: count the minutes from raw answer to usable result—that number decides the workflow',
+          'Failure style: which answer fails safely (says “I don’t know”, flags risk) versus fails confidently?',
+        ], true),
         section('practice', 'Practice checklist', [], [
-          'Freeze the prompt before the first send',
+          'Freeze the prompt before the first send—no per-tab edits if you want a clean read',
           'Limit the set to models you might actually adopt',
-          'Judge with a short rubric (facts, structure, risks, edit cost)',
+          'Score with a short rubric (facts, structure, risks, edit cost) instead of a gut verdict',
           'Record which answer you used and why, so the next run is faster',
         ], true),
+        section('report', 'Turn the run into a record', [
+          'After a send, export the comparison as a Markdown report or save it to local memory. A dated record of prompt, models and scores turns a one-off check into evidence you can re-run when a new model version ships.',
+        ]),
       ],
       related: [
-        link('/compare-ai-models/', 'Same-prompt workflow'),
+        link('/chatgpt-vs-claude-vs-gemini-same-prompt/', 'ChatGPT vs Claude vs Gemini on the same prompt'),
+        link('/compare-ai-models/', 'Send one prompt to several models'),
         link('/how-to-use/', 'How to use ModelAny'),
         link('/compare/chatgpt-vs-gemini/', 'ChatGPT vs Gemini benchmarks'),
-        link('/benchmarks/', 'Benchmark hub'),
       ],
       faqs: [
         {
           q: 'Why not paste into each tab manually?',
-          a: 'You can, but small edits creep in and timing differs. A single send reduces accidental prompt drift.',
+          a: 'You can, but small edits creep in and timing differs. A single send reduces accidental prompt drift and puts every answer in one place.',
+        },
+        {
+          q: 'How many answers should I compare at once?',
+          a: 'Two to four. With more columns, attention per answer drops and the rubric stops being applied honestly.',
         },
       ],
       ctaHeading: 'Compare answers in one pass',
-      ctaBody: 'Install ModelAny, send one prompt to several official AI sites, and review them together.',
+      ctaBody: 'Install ModelAny, send one prompt to several official AI sites, and review them side by side.',
       includeEvidence: true,
     },
     zh: {
       eyebrow: '对比方式',
-      leadHeading: '对照同一份需求阅读多份回答',
+      leadHeading: '对照同一份需求，并排比较多份回答',
       lead: [
-        '并排对比指：先固定任务与提示词，再把多份回答放在一起看——而不是把互不相关的截图拼在一起。ModelAny 的对比页服务这条路径：发送、汇总、查看一致与分歧，再导出或存档。',
+        '并排对比指：先固定任务与提示词，再把多份回答放在一起、按同一套标准阅读——而不是把互不相关的截图拼在一起。ModelAny 的对比页服务这条路径：一次发送、汇总回答、查看一致与分歧，再导出或存档。',
+        '对比的价值取决于你用什么标准去读。多数真实决策归结为四个问题：事实对不对、覆盖全不全、还要改多久、结论可不可验证。',
       ],
       sections: [
+        section('criteria', '按什么顺序判断', [], [
+          '先看事实：每条结论、数字与引用能否在你信任的来源里核对？',
+          '再看覆盖：是否满足你真实提出的约束（篇幅、语气、框架、地区）？',
+          '再看修改成本：从原始回答到可用结果要花多少分钟——这个数字决定工作流',
+          '再看失败方式：哪份回答失败得“安全”（会承认不知道、会提示风险），哪份失败得很自信？',
+        ], true),
         section('practice', '操作清单', [], [
-          '第一次发送前锁定提示词',
+          '第一次发送前锁定提示词，各标签页不做微调',
           '只选你之后真可能采用的模型',
-          '用简短标准评判（事实、结构、风险、修改成本）',
+          '用简短标准打分（事实、结构、风险、修改成本），不凭感觉',
           '记下采用了哪份回答及原因，方便下次更快决策',
         ], true),
+        section('report', '把对比变成记录', [
+          '发送结束后，把对比结果导出为 Markdown 报告，或存入本地记忆库。带日期的记录（提示词、模型、评分）让一次性检查变成可复验的证据——新版本发布时可以重跑一遍。',
+        ]),
       ],
       related: [
         link('/zh/compare-ai-models/', '同一提示词工作流'),
@@ -731,12 +772,209 @@ const COPY = {
       faqs: [
         {
           q: '为什么不手动往每个标签页粘贴？',
-          a: '可以，但容易出现细微改写与时间差。一次发送能减少提示词在不知不觉中被改掉的情况。',
+          a: '可以，但容易出现细微改写与时间差。一次发送能减少提示词被无意改掉的情况，并让所有回答集中在一处。',
+        },
+        {
+          q: '一次对比几份回答合适？',
+          a: '两到四份。列数越多，每份回答分到的注意力越少，评分标准就越难如实执行。',
         },
       ],
       ctaHeading: '一次看完多份回答',
-      ctaBody: '安装 ModelAny，把同一提示词发给多个 AI 官网，并在对比页审阅。',
+      ctaBody: '安装 ModelAny，把同一提示词发给多个 AI 官网，并在对比页并排审阅。',
       includeEvidence: true,
+    },
+  },
+
+  'chatgpt-vs-claude-vs-gemini-same-prompt': {
+    en: {
+      eyebrow: 'Three-way comparison',
+      leadHeading: 'One prompt, three official sites, three answers',
+      lead: [
+        'Pairwise scores cannot tell you what matters for your task: whether ChatGPT, Claude or Gemini writes the answer you would actually ship. The honest test is the same prompt into all three official sites, then reading the three answers side by side against your own criteria.',
+        'ModelAny sends that one prompt to chatgpt.com, claude.ai and gemini.google.com in parallel—your own accounts, no API key—and collects the three answers in one comparison view.',
+      ],
+      sections: [
+        section('method', 'The five-minute method', [], [
+          'Pick one real task from this week’s work—something you can judge, not a trivia question',
+          'Write the prompt once with its constraints (length, format, audience) and freeze it',
+          'Send it to ChatGPT, Claude and Gemini in one ModelAny send',
+          'Score the three answers on the rubric below while they are fresh',
+          'Note which answer you used and what you edited—that note is the real verdict',
+        ], true),
+        section('pack', 'A reusable prompt pack', [
+          'One prompt per capability you are actually choosing between. Copy them, replace the bracketed part, and keep the wording identical across the three sites.',
+        ], [
+          'Reasoning: “Here is our situation: [describe]. List the three decisions we must make first, and for each, what evidence would change your recommendation.”',
+          'Writing: “Rewrite this paragraph for a skeptical [audience]: [paste]. Keep it under 120 words and do not invent facts.”',
+          'Coding: “This test fails: [paste test + error]. Name the most likely cause, then the smallest fix, then what you would check next.”',
+          'Summarizing: “Summarize the attached transcript into at most 8 bullet points with timestamps, then flag any claim you could not verify.”',
+          'Refactoring: “Refactor this function for readability only—no behavior change: [paste]. List every assumption you made.”',
+        ]),
+        section('rubric', 'Score the three answers on this rubric', [], [
+          'Verifiability: are claims checkable, and does the model flag what it could not check?',
+          'Constraint-keeping: did it respect length, format and audience without being reminded?',
+          'Edit distance: minutes from raw answer to usable result',
+          'Risk handling: does it surface trade-offs and failure modes, or only the happy path?',
+        ], true),
+        section('benchmarks', 'Where public benchmarks fit', [
+          'Public benchmark tables (the shared ones are rendered below) are useful context for capability ranges—SWE-bench Verified for real-issue code fixing, Arena preference votes for chat quality. They do not test your prompt. Use them to sanity-check what you saw; use your run to decide.',
+        ]),
+      ],
+      related: [
+        link('/side-by-side-ai-comparison/', 'How to compare answers side by side'),
+        link('/compare/chatgpt-vs-claude/', 'ChatGPT vs Claude benchmarks'),
+        link('/compare/chatgpt-vs-gemini/', 'ChatGPT vs Gemini benchmarks'),
+        link('/compare/claude-vs-gemini/', 'Claude vs Gemini benchmarks'),
+        link('/compare-ai-models/', 'Same-prompt comparison workflow'),
+      ],
+      faqs: [
+        {
+          q: 'Why the same prompt instead of reading benchmark tables?',
+          a: 'Benchmarks measure tasks you do not have, on versions chosen by the tester. A same-prompt run measures your task on today’s live versions—the thing you are actually deciding about.',
+        },
+        {
+          q: 'Can I include DeepSeek, Grok or Chinese models in the same send?',
+          a: 'Yes. The launcher supports up to eleven sites; three-way is just the common case. Chinese models such as DeepSeek, Kimi and GLM join the same comparison with the same prompt.',
+        },
+        {
+          q: 'Do free accounts work for this?',
+          a: 'Yes. Each site runs under the plan you already have there; free quotas apply. ModelAny itself is free and needs no API key.',
+        },
+      ],
+      ctaHeading: 'Run the same prompt on all three',
+      ctaBody: 'Install ModelAny for Chrome or Edge, sign in to ChatGPT, Claude and Gemini, and send one prompt to all three at once.',
+      includeEvidence: true,
+    },
+    zh: {
+      eyebrow: '三方对比',
+      leadHeading: '同一个提示词，三个官网，三份回答',
+      lead: [
+        '两两对比的分数无法回答真正的问题：同一条任务，ChatGPT、Claude、Gemini 谁写的答案你真的愿意用。诚实的测法是把同一提示词发给三个官网，再按你自己的标准并排阅读三份回答。',
+        'ModelAny 把这一条提示词并行发到 chatgpt.com、claude.ai 和 gemini.google.com——用你自己的账号，无需 API Key——并把三份回答收进同一个对比页。',
+      ],
+      sections: [
+        section('method', '五分钟做法', [], [
+          '从本周工作里挑一个真实任务——你能判断好坏的那种，不是冷知识问答',
+          '把提示词连同约束（篇幅、格式、受众）写一遍并锁定',
+          '在 ModelAny 里一次发送给 ChatGPT、Claude 和 Gemini',
+          '趁新鲜按下面的评分表给三份回答打分',
+          '记下你实际采用了哪份、改了什么——这条记录才是真正的结论',
+        ], true),
+        section('rubric', '评分表', [], [
+          '可验证性：结论能否核对？模型是否标注了自己无法核实的内容？',
+          '守约束：篇幅、格式、受众是否第一次就遵守？',
+          '修改距离：从原始回答到可用结果需要多少分钟',
+          '风险处理：是否主动给出取舍与失败情形，还是只报喜？',
+        ], true),
+        section('benchmarks', '公开评测的用法', [
+          '下方渲染的公开评测（三方共有的类别）可以说明能力区间，但不能代替你的提示词。用它们校验你的观察，用你自己的运行做决定。',
+        ]),
+      ],
+      related: [
+        link('/side-by-side-ai-comparison/', '如何并排比较回答'),
+        link('/compare/chatgpt-vs-claude/', 'ChatGPT vs Claude 公开评测'),
+        link('/compare/chatgpt-vs-gemini/', 'ChatGPT vs Gemini 公开评测'),
+        link('/compare/claude-vs-gemini/', 'Claude vs Gemini 公开评测'),
+      ],
+      faqs: [
+        {
+          q: '为什么要用同一提示词，而不只看榜单？',
+          a: '榜单测的是别人的任务与所选版本；同题运行测的是你的任务在今天的线上版本上的表现——这才是你真正要决定的事。',
+        },
+        {
+          q: '免费账号能用吗？',
+          a: '可以。各站点按你已有的套餐运行，免费额度照常适用。ModelAny 本身免费且不需要 API Key。',
+        },
+      ],
+      ctaHeading: '把同一条提示词发给三家',
+      ctaBody: '在 Chrome 或 Edge 安装 ModelAny，登录 ChatGPT、Claude 与 Gemini，一次发送、并排对比。',
+      includeEvidence: true,
+    },
+  },
+
+  'chatgpt-usage-limit-workaround': {
+    en: {
+      eyebrow: 'Usage limits',
+      leadHeading: 'ChatGPT says you hit the limit—what actually works',
+      lead: [
+        'When ChatGPT shows the usage-limit message, the cap applies to that account, on that plan, for that window. There is no safe trick that removes the cap itself; what you can do is choose how to spend the remaining quota and how to keep the task moving elsewhere until the reset.',
+        'One of those options is built into ModelAny: carry the current conversation into Claude, Gemini, DeepSeek or another supported AI with its context, so you keep working instead of re-explaining the task from scratch.',
+      ],
+      sections: [
+        section('options', 'Four legitimate ways to keep working', [], [
+          'Wait for the reset: limits refresh on a rolling window. Note the time the message appeared; the same task usually runs again without burning anything extra',
+          'Switch models inside ChatGPT: the fastest models generally have the most headroom—move the remaining subtasks (drafting, reformatting) to the lighter model and save the heavy model for the steps that need it',
+          'Continue in another AI: on the chat page, use ModelAny → Continue in another AI to move the recent conversation into Claude, Gemini, DeepSeek or Kimi with context included, then keep going there',
+          'Upgrade only if the pattern repeats: if you hit the cap several days in a row at the same hour, the honest fix is a higher plan on that provider—not a rotation of evasions',
+        ], true),
+        section('context', 'Moving the chat without losing it', [
+          'Continue in another AI packs the conversation turns visible on the page into a context block and opens the destination site with it filled in. Long threads keep the most recent turns. Restate any early constraint that still matters (goal, format, deadline) at the top of your next message.',
+        ]),
+        section('avoid', 'What to avoid', [
+          'Bulk account creation, VPN rotation to dodge regional rules, or automation that fakes human pace violate the provider’s terms and put your account at risk. None of them raise the cap anyway. ModelAny does not do these things: it opens sites, fills your prompt and clicks send only when you tell it to.',
+        ]),
+      ],
+      related: [
+        link('/continue-chat-in-another-ai/', 'Continue a ChatGPT chat in Claude'),
+        link('/chatgpt-vs-claude-vs-gemini-same-prompt/', 'Same prompt, three answers'),
+        link('/ai-chat-memory/', 'Save the thread before switching'),
+        link('/alternatives/chatgpt/', 'ChatGPT alternatives'),
+      ],
+      faqs: [
+        {
+          q: 'When does the ChatGPT usage limit reset?',
+          a: 'Message caps refresh on a rolling window that depends on your plan and model. OpenAI documents the current limits on its help pages—the message itself usually names when you can continue.',
+        },
+        {
+          q: 'Will ModelAny bypass the limit?',
+          a: 'No. ModelAny does not bypass usage limits, captchas or security checks on any site. It performs the same steps you would do by hand: open the page, paste the prompt, send.',
+        },
+        {
+          q: 'Does the other AI see my whole ChatGPT history?',
+          a: 'No. Only the context package prepared from the current page is sent to the site you move to, with recent-turn trimming on long chats.',
+        },
+      ],
+      ctaHeading: 'Keep the task moving when the cap hits',
+      ctaBody: 'Install ModelAny and use Continue in another AI on any supported chat page. Free, local-first, no API key.',
+    },
+    zh: {
+      eyebrow: '用量限制',
+      leadHeading: 'ChatGPT 提示达到用量上限时，真正有效的做法',
+      lead: [
+        '当 ChatGPT 显示用量上限提示，限制只作用于该账号、该套餐、该时间窗。没有什么“安全绕过”能直接解除上限；你能做的是把剩余额度花在刀刃上，并在重置前让任务在别处继续推进。',
+        '其中一种方式内置于 ModelAny：把当前对话连同上下文带到 Claude、Gemini、DeepSeek 等其他支持的 AI 继续，不需要从头重新解释任务。',
+      ],
+      sections: [
+        section('options', '四种正规做法', [], [
+          '等重置：限额按滚动时间窗刷新。记下提示出现的时刻，到点后同一任务通常可以直接继续',
+          '站内换模型：轻量模型的剩余额度一般更多——把改写、整理类子任务交给轻量模型，把重模型留给关键步骤',
+          '换 AI 继续：在对话页用 ModelAny →「换个模型继续」，把近期对话带上下文移到 Claude、Gemini、DeepSeek 或 Kimi 接着聊',
+          '反复触顶再升级：如果连续多天在同一时段触顶，诚实的解法是升级该平台套餐，而不是轮换各种规避手段',
+        ], true),
+        section('context', '带着上下文换模型', [
+          '「换个模型继续」会把当前页面上可见的对话轮次整理成上下文块，并填入目标站点。长对话会优先保留最近若干轮；仍然重要的早期约束（目标、格式、截止时间）最好在下一条消息开头重申一遍。',
+        ]),
+        section('avoid', '不要做的事', [
+          '批量注册小号、用 VPN 轮换规避地区规则、或模拟人类节奏的自动化，都违反服务商条款，账号风险自担，而且上限并不会因此提高。ModelAny 不做这些：它只打开页面、填入你的提示词，并在你确认后点击发送。',
+        ]),
+      ],
+      related: [
+        link('/zh/continue-in-another-ai/', '换个 AI 继续聊'),
+        link('/zh/ai-memory/', '换之前先存档'),
+        link('/export-chatgpt-conversation/', '导出对话为本地文件'),
+      ],
+      faqs: [
+        {
+          q: 'ChatGPT 用量上限什么时候重置？',
+          a: '消息上限按滚动时间窗刷新，具体取决于套餐与模型。OpenAI 会在帮助页更新当前额度；提示信息本身通常也会说明何时可以继续。',
+        },
+        {
+          q: 'ModelAny 能绕过限制吗？',
+          a: '不能。ModelAny 不绕过任何站点的用量限制、验证码或安全检查。它做的只是你手动也会做的动作：打开页面、粘贴提示词、发送。',
+        },
+      ],
+      ctaHeading: '触顶不让任务停摆',
+      ctaBody: '安装 ModelAny，在支持的对话页使用「换个模型继续」。免费、本地优先、无需 API Key。',
     },
   },
 };

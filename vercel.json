@@ -535,6 +535,46 @@
       "source": "/zh/compare/chinese-llm-comparison/",
       "destination": "/zh/benchmarks/",
       "permanent": true
+    },
+    {
+      "source": "/alternatives/chatgpt-free",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/chatgpt-free/",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/free-chatgpt-2026",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/free-chatgpt-2026/",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/free/chatgpt",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/free/chatgpt/",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/free/best-ai-chatbot-2026",
+      "destination": "/free/best-ai-chatbot/",
+      "permanent": true
+    },
+    {
+      "source": "/free/best-ai-chatbot-2026/",
+      "destination": "/free/best-ai-chatbot/",
+      "permanent": true
     }
   ]
 }
