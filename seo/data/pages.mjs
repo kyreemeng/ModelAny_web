@@ -42,7 +42,6 @@ export const comparePages = [
 ];
 
 export const zhComparePages = [
-  { slug: 'wenxin-vs-chatgpt', models: ['wenxin', 'chatgpt'], keyword: '文心一言 vs chatgpt', priority: 'P0' },
   { slug: 'qwen-vs-chatgpt', models: ['qwen', 'chatgpt'], keyword: '通义千问 vs chatgpt', priority: 'P0' },
   { slug: 'doubao-vs-chatgpt', models: ['doubao', 'chatgpt'], keyword: '豆包 vs chatgpt', priority: 'P0' },
   { slug: 'kimi-vs-chatgpt', models: ['kimi', 'chatgpt'], keyword: 'kimi vs chatgpt', priority: 'P0' },
@@ -139,6 +138,11 @@ export const removedCompareRedirects = [
   { source: '/zh/compare/chinese-ai-ranking/', destination: '/zh/benchmarks/', permanent: true },
   { source: '/zh/compare/chinese-llm-comparison', destination: '/zh/benchmarks/', permanent: true },
   { source: '/zh/compare/chinese-llm-comparison/', destination: '/zh/benchmarks/', permanent: true },
+  // wenxin-vs-chatgpt has no shared public benchmark coverage in the current
+  // snapshot, so the generator no longer publishes it. Remove the redirect if
+  // a future snapshot restores shared coverage.
+  { source: '/zh/compare/wenxin-vs-chatgpt', destination: '/zh/benchmarks/', permanent: true },
+  { source: '/zh/compare/wenxin-vs-chatgpt/', destination: '/zh/benchmarks/', permanent: true },
 ];
 
 export const bestForPages = [

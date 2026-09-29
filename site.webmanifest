@@ -1,18 +1,36 @@
 {
-  "name": "ModelAny — Ask Every AI Model, All at Once",
+  "name": "ModelAny — Ask multiple AI at once",
   "short_name": "ModelAny",
-  "description": "A free Chrome extension that lets you ask multiple AI models the same question at once and compare answers faster.",
+  "description": "A free Chrome and Edge extension that sends one question to multiple AI sites at once and puts the answers side by side.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#F8F7FF",
-  "theme_color": "#6D5DFB",
-  "categories": ["productivity", "utilities"],
+  "background_color": "#FFFFFF",
+  "theme_color": "#5B3FE4",
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
   "lang": "en",
   "icons": [
-    { "src": "assets/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "assets/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "assets/favicon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "assets/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

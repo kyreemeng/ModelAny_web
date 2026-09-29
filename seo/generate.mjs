@@ -447,8 +447,8 @@ function htmlPage({
     : `${lang === 'zh' ? '内容更新' : 'Content updated'}: ${dateModified}`);
   const resolvedCtaHeading = ctaHeading || (lang === 'zh' ? '用同一提示词比较多个模型' : 'Compare multiple models with one prompt');
   const resolvedCtaBody = ctaBody || (lang === 'zh'
-    ? `ModelAny 是免费开源的浏览器扩展，已在 <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome 网上应用店</a> 与 <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge 加载项</a> 上架。草稿、设置与历史保留在浏览器本地。`
-    : `ModelAny is a free, open-source browser extension available on the <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome Web Store</a> and <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a>. Drafts, settings, and history remain in your browser.`);
+    ? `ModelAny 是免费的浏览器扩展，源码公开可审阅，已在 <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome 网上应用店</a> 与 <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge 加载项</a> 上架。草稿、设置与历史保留在浏览器本地。`
+    : `ModelAny is a free, source-available browser extension (the code is public on GitHub for auditing) listed on the <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">Chrome Web Store</a> and <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a>. Drafts, settings, and history remain in your browser.`);
   if (canonical.startsWith('/pricing')) {
     schema['@graph'].push({
       '@type': 'SoftwareApplication',
