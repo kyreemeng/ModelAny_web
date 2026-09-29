@@ -61,8 +61,8 @@ export const SOURCES = {
     metric: 'Score',
     unit: 'points',
     disclaimer: {
-      en: 'LiveBench publishes independently scored, frequently refreshed objective tasks. Category scores are shown separately.',
-      zh: 'LiveBench 发布独立评分、定期更新的客观任务。各类别分数独立展示。',
+      en: 'LiveBench publishes independently scored, frequently refreshed objective tasks. Category scores shown here are the arithmetic mean of the official per-subtask scores for the selected release, computed locally; each category is displayed separately.',
+      zh: 'LiveBench 发布独立评分、定期更新的客观任务。本页类别分数为该版本官方子任务分数的算术平均值（本地计算）；各类别独立展示。',
     },
   },
   swebench: {

@@ -125,8 +125,9 @@ function publicEvidenceHtml(modelIds, lang, focus) {
               <td>${esc(String(row.score))}${row.unit === '%' ? '%' : ''}</td>
               <td>${esc(row.metric)} (${esc(row.unit)})</td>
             </tr>`).join('\n            ');
+    const sourceName = group.source === 'arena' ? 'Arena' : group.source === 'swebench' ? 'SWE-bench Verified' : group.source === 'livebench' ? 'LiveBench' : group.source;
     return `<article class="seo-evidence-card">
-          <h3>${esc(group.source === 'arena' ? 'Arena' : group.source === 'swebench' ? 'SWE-bench Verified' : group.source)} · ${esc(group.label[lang] || group.category)}</h3>
+          <h3>${esc(sourceName)} · ${esc(group.label[lang] || group.category)}</h3>
           <p>${esc(group.plain[lang] || '')}</p>
           <p class="seo-evidence-meta">${lang === 'zh' ? '数据抓取时间' : 'Retrieved'}: ${esc(formatRetrievedAt(group.retrievedAt, lang))} · <a href="${esc(group.sourceUrl)}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '查看原始排行榜' : 'Open original leaderboard'}</a></p>
           <div class="seo-table-wrap">

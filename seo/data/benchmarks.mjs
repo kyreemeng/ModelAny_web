@@ -27,6 +27,13 @@ const CATEGORY_LABEL = {
   search: { en: 'search-style preference', zh: '搜索类偏好' },
   code: { en: 'coding preference', zh: '编程偏好' },
   Verified: { en: 'real software-issue fixing', zh: '真实软件问题修复' },
+  'Agentic Coding': { en: 'agentic coding', zh: '智能体编程' },
+  Coding: { en: 'coding tasks', zh: '编程任务' },
+  Mathematics: { en: 'mathematics', zh: '数学' },
+  Reasoning: { en: 'reasoning', zh: '推理' },
+  'Data Analysis': { en: 'data analysis', zh: '数据分析' },
+  'Instruction Following': { en: 'instruction following', zh: '指令遵循' },
+  Language: { en: 'language tasks', zh: '语言任务' },
 };
 
 const SOURCE_PLAIN = {
@@ -63,12 +70,12 @@ function productKeys(modelIds) {
  * guide) dilute usefulness and confuse searchers.
  */
 const FOCUS_CATEGORY_ALLOWLIST = {
-  coding: new Set(['code', 'Verified']),
-  writing: new Set(['text']),
-  reasoning: new Set(['text']),
-  research: new Set(['search', 'text']),
+  coding: new Set(['code', 'Verified', 'Coding', 'Agentic Coding']),
+  writing: new Set(['text', 'Language']),
+  reasoning: new Set(['text', 'Reasoning', 'Mathematics']),
+  research: new Set(['search', 'text', 'Reasoning', 'Data Analysis']),
   business: new Set(['text', 'search']),
-  students: new Set(['text', 'search']),
+  students: new Set(['text', 'search', 'Instruction Following', 'Reasoning']),
 };
 
 export function sharedBenchmarkGroups(modelIds, { focus } = {}) {

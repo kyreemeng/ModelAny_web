@@ -110,6 +110,41 @@ GSC 导出（2026-09-26）两个真警报信号：
 
 ---
 
+## 10. GSC 验证回合（2026-09-29 下午）：「网页会自动重定向」
+
+**证据**：Coverage-Validation xlsx（5 条待定 0 失败）+ 两份 Coverage-Drilldown xlsx + 实测跳转链（curl，Googlebot UA）。
+
+### 10.1 结论：「网页会自动重定向」不是错误，不能也不应该“修复成被索引”
+
+按 Google 官方文档（support.google.com/webmasters/answer/7440203#page_with_redirect）：该状态表示 Google 故意不索引发生重定向的 URL，而是索引跳转目标。以下 5 个 URL 全部是**非规范形态**（HTTP 明文 / 裸域名 / index.html 路径），它们重定向到规范 URL 是**正确且必须保留的配置**——取消重定向会制造重复内容，损害全站。Google 重新抓取确认后，验证即通过。
+
+### 10.2 跳转链审计（2026-09-29 实测）
+
+| URL | 跳数 | 最终落点 | 判定 |
+|---|---|---|---|
+| http://modelany.app/ | **2** | https://www.modelany.app/ | Vercel 边缘 http→https 升级先于域名规范化所致，平台行为，不可在 vercel.json 跨越；影响极小 |
+| https://modelany.app/ | 1 | https://www.modelany.app/ | 正确 |
+| http://www.modelany.app/ | 1 | https://www.modelany.app/ | 正确 |
+| https://www.modelany.app/index.html | 1 | https://www.modelany.app/ | vercel.json 308，正确 |
+| https://modelany.app/zh/ | 1 | https://www.modelany.app/zh/ | 正确 |
+
+跳转目标全部 200、可收录、与 sitemap/canonical 一致（www.modelany.app）。middleware 仅对中文浏览器软跳转且豁免全部爬虫，与索引无关。
+
+### 10.3 行动与监控
+
+- **不改动重定向配置**（本轮唯一候选改动——用 vercel.json host 条件显式化 apex→www——收益为零，故不做）。
+- GSC「验证」已开始（2026/9/29，5 待定）：等 Google 重抓即通过，无需逐条处理。
+- 这 5 个 URL 本就不该进 sitemap（sitemap 只含规范 URL），维持现状。
+
+### 10.4 同批导出揭示的更重要问题：核心对比页未被收录
+
+- **已发现-尚未编入索引（8 条，last-crawl 1970 = 从未抓取）**：/best-for/、/best-for/spreadsheets/、/compare/、/compare/chatgpt-vs-claude/、/compare/chatgpt-vs-deepseek/、/compare/chatgpt-vs-gemini/、/compare/deepseek-vs-claude/、/pricing/ —— 全站最重要的证据页两个月没被抓过，属于抓取优先级问题而非配置错误。
+- **已抓取-尚未编入索引（1 条）**：/compare/deepseek-vs-gemini/（2026-07-23 抓取）。
+- 已做的缓解：这些页面今天随快照刷新重新生成（9 个对比页证据表从 1 张扩到 11 张、benchmarks 页改版），sitemap lastmod 已更新，重抓优先级会提升。
+- **需要站长在 GSC 手动做**：对上述 9 个 URL 逐个执行「网址检查 → 请求编入索引」（一次性动作）；2–4 周后复查 Coverage，若仍在「已发现」桶，再考虑加外链/内链权重，而不是反复提交。
+
+---
+
 ## 9. Limitations
 
 - 无 GSC API 实时访问；引用的是 2026-09-26 导出的聚合数，匿名查询不在导出内。

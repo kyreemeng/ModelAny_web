@@ -114,171 +114,1096 @@
         </div>
         <div data-benchmark-root data-benchmark-url="./data/latest.json" aria-live="polite">
           <!-- benchmark-static:start -->
-          <div class="benchmark-context"><p class="benchmark-updated">Retrieved: Jul 19, 2026, 8:44 PM</p></div>
-          <section class="benchmark-source">
-              <div class="benchmark-source-header">
-                <h2>Arena · code</h2>
+          <div class="bm-strip">
+            <p class="benchmark-updated">Retrieved: Sep 29, 2026, 2:44 PM · 3 official sources · 722 records</p>
+            <p class="bm-strip-note">The gold row is the top scorer of that official test category. It is not an overall ranking: scores from different benchmarks cannot be combined.</p>
+          </div>
+          <section class="bm-leaders" aria-labelledby="bm-leaders-title">
+            <h2 id="bm-leaders-title">Who leads each test</h2>
+            <p class="bm-legend">Rank · Model family · Exact model version · Score</p>
+            <div class="bm-grid">
+              <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>Arena<span class="bm-card-cat">General chat preference</span></h3>
+                <span class="bm-chip">Elo</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5.5-high</em></span>
+                    <span class="bm-val">1509</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>muse-spark-1.2 (xHigh)</strong></span>
+                    <span class="bm-val">1496</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:99%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-max</strong></span>
+                    <span class="bm-val">1494</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:99%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>Arena<span class="bm-card-cat">Coding preference</span></h3>
+                <span class="bm-chip">Elo</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5.5-max</em></span>
+                    <span class="bm-val">1827</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">1792</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:98%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>qwen3.8-max</strong></span>
+                    <span class="bm-val">1672</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:92%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>Arena<span class="bm-card-cat">Search-style preference</span></h3>
+                <span class="bm-chip">Elo</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-5.6-sol-xhigh</em></span>
+                    <span class="bm-val">1257</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-4-6-search</em></span>
+                    <span class="bm-val">1253</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>Wenxin</strong><em>ernie-5.1</em></span>
+                    <span class="bm-val">1227</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:98%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>LiveBench<span class="bm-card-cat">Agentic coding</span></h3>
+                <span class="bm-chip">points</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>DeepSeek</strong><em>deepseek-v4.1-flash-max</em></span>
+                    <span class="bm-val">77.3</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5-5-max-effort</em></span>
+                    <span class="bm-val">71.7</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:93%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>qwen3.8-max</strong></span>
+                    <span class="bm-val">64.6</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:84%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>LiveBench<span class="bm-card-cat">Coding tasks</span></h3>
+                <span class="bm-chip">points</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-sonnet-5-5-max-effort</em></span>
+                    <span class="bm-val">91.4</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-5.6-sol-max</em></span>
+                    <span class="bm-val">83.9</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:92%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>smaug-agentic</strong></span>
+                    <span class="bm-val">82.5</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:90%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>LiveBench<span class="bm-card-cat">Mathematics</span></h3>
+                <span class="bm-chip">points</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5-5-max-effort</em></span>
+                    <span class="bm-val">97.1</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">96.8</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">95.9</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:99%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>LiveBench<span class="bm-card-cat">Reasoning</span></h3>
+                <span class="bm-chip">points</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">92.7</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5-5-max-effort</em></span>
+                    <span class="bm-val">92.2</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:99%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3</em></span>
+                    <span class="bm-val">90.7</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:98%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>LiveBench<span class="bm-card-cat">Data analysis</span></h3>
+                <span class="bm-chip">points</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">83.0</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-fable-5-max-effort</em></span>
+                    <span class="bm-val">80.5</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:97%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>smaug-agentic</strong></span>
+                    <span class="bm-val">79.9</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:96%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>LiveBench<span class="bm-card-cat">Instruction following</span></h3>
+                <span class="bm-chip">points</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.8-flash-high</em></span>
+                    <span class="bm-val">81.4</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">78.0</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:96%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>qwen3.8-flash-next</strong></span>
+                    <span class="bm-val">77.1</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:95%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>LiveBench<span class="bm-card-cat">Language tasks</span></h3>
+                <span class="bm-chip">points</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-fable-5-max-effort</em></span>
+                    <span class="bm-val">90.7</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">89.4</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:99%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.8-flash-high</em></span>
+                    <span class="bm-val">87.8</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:97%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            <article class="bm-card">
+              <header class="bm-card-head">
+                <h3>SWE-bench Verified<span class="bm-card-cat">Real software-issue fixing</span></h3>
+                <span class="bm-chip">%</span>
+              </header>
+              <ol class="bm-top3">
+                <li class="is-1">
+                    <span class="bm-rank is-1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>Sonar Foundation Agent + Claude 4.5 Opus</em></span>
+                    <span class="bm-val">79.2%</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:100%"></i></span>
+                  </li>
+                <li class="is-2">
+                    <span class="bm-rank is-2">2</span>
+                    <span class="bm-who"><strong>Doubao</strong><em>TRAE + Doubao-Seed-Code</em></span>
+                    <span class="bm-val">78.8%</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:99%"></i></span>
+                  </li>
+                <li class="is-3">
+                    <span class="bm-rank is-3">3</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>live-SWE-agent + Gemini 3 Pro Preview (2025-11-18)</em></span>
+                    <span class="bm-val">77.4%</span>
+                    <span class="bm-minibar" aria-hidden="true"><i style="width:98%"></i></span>
+                  </li>
+              </ol>
+            </article>
+            </div>
+          </section>
+          <section class="bm-details" aria-labelledby="bm-details-title">
+            <h2 id="bm-details-title">Full standings by source</h2>
+            <p class="bm-strip-note">Each bar is the best-scoring configuration per model family in that test, so one vendor with many agent setups does not crowd out the others. Expand the original leaderboard for every row.</p>
+            <section class="bm-source" id="arena">
+              <header class="bm-source-head">
+                <div>
+                  <h2>Arena</h2>
+                  <p class="bm-source-meta">31 model families compared · Sep 29, 2026, 2:44 PM</p>
+                </div>
                 <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a>
-              </div>
-              <p class="benchmark-disclaimer">Arena has no official public API. Data is read from a daily structured mirror and always links back to the official leaderboard.</p>
-              <div class="benchmark-table-wrap">
-                <table class="benchmark-table">
-                  <thead><tr><th>Rank</th><th>Exact model</th><th>Score</th><th>Metric</th><th>Samples / votes</th></tr></thead>
-                  <tbody><tr>
-                  <td>1</td>
-                  <td>kimi-k3</td>
-                  <td>1679</td>
-                  <td>Elo (Elo)</td>
-                  <td>1757</td>
-                </tr>
-<tr>
-                  <td>2</td>
-                  <td>claude-fable-5</td>
-                  <td>1631</td>
-                  <td>Elo (Elo)</td>
-                  <td>2505</td>
-                </tr>
-<tr>
-                  <td>3</td>
-                  <td>gpt-5.6-sol-xhigh (codex-harness)</td>
-                  <td>1618</td>
-                  <td>Elo (Elo)</td>
-                  <td>2542</td>
-                </tr>
-<tr>
-                  <td>4</td>
-                  <td>glm-5.2 (max)</td>
-                  <td>1587</td>
-                  <td>Elo (Elo)</td>
-                  <td>4722</td>
-                </tr>
-<tr>
-                  <td>5</td>
-                  <td>claude-opus-4-8-thinking</td>
-                  <td>1562</td>
-                  <td>Elo (Elo)</td>
-                  <td>7309</td>
-                </tr>
-<tr>
-                  <td>6</td>
-                  <td>grok-4.5</td>
-                  <td>1558</td>
-                  <td>Elo (Elo)</td>
-                  <td>2214</td>
-                </tr>
-<tr>
-                  <td>7</td>
-                  <td>claude-opus-4-7-thinking</td>
-                  <td>1558</td>
-                  <td>Elo (Elo)</td>
-                  <td>10534</td>
-                </tr>
-<tr>
-                  <td>8</td>
-                  <td>claude-opus-4-7</td>
-                  <td>1555</td>
-                  <td>Elo (Elo)</td>
-                  <td>9976</td>
-                </tr>
-<tr>
-                  <td>9</td>
-                  <td>claude-opus-4-6-thinking</td>
-                  <td>1542</td>
-                  <td>Elo (Elo)</td>
-                  <td>12919</td>
-                </tr>
-<tr>
-                  <td>10</td>
-                  <td>claude-sonnet-5-high</td>
-                  <td>1542</td>
-                  <td>Elo (Elo)</td>
-                  <td>2959</td>
-                </tr></tbody>
-                </table>
-              </div>
+              </header>
+              <p class="bm-disclaimer">Arena has no official public API. Data is read from a daily structured mirror and always links back to the official leaderboard.</p>
+              <article class="bm-block">
+                          <h3>General chat preference</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5.5-high</em></span>
+                    <span class="bm-val">1509<span class="bm-votes">2,307 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>muse-spark-1.2 (xHigh)</strong></span>
+                    <span class="bm-val">1496<span class="bm-votes">3,422 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-max</strong></span>
+                    <span class="bm-val">1494<span class="bm-votes">10,036 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.8-flash-high</em></span>
+                    <span class="bm-val">1492<span class="bm-votes">21,728 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>muse-spark-1.1</strong></span>
+                    <span class="bm-val">1491<span class="bm-votes">34,760 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>muse-spark</strong></span>
+                    <span class="bm-val">1489<span class="bm-votes">14,131 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3-max</em></span>
+                    <span class="bm-val">1488<span class="bm-votes">26,400 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-5.6-sol-xhigh</em></span>
+                    <span class="bm-val">1483<span class="bm-votes">34,258 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:98%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Coding preference</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5.5-max</em></span>
+                    <span class="bm-val">1827<span class="bm-votes">1,607 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">1792<span class="bm-votes">4,908 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:98%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>qwen3.8-max</strong></span>
+                    <span class="bm-val">1672<span class="bm-votes">3,469 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:92%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>qwen3.8-max-0902</strong></span>
+                    <span class="bm-val">1662<span class="bm-votes">6,203 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:91%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3-max</em></span>
+                    <span class="bm-val">1660<span class="bm-votes">14,739 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:91%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-max</strong></span>
+                    <span class="bm-val">1656<span class="bm-votes">5,945 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:91%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>qwen3.8-flash-next</strong></span>
+                    <span class="bm-val">1636<span class="bm-votes">4,980 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:90%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>hy4-preview</strong></span>
+                    <span class="bm-val">1631<span class="bm-votes">4,954 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:89%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Search-style preference</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-5.6-sol-xhigh</em></span>
+                    <span class="bm-val">1257<span class="bm-votes">29,663 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-4-6-search</em></span>
+                    <span class="bm-val">1253<span class="bm-votes">134,699 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>Wenxin</strong><em>ernie-5.1</em></span>
+                    <span class="bm-val">1227<span class="bm-votes">3,788 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:98%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>grok-4.5</strong></span>
+                    <span class="bm-val">1213<span class="bm-votes">31,505 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.1-pro-grounding</em></span>
+                    <span class="bm-val">1210<span class="bm-votes">113,282 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>grok-4.20-multi-agent-beta-0309</strong></span>
+                    <span class="bm-val">1204<span class="bm-votes">109,553 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>grok-4.20-beta1</strong></span>
+                    <span class="bm-val">1189<span class="bm-votes">53,921 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:95%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>grok-4-1-fast-search</strong></span>
+                    <span class="bm-val">1171<span class="bm-votes">81,507 votes</span></span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:93%"></i></div>
+                </li>
+          </ol>
+                        </article>
             </section>
-            <section class="benchmark-source">
-              <div class="benchmark-source-header">
-                <h2>Arena · search</h2>
-                <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener noreferrer">Open original leaderboard</a>
-              </div>
-              <p class="benchmark-disclaimer">Arena has no official public API. Data is read from a daily structured mirror and always links back to the official leaderboard.</p>
-              <div class="benchmark-table-wrap">
-                <table class="benchmark-table">
-                  <thead><tr><th>Rank</th><th>Exact model</th><th>Score</th><th>Metric</th><th>Samples / votes</th></tr></thead>
-                  <tbody><tr>
-                  <td>1</td>
-                  <td>claude-opus-4-6-search</td>
-                  <td>1255</td>
-                  <td>Elo (Elo)</td>
-                  <td>105728</td>
-                </tr>
-<tr>
-                  <td>2</td>
-                  <td>gpt-5.5-search</td>
-                  <td>1239</td>
-                  <td>Elo (Elo)</td>
-                  <td>61253</td>
-                </tr>
-<tr>
-                  <td>3</td>
-                  <td>claude-opus-4-7</td>
-                  <td>1235</td>
-                  <td>Elo (Elo)</td>
-                  <td>62150</td>
-                </tr>
-<tr>
-                  <td>4</td>
-                  <td>claude-fable-5</td>
-                  <td>1230</td>
-                  <td>Elo (Elo)</td>
-                  <td>9895</td>
-                </tr>
-<tr>
-                  <td>5</td>
-                  <td>ernie-5.1</td>
-                  <td>1227</td>
-                  <td>Elo (Elo)</td>
-                  <td>3803</td>
-                </tr>
-<tr>
-                  <td>6</td>
-                  <td>claude-sonnet-4-6-search</td>
-                  <td>1222</td>
-                  <td>Elo (Elo)</td>
-                  <td>105370</td>
-                </tr>
-<tr>
-                  <td>7</td>
-                  <td>gemini-3.1-pro-grounding</td>
-                  <td>1211</td>
-                  <td>Elo (Elo)</td>
-                  <td>83445</td>
-                </tr>
-<tr>
-                  <td>8</td>
-                  <td>claude-opus-4-8</td>
-                  <td>1207</td>
-                  <td>Elo (Elo)</td>
-                  <td>42248</td>
-                </tr>
-<tr>
-                  <td>9</td>
-                  <td>gemini-3-pro-grounding</td>
-                  <td>1207</td>
-                  <td>Elo (Elo)</td>
-                  <td>37277</td>
-                </tr>
-<tr>
-                  <td>10</td>
-                  <td>gpt-5.2-search</td>
-                  <td>1206</td>
-                  <td>Elo (Elo)</td>
-                  <td>52708</td>
-                </tr></tbody>
-                </table>
-              </div>
+            <section class="bm-source" id="livebench">
+              <header class="bm-source-head">
+                <div>
+                  <h2>LiveBench</h2>
+                  <p class="bm-source-meta">27 model families compared · Sep 29, 2026, 2:44 PM</p>
+                </div>
+                <a href="https://livebench.ai/" target="_blank" rel="noopener noreferrer">Open original leaderboard</a>
+              </header>
+              <p class="bm-disclaimer">LiveBench publishes independently scored, frequently refreshed objective tasks. Category scores shown here are the arithmetic mean of the official per-subtask scores for the selected release, computed locally; each category is displayed separately.</p>
+              <article class="bm-block">
+                          <h3>Agentic coding</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>DeepSeek</strong><em>deepseek-v4.1-flash-max</em></span>
+                    <span class="bm-val">77.3</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5-5-max-effort</em></span>
+                    <span class="bm-val">71.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:93%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>qwen3.8-max</strong></span>
+                    <span class="bm-val">64.6</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:84%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>smaug-agentic</strong></span>
+                    <span class="bm-val">64.6</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:84%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">64.1</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:83%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3</em></span>
+                    <span class="bm-val">62.2</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:80%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>qwen3.8-flash-next</strong></span>
+                    <span class="bm-val">61.6</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:80%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>qwen3.8-27b</strong></span>
+                    <span class="bm-val">61.4</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:79%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Coding tasks</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-sonnet-5-5-max-effort</em></span>
+                    <span class="bm-val">91.4</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-5.6-sol-max</em></span>
+                    <span class="bm-val">83.9</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:92%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>smaug-agentic</strong></span>
+                    <span class="bm-val">82.5</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:90%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3</em></span>
+                    <span class="bm-val">81.4</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:89%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">81.1</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:89%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>DeepSeek</strong><em>deepseek-v4.1-flash-max</em></span>
+                    <span class="bm-val">80.0</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:88%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>GLM</strong><em>glm-5.2</em></span>
+                    <span class="bm-val">79.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:87%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.7-flash-high</em></span>
+                    <span class="bm-val">78.9</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:86%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Mathematics</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5-5-max-effort</em></span>
+                    <span class="bm-val">97.1</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">96.8</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">95.9</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>grok-4.7-xhigh</strong></span>
+                    <span class="bm-val">95.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>DeepSeek</strong><em>deepseek-v4-pro-0813</em></span>
+                    <span class="bm-val">95.1</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:98%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.7-flash-high</em></span>
+                    <span class="bm-val">93.5</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>grok-4.6</strong></span>
+                    <span class="bm-val">92.6</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:95%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>qwen3.8-max</strong></span>
+                    <span class="bm-val">91.3</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:94%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Reasoning</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">92.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-opus-5-5-max-effort</em></span>
+                    <span class="bm-val">92.2</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3</em></span>
+                    <span class="bm-val">90.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:98%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>grok-4.6</strong></span>
+                    <span class="bm-val">90.5</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:98%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>smaug-agentic</strong></span>
+                    <span class="bm-val">90.3</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:97%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>muse-spark-1.2-xhigh</strong></span>
+                    <span class="bm-val">90.0</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:97%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">89.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:97%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.8-flash-high</em></span>
+                    <span class="bm-val">89.3</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Data analysis</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">83.0</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-fable-5-max-effort</em></span>
+                    <span class="bm-val">80.5</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:97%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>smaug-agentic</strong></span>
+                    <span class="bm-val">79.9</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">79.6</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>DeepSeek</strong><em>deepseek-v4-flash-vision-exp</em></span>
+                    <span class="bm-val">79.5</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>smaug-flash</strong></span>
+                    <span class="bm-val">79.1</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:95%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>smaug-mini</strong></span>
+                    <span class="bm-val">78.8</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:95%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3</em></span>
+                    <span class="bm-val">78.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:95%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Instruction following</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.8-flash-high</em></span>
+                    <span class="bm-val">81.4</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">78.0</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>qwen3.8-flash-next</strong></span>
+                    <span class="bm-val">77.1</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:95%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-fable-5-max-effort</em></span>
+                    <span class="bm-val">75.8</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:93%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">75.6</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:93%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>grok-4.7-xhigh</strong></span>
+                    <span class="bm-val">75.3</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:92%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>muse-spark-1.2-xhigh</strong></span>
+                    <span class="bm-val">74.3</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:91%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>qwen3.8-max</strong></span>
+                    <span class="bm-val">74.1</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:91%"></i></div>
+                </li>
+          </ol>
+                        </article>
+              <article class="bm-block">
+                          <h3>Language tasks</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>claude-fable-5-max-effort</em></span>
+                    <span class="bm-val">90.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>ChatGPT</strong><em>gpt-6-astra-max</em></span>
+                    <span class="bm-val">89.4</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>gemini-3.8-flash-high</em></span>
+                    <span class="bm-val">87.8</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:97%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>Kimi</strong><em>kimi-k3</em></span>
+                    <span class="bm-val">85.5</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:94%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>smaug-agentic</strong></span>
+                    <span class="bm-val">84.4</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:93%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>grok-4.6</strong></span>
+                    <span class="bm-val">83.7</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:92%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>grok-4.5</strong></span>
+                    <span class="bm-val">82.8</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:91%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>muse-spark-1.3-xhigh</strong></span>
+                    <span class="bm-val">82.8</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:91%"></i></div>
+                </li>
+          </ol>
+                        </article>
             </section>
+            <section class="bm-source" id="swebench">
+              <header class="bm-source-head">
+                <div>
+                  <h2>SWE-bench Verified</h2>
+                  <p class="bm-source-meta">87 model families compared · Sep 29, 2026, 2:44 PM</p>
+                </div>
+                <a href="https://www.swebench.com/verified" target="_blank" rel="noopener noreferrer">Open original leaderboard</a>
+              </header>
+              <p class="bm-disclaimer">This result concerns an agent configuration and repository issue resolution, not generic chat coding.</p>
+              <article class="bm-block">
+                          <h3>Real software-issue fixing</h3>
+                          <ol class="bm-bars">
+            <li class="bm-row is-leader">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-1" aria-label="rank 1">1</span>
+                    <span class="bm-who"><strong>Claude</strong><em>Sonar Foundation Agent + Claude 4.5 Opus</em></span>
+                    <span class="bm-val">79.2%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:100%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-2" aria-label="rank 2">2</span>
+                    <span class="bm-who"><strong>Doubao</strong><em>TRAE + Doubao-Seed-Code</em></span>
+                    <span class="bm-val">78.8%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:99%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank is-3" aria-label="rank 3">3</span>
+                    <span class="bm-who"><strong>Gemini</strong><em>live-SWE-agent + Gemini 3 Pro Preview (2025-11-18)</em></span>
+                    <span class="bm-val">77.4%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:98%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 4">4</span>
+                    <span class="bm-who"><strong>Atlassian Rovo Dev (2025-09-02)</strong></span>
+                    <span class="bm-val">76.8%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:97%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 5">5</span>
+                    <span class="bm-who"><strong>ACoder</strong></span>
+                    <span class="bm-val">76.4%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 6">6</span>
+                    <span class="bm-who"><strong>MiniMax M2.5 (high)</strong></span>
+                    <span class="bm-val">75.8%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:96%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 7">7</span>
+                    <span class="bm-who"><strong>Warp</strong></span>
+                    <span class="bm-val">75.6%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:95%"></i></div>
+                </li>
+            <li class="bm-row">
+                  <div class="bm-row-head">
+                    <span class="bm-rank" aria-label="rank 8">8</span>
+                    <span class="bm-who"><strong>Harness AI</strong></span>
+                    <span class="bm-val">74.8%</span>
+                  </div>
+                  <div class="bm-bar" aria-hidden="true"><i style="width:94%"></i></div>
+                </li>
+          </ol>
+                        </article>
+            </section>
+          </section>
+          
           <!-- benchmark-static:end -->
         </div>
       </div>

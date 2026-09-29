@@ -99,28 +99,89 @@ async function refreshSwebench() {
   return records;
 }
 
+function parseCsvRows(text) {
+  const rows = [];
+  for (const rawLine of text.split(/\r?\n/)) {
+    if (!rawLine.trim()) continue;
+    const cells = [];
+    let cell = '';
+    let quoted = false;
+    for (let i = 0; i < rawLine.length; i += 1) {
+      const char = rawLine[i];
+      if (char === '"') {
+        if (quoted && rawLine[i + 1] === '"') { cell += '"'; i += 1; } else quoted = !quoted;
+      } else if (char === ',' && !quoted) {
+        cells.push(cell); cell = '';
+      } else cell += char;
+    }
+    cells.push(cell);
+    rows.push(cells);
+  }
+  return rows;
+}
+
+/**
+ * LiveBench is a React SPA: the leaderboard data is not embedded in the HTML.
+ * The app bundle contains the release list and fetches
+ * `table_<release>.csv` (models x subtask scores) plus
+ * `categories_<release>.json` (category -> subtasks) at runtime. This fetcher
+ * replicates those requests and averages the official subtask scores per
+ * category, which the site publishes as category standing.
+ */
 async function refreshLivebench() {
+  const base = new URL(SOURCES.livebench.machineUrl);
   const html = await fetchText(SOURCES.livebench.machineUrl);
-  const candidates = extractJsonScripts(html);
-  const rows = candidates.flatMap((item) => {
-    if (Array.isArray(item)) return item;
-    return Object.values(item).filter(Array.isArray).flat();
-  });
+  const bundlePath = (html.match(/static\/js\/main\.[a-f0-9]+\.js/) || [])[0];
+  if (!bundlePath) throw new Error('LiveBench app bundle not found in HTML');
+  const bundle = await fetchText(new URL(bundlePath, base).href);
+  const releaseMatches = [...bundle.matchAll(/\["20\d{2}-\d{2}-\d{2}"(?:\s*,\s*"20\d{2}-\d{2}-\d{2}")+\]/g)];
+  if (!releaseMatches.length) throw new Error('LiveBench release list not found in bundle');
+  const releases = JSON.parse(releaseMatches.map((match) => match[0]).sort((a, b) => b.length - a.length)[0]);
+  const release = releases.filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(value)).sort().at(-1);
+  if (!release) throw new Error('LiveBench release list empty');
+  const stamped = release.replaceAll('-', '_');
+  const [tableCsv, categoryJson] = await Promise.all([
+    fetchText(new URL(`table_${stamped}.csv`, base).href),
+    fetchText(new URL(`categories_${stamped}.json`, base).href),
+  ]);
+
+  const categories = JSON.parse(categoryJson);
+  const rows = parseCsvRows(tableCsv);
+  const header = rows[0].map((name) => name.trim());
   const records = [];
-  for (const row of rows) {
-    const model = row?.model || row?.Model;
+  for (const cells of rows.slice(1)) {
+    const model = cells[0]?.trim();
     if (!model) continue;
-    for (const category of ['Reasoning', 'Coding', 'Agentic Coding', 'Mathematics', 'Data Analysis', 'Language', 'Instruction Following']) {
-      const value = row[category] ?? row[category.replaceAll(' ', '_')];
-      if (!Number.isFinite(Number(value))) continue;
-      records.push(makeRecord('livebench', model, Number(value), Number(row.rank || row.Rank || 0), {
-        category,
-        benchmarkVersion: row.release || row.date || null,
-      }));
+    const subtaskScores = new Map(header.slice(1).map((name, index) => [name, Number(cells[index + 1])]));
+    for (const [category, subtasks] of Object.entries(categories)) {
+      const values = subtasks.map((subtask) => subtaskScores.get(subtask)).filter((value) => Number.isFinite(value));
+      if (!values.length) continue;
+      records.push({ model, category, score: values.reduce((sum, value) => sum + value, 0) / values.length });
     }
   }
-  if (!records.length) throw new Error('official LiveBench structured rows not found');
-  return records.filter((record) => record.rank > 0);
+  if (!records.length) throw new Error('no valid LiveBench rows');
+
+  const byCategory = new Map();
+  for (const record of records) {
+    if (!byCategory.has(record.category)) byCategory.set(record.category, []);
+    byCategory.get(record.category).push(record);
+  }
+  const labelOf = (category) => (category === 'IF' ? 'Instruction Following' : category);
+  const ranked = [];
+  for (const [category, items] of [...byCategory].sort()) {
+    items.sort((a, b) => b.score - a.score);
+    items.forEach((item, index) => {
+      ranked.push(makeRecord('livebench', item.model, item.score, index + 1, {
+        category: labelOf(category),
+        benchmarkVersion: `LiveBench ${release}`,
+        publishedAt: release,
+        metric: 'Category score',
+        unit: 'points',
+      }));
+    });
+  }
+  if (!ranked.length) throw new Error('LiveBench category aggregation produced no rows');
+  return ranked;
 }
 
 async function loadLastValidSnapshot() {
