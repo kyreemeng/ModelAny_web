@@ -15,6 +15,7 @@ const ICONS = {
   chrome: '<svg class="browser-icon browser-icon-chrome" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 2a10 10 0 0 1 8.66 5H12a5 5 0 0 0-4.33 2.5L3.34 5A10 10 0 0 1 12 2Z"/><path fill="#FBBC05" d="M20.66 7A10 10 0 0 1 13 21.9l4.33-7.5A5 5 0 0 0 20.66 7Z"/><path fill="#34A853" d="M13 21.9A10 10 0 0 1 3.34 5l4.33 7.5A10 10 0 0 0 13 21.9Z"/><circle cx="12" cy="12" r="4" fill="#4285F4"/><circle cx="12" cy="12" r="2.2" fill="#fff"/></svg>',
   edge: '<svg class="browser-icon browser-icon-edge" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0C9EE8" d="M20.8 15.2c-.5 4.1-4 6.8-8.2 6.8-4.7 0-8.6-3.7-8.6-8.4 0-5.4 4.5-9.7 9.8-9.6 3.8.1 6.9 2.3 8.2 5.4-1.6-1.2-3.8-1.6-5.7-.8-2 .8-3.4 2.6-3.7 4.7 1.9-1.1 5.1-1.2 8.2 2.3Z"/><path fill="#16C6A4" d="M20.8 15.2c-3.1-3.5-6.3-3.4-8.2-2.3-.1.8.1 1.7.6 2.4 1 1.5 2.6 2.4 4.4 2.4 1.2 0 2.3-.4 3.2-1.1Z"/></svg>',
   github: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>',
+  globe: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
 };
 
 export { ICONS };
@@ -56,8 +57,10 @@ const COPY = {
       {
         title: 'Features',
         links: [
+          { label: 'AI chat comparison', href: '/ai-chat-comparison/' },
           { label: 'Ask multiple AIs at once', href: '/compare-ai-models/' },
           { label: 'Export AI chats to PDF & Word', href: '/export-chatgpt-conversation/' },
+          { label: 'Export ChatGPT to PDF', href: '/export-chatgpt-conversation-to-pdf/' },
           { label: 'YouTube video summarizer', href: '/youtube-video-summarizer/' },
           { label: 'Continue in another AI', href: '/continue-chat-in-another-ai/' },
           { label: 'Local AI chat memory', href: '/ai-chat-memory/' },
@@ -69,6 +72,7 @@ const COPY = {
         links: [
           { label: 'AI model comparisons', href: '/compare/' },
           { label: 'Best AI by use case', href: '/best-for/' },
+          { label: 'Save ChatGPT conversations', href: '/save-chatgpt-conversation/' },
           { label: 'AI alternatives', href: '/alternatives/' },
           { label: 'Free AI guides', href: '/free/' },
           { label: 'AI pricing guides', href: '/pricing/' },
@@ -138,7 +142,7 @@ const COPY = {
           { label: '通义千问 vs ChatGPT', href: '/zh/compare/qwen-vs-chatgpt/' },
           { label: '豆包 vs DeepSeek', href: '/zh/compare/doubao-vs-deepseek/' },
           { label: 'GLM vs ChatGPT', href: '/zh/compare/glm-vs-chatgpt/' },
-          { label: '文心一言 vs ChatGPT', href: '/zh/compare/wenxin-vs-chatgpt/' },
+          { label: 'GLM vs DeepSeek', href: '/zh/compare/glm-vs-deepseek/' },
         ],
       },
     ],
@@ -174,11 +178,11 @@ export function siteHeader({ lang = 'en', home = false, switchHref } = {}) {
       </a>
       <nav class="nav-menu" id="nav-menu" aria-label="${c.navLabel}">
         ${links}
-        <a href="${altHref}" data-locale-switch="${c.switchLang}" class="locale-switch nav-menu-locale" hreflang="${c.switchHreflang}" lang="${c.switchHreflang}">${lang === 'zh' ? 'English' : '中文'}</a>
+        <a href="${altHref}" data-locale-switch="${c.switchLang}" class="locale-switch nav-menu-locale" hreflang="${c.switchHreflang}" lang="${c.switchHreflang}">${ICONS.globe}<span>${lang === 'zh' ? 'English' : '中文'}</span></a>
         <a href="${CHROME_STORE_URL}" data-download-cta data-cta="short" class="btn btn-primary nav-download">${c.ctaShort}</a>
       </nav>
       <div class="nav-actions">
-        <a href="${altHref}" data-locale-switch="${c.switchLang}" class="locale-switch locale-switch-compact" hreflang="${c.switchHreflang}" lang="${c.switchHreflang}">${c.switchLabel}</a>
+        <a href="${altHref}" data-locale-switch="${c.switchLang}" class="locale-switch locale-switch-compact" hreflang="${c.switchHreflang}" lang="${c.switchHreflang}">${ICONS.globe}<span>${c.switchLabel}</span></a>
         <button class="theme-toggle" id="theme-toggle" aria-label="${c.themeLabel}" type="button">
           ${ICONS.moon}
           ${ICONS.sun}

@@ -82,7 +82,7 @@ Right-click menu (explain / translate / shorten / rewrite / save to memory), add
 
 - **Evidence-backed comparisons** — [/compare/](https://www.modelany.app/compare/) pages render only public-benchmark results where both models share the same test category (Arena preference, SWE-bench Verified), with exact model versions and source links
 - **Public benchmark hub** — [/benchmarks/](https://www.modelany.app/benchmarks/), snapshots by scenario, refreshed on a schedule
-- **Workflow guides** — [compare AI answers side by side](https://www.modelany.app/side-by-side-ai-comparison/), [ChatGPT vs Claude vs Gemini on the same prompt](https://www.modelany.app/chatgpt-vs-claude-vs-gemini-same-prompt/), [export ChatGPT conversations](https://www.modelany.app/export-chatgpt-conversation/), [summarize YouTube videos](https://www.modelany.app/youtube-video-summarizer/), [usage-limit workarounds](https://www.modelany.app/chatgpt-usage-limit-workaround/), [save & back up chats](https://www.modelany.app/ai-chat-memory/)
+- **Workflow guides** — [AI chat comparison](https://www.modelany.app/ai-chat-comparison/), [compare AI answers side by side](https://www.modelany.app/side-by-side-ai-comparison/), [ChatGPT vs Claude vs Gemini on the same prompt](https://www.modelany.app/chatgpt-vs-claude-vs-gemini-same-prompt/), [export ChatGPT conversations](https://www.modelany.app/export-chatgpt-conversation/) ([to PDF](https://www.modelany.app/export-chatgpt-conversation-to-pdf/), [to Markdown](https://www.modelany.app/export-chatgpt-conversation-to-markdown/)), [summarize YouTube videos](https://www.modelany.app/youtube-video-summarizer/), [usage-limit workarounds](https://www.modelany.app/chatgpt-usage-limit-workaround/), [save a conversation](https://www.modelany.app/save-chatgpt-conversation/), [save & back up chats](https://www.modelany.app/ai-chat-memory/)
 - **Chinese site** — [/zh/](https://www.modelany.app/zh/) with a dedicated comparison cluster for Chinese models ([GLM vs ChatGPT](https://www.modelany.app/zh/compare/glm-vs-chatgpt/), Kimi vs ChatGPT, Doubao vs ChatGPT, GLM vs DeepSeek…)
 - `llms.txt` for AI crawlers, and a [privacy policy](https://www.modelany.app/privacy.html) matching the extension's local-first claims
 
@@ -276,7 +276,7 @@ ChatGPT, Claude, Gemini, DeepSeek, Kimi, Doubao, Qwen, GLM, AI chatbot, browser 
 | 支持 / 反馈 | https://github.com/kyreemeng/ModelAny/issues |
 | 联系邮箱 | kyreemeng@gmail.com |
 | AI 爬虫说明 | https://www.modelany.app/llms.txt |
-| 深度页（做锚文本用） | /compare-ai-models/ · /export-chatgpt-conversation/ · /youtube-video-summarizer/ · /continue-chat-in-another-ai/ · /ai-chat-memory/ · /chatgpt-vs-claude-vs-gemini-same-prompt/ · /benchmarks/ · /zh/compare/glm-vs-chatgpt/ |
+| 深度页（做锚文本用） | /ai-chat-comparison/ · /ask-multiple-ai-at-once/ · /export-chatgpt-conversation/ · /export-chatgpt-conversation-to-pdf/ · /export-chatgpt-conversation-to-markdown/ · /download-chatgpt-conversation/ · /copy-chatgpt-conversation/ · /save-chatgpt-conversation/ · /compare-ai-models/ · /youtube-video-summarizer/ · /continue-chat-in-another-ai/ · /ai-chat-memory/ · /chatgpt-vs-claude-vs-gemini-same-prompt/ · /benchmarks/ · /zh/compare/glm-vs-chatgpt/ |
 
 商店扩展 ID（部分目录/商店验证要用）：Chrome `kbpnggjenonafpcigahfaeiooojepfjn` · Edge `lfeckjibcfbjfdlepidpmnalpfimhdli`
 

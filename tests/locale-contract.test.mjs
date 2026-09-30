@@ -20,20 +20,19 @@ test('English and Chinese homepages are separate, self-canonical language docume
   assert.match(chinese, /data-locale-switch="en"/);
 });
 
-test('locale middleware preserves explicit locales and avoids bots', async () => {
+test('locale middleware defaults to English and only honors an explicit choice', async () => {
   const middleware = await projectFile('middleware.js');
 
-  assert.match(middleware, /x-vercel-ip-country/);
-  assert.match(middleware, /accept-language/);
   assert.match(middleware, /modelany_locale/);
   assert.match(middleware, /Googlebot/);
   assert.match(middleware, /url\.pathname !== '\/'/);
   assert.match(middleware, /function readCookie/);
   assert.doesNotMatch(middleware, /request\.cookies/);
-  // Geo-IP must not drive a hard homepage redirect (hurts EN SERP CTR in CN/HK/TW).
-  assert.match(middleware, /Do not use x-vercel-ip-country for hard redirects/);
-  assert.match(middleware, /primary\.startsWith\('zh'\)/);
-  assert.doesNotMatch(middleware, /CHINESE_COUNTRIES\.has\(country\)/);
+  // No language, geo or timezone guessing: the homepage defaults to English
+  // and only a previously saved explicit choice (cookie zh) redirects.
+  assert.doesNotMatch(middleware, /accept-language/i);
+  assert.doesNotMatch(middleware, /x-vercel-ip-country/);
+  assert.doesNotMatch(middleware, /prefersChineseLanguage/);
 });
 
 test('Vercel treats middleware as native ESM', async () => {

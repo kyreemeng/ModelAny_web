@@ -10,7 +10,7 @@
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { hasSharedBenchmarkData, sharedBenchmarkGroups } from './data/benchmarks.mjs';
+import { hasSharedBenchmarkData, launcherBenchmarkGroups, loadBenchmarkSnapshot, sharedBenchmarkGroups } from './data/benchmarks.mjs';
 import { DATE, DOWNLOAD, EDGE_STORE_URL, models, SITE } from './data/models.mjs';
 import {
   alternativePages,
@@ -38,7 +38,8 @@ const CORE_COMPARE_SLUGS = new Set([
   'claude-vs-gemini',
 ]);
 const TEST_RECORD_PATH = join(ROOT, 'seo', 'data', 'test-results.json');
-const CONTENT_UPDATED = '2026-09-29';
+const CONTENT_UPDATED = '2026-09-30';
+const BENCHMARK_LASTMOD = loadBenchmarkSnapshot()?.retrievedAt?.slice(0, 10) || CONTENT_UPDATED;
 
 function esc(value) {
   return String(value)
@@ -476,10 +477,11 @@ function htmlPage({
         <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>`;
+  const globeIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`;
   const mobileNav = `
     <div class="nav-actions">
       ${themeToggleBtn}
-      <a href="${switchHref}" data-locale-switch="${switchLang}" class="locale-switch locale-switch-compact" lang="${switchHreflang}" aria-current="false">${switchLabel}</a>
+      <a href="${switchHref}" data-locale-switch="${switchLang}" class="locale-switch locale-switch-compact" lang="${switchHreflang}" aria-current="false">${globeIcon}<span>${switchLabel}</span></a>
       <a href="${DOWNLOAD}" data-download-cta class="btn btn-primary btn-pill nav-cta">${downloadLabel}</a>
       <button class="menu-toggle" id="menu-toggle" aria-label="${lang === 'zh' ? '切换导航菜单' : 'Toggle menu'}" aria-expanded="false" aria-controls="nav-menu">
         <span class="menu-bar"></span>
@@ -544,7 +546,7 @@ function htmlPage({
   <a href="#main" class="skip-link">${lang === 'zh' ? '跳到主要内容' : 'Skip to main content'}</a>
   <header class="site-header"><div class="container nav-container">
     <a href="${lang === 'zh' ? '/zh/' : '/'}" class="brand" aria-label="ModelAny ${lang === 'zh' ? '首页' : 'home'}"><img src="${base}assets/favicon-192.png" alt="" class="brand-icon" width="36" height="36"><span class="brand-text">ModelAny</span></a>
-    <nav class="nav-menu" id="nav-menu" aria-label="${lang === 'zh' ? '主导航' : 'Primary navigation'}">${lang === 'zh' ? '' : '<a href="/compare/">Compare</a>'}<a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '评测数据' : 'Benchmarks'}</a><a href="${switchHref}" data-locale-switch="${switchLang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav>${mobileNav}
+    <nav class="nav-menu" id="nav-menu" aria-label="${lang === 'zh' ? '主导航' : 'Primary navigation'}">${lang === 'zh' ? '' : '<a href="/compare/">Compare</a>'}<a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '评测数据' : 'Benchmarks'}</a><a href="${switchHref}" data-locale-switch="${switchLang}" class="locale-switch nav-menu-locale" hreflang="${switchHreflang}" lang="${switchHreflang}">${globeIcon}<span>${switchLabel}</span></a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav>${mobileNav}
   </div></header>
   <main id="main" class="seo-main"><div class="container seo-container">
     <nav class="seo-breadcrumb" aria-label="Breadcrumb"><ol>${crumbHtml}</ol></nav>
@@ -707,8 +709,102 @@ function renderCopySections(sections) {
   }).join('\n        ');
 }
 
-function productBody(page, items, lang, copy) {
-  if (copy) {
+function launcherEvidenceHtml(modelIds, lang) {
+  const groups = launcherBenchmarkGroups(modelIds, 4);
+  if (!groups.length) return '';
+  const blocks = groups.map((group) => {
+    const rows = [...group.rows].sort((a, b) => b.score - a.score || a.rank - b.rank).map((row) => `<tr>
+              <th scope="row">${esc(row.product)}</th>
+              <td>${esc(row.modelExactName)}</td>
+              <td>${esc(String(row.rank))}</td>
+              <td>${esc(String(row.score))}${row.unit === '%' ? '%' : ''}</td>
+              <td>${esc(row.metric)} (${esc(row.unit)})</td>
+            </tr>`).join('\n            ');
+    const sourceName = group.source === 'arena' ? 'Arena' : group.source === 'swebench' ? 'SWE-bench Verified' : group.source === 'livebench' ? 'LiveBench' : group.source;
+    return `<article class="seo-evidence-card">
+          <h3>${esc(sourceName)} · ${esc(group.label[lang] || group.category)}</h3>
+          <p>${esc(group.plain[lang] || '')}</p>
+          <p class="seo-evidence-meta">${lang === 'zh' ? '数据抓取时间' : 'Retrieved'}: ${esc(formatRetrievedAt(group.retrievedAt, lang))} · <a href="${esc(group.sourceUrl)}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '查看原始排行榜' : 'Open original leaderboard'}</a></p>
+          <div class="seo-table-wrap">
+            <table class="seo-table">
+              <thead><tr><th>${lang === 'zh' ? '产品' : 'Product'}</th><th>${lang === 'zh' ? '精确模型版本' : 'Exact model version'}</th><th>${lang === 'zh' ? '排名' : 'Rank'}</th><th>${lang === 'zh' ? '成绩' : 'Score'}</th><th>${lang === 'zh' ? '指标' : 'Metric'}</th></tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </article>`;
+  }).join('\n        ');
+
+  return `<section class="seo-section" aria-labelledby="public-evidence-heading">
+          <h2 id="public-evidence-heading">${lang === 'zh' ? '对比表：最新公开测试结果' : 'The comparison table: latest public test results'}</h2>
+          <p>${lang === 'zh'
+            ? '下表汇总 ModelAny 可直达的模型在公开测试中的最新结果，按测试分组。每张表只列出在该项测试中有公开成绩的模型——缺席的模型直接留空，不同测试的分数不能相加。精确版本与抓取时间一并列出，便于区分新旧代次。'
+            : 'Below are the current public results for the models ModelAny can reach, grouped by test. Each table lists only the models with a public result in that exact test—models without one are omitted, and scores from different tests cannot be added up. Exact model versions and retrieval dates are shown so newer generations are not judged against older ones.'}</p>
+          ${blocks}
+          <p>Prefer one test per model pair with methodology notes? <a href="/benchmarks/">Browse all public benchmark snapshots by scenario</a>, or open a pair such as <a href="/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a>, <a href="/compare/chatgpt-vs-deepseek/">ChatGPT vs DeepSeek</a> or <a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a>.</p>
+        </section>`;
+}
+
+/** Body for the /ai-chat-comparison/ overview page: evidence tables + method + workflow. */
+function aiChatComparisonBody(page, items, lang) {
+  const evidence = launcherEvidenceHtml(page.models, lang);
+  return `<div class="quick-verdict">
+          <h2>${lang === 'zh' ? '什么样的 AI 对比才可用' : 'What a usable AI chat comparison looks like'}</h2>
+          <p>${lang === 'zh'
+            ? '大多数「AI 对比」页面给的是营销话术堆出来的排名。可用的对比只取决于三件事：每个模型拿到<strong>同一条提示词</strong>、回答<strong>并排阅读</strong>、结论挂在你真实拥有的任务上。本页同时保住这两半：下面是我们持续追踪的公开测试数据（带日期与来源），以及在你自己的提示词上一键复现同一对比的方法。'
+            : 'Most “AI chat comparison” pages hand you a ranking built from marketing claims or cherry-picked demos. A comparison is only usable when three things hold: every model gets <strong>the same prompt</strong>, the answers are read <strong>side by side</strong>, and the conclusion is tied to a task you actually have. This page keeps both halves of that standard: the latest public test data we track (dated and sourced below), and the method to run the same comparison on your own prompts in one click.'}</p>
+        </div>
+        ${evidence}
+        <section class="seo-section" aria-labelledby="method-heading">
+          <h2 id="method-heading">${lang === 'zh' ? '在你自己的提示词上复现：五步法' : 'Run the comparison on your own prompts: the five-step method'}</h2>
+          <ol>
+            <li><strong>${lang === 'zh' ? '先固定任务。' : 'Fix the task first.'}</strong> ${lang === 'zh' ? '选一个真实任务，并在阅读任何回答之前写下“好答案必须包含什么”。' : 'Pick a real task—fix this failing test, draft this reply, summarize this contract clause—and write down what a good answer must contain before you read any model.'}</li>
+            <li><strong>${lang === 'zh' ? '冻结提示词。' : 'Freeze one prompt.'}</strong> ${lang === 'zh' ? '只写一次，原样发给每个模型。手打重写会漂移，漂移测的是你的打字而不是模型。' : 'Word it once and send the identical text everywhere. Retyped prompts drift, and drifted prompts measure your typing, not the models.'}</li>
+            <li><strong>${lang === 'zh' ? '同时发出。' : 'Send to every model at once.'}</strong> ${lang === 'zh' ? '在 ModelAny 中勾选模型并发送，各官网用你自己的账号作答。' : 'In ModelAny, tick the models—ChatGPT, Claude, Gemini, DeepSeek, Grok, Tencent Yuanbao, Wenxin, Qwen, Doubao, Kimi, GLM—and send. Each official site answers under your own account.'}</li>
+            <li><strong>${lang === 'zh' ? '按四个维度打分。' : 'Score on four axes.'}</strong> ${lang === 'zh' ? '事实准确性、对着标准的完整度、修改成本、耗时。记录谁给了出处、谁在含糊、谁在编造。' : 'Factual accuracy (verifiable claims), completeness against your criteria, edit cost (what you had to fix), and speed. Note who cited sources, who hedged, who invented.'}</li>
+            <li><strong>${lang === 'zh' ? '换一类任务再跑一次。' : 'Re-run on a second task before deciding.'}</strong> ${lang === 'zh' ? '一条提示词只是一个数据点；两三类任务才能看出模式——上面的表格说的正是这件事。' : 'One prompt makes a data point; two or three different task types make a pattern. Models lead in different categories—the tables above say the same thing.'}</li>
+          </ol>
+          <p>The full walkthrough with a scoring rubric is in the <a href="/side-by-side-ai-comparison/">side-by-side comparison method</a>; the three-way version is in <a href="/chatgpt-vs-claude-vs-gemini-same-prompt/">ChatGPT vs Claude vs Gemini on the same prompt</a>.</p>
+        </section>
+        <section class="seo-section" aria-labelledby="oneclick-heading">
+          <h2 id="oneclick-heading">${lang === 'zh' ? '一键替代十一个标签页' : 'One click instead of eleven tabs'}</h2>
+          <p>${lang === 'zh'
+            ? '手动对比意味着逐个打开网站、粘贴提示词、在标签页之间来回对照。ModelAny 是免费的 Chrome / Edge 扩展，把一条提示词发给最多 11 个 AI 官网——ChatGPT、Claude、Gemini、DeepSeek、Grok、Kimi、通义千问、豆包、GLM、腾讯元宝、文小言——并排展示回答。它使用你已有的登录会话：无需 API Key、无订阅，也没有 ModelAny 服务器中转。'
+            : 'Manual comparison means opening each site, pasting the prompt, and juggling tabs until context falls apart. ModelAny is a free Chrome and Edge extension that sends one prompt to up to 11 official AI sites—ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM, Tencent Yuanbao and Wenxiaoyan—and lines the answers up side by side. It uses the sessions you already have: no API key, no subscription, and no ModelAny server in the middle. Drafts, settings, and history stay in your browser.'}</p>
+          <p>New here? Start with <a href="/ask-multiple-ai-at-once/">how to ask multiple AI at once</a>, or the <a href="/compare-ai-models/">same-prompt model comparison workflow</a>.</p>
+        </section>`;
+}
+
+/** Upsert a "guides in this set" block so weight flows between parent, children and siblings. */
+function guideSetHtml({ parentPage, childPages, siblingPages }, relatedHrefs, lang) {
+  const blocks = [];
+  if (childPages.length) {
+    const links = childPages.map((p) => `<li><a href="/${p.slug}/">${esc(p.h1)}</a></li>`).join('\n            ');
+    blocks.push(`<section class="seo-section" aria-labelledby="guide-set-heading">
+          <h2 id="guide-set-heading">${lang === 'zh' ? '本组指南' : 'Guides in this set'}</h2>
+          <p>${lang === 'zh' ? '每篇指南只负责一个具体问题，并从页内链接回本页。' : 'Each guide below owns one specific job and links back to this page.'}</p>
+          <ul class="seo-index-list">
+            ${links}
+          </ul>
+        </section>`);
+  }
+  const upLinks = [
+    ...(parentPage ? [`<li><a href="/${parentPage.slug}/">${esc(parentPage.h1)}</a></li>`] : []),
+    ...siblingPages
+      .filter((p) => !relatedHrefs.has(`/${p.slug}/`))
+      .map((p) => `<li><a href="/${p.slug}/">${esc(p.h1)}</a></li>`),
+  ];
+  if (upLinks.length) {
+    blocks.push(`<section class="seo-section" aria-labelledby="related-guides-heading">
+          <h2 id="related-guides-heading">${lang === 'zh' ? '同组相关指南' : 'Related guides in this set'}</h2>
+          <ul class="seo-index-list">
+            ${upLinks.join('\n            ')}
+          </ul>
+        </section>`);
+  }
+  return blocks.join('\n        ');
+}
+
+function productBody(page, items, lang, copy) {  if (copy) {
     const leadParas = (copy.lead || []).map((p) => `<p>${esc(p)}</p>`).join('');
     const related = (copy.related || [])
       .map((item) => `<li><a href="${esc(item.href)}">${esc(item.label)}</a></li>`)
@@ -776,6 +872,33 @@ function generateProductPage(page) {
   const ctaBody = copy?.ctaBody
     ? `${esc(copy.ctaBody)} <a href="${DOWNLOAD}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? 'Chrome 网上应用店' : 'Chrome Web Store'}</a> · <a href="${EDGE_STORE_URL}" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a>`
     : undefined;
+  // Tree wiring: every child links up to its parent, every parent lists its
+  // children, siblings cross-link—so weight converges up the tree instead of
+  // scattering across an unordered mesh.
+  const parentPage = page.parent && lang === 'en'
+    ? productPages.find((p) => p.slug === page.parent && !p.pathPrefix) || null
+    : null;
+  const childPages = lang === 'en' && !page.pathPrefix
+    ? productPages.filter((p) => p.parent === page.slug && !p.pathPrefix)
+    : [];
+  const siblingPages = parentPage
+    ? productPages.filter((p) => p.parent === page.parent && p.slug !== page.slug && !p.pathPrefix)
+    : [];
+  const relatedHrefs = new Set((copy?.related || []).map((item) => item.href));
+  const treeHtml = guideSetHtml({ parentPage, childPages, siblingPages }, relatedHrefs, lang);
+  const body = (page.special === 'ai-chat-comparison'
+    ? aiChatComparisonBody(page, items, lang)
+    : productBody(page, items, lang, copy)) + (treeHtml ? `\n        ${treeHtml}` : '');
+  const breadcrumbs = parentPage
+    ? [
+        { name: 'Home', href: '/' },
+        { name: parentPage.h1, href: `/${parentPage.slug}/` },
+        { name: h1, href: canonical },
+      ]
+    : [
+        { name: lang === 'zh' ? '首页' : 'Home', href: lang === 'zh' ? '/zh/' : '/' },
+        { name: h1, href: canonical },
+      ];
   return {
     path,
     url: canonical,
@@ -796,11 +919,8 @@ function generateProductPage(page) {
       faqItems: copy?.faqs,
       ctaHeading: copy?.ctaHeading,
       ctaBody,
-      body: productBody(page, items, lang, copy),
-      breadcrumbs: [
-        { name: lang === 'zh' ? '首页' : 'Home', href: lang === 'zh' ? '/zh/' : '/' },
-        { name: h1, href: canonical },
-      ],
+      body,
+      breadcrumbs,
     }),
   };
 }
@@ -946,8 +1066,8 @@ function writeSitemap(records) {
   const entries = [
     { url: '/', lastmod: CONTENT_UPDATED },
     { url: '/zh/', lastmod: CONTENT_UPDATED },
-    { url: '/benchmarks/', lastmod: '2026-07-26' },
-    { url: '/zh/benchmarks/', lastmod: '2026-07-26' },
+    { url: '/benchmarks/', lastmod: BENCHMARK_LASTMOD },
+    { url: '/zh/benchmarks/', lastmod: BENCHMARK_LASTMOD },
     { url: '/privacy.html', lastmod: CONTENT_UPDATED },
     { url: '/zh/privacy.html', lastmod: CONTENT_UPDATED },
     ...indexable.map((record) => ({

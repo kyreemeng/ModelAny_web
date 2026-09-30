@@ -412,6 +412,7 @@ html[data-browser="edge"] .cta-icon .browser-icon-edge { display: block; }
 .locale-switch-compact {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   height: 36px;
   padding: 0 10px;
   border-radius: var(--radius-sm);
@@ -1164,7 +1165,7 @@ html[data-browser="edge"] .cta-icon .browser-icon-edge { display: block; }
   }
   .nav-menu.open { opacity: 1; visibility: visible; transform: none; }
   .nav-menu a { padding: 12px 12px; font-size: 16px; }
-  .nav-menu .nav-menu-locale { display: block; }
+  .nav-menu .nav-menu-locale { display: inline-flex; align-items: center; gap: 6px; }
   .nav-menu .nav-download { display: flex; margin-top: 8px; min-height: 46px; }
   .nav-actions .locale-switch-compact { display: none; }
   body.menu-open { overflow: hidden; }

@@ -124,3 +124,44 @@ export function sharedBenchmarkGroups(modelIds, { focus } = {}) {
 export function hasSharedBenchmarkData(modelIds) {
   return sharedBenchmarkGroups(modelIds).length > 0;
 }
+
+/**
+ * Benchmark groups for the full launcher set. Unlike sharedBenchmarkGroups,
+ * a category is kept when at least `minModels` of the products have a public
+ * result in it—models without a result in that test are simply omitted from
+ * the table. Used by the AI chat comparison overview page.
+ */
+export function launcherBenchmarkGroups(modelIds, minModels = 4) {
+  const snapshot = loadBenchmarkSnapshot();
+  if (!snapshot?.records?.length) return [];
+  const products = productKeys(modelIds);
+  if (products.length < minModels) return [];
+
+  const buckets = new Map();
+  for (const record of snapshot.records) {
+    const product = record.product || resolveProduct(record.modelExactName);
+    if (!product || !products.includes(product)) continue;
+    const key = `${record.source}::${record.category}`;
+    if (!buckets.has(key)) buckets.set(key, new Map());
+    const byProduct = buckets.get(key);
+    const previous = byProduct.get(product);
+    if (!previous || record.rank < previous.rank) byProduct.set(product, { ...record, product });
+  }
+
+  const groups = [];
+  for (const [key, byProduct] of buckets) {
+    if (byProduct.size < minModels) continue;
+    const [source, category] = key.split('::');
+    groups.push({
+      source,
+      category,
+      label: CATEGORY_LABEL[category] || { en: category, zh: category },
+      plain: SOURCE_PLAIN[source] || { en: '', zh: '' },
+      retrievedAt: snapshot.retrievedAt,
+      sourceUrl: [...byProduct.values()][0].sourceUrl,
+      rows: [...byProduct.values()],
+    });
+  }
+  const order = { swebench: 0, livebench: 1, arena: 2 };
+  return groups.sort((a, b) => (order[a.source] ?? 9) - (order[b.source] ?? 9) || a.category.localeCompare(b.category));
+}

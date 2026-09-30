@@ -40,8 +40,16 @@ Workflow:
 
 - Home (EN): https://www.modelany.app/
 - Home (ZH): https://www.modelany.app/zh/
+- AI chat comparison (data + method): https://www.modelany.app/ai-chat-comparison/
+- Ask multiple AI at once: https://www.modelany.app/ask-multiple-ai-at-once/
 - Compare AI models with one prompt: https://www.modelany.app/compare-ai-models/
 - Side-by-side comparison workflow: https://www.modelany.app/side-by-side-ai-comparison/
+- Export ChatGPT conversation (overview): https://www.modelany.app/export-chatgpt-conversation/
+- Export ChatGPT conversation to PDF: https://www.modelany.app/export-chatgpt-conversation-to-pdf/
+- Export ChatGPT conversation to Markdown: https://www.modelany.app/export-chatgpt-conversation-to-markdown/
+- Download a ChatGPT conversation: https://www.modelany.app/download-chatgpt-conversation/
+- Copy a ChatGPT conversation: https://www.modelany.app/copy-chatgpt-conversation/
+- Save a ChatGPT conversation: https://www.modelany.app/save-chatgpt-conversation/
 - ChatGPT Chrome extension guide: https://www.modelany.app/ai-browser-extension/
 - 对比大模型: https://www.modelany.app/zh/compare-ai-models/
 - AI 浏览器插件: https://www.modelany.app/zh/ai-browser-extension/

@@ -13,34 +13,22 @@ function readCookie(request, name) {
 }
 
 /**
- * Prefer Chinese only from an explicit language preference.
- * Do not use x-vercel-ip-country for hard redirects: geo-IP redirects on the
- * English homepage send CN/HK/TW/MO visitors (including English SERP clickers)
- * to /zh/, which weakens English ranking signals and hurts CTR.
- * Country is still read so edge logs/debug retain region context without acting on it.
+ * The homepage defaults to English for everyone. No browser-language, geo or
+ * timezone guessing: first-time visitors land on the English homepage and
+ * switch languages with the toggle in the header. The only redirect left is
+ * memory of an explicit choice—a visitor who previously picked 中文 (cookie
+ * modelany_locale=zh) keeps landing on /zh/. Bots are never redirected so
+ * each language version keeps its own ranking signals.
  */
-function prefersChineseLanguage(request) {
-  const country = request.headers.get('x-vercel-ip-country')?.toUpperCase();
-  void country;
-  const acceptLanguage = request.headers.get('accept-language')?.toLowerCase() ?? '';
-  const primary = acceptLanguage.split(',')[0]?.trim() ?? '';
-  return primary.startsWith('zh');
-}
-
-function hasLocalePreference(request) {
-  const locale = readCookie(request, LOCALE_COOKIE);
-  return locale === 'en' || locale === 'zh';
-}
-
 export default function middleware(request) {
   const url = new URL(request.url);
   const userAgent = request.headers.get('user-agent') ?? '';
 
-  if (url.pathname !== '/' || hasLocalePreference(request) || BOT_PATTERN.test(userAgent)) {
+  if (url.pathname !== '/' || BOT_PATTERN.test(userAgent)) {
     return;
   }
 
-  if (!prefersChineseLanguage(request)) return;
+  if (readCookie(request, LOCALE_COOKIE) !== 'zh') return;
 
   return new Response(null, {
     status: 307,

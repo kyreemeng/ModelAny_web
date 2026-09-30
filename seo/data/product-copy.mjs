@@ -57,6 +57,7 @@ const COPY = {
         ]),
       ],
       related: [
+        link('/ai-chat-comparison/', 'AI chat comparison: what the data says'),
         link('/export-chatgpt-conversation/', 'Export chats to PDF, Word or Markdown'),
         link('/youtube-video-summarizer/', 'Attach YouTube or Bilibili transcripts'),
         link('/continue-chat-in-another-ai/', 'Continue a chat in another AI'),
@@ -146,43 +147,43 @@ const COPY = {
   'export-chatgpt-conversation': {
     en: {
       eyebrow: 'Export guide',
-      leadHeading: 'Turn an on-page AI chat into a local document',
+      leadHeading: 'Every working way to export a ChatGPT conversation',
       lead: [
-        'On supported AI websites, ModelAny shows a slim tab on the page edge. Open it to export the current conversation as Markdown, Word (.docx) or PDF, or copy Markdown to the clipboard. Files are built in your browser and saved locally—ModelAny does not upload the chat to its own servers.',
-        'Works across ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM, Tencent Yuanbao and Wenxiaoyan, using the same toolbar pattern on each site.',
+        'ChatGPT keeps conversations in your account history, but it never hands you a file per chat. This guide collects the routes that actually work—export the open conversation to PDF, Word or Markdown from the page, copy the thread to your clipboard, download a file, or request OpenAI’s account-wide data export—with what each route keeps, loses, and costs.',
+        'The ModelAny routes use the same toolbar on ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM, Tencent Yuanbao and Wenxiaoyan. Files are generated in your browser and saved locally—ModelAny does not upload the chat to its own servers.',
       ],
       sections: [
-        section('steps', 'How to export', [], [
-          'Open a conversation on a supported AI website',
-          'Click the ModelAny tab on the right edge of the page',
-          'Choose Markdown, Word or PDF—or Copy as Markdown',
-          'Save the download your browser offers, or paste from the clipboard',
+        section('routes', 'The four routes, at a glance', [], [
+          'PDF from the page — one click, fixed layout; best for records, email and printing',
+          'Markdown from the page — clean headings, lists and code blocks for Notion, Obsidian and Git repos',
+          'Copy the thread — fastest when you are pasting straight into another tool',
+          'Download a file or OpenAI’s data export — per-chat files for archives, or a ZIP of your whole account history',
         ], true),
-        section('to-markdown', 'Export a ChatGPT conversation to Markdown', [
-          'Markdown is the right choice when the chat is going into Notion, Obsidian, a Git repo, or any tool that ingests plain text: headings, lists and code blocks survive the trip, and diffs stay readable. Use Copy as Markdown when you are pasting straight into an editor.',
+        section('formats', 'Which format fits which job', [
+          'PDF fixes the layout, so use it when the chat is finished: receipts of what was said, printouts, attachments. Word (.docx) is the format for a document someone will edit next. Markdown is the format for tools that ingest plain text, and it is the only one of the three that keeps diffs readable in a repository.',
+          'If you need the conversation back as context for another model rather than as a document, saving it to a searchable local library beats any file format—the library can re-insert the thread into a new chat.',
         ]),
-        section('to-pdf', 'Export a ChatGPT conversation to PDF', [
-          'PDF fixes the layout: use it for print, email attachments, or a record you do not want to edit again. The file is generated in your browser from the turns currently rendered on the page.',
-        ]),
-        section('to-word', 'Export a ChatGPT conversation to Word', [
-          'Word (.docx) is for documents someone will edit next—shared drafts, reports with tracked changes. Start from the export, then apply your own template and styles.',
+        section('official', 'ChatGPT’s own export options', [
+          'Per chat, ChatGPT offers a Share link that renders a read-only copy—handy, but it lives on OpenAI’s servers and depends on the link. At the account level, Settings → Data controls → Export data emails you a ZIP of your history; it is complete but arrives as data files, not formatted documents, and can take time to arrive.',
+          'Neither official route produces a per-chat PDF or Markdown file on demand. That gap is what the page-level routes below fill.',
         ]),
         section('privacy', 'Privacy notes', [
-          'Export reads the conversation already rendered on that page, and only after you click. Generation runs locally. Clearing browser data for the extension, or removing the extension, also removes its local storage.',
-        ]),
-        section('tips', 'Practical tips', [], [
-          'Export before you leave a long thread you may need later',
-          'Pair with Save to memory if you want search later without keeping the tab open',
-          'If the toolbar is missing, refresh the tab and confirm ModelAny is allowed on that site',
+          'Export and copy read the conversation already rendered on that page, and only after you click. Generation runs locally in your browser. Clearing the extension’s browser data, or removing the extension, also removes its local storage.',
         ]),
       ],
       related: [
-        link('/how-to-use/', 'How to use ModelAny'),
-        link('/ai-chat-memory/', 'Local AI chat memory'),
-        link('/continue-chat-in-another-ai/', 'Continue in another AI'),
-        link('/compare-ai-models/', 'Compare models with one prompt'),
+        link('/export-chatgpt-conversation-to-pdf/', 'Export a ChatGPT conversation to PDF'),
+        link('/export-chatgpt-conversation-to-markdown/', 'Export a ChatGPT conversation to Markdown'),
+        link('/download-chatgpt-conversation/', 'Download a ChatGPT conversation'),
+        link('/copy-chatgpt-conversation/', 'Copy a ChatGPT conversation'),
+        link('/save-chatgpt-conversation/', 'Save a ChatGPT conversation'),
+        link('/ai-chat-memory/', 'Back up chats to a local library'),
       ],
       faqs: [
+        {
+          q: 'What is the fastest way to export a ChatGPT conversation?',
+          a: 'If you just need the text: open the conversation, click the ModelAny tab on the right edge, and pick Markdown, Word or PDF. The file is generated in your browser and downloads immediately. OpenAI’s own account export is more complete but delivers a data archive, not a formatted document.',
+        },
         {
           q: 'Can I export ChatGPT Plus or Team chats?',
           a: 'Yes, if the conversation is open in the ChatGPT web app in your browser. ModelAny exports what is on the page; it does not call OpenAI’s export API.',
@@ -192,8 +193,8 @@ const COPY = {
           a: 'Text turns are the primary export. Rich attachments may be omitted or represented as placeholders, depending on what the page exposes in the DOM.',
         },
         {
-          q: 'Is the PDF generated on a server?',
-          a: 'No. PDF, Word and Markdown are produced in the browser and downloaded as local files.',
+          q: 'Do these routes work on Claude, Gemini or DeepSeek too?',
+          a: 'Yes. The same toolbar pattern works on every site ModelAny supports, so chats scattered across several AI apps can be exported with one habit.',
         },
       ],
       ctaHeading: 'Export chats without leaving the AI site',
@@ -247,6 +248,350 @@ const COPY = {
       ],
       ctaHeading: '在 AI 页面直接导出对话',
       ctaBody: '安装 ModelAny 后，打开任意支持的对话页即可使用右侧工具条。免费，无需 API Key。',
+    },
+  },
+
+  'export-chatgpt-conversation-to-pdf': {
+    en: {
+      eyebrow: 'Export to PDF',
+      leadHeading: 'A ChatGPT conversation you can attach, print and archive',
+      lead: [
+        'A PDF is the format to reach for when a conversation is finished and needs to survive: email it to a colleague, print it for a file, or drop it into a folder of records. ChatGPT itself does not offer a per-chat PDF download, but there are three routes that work, and the fastest one takes a single click from the conversation page.',
+        'With ModelAny installed, open the conversation on ChatGPT, click the tab on the right edge of the page and choose PDF. The file is generated in your browser and downloads locally—nothing is uploaded to a ModelAny server. The same toolbar produces PDFs on Claude, Gemini, DeepSeek and other supported sites.',
+      ],
+      sections: [
+        section('toolbar', 'Route 1: export to PDF from the page (fastest)', [], [
+          'Open the conversation in the ChatGPT web app and let the whole thread render (scroll to the top first)',
+          'Click the ModelAny tab on the right edge of the page',
+          'Choose PDF — the file is generated in your browser and your browser saves it to your download folder',
+          'Check the result: each turn keeps its speaker order, and code stays in monospaced blocks',
+        ], true),
+        section('print', 'Route 2: ChatGPT’s share link + your browser’s print dialog', [
+          'Open the conversation, use Share → Create link, then open that link and press Ctrl+P (⌘+P on Mac) and choose Save as PDF. This works without any extension, but the PDF is a print rendering: it can split awkwardly across pages and includes the page chrome. Use it as a fallback on machines where you cannot install extensions.',
+        ]),
+        section('official', 'Route 3: OpenAI’s account data export', [
+          'Settings → Data controls → Export data emails you a ZIP of your entire chat history. It is the only route that covers every chat at once, but it arrives as data files rather than formatted PDFs and can take time to process. Treat it as the archive of last resort, not a day-to-day export.',
+        ]),
+        section('expect', 'What the PDF keeps—and what it leaves out', [
+          'The export renders the turns currently on the page in order, so scroll through the whole thread before exporting. Text, headings and code blocks carry over; images and uploaded attachments may be omitted or replaced with a placeholder, depending on what the page exposes. If a thread is very long, exporting in two passes (top half, then bottom) can beat one giant PDF.',
+        ]),
+        section('privacy', 'Privacy notes', [
+          'Route 1 generates the file in your browser and never uploads the chat. Route 2 publishes a share link on OpenAI’s servers—delete the link when you no longer need it. Route 3 sends your entire history to your own email address.',
+        ]),
+      ],
+      related: [
+        link('/export-chatgpt-conversation/', 'All ways to export a ChatGPT conversation'),
+        link('/export-chatgpt-conversation-to-markdown/', 'Export to Markdown instead'),
+        link('/download-chatgpt-conversation/', 'Download a conversation as a file'),
+        link('/save-chatgpt-conversation/', 'Save the chat to a searchable library'),
+      ],
+      faqs: [
+        {
+          q: 'How do I export a ChatGPT conversation to PDF for free?',
+          a: 'Both main routes are free. With ModelAny installed, open the chat, click the right-edge tab and choose PDF. Without an extension, use Share → Create link, open the link and print it to PDF with your browser. Neither needs a ChatGPT upgrade.',
+        },
+        {
+          q: 'Why is my exported PDF missing images or file attachments?',
+          a: 'The export is primarily a text record. Attachments may be omitted or represented as placeholders depending on what the ChatGPT page exposes. For an exact visual copy, use the share-link-and-print route instead.',
+        },
+        {
+          q: 'Can I export a ChatGPT conversation to PDF on my phone?',
+          a: 'ModelAny runs on desktop Chrome and Edge, so on mobile use the share-link route: open the shared link in your mobile browser and use its print/save-to-PDF option.',
+        },
+        {
+          q: 'Does the PDF keep code blocks and formatting?',
+          a: 'Text structure—speaker order, lists, monospaced code blocks—is preserved. Fonts follow the export template rather than ChatGPT’s exact page styling.',
+        },
+        {
+          q: 'Does this work on Claude, Gemini or DeepSeek chats?',
+          a: 'Yes. The same edge-toolbar PDF export works on every AI site ModelAny supports, using the identical steps.',
+        },
+      ],
+      ctaHeading: 'Export the open chat to PDF in one click',
+      ctaBody: 'Install ModelAny from the official store, open any supported conversation, and pick PDF on the right edge. Free; no API key.',
+    },
+  },
+
+  'export-chatgpt-conversation-to-markdown': {
+    en: {
+      eyebrow: 'Export to Markdown',
+      leadHeading: 'Clean .md you can paste into Notion, Obsidian or a repo',
+      lead: [
+        'Markdown is the right export format whenever the chat is going into a tool that ingests plain text: Notion pages, Obsidian vaults, Git repositories, static-site drafts. Headings, lists and code blocks survive the trip, quotes stay quoted, and the file diffs cleanly if you commit it.',
+        'With ModelAny, open the conversation on ChatGPT, click the tab on the right edge and choose Markdown to download a .md file—or Copy as Markdown to put the same text on your clipboard for a straight paste. Both work on Claude, Gemini, DeepSeek and other supported sites too.',
+      ],
+      sections: [
+        section('steps', 'Export or copy, depending on where it is going', [], [
+          'Into a notes app you will keep editing: choose Markdown and save the .md file',
+          'Straight into an editor or chat box: use Copy as Markdown and paste',
+          'Into a Git repo: save the .md file next to your project and commit it—the diff shows what the model actually changed between sessions',
+        ], true),
+        section('survives', 'What survives the trip', [
+          'Speaker turns, headings, ordered and unordered lists, inline code and fenced code blocks are carried into the Markdown structure. Images and uploaded attachments may be omitted or become placeholders. Very long threads should be scrolled fully into view before exporting, because the export covers the turns rendered on the page.',
+        ]),
+        section('manual', 'The manual fallback, and why it disappoints', [
+          'Selecting the whole thread and pressing Ctrl+C copies what the browser shows: it usually flattens headings, keeps or drops formatting unpredictably, and pastes differently into every target app. It is fine for one answer—the per-answer copy button on ChatGPT messages exists for exactly that—but for whole threads the structured export is faster to clean up.',
+        ]),
+        section('privacy', 'Privacy notes', [
+          'The Markdown file is generated in your browser and saved locally. Copy as Markdown touches your clipboard only. Neither route uploads the conversation anywhere.',
+        ]),
+      ],
+      related: [
+        link('/export-chatgpt-conversation/', 'All ways to export a ChatGPT conversation'),
+        link('/export-chatgpt-conversation-to-pdf/', 'Export to PDF instead'),
+        link('/copy-chatgpt-conversation/', 'Copy a conversation without the file'),
+        link('/ai-chat-memory/', 'Back up chats to a searchable library'),
+      ],
+      faqs: [
+        {
+          q: 'Does the exported Markdown keep code blocks?',
+          a: 'Yes—code is written into fenced code blocks so syntax highlighting in Notion, Obsidian or GitHub keeps working. Inline code keeps its backticks.',
+        },
+        {
+          q: 'Can I get a .md file instead of copying to the clipboard?',
+          a: 'Yes. Choose Markdown in the edge toolbar and the browser downloads a .md file; use Copy as Markdown only when you are pasting directly into another tool.',
+        },
+        {
+          q: 'How do I move a ChatGPT chat into Obsidian or Notion?',
+          a: 'Export the conversation to Markdown, then drop the .md file into your Obsidian vault or import it into Notion. Headings become note structure and code blocks stay intact, so cleanup is usually minimal.',
+        },
+      ],
+      ctaHeading: 'Export chats as clean Markdown',
+      ctaBody: 'Install ModelAny, open a supported chat, and pick Markdown or Copy as Markdown on the right edge. Free; no API key.',
+    },
+  },
+
+  'download-chatgpt-conversation': {
+    en: {
+      eyebrow: 'Download guide',
+      leadHeading: 'Get the chat off the website and onto your disk',
+      lead: [
+        'Downloading a ChatGPT conversation means ending up with a file you control: a PDF for records, a Word document for editing, a Markdown file for notes tools. ChatGPT’s interface does not offer a per-chat download button, so the practical routes are a browser extension that generates the file from the open page, or OpenAI’s account-wide data export.',
+        'ModelAny handles the per-chat case: open the conversation, click the tab on the right edge of the page, and download the chat as PDF, Word or Markdown. The file is generated in your browser and saved to your download folder—nothing passes through a ModelAny server.',
+      ],
+      sections: [
+        section('routes', 'Three ways to download a chat', [], [
+          'Per-chat file: ModelAny edge tab → PDF / Word / Markdown (works on Claude, Gemini, DeepSeek and other supported sites too)',
+          'Per-chat via share link: Share → Create link, open it, print to PDF—no extension needed, but it is a print rendering',
+          'Whole account: ChatGPT Settings → Data controls → Export data sends a ZIP of all chats to your email as data files',
+        ], true),
+        section('where', 'Where the file ends up', [
+          'Browser downloads go to your default download folder (often ~/Downloads), named after the conversation. From there it is an ordinary file: move it into your archive, attach it, or commit it. The download is a copy—deleting the chat on ChatGPT afterwards does not touch your file, and vice versa.',
+        ]),
+        section('choose', 'File format vs account archive', [
+          'The two routes answer different needs. A per-chat file is immediate, formatted and shareable; the account archive is complete but asynchronous, arrives as JSON/HTML data files, and includes more than chats. Most people use per-chat exports as they work and run an account export occasionally as a disaster-recovery net.',
+        ]),
+        section('privacy', 'Privacy notes', [
+          'The extension-generated download is produced locally after you click. The share-link route stores a copy on OpenAI’s servers until you delete the link. The official export goes from OpenAI to your email inbox.',
+        ]),
+      ],
+      related: [
+        link('/export-chatgpt-conversation/', 'All ways to export a ChatGPT conversation'),
+        link('/export-chatgpt-conversation-to-pdf/', 'Download the chat as a PDF'),
+        link('/export-chatgpt-conversation-to-markdown/', 'Download the chat as Markdown'),
+        link('/ai-chat-memory/', 'Back up chats to a searchable library'),
+      ],
+      faqs: [
+        {
+          q: 'Can I download all my ChatGPT conversations at once?',
+          a: 'Only through OpenAI’s own export: Settings → Data controls → Export data. It emails a ZIP containing your account history. ModelAny’s downloads are per chat, done deliberately, one conversation at a time.',
+        },
+        {
+          q: 'Is the downloaded file the same as what is on screen?',
+          a: 'It is a structured copy of the conversation turns—speaker order, lists and code blocks included. Page styling and images may differ from the live page; for an exact visual copy use the share-link print route.',
+        },
+        {
+          q: 'Does downloading a chat require ChatGPT Plus?',
+          a: 'No. Both the extension route and OpenAI’s data export work on free accounts.',
+        },
+      ],
+      ctaHeading: 'Download any supported AI chat as a file',
+      ctaBody: 'Install ModelAny and download PDF, Word or Markdown straight from the conversation page. Free; no API key.',
+    },
+  },
+
+  'copy-chatgpt-conversation': {
+    en: {
+      eyebrow: 'Copy guide',
+      leadHeading: 'Copy the whole thread without wrecking the formatting',
+      lead: [
+        'Copying a ChatGPT conversation sounds trivial until you try it: selecting the page and pressing Ctrl+C grabs chat bubbles, buttons and sidebar noise, and pastes as a flattened wall of text. The fix is to copy structured text—each answer through its own copy button, or the entire thread as Markdown in one action.',
+        'ModelAny adds Copy as Markdown to the page edge tab on ChatGPT, Claude, Gemini, DeepSeek and other supported sites, so the pasted result keeps turns, lists and code blocks instead of losing them.',
+      ],
+      sections: [
+        section('scopes', 'How much do you need?', [], [
+          'One answer: use the copy button on that message—fastest, no tools needed',
+          'A run of turns: copy each answer, or grab the thread as Markdown and delete what you do not need',
+          'The whole conversation: Copy as Markdown from the edge toolbar, then paste into the target app',
+        ], true),
+        section('targets', 'Pasting into Word, email, Notion or an issue tracker', [
+          'Word and email clients accept the pasted Markdown as text; run it through a Markdown-to-rich-text converter, or export to Word (.docx) directly instead if the document must look right on arrival. Notion, Obsidian, GitHub issues and most developer tools accept pasted Markdown natively—this is the case where Copy as Markdown shines.',
+        ]),
+        section('limits', 'Where copy stops and export starts', [
+          'Copy gives you text on a clipboard—no file, no speaker labels beyond the Markdown structure, nothing to attach. When the recipient needs a document (PDF, .docx), use the export routes instead. When you need the conversation back as working context for another model, saving it to the local library is the better move.',
+        ]),
+      ],
+      related: [
+        link('/export-chatgpt-conversation/', 'All ways to export a ChatGPT conversation'),
+        link('/export-chatgpt-conversation-to-markdown/', 'Export to Markdown as a file'),
+        link('/continue-chat-in-another-ai/', 'Paste the thread into another AI with one click'),
+        link('/save-chatgpt-conversation/', 'Save the thread instead of copying it'),
+      ],
+      faqs: [
+        {
+          q: 'Why does my pasted ChatGPT conversation look broken in Word?',
+          a: 'A raw page selection copies visual layout, not structure. Either paste into a Markdown-aware tool, convert the Markdown to rich text first, or export the conversation to Word (.docx) directly so the document arrives formatted.',
+        },
+        {
+          q: 'Can I copy a conversation with speaker labels (You / ChatGPT)?',
+          a: 'The Markdown export marks each turn, so the pasted text keeps who said what. A plain selection often loses the labels along with the structure.',
+        },
+        {
+          q: 'What is the difference between copying and exporting?',
+          a: 'Copy puts text on your clipboard for immediate pasting; export writes a file (PDF, Word or Markdown) to your disk. Use copy for quick handoffs and export for anything you need to keep or attach.',
+        },
+      ],
+      ctaHeading: 'Copy whole AI conversations as clean Markdown',
+      ctaBody: 'Install ModelAny and use Copy as Markdown from the page edge on ChatGPT, Claude, Gemini and more. Free; no API key.',
+    },
+  },
+
+  'save-chatgpt-conversation': {
+    en: {
+      eyebrow: 'Save guide',
+      leadHeading: 'Save the conversation before it is gone',
+      lead: [
+        'ChatGPT saves conversations to your account history automatically—but that history is a server-side list that you can search only from the ChatGPT interface, that disappears if you delete it, and that mixes with everything else you have ever asked. Saving a conversation properly means making a copy you control: a searchable local library entry or a file on your disk.',
+        'ModelAny does both from the page edge tab: Save to memory puts the chat into a full-text-searchable library in your browser; Markdown, Word or PDF writes a file you can archive. Both work on Claude, Gemini, DeepSeek and other supported sites, so one habit covers every AI you use.',
+      ],
+      sections: [
+        section('options', 'Your three storage options, honestly compared', [], [
+          'ChatGPT chat history: automatic, complete, but locked to the ChatGPT interface and gone if you or a policy deletes it',
+          'Local library (ModelAny): searchable by keyword across every AI site you use, with tags and notes—stays in your browser',
+          'File export: PDF/Word/Markdown in your download folder—portable, attachable, immune to account problems',
+        ], true),
+        section('steps', 'Save a chat in two clicks', [], [
+          'Open the conversation on a supported AI site',
+          'Click the ModelAny tab on the right edge → Save to memory (add a tag while you are there)',
+          'For an off-browser copy, pick Markdown, Word or PDF in the same menu',
+        ], true),
+        section('reuse', 'Getting the conversation back', [
+          'Open the Memory page from the extension popup, search by keyword or filter by tag, then bring a saved thread into the model you are about to use as context. This is how a chat survives moving between machines, models, or after clearing site data.',
+        ]),
+        section('privacy', 'Privacy notes', [
+          'The library and exports are generated and stored locally in your browser; ModelAny does not operate a server that receives them. Clearing the extension’s data or uninstalling it removes the library—export important chats to files if you also want copies outside the browser.',
+        ]),
+      ],
+      related: [
+        link('/ai-chat-memory/', 'Back up ChatGPT chats to a local library'),
+        link('/export-chatgpt-conversation/', 'Export the chat as a file instead'),
+        link('/download-chatgpt-conversation/', 'Download a conversation to your computer'),
+        link('/continue-chat-in-another-ai/', 'Continue a saved chat in another AI'),
+      ],
+      faqs: [
+        {
+          q: 'Does ChatGPT save conversations automatically?',
+          a: 'Yes, to your account’s chat history, unless you have turned history off or the chat was deleted. But that history is only manageable inside ChatGPT—no file, no cross-AI search, no local copy. For conversations that matter, make a local copy.',
+        },
+        {
+          q: 'How do I save a ChatGPT conversation as a file?',
+          a: 'Open the chat, click the ModelAny tab on the right edge, and choose Markdown, Word or PDF. The file is generated in your browser and saved to your download folder.',
+        },
+        {
+          q: 'Can I search all my saved AI chats at once?',
+          a: 'Yes—chats saved from any supported AI site land in the same local library, searchable by keyword in English and Chinese, filterable by tag.',
+        },
+        {
+          q: 'What happens if I deleted a chat on ChatGPT?',
+          a: 'If you saved it to the ModelAny library or exported a file beforehand, that copy is untouched—deleting on the site does not reach your local data.',
+        },
+      ],
+      ctaHeading: 'Save AI chats where you can find them again',
+      ctaBody: 'Install ModelAny and save any supported conversation to a local, searchable library. Free; no API key.',
+    },
+  },
+
+  'ask-multiple-ai-at-once': {
+    en: {
+      eyebrow: 'Multi-AI workflow',
+      leadHeading: 'One question box, every AI you use',
+      lead: [
+        'Asking multiple AI at once means typing your question a single time and sending it to several AI websites simultaneously, instead of opening eleven tabs and re-typing (or re-pasting) the same prompt until you lose track of which model said what.',
+        'ModelAny is a free Chrome and Edge extension that does exactly this: type once, tick the models—ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM, Tencent Yuanbao, Wenxiaoyan—and send. ModelAny opens each official site, fills in your question and can submit it, then lines the answers up for side-by-side reading.',
+      ],
+      sections: [
+        section('steps', 'How to ask several AIs one question', [], [
+          'Install ModelAny from the Chrome Web Store or Edge Add-ons and pin the icon',
+          'Click the icon (or press Ctrl+Shift+Y) and type your question once',
+          'Select the models to receive it—use the same prompt everywhere or the comparison is worthless',
+          'Send, then read the answers side by side in the comparison view',
+        ], true),
+        section('why', 'Why the same prompt matters', [
+          'A comparison is only fair when every model gets identical input: same question, same constraints, same attached context. Retyping a prompt by hand across tabs is how wording drift creeps in—and wording drift changes answers. One box that sends the exact same text everywhere removes that variable.',
+        ]),
+        section('accounts', 'Your accounts, your terms', [
+          'ModelAny does not resell access or proxy your prompts: it uses the sessions of the AI websites you are already signed into, free or paid. There is no API key and no ModelAny subscription. Each site still applies its own rate limits and terms, and every send is an action you initiated.',
+        ]),
+        section('after', 'After the answers arrive', [
+          'Compare them side by side, save the thread to the local memory library, export it to PDF, Word or Markdown, or carry the conversation into another model with its context when you hit a limit.',
+        ]),
+      ],
+      related: [
+        link('/ai-chat-comparison/', 'AI chat comparison: what the data says'),
+        link('/compare-ai-models/', 'Compare AI models with the same prompt'),
+        link('/side-by-side-ai-comparison/', 'The side-by-side comparison method'),
+        link('/how-to-use/', 'How to use ModelAny'),
+      ],
+      faqs: [
+        {
+          q: 'Is there a free tool to ask multiple AI at once?',
+          a: 'ModelAny is free—no subscription, no credits. It sends your prompt to the official AI websites under the accounts you already have, so free tiers work and paid plans keep their normal quotas.',
+        },
+        {
+          q: 'Do I need an account on every AI site first?',
+          a: 'You need to be signed in to whichever sites you select, on the free or paid tier. ModelAny uses those existing sessions; it does not create accounts or ask for API keys.',
+        },
+        {
+          q: 'Which AI websites can receive my question?',
+          a: 'Eleven official sites: ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM (ChatGLM), Tencent Yuanbao and Wenxiaoyan (ERNIE).',
+        },
+        {
+          q: 'Will sending one question to many AIs get my account banned?',
+          a: 'ModelAny only performs the steps you would do yourself—open the site, fill the prompt, press send, once per site per question. It does not bulk-spam requests or bypass limits. Each site’s own terms still apply.',
+        },
+      ],
+      ctaHeading: 'Ask 11 AIs the same question in one send',
+      ctaBody: 'Install ModelAny free on Chrome or Edge and stop re-typing the same prompt across tabs.',
+    },
+  },
+
+  'ai-chat-comparison': {
+    en: {
+      eyebrow: 'AI chat comparison',
+      faqs: [
+        {
+          q: 'Which AI chat is best right now?',
+          a: 'There is no single answer: the honest ranking changes by task and by model version. The public test tables on this page show measured results with dates and sources, and the same-prompt method shows you how to settle it for your own task in minutes.',
+        },
+        {
+          q: 'How do I compare AI chatbots fairly?',
+          a: 'Freeze one prompt, send the identical text to every model you care about, and score the answers against success criteria you wrote before reading them—accuracy, completeness, edit cost. Comparing answers to differently-worded prompts tells you about prompts, not models.',
+        },
+        {
+          q: 'Which models can I compare with ModelAny?',
+          a: 'Eleven official sites: ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM (ChatGLM), Tencent Yuanbao and Wenxiaoyan (ERNIE)—side by side, from one prompt box.',
+        },
+        {
+          q: 'Is there a free AI chat comparison tool?',
+          a: 'ModelAny is free with no subscription or credits: it sends one prompt to the official sites under the accounts you already have. The benchmark tables on this page are also free to read, with sources linked.',
+        },
+        {
+          q: 'What does the comparison table on this page measure?',
+          a: 'Public, third-party test results—Arena preference votes, SWE-bench Verified issue fixing, LiveBench task scores—shown per category with the exact model version, retrieval date and a link to the original leaderboard. They are measurements under stated conditions, not a universal ranking.',
+        },
+      ],
+      ctaHeading: 'Run this comparison on your own prompts',
+      ctaBody: 'Install ModelAny free on Chrome or Edge, ask once, and read answers from 11 AI sites side by side.',
     },
   },
 
@@ -442,10 +787,10 @@ const COPY = {
 
   'ai-chat-memory': {
     en: {
-      eyebrow: 'Save & back up chats',
-      leadHeading: 'Save ChatGPT chats to a library that never leaves your browser',
+      eyebrow: 'Back up chats',
+      leadHeading: 'Back up ChatGPT chats to a library that never leaves your browser',
       lead: [
-        'A ChatGPT conversation only exists on chatgpt.com until you save it somewhere. ModelAny gives you two local copies: save the chat into a searchable memory library in your browser (full-text search, tags, notes), or export it as a Markdown, Word or PDF file for a folder backup. Nothing is uploaded to a ModelAny server.',
+        'A ChatGPT conversation only exists on chatgpt.com until you back it up somewhere. ModelAny gives you two local copies: save the chat into a searchable memory library in your browser (full-text search, tags, notes), or export it as a Markdown, Word or PDF file for a folder backup. Nothing is uploaded to a ModelAny server.',
         'The same save-and-back-up loop works on Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM and other supported sites, so conversations scattered across several AI apps end up in one place.',
       ],
       sections: [
@@ -465,6 +810,7 @@ const COPY = {
         ]),
       ],
       related: [
+        link('/save-chatgpt-conversation/', 'Save a ChatGPT conversation'),
         link('/export-chatgpt-conversation/', 'Export a chat as PDF, Word or Markdown'),
         link('/continue-chat-in-another-ai/', 'Continue in another AI'),
         link('/how-to-use/', 'How to use ModelAny'),
@@ -556,6 +902,7 @@ const COPY = {
         ]),
       ],
       related: [
+        link('/ai-chat-comparison/', 'AI chat comparison: what the data says'),
         link('/side-by-side-ai-comparison/', 'Side-by-side comparison pattern'),
         link('/ai-browser-extension/', 'Browser extension overview'),
         link('/how-to-use/', 'Install and first send'),
@@ -636,6 +983,7 @@ const COPY = {
         ]),
       ],
       related: [
+        link('/ask-multiple-ai-at-once/', 'Ask multiple AI at once'),
         link('/how-to-use/', 'Step-by-step setup'),
         link('/compare-ai-models/', 'Same-prompt comparison'),
         link('/export-chatgpt-conversation/', 'Export ChatGPT and other chats'),
@@ -721,6 +1069,7 @@ const COPY = {
         ]),
       ],
       related: [
+        link('/ai-chat-comparison/', 'AI chat comparison: what the data says'),
         link('/chatgpt-vs-claude-vs-gemini-same-prompt/', 'ChatGPT vs Claude vs Gemini on the same prompt'),
         link('/compare-ai-models/', 'Send one prompt to several models'),
         link('/how-to-use/', 'How to use ModelAny'),
