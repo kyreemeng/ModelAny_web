@@ -53,11 +53,36 @@ const CATEGORY_LABEL = {
   },
 };
 
+/** Compact column headers for the cross-test podium matrix. */
+const MATRIX_SHORT = {
+  arena: {
+    text: { en: 'Chat', zh: '对话' },
+    code: { en: 'Code pref', zh: '代码偏好' },
+    search: { en: 'Search', zh: '搜索' },
+  },
+  livebench: {
+    'Agentic Coding': { en: 'Agentic', zh: '智能体' },
+    Coding: { en: 'Coding', zh: '编程' },
+    Mathematics: { en: 'Math', zh: '数学' },
+    Reasoning: { en: 'Reasoning', zh: '推理' },
+    'Data Analysis': { en: 'Data', zh: '数据' },
+    'Instruction Following': { en: 'Instruct', zh: '指令' },
+    Language: { en: 'Language', zh: '语言' },
+  },
+  swebench: {
+    Verified: { en: 'SWE-bench', zh: 'SWE' },
+  },
+};
+
 const LABELS = {
   en: {
     leadersTitle: 'Who leads each test',
-    leadersNote: 'The gold row is the top scorer of that official test category. It is not an overall ranking: scores from different benchmarks cannot be combined.',
+    leadersNote: 'The gold panel marks the top scorer of that official test category, with the gap to the runner-ups shown beside each score. It is not an overall ranking: scores from different benchmarks cannot be combined.',
     legend: 'Rank · Model family · Exact model version · Score',
+    gapToTop: 'gap to first place',
+    matrixTitle: 'The podium map across all tests',
+    matrixNote: 'Each row is a model family, sorted by most first places. A cell shows where that family lands in the test column — only top-3 finishes are marked, and every column keeps its own benchmark’s score.',
+    matrixFamilyCol: 'Model family',
     families: 'model families compared',
     source: 'Open original leaderboard',
     updated: 'Retrieved',
@@ -69,8 +94,12 @@ const LABELS = {
   },
   zh: {
     leadersTitle: '每项测试的领先者',
-    leadersNote: '金色行是该官方测试类别的第一名。这不是全面总排名：不同基准的分数不能相加或直接比较。',
+    leadersNote: '金色面板是该官方测试类别的第一名，亚军与季军旁标注了与第一名的差距。这不是全面总排名：不同基准的分数不能相加或直接比较。',
     legend: '排名 · 模型家族 · 精确模型版本 · 成绩',
+    gapToTop: '与第一名的差距',
+    matrixTitle: '全部测试的领奖台地图',
+    matrixNote: '每一行是一个模型家族，按第一名数量排序。单元格显示该家族在对应测试中的名次，仅标注前三名，且每列保留各自基准的独立分数。',
+    matrixFamilyCol: '模型家族',
     families: '个模型家族参与对比',
     source: '查看原始排行榜',
     updated: '抓取时间',
@@ -86,6 +115,14 @@ function fmtScore(record) {
   if (record.unit === '%') return `${record.score.toFixed(1)}%`;
   if (record.unit === 'Elo') return String(Math.round(record.score));
   return record.score.toFixed(1);
+}
+
+/** Human-readable gap to the current leader, e.g. "−13" or "−2.4". */
+function fmtDelta(leaderScore, record) {
+  const gap = leaderScore - record.score;
+  if (!(gap > 0)) return '';
+  const value = record.unit === 'Elo' ? String(Math.round(gap)) : gap.toFixed(1);
+  return `−${value}`;
 }
 
 /**
@@ -124,23 +161,123 @@ function buildGroups(snapshot) {
   return out;
 }
 
+function whoHtml(family, record) {
+  const exact = record.modelExactName && record.modelExactName !== family
+    ? `<em>${esc(record.modelExactName)}</em>`
+    : '';
+  return `<span class="bm-who"><strong>${esc(family)}</strong>${exact}</span>`;
+}
+
+function leaderCard({ sourceId, category, products }, { source, lang, labels }) {
+  const label = CATEGORY_LABEL[sourceId]?.[category]?.[lang] || category;
+  const [first, ...rest] = products;
+  const leaderScore = first.record.score;
+  const runnerRows = rest.slice(0, 2).map(({ family, record }, index) => {
+    const rank = index + 2;
+    const delta = fmtDelta(leaderScore, record);
+    return `<li class="bm-runner">
+                  <span class="bm-medal is-${rank}" aria-label="rank ${rank}">${rank}</span>
+                  ${whoHtml(family, record)}
+                  ${delta ? `<span class="bm-delta" title="${esc(labels.gapToTop)}">${esc(delta)}</span>` : '<span class="bm-delta" aria-hidden="true"></span>'}
+                  <span class="bm-val">${esc(fmtScore(record))}</span>
+                </li>`;
+  }).join('\n                ');
+  return `<article class="bm-card">
+              <header class="bm-card-head">
+                <p class="bm-card-src">${esc(source?.name || sourceId)}</p>
+                <h3>${esc(label)}</h3>
+                <span class="bm-chip">${esc(first.record.unit)}</span>
+              </header>
+              <div class="bm-champ">
+                <span class="bm-medal is-1" aria-label="rank 1">1</span>
+                ${whoHtml(first.family, first.record)}
+                <span class="bm-champ-score">${esc(fmtScore(first.record))}</span>
+              </div>
+              <ol class="bm-runners">
+                ${runnerRows}
+              </ol>
+            </article>`;
+}
+
+/**
+ * Cross-test podium matrix: one row per model family that reached a top-3
+ * spot, one column per test. Rows are sorted by gold, then silver, then bronze.
+ */
+function matrixHtml(groups, { sourceById, lang, labels }) {
+  const tests = groups.map(({ sourceId, category, products }) => {
+    const source = sourceById.get(sourceId);
+    const fullLabel = `${source?.name || sourceId} · ${CATEGORY_LABEL[sourceId]?.[category]?.[lang] || category}`;
+    return {
+      short: MATRIX_SHORT[sourceId]?.[category]?.[lang] || category,
+      full: fullLabel,
+      top3: new Map(products.slice(0, 3).map(({ family }, index) => [family, index + 1])),
+    };
+  });
+
+  const tally = new Map();
+  for (const test of tests) {
+    for (const [family, rank] of test.top3) {
+      if (!tally.has(family)) tally.set(family, [0, 0, 0]);
+      tally.get(family)[rank - 1] += 1;
+    }
+  }
+  const rows = [...tally.entries()].sort((a, b) =>
+    b[1][0] - a[1][0] || b[1][1] - a[1][1] || b[1][2] - a[1][2] || a[0].localeCompare(b[0]));
+
+  const headCells = tests.map(({ short, full }) =>
+    `<th scope="col" title="${esc(full)}">${esc(short)}</th>`).join('');
+
+  const bodyRows = rows.map(([family, counts]) => {
+    const tallyBits = [['g', counts[0]], ['s', counts[1]], ['b', counts[2]]]
+      .filter(([, count]) => count > 0)
+      .map(([cls, count]) => `<i class="${cls}"></i>${count}`)
+      .join(' ');
+    const cells = tests.map(({ top3 }) => {
+      const rank = top3.get(family);
+      return rank
+        ? `<td class="bm-mx-cell is-${rank}"><span aria-label="rank ${rank}">${rank}</span></td>`
+        : '<td class="bm-mx-empty" aria-label="not on podium"><span>·</span></td>';
+    }).join('');
+    return `<tr>
+              <th scope="row" class="bm-mx-family"><strong>${esc(family)}</strong><span class="bm-tally">${tallyBits}</span></th>
+              ${cells}
+            </tr>`;
+  }).join('\n            ');
+
+  return `<section class="bm-matrix-sec" aria-labelledby="bm-matrix-title">
+            <h2 id="bm-matrix-title">${esc(labels.matrixTitle)}</h2>
+            <p class="bm-strip-note">${esc(labels.matrixNote)}</p>
+            <div class="bm-matrix-wrap" role="region" aria-label="${esc(labels.matrixTitle)}" tabindex="0">
+              <table class="bm-matrix">
+                <thead>
+                  <tr>
+                    <th scope="col">${esc(labels.matrixFamilyCol)}</th>
+                    ${headCells}
+                  </tr>
+                </thead>
+                <tbody>
+                  ${bodyRows}
+                </tbody>
+              </table>
+            </div>
+          </section>`;
+}
+
 function barList(products, { limit = 8, votesLabel } = {}) {
   const max = products[0]?.record.score || 1;
   return `<ol class="bm-bars">
             ${products.slice(0, limit).map(({ family, record }, index) => {
               const rank = index + 1;
               const width = Math.max(4, Math.round((record.score / max) * 100));
-              const exact = record.modelExactName && record.modelExactName !== family
-                ? `<em>${esc(record.modelExactName)}</em>`
-                : '';
+              const delta = fmtDelta(max, record);
               const votes = record.sampleSize
                 ? `<span class="bm-votes">${Number(record.sampleSize).toLocaleString('en-US')} ${votesLabel}</span>`
                 : '';
               return `<li class="bm-row${rank === 1 ? ' is-leader' : ''}">
                   <div class="bm-row-head">
                     <span class="bm-rank${rank <= 3 ? ` is-${rank}` : ''}" aria-label="rank ${rank}">${rank}</span>
-                    <span class="bm-who"><strong>${esc(family)}</strong>${exact}</span>
-                    <span class="bm-val">${esc(fmtScore(record))}${votes}</span>
+                    ${whoHtml(family, record)}
+                    <span class="bm-val">${esc(fmtScore(record))}${delta ? `<span class="bm-delta">${esc(delta)}</span>` : ''}${votes}</span>
                   </div>
                   <div class="bm-bar" aria-hidden="true"><i style="width:${width}%"></i></div>
                 </li>`;
@@ -158,31 +295,11 @@ function render(snapshot, lang) {
 
   const freshSources = snapshot.sources.filter((source) => source.status === 'fresh').length;
 
-  const leaderCards = groups.map(({ sourceId, category, products }) => {
-    const source = sourceById.get(sourceId);
-    const label = CATEGORY_LABEL[sourceId]?.[category]?.[lang] || category;
-    const top3 = products.slice(0, 3);
-    const max = top3[0]?.record.score || 1;
-    return `<article class="bm-card">
-              <header class="bm-card-head">
-                <h3>${esc(source?.name || sourceId)}<span class="bm-card-cat">${esc(label)}</span></h3>
-                <span class="bm-chip">${esc(source?.metric || '')}${source?.metric ? ' · ' : ''}${esc(products[0].record.unit)}</span>
-              </header>
-              <ol class="bm-top3">
-                ${top3.map(({ family, record }, index) => {
-                  const exact = record.modelExactName && record.modelExactName !== family
-                    ? `<em>${esc(record.modelExactName)}</em>`
-                    : '';
-                  return `<li class="is-${index + 1}">
-                    <span class="bm-rank is-${index + 1}">${index + 1}</span>
-                    <span class="bm-who"><strong>${esc(family)}</strong>${exact}</span>
-                    <span class="bm-val">${esc(fmtScore(record))}</span>
-                    <span class="bm-minibar" aria-hidden="true"><i style="width:${Math.max(6, Math.round((record.score / max) * 100))}%"></i></span>
-                  </li>`;
-                }).join('\n                ')}
-              </ol>
-            </article>`;
-  }).join('\n            ');
+  const leaderCards = groups.map((group) => leaderCard(group, {
+    source: sourceById.get(group.sourceId),
+    lang,
+    labels,
+  })).join('\n            ');
 
   const detailSections = [...new Set(groups.map(({ sourceId }) => sourceId))].map((sourceId) => {
     const source = sourceById.get(sourceId);
@@ -192,11 +309,12 @@ function render(snapshot, lang) {
               <header class="bm-source-head">
                 <div>
                   <h2>${esc(source?.name || sourceId)}</h2>
-                  <p class="bm-source-meta">${lang === 'zh' ? `${totalFamilies} ${labels.families}` : `${totalFamilies} ${labels.families}`} · ${esc(formatDate(snapshot.retrievedAt, lang))}</p>
+                  <p class="bm-source-meta">${totalFamilies} ${labels.families} · ${esc(formatDate(snapshot.retrievedAt, lang))}</p>
                 </div>
                 <a href="${esc(source?.sourceUrl || sourceGroups[0].group[0].sourceUrl)}" target="_blank" rel="noopener noreferrer">${labels.source}</a>
               </header>
               <p class="bm-disclaimer">${esc(source?.disclaimer?.[lang] || '')}</p>
+              <div class="bm-source-body">
               ${sourceGroups.map(({ category, products }) => {
                 const label = CATEGORY_LABEL[sourceId]?.[category]?.[lang] || category;
                 return `<article class="bm-block">
@@ -204,6 +322,7 @@ function render(snapshot, lang) {
                           ${barList(products, { votesLabel: labels.votes })}
                         </article>`;
               }).join('\n              ')}
+              </div>
             </section>`;
   }).join('\n            ');
 
@@ -223,6 +342,7 @@ function render(snapshot, lang) {
               ${leaderCards}
             </div>
           </section>
+          ${matrixHtml(groups, { sourceById, lang, labels })}
           <section class="bm-details" aria-labelledby="bm-details-title">
             <h2 id="bm-details-title">${esc(labels.detailTitle)}</h2>
             <p class="bm-strip-note">${esc(labels.detailNote)}</p>
