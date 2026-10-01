@@ -38,7 +38,7 @@ const CORE_COMPARE_SLUGS = new Set([
   'claude-vs-gemini',
 ]);
 const TEST_RECORD_PATH = join(ROOT, 'seo', 'data', 'test-results.json');
-const CONTENT_UPDATED = '2026-09-30';
+const CONTENT_UPDATED = '2026-10-02';
 const BENCHMARK_LASTMOD = loadBenchmarkSnapshot()?.retrievedAt?.slice(0, 10) || CONTENT_UPDATED;
 
 function esc(value) {
@@ -557,7 +557,9 @@ function htmlPage({
       <section class="seo-cta"><h2>${esc(resolvedCtaHeading)}</h2><p>${resolvedCtaBody}</p><a href="${DOWNLOAD}" data-download-cta class="btn btn-primary btn-pill">${downloadLabel}</a></section>
     </article>
   </div></main>
-  <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="${lang === 'zh' ? '页脚导航' : 'Footer navigation'}"><a href="${lang === 'zh' ? '/zh/privacy.html' : '/privacy.html'}">${lang === 'zh' ? '隐私' : 'Privacy'}</a><a href="${switchHref}" data-locale-switch="${switchLang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav></div></footer>
+  <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="${lang === 'zh' ? '页脚导航' : 'Footer navigation'}">${lang === 'zh'
+    ? `<a href="/zh/">首页</a><a href="/zh/benchmarks/">评测数据</a><a href="/zh/compare-ai-models/">同题对比教程</a><a href="/zh/privacy.html">隐私</a>`
+    : `<a href="/">Home</a><a href="/compare/">Compare</a><a href="/benchmarks/">Benchmarks</a><a href="/best-for/">Best AI by task</a><a href="/alternatives/">Alternatives</a><a href="/privacy.html">Privacy</a>`}<a href="${switchHref}" data-locale-switch="${switchLang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav></div></footer>
   <script src="${base}locale.js" defer></script>
   <script src="${base}download.js" defer></script>
   <script src="${base}script.js" defer></script>
@@ -660,7 +662,7 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
   const names = items.map((item) => item.name).join(' vs ');
   const h1 = lang === 'zh' ? `${names} 公开评测对比` : `${names}: public benchmark comparison`;
   const description = lang === 'zh'
-    ? `${names} 公开第三方评测对比：列出双方共有的测试项、精确模型版本、原始来源与适用边界，便于用同一提示词自行验证。`
+    ? `${names} 公开第三方评测对比：列出双方共有的测试项、精确模型版本、原始来源与适用边界，便于用同一提示词自行验证；并附官网入口与同题实测任务清单。`
     : `Public third-party benchmark results, exact model versions, and official sources for ${names}.`;
   const retrievedAt = sharedBenchmarkGroups(page.models)
     .map((group) => group.retrievedAt)
@@ -925,6 +927,73 @@ function generateProductPage(page) {
   };
 }
 
+function bestForTitle(h1, items) {
+  // Google truncates titles around 60 characters: keep the target keyword
+  // first, list at most three models, and keep the brand suffix only when the
+  // whole string stays inside the safe window.
+  const names = items
+    .slice(0, 3)
+    .map((item) => displayModelName(item).replace(/^Microsoft /, ''))
+    .join(', ');
+  const base = `${h1}: ${names}`;
+  return base.length + 11 <= 60 ? `${base} | ModelAny` : base;
+}
+
+/**
+ * Cross-section related links for guide pages. Guide sections used to link
+ * only to their own hub; these descriptive-anchor links let crawlers and
+ * readers move between task guides, pair comparisons, and alternatives.
+ */
+function relatedGuidesHtml(page, section, items) {
+  const modelIds = items.map((item) => item.id);
+  const links = [];
+  const seen = new Set();
+  const push = (href, label) => {
+    if (!href || seen.has(href) || href === `/${section}/${page.slug}/`) return;
+    seen.add(href);
+    links.push({ href, label });
+  };
+
+  // A two-model guide links to pairs sharing both models; a single-model
+  // guide (alternatives) links to evidence pairs that include its target.
+  const pairPages = comparePages.filter((p) => !p.canonicalSlug
+    && p.models.length === 2
+    && (modelIds.length >= 2
+      ? p.models.every((id) => modelIds.includes(id))
+      : p.models.includes(modelIds[0])));
+  for (const p of pairPages.slice(0, 2)) {
+    const pairNames = resolveModels(p.models).map((item) => item.name).join(' vs ');
+    push(`/compare/${p.slug}/`, `${pairNames}: public benchmark comparison`);
+  }
+
+  const focus = page.focus;
+  if (focus) {
+    const focusGuides = bestForPages.filter((p) => p.focus === focus && KEPT_BEST_FOR_SLUGS.has(p.slug) && p.slug !== page.slug);
+    for (const p of focusGuides.slice(0, 2)) push(`/best-for/${p.slug}/`, titleCase(p.keyword));
+    const altGuides = alternativePages.filter((p) => p.focus === focus && p.slug !== page.slug);
+    for (const p of altGuides.slice(0, 2)) push(`/alternatives/${p.slug}/`, titleCase(p.keyword));
+  }
+
+  if (section === 'alternatives') {
+    const targetGuides = bestForPages.filter((p) => KEPT_BEST_FOR_SLUGS.has(p.slug)).slice(0, 2);
+    for (const p of targetGuides) {
+      if (!links.some((l) => l.href === `/best-for/${p.slug}/`)) push(`/best-for/${p.slug}/`, titleCase(p.keyword));
+    }
+  }
+
+  push('/benchmarks/', 'AI model benchmarks by scenario');
+  push('/ai-browser-extension/', 'ModelAny browser extension overview');
+
+  if (links.length < 3) return '';
+  const list = links.slice(0, 5).map((link) => `<li><a href="${link.href}">${esc(link.label)}</a></li>`).join('\n            ');
+  return `<section class="seo-section" aria-labelledby="related-guides-heading">
+          <h2 id="related-guides-heading">Related guides</h2>
+          <ul class="seo-index-list">
+            ${list}
+          </ul>
+        </section>`;
+}
+
 function generateDraft(page, section, items, tests, lang = 'en') {
   const canonical = `/${section}/${page.slug}/`;
   const path = `${section}/${page.slug}/index.html`;
@@ -938,7 +1007,7 @@ function generateDraft(page, section, items, tests, lang = 'en') {
   const title = page.title || (lang === 'zh'
     ? `${h1} | ModelAny`
     : section === 'best-for'
-      ? `${h1}: Compare ${names} | ModelAny`
+      ? bestForTitle(h1, items)
       : `${h1} | ModelAny`);
   const description = guideMetaDescription(page, section, items, review, lang);
   return {
@@ -953,7 +1022,7 @@ function generateDraft(page, section, items, tests, lang = 'en') {
       description,
       h1,
       lang,
-      body: researchBody(page, section, items, lang, review),
+      body: `${researchBody(page, section, items, lang, review)}${section === 'best-for' || section === 'alternatives' || section === 'free' || section === 'pricing' ? relatedGuidesHtml(page, section, items) : ''}`,
       indexable,
       dateModified: review?.reviewedAt || CONTENT_UPDATED,
       breadcrumbs: [
@@ -965,7 +1034,7 @@ function generateDraft(page, section, items, tests, lang = 'en') {
   };
 }
 
-function generateHub(section, label, pages, lang = 'en') {
+function generateHub(section, label, pages, lang = 'en', title) {
   const canonical = `/${section}/`;
   const path = `${section}/index.html`;
   const publishablePages = pages.filter((page) => !page.canonicalSlug);
@@ -993,7 +1062,7 @@ function generateHub(section, label, pages, lang = 'en') {
     content: htmlPage({
       path,
       canonical,
-      title: `${label} | ModelAny`,
+      title: title || `${label} | ModelAny`,
       description: indexable
         ? (hubCopy[section] || 'Compare AI models using public third-party benchmark evidence, exact model versions, source links, and clearly stated limits.')
         : `${label} guide hub.`,
@@ -1134,11 +1203,11 @@ for (const page of pricingPages) records.push(generateDraft(page, 'pricing', res
 for (const page of productPages) records.push(generateProductPage(page));
 
 records.push(
-  generateHub('compare', 'AI model comparisons', comparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models))),
-  generateHub('best-for', 'Best AI by use case', bestForPages),
-  generateHub('alternatives', 'AI alternatives', alternativePages),
-  generateHub('free', 'Free AI guides', freePages),
-  generateHub('pricing', 'AI pricing guides', pricingPages),
+  generateHub('compare', 'AI model comparisons', comparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'en', 'AI Model Comparisons With Public Evidence | ModelAny'),
+  generateHub('best-for', 'Best AI by use case', bestForPages, 'en', 'Best AI by Use Case: Guides for Every Task | ModelAny'),
+  generateHub('alternatives', 'AI alternatives', alternativePages, 'en', 'AI Alternatives: Switch Tools by Constraint | ModelAny'),
+  generateHub('free', 'Free AI guides', freePages, 'en', 'Free AI Guides: Tiers, Trials & No-Login Access | ModelAny'),
+  generateHub('pricing', 'AI pricing guides', pricingPages, 'en', 'AI Pricing Guides: Estimate Cost by Usage | ModelAny'),
 );
 
 pruneRemovedCompareDirs();
