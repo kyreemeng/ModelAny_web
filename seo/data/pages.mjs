@@ -42,6 +42,14 @@ export const comparePages = [
 ];
 
 export const zhComparePages = [
+  // P0/P1 pairs mirror the English compare registry one-to-one so every EN
+  // page has a language-equivalent zh page for reciprocal hreflang alternates.
+  { slug: 'chatgpt-vs-deepseek', models: ['chatgpt', 'deepseek'], keyword: 'chatgpt vs deepseek', priority: 'P0' },
+  { slug: 'chatgpt-vs-claude', models: ['chatgpt', 'claude'], keyword: 'chatgpt vs claude', priority: 'P0' },
+  { slug: 'chatgpt-vs-gemini', models: ['chatgpt', 'gemini'], keyword: 'chatgpt vs gemini', priority: 'P0' },
+  { slug: 'deepseek-vs-claude', models: ['deepseek', 'claude'], keyword: 'deepseek vs claude', priority: 'P1' },
+  { slug: 'deepseek-vs-gemini', models: ['deepseek', 'gemini'], keyword: 'deepseek vs gemini', priority: 'P1' },
+  { slug: 'claude-vs-gemini', models: ['claude', 'gemini'], keyword: 'claude vs gemini', priority: 'P1' },
   { slug: 'qwen-vs-chatgpt', models: ['qwen', 'chatgpt'], keyword: '通义千问 vs chatgpt', priority: 'P0' },
   { slug: 'doubao-vs-chatgpt', models: ['doubao', 'chatgpt'], keyword: '豆包 vs chatgpt', priority: 'P0' },
   { slug: 'kimi-vs-chatgpt', models: ['kimi', 'chatgpt'], keyword: 'kimi vs chatgpt', priority: 'P0' },

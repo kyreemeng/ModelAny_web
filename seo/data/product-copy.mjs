@@ -264,6 +264,15 @@ const COPY = {
         'With ModelAny installed, open the conversation on ChatGPT, click the tab on the right edge of the page and choose PDF. The file is generated in your browser and downloads locally—nothing is uploaded to a ModelAny server. The same toolbar produces PDFs on Claude, Gemini, DeepSeek and other supported sites.',
       ],
       sections: [
+        section('artifact', 'What the exported PDF looks like', [
+          'The finished file is a clean, paginated PDF you would be comfortable attaching to an email or dropping into a records folder—no browser chrome, no sidebar, no cookie banners. It opens in any PDF reader and prints predictably on A4 or Letter.',
+        ], [
+          'A header block with the conversation title, the source site, and the export date, so the file is identifiable months later',
+          'Every turn in original order, labeled by speaker (You / ChatGPT), with no interleaved UI text',
+          'Structure kept intact: headings, numbered and bulleted lists, and code in monospaced blocks that survive copy-paste from the PDF',
+          'Images and uploaded attachments appear only if the page exposes them; otherwise the text notes the omission instead of leaving a gap',
+          'No share link and no upload: the file exists only on your disk until you send it somewhere yourself',
+        ]),
         section('toolbar', 'Route 1: export to PDF from the page (fastest)', [], [
           'Open the conversation in the ChatGPT web app and let the whole thread render (scroll to the top first)',
           'Click the ModelAny tab on the right edge of the page',

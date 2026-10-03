@@ -670,6 +670,12 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
     .sort()
     .at(-1);
   const lastmod = retrievedAt ? String(retrievedAt).slice(0, 10) : CONTENT_UPDATED;
+  // A page whose same-slug counterpart exists in the other language is a true
+  // translation pair: emit reciprocal hreflang alternates for it. Compare hubs
+  // are intentionally left unpaired (zh routes its hub to /zh/benchmarks/).
+  const counterpartRegistry = lang === 'zh' ? comparePages : zhComparePages;
+  const counterpart = counterpartRegistry.find((item) => item.slug === page.slug && !item.canonicalSlug);
+  const alternateUrl = counterpart ? `/${lang === 'zh' ? 'compare' : 'zh/compare'}/${page.slug}/` : undefined;
   return {
     path,
     url: canonical,
@@ -686,6 +692,7 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
       indexable,
       dateModified: lastmod,
       localeHref: lang === 'zh' ? '/compare/' : '/zh/benchmarks/',
+      alternateUrl,
       breadcrumbs: [
         { name: lang === 'zh' ? '首页' : 'Home', href: lang === 'zh' ? '/zh/' : '/' },
         { name: lang === 'zh' ? '评测数据' : 'Compare', href: lang === 'zh' ? '/zh/benchmarks/' : '/compare/' },
@@ -766,6 +773,28 @@ function aiChatComparisonBody(page, items, lang) {
             <li><strong>${lang === 'zh' ? '换一类任务再跑一次。' : 'Re-run on a second task before deciding.'}</strong> ${lang === 'zh' ? '一条提示词只是一个数据点；两三类任务才能看出模式——上面的表格说的正是这件事。' : 'One prompt makes a data point; two or three different task types make a pattern. Models lead in different categories—the tables above say the same thing.'}</li>
           </ol>
           <p>The full walkthrough with a scoring rubric is in the <a href="/side-by-side-ai-comparison/">side-by-side comparison method</a>; the three-way version is in <a href="/chatgpt-vs-claude-vs-gemini-same-prompt/">ChatGPT vs Claude vs Gemini on the same prompt</a>.</p>
+        </section>
+        <section class="seo-section" aria-labelledby="scorecard-heading">
+          <h2 id="scorecard-heading">${lang === 'zh' ? '同题实测表：一条起始提示词，11 个模型' : 'The same-prompt test sheet: one starter prompt, 11 models'}</h2>
+          <p>${lang === 'zh'
+            ? '下面这条起始提示词同时考察事实准确性、格式遵循与可执行性。原样复制发给 11 个模型，然后逐格填写你自己的实测结果——这张表在发表时是空白的，因为只有你的任务才能填满它。'
+            : 'The starter prompt below tests factual accuracy, instruction-following, and actionability at once. Copy it verbatim to all 11 models, then fill in your own results—this sheet ships blank because only your task can fill it in.'}</p>
+          <div class="seo-prompt"><p>${lang === 'zh'
+            ? '「用 200 字以内说明：为什么同一道数学题两个 AI 会给出不同答案？给出 3 个可核对的原因，每个原因配一个我能自己验证的检查方法。最后用一句话说明你会优先信任哪种回答。」'
+            : '"In 200 words or fewer: why can two AI models give different answers to the same math problem? Give 3 checkable reasons, each with a verification step I can run myself. End with one sentence on which kind of answer I should trust first."}'}</p></div>
+          <div class="seo-table-wrap">
+            <table class="seo-table">
+              <caption>${lang === 'zh' ? '11 模型同题实测记录表（自行填写）' : 'Same-prompt test sheet for 11 models (fill in your own results)'}</caption>
+              <thead><tr><th>${lang === 'zh' ? '模型' : 'Model'}</th><th>${lang === 'zh' ? '事实准确' : 'Factual accuracy'}</th><th>${lang === 'zh' ? '格式遵循' : 'Format compliance'}</th><th>${lang === 'zh' ? '修改成本' : 'Edit cost'}</th><th>${lang === 'zh' ? '耗时' : 'Time'}</th></tr></thead>
+              <tbody>${(lang === 'zh'
+                ? ['ChatGPT', 'Claude', 'Gemini', 'DeepSeek', 'Grok', '腾讯元宝', '文心一言', '通义千问', '豆包', 'Kimi', 'GLM']
+                : ['ChatGPT', 'Claude', 'Gemini', 'DeepSeek', 'Grok', 'Tencent Yuanbao', 'Wenxin', 'Qwen', 'Doubao', 'Kimi', 'GLM'])
+                .map((name) => `<tr><th scope="row">${esc(name)}</th><td></td><td></td><td></td><td></td></tr>`).join('\n              ')}</tbody>
+            </table>
+          </div>
+          <p class="seo-note">${lang === 'zh'
+            ? '打分口径与第 4 步一致：每格记录 1-5 分或一句话事实。同一格不要跨任务复用——结论只对同类任务成立。'
+            : 'Score each cell 1-5 or write a one-line fact, matching step 4. Never reuse a cell across task types—the conclusion only holds for tasks of that kind.'}</p>
         </section>
         <section class="seo-section" aria-labelledby="oneclick-heading">
           <h2 id="oneclick-heading">${lang === 'zh' ? '一键替代十一个标签页' : 'One click instead of eleven tabs'}</h2>
@@ -1166,6 +1195,14 @@ function writeSitemap(records) {
     '/ai-chat-memory/': { en: '/ai-chat-memory/', zh: '/zh/ai-memory/' },
     '/zh/ai-memory/': { en: '/ai-chat-memory/', zh: '/zh/ai-memory/' },
   };
+  // Compare pairs published in both languages declare reciprocal alternates;
+  // zh-only pairs (qwen/doubao/glm/kimi groups) stay single-language entries.
+  for (const page of comparePages) {
+    if (page.canonicalSlug) continue;
+    if (!zhComparePages.some((item) => item.slug === page.slug && !item.canonicalSlug)) continue;
+    languagePairs[`/compare/${page.slug}/`] = { en: `/compare/${page.slug}/`, zh: `/zh/compare/${page.slug}/` };
+    languagePairs[`/zh/compare/${page.slug}/`] = { en: `/compare/${page.slug}/`, zh: `/zh/compare/${page.slug}/` };
+  }
   const body = entries.map((entry) => {
     const pair = languagePairs[entry.url];
     const alternates = pair

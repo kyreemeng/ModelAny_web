@@ -262,4 +262,114 @@ export const zhCompareNotes = {
     ],
     bottomLine: '这是八对里公开证据最丰富的一组：Arena 口碑与推理、语言项 Kimi 略优，Agentic Coding 与数学 DeepSeek 明显领先，SWE-bench 真实代码修复几乎持平——按任务选，而不是按品牌选。',
   },
+
+  'chatgpt-vs-deepseek': {
+    headline: 'ChatGPT vs DeepSeek：差异集中在哪',
+    snapshot: [
+      {
+        label: '综合分项（LiveBench）',
+        text: '在 2026-09-29 抓取的公开快照里，ChatGPT 的代表配置（gpt-6-astra-max 等）在语言 89.4（第 3）、推理 92.7（第 1）、数学 96.8（第 3）、数据分析 83.0（第 1）领先；DeepSeek 的 deepseek-v4.1-flash-max 在 Agentic Coding 一项拿到 77.3、排全榜第 1，反超 ChatGPT 的 57.3（第 21）。编程这一项两家差距最大，且方向与综合印象相反。',
+      },
+      {
+        label: '人类偏好口吻（LMArena）',
+        text: '代码类：ChatGPT gpt-6-astra-max 1792 Elo（第 2）明显高于 DeepSeek deepseek-v4.1-flash-max 1621（第 16）；文本类两者仅差 6 分（1483 对 1477）——日常问答的盲测偏好几乎打平，代码场景差距才拉开。',
+      },
+      {
+        label: '真实代码修复（SWE-bench Verified）',
+        text: 'ChatGPT 系最好配置（JoyCode + Claude 4 Sonnet + GPT-4.1）修好 74.6%，DeepSeek V3.2 (high) 为 70%。注意 ChatGPT 侧是「智能体框架 + 模型」的组合成绩。',
+      },
+    ],
+    practical: [
+      {
+        label: '访问与登录',
+        text: 'DeepSeek 官网 chat.deepseek.com 面向中国大陆用户可直接访问、手机号即可登录，开源权重可自部署；ChatGPT 需要非中国大陆地区的访问条件与相应账号。',
+      },
+      {
+        label: '产品定位',
+        text: 'ChatGPT 的英文任务、工具链与多模态覆盖更全；DeepSeek 以开放权重、推理与数学口碑见长，API 价格通常更低。若你的任务是中文为主、预算敏感，DeepSeek 的主场优势在榜单之外。',
+      },
+      {
+        label: '价格与套餐',
+        text: '两边定价结构不同且经常调整，本页不引用具体数字。请在 DeepSeek 官网与 OpenAI 定价页（见下方官方来源）核对当前套餐、免费额度与 API 价格。',
+      },
+    ],
+    testPack: [
+      '智能体式编程：给一个需要多步修改的真实小项目任务，观察谁更少中途丢失上下文（DeepSeek 在该分项排第 1）',
+      '多步推理：同一道多步题要求展示中间步骤，核对哪边的步骤经得起复算（ChatGPT 推理分项排第 1）',
+      '长对话续写：把同一段 20 轮对话分别接给两边，核对谁更早忘记前面的约束',
+    ],
+    bottomLine: '公开快照里 ChatGPT 在语言、推理、数学、数据分析全面领先，但 DeepSeek 拿下了 Agentic Coding 单项第 1，且文本偏好几乎打平、大陆可直连——综合强不强看榜单，适不适合看你的任务与访问条件。',
+  },
+
+  'chatgpt-vs-claude': {
+    headline: 'ChatGPT vs Claude：差异集中在哪',
+    snapshot: [
+      {
+        label: '写作与代码口碑（LMArena）',
+        text: '在 2026-09-25 发布、2026-09-29 抓取的榜单里，文本类 Claude claude-opus-5.5-high 1509 Elo 排第 1，ChatGPT gpt-5.6-sol-xhigh 1483 排第 19；代码类 Claude claude-opus-5.5-max 1827（第 1）对 ChatGPT gpt-6-astra-max 1792（第 2）——差距很小但方向一致。搜索类例外：ChatGPT 1257（第 1）对 Claude 1253（第 2）。',
+      },
+      {
+        label: '能力分项（LiveBench）',
+        text: '编程 Claude claude-sonnet-5-5-max-effort 91.4 排第 1（ChatGPT 83.9，第 7）；Agentic Coding Claude 71.7（第 2）对 ChatGPT 57.3（第 21）。反过来，数据分析 ChatGPT 83.0 排第 1（Claude 80.5，第 4），推理 ChatGPT 92.7（第 1）对 Claude 92.2（第 2）几乎持平。写作相关（语言分项）Claude 90.7（第 1）对 89.4（第 3）。',
+      },
+      {
+        label: '真实代码修复（SWE-bench Verified）',
+        text: 'Claude 侧提交（Sonar Foundation Agent + Claude 4.5 Opus）修好 79.2%，排全榜第 1；ChatGPT 系最好配置（JoyCode + Claude 4 Sonnet + GPT-4.1）为 74.6%。两侧都是「智能体框架 + 模型」的组合成绩。',
+      },
+    ],
+    practical: [
+      {
+        label: '访问与登录',
+        text: '两边都需要非中国大陆地区的访问条件与相应账号（claude.ai 与 chatgpt.com）。对中国大陆用户，这一对的同题实测门槛相同，选择主要看任务与订阅预算。',
+      },
+      {
+        label: '产品定位',
+        text: 'Claude 在长文档阅读、代码重构与英文写作上口碑扎实（多项分项第 1）；ChatGPT 的生态更广：搜索接入、图像生成、语音与插件矩阵。把「每天最重的那个任务」放进同题实测再决定。',
+      },
+      {
+        label: '价格与套餐',
+        text: '两边定价结构不同且经常调整，本页不引用具体数字。请在 Anthropic 与 OpenAI 定价页（见下方官方来源）核对当前套餐、免费额度与支付方式。',
+      },
+    ],
+    testPack: [
+      '长文档任务：投喂同一份 50 页 PDF，要各自引用页码回答细节，核对谁记得住前后文',
+      '代码重构：同一段难读的代码要求「只改可读性不改行为」，跑测试确认谁真的没改坏（Claude 编程分项第 1）',
+      '联网核查：让两边对同一时效性问题给出带来源的答案，核对引用质量（ChatGPT 搜索类第 1）',
+    ],
+    bottomLine: '这一对几乎每项都是前两名内斗：写作与代码 Claude 略优（多个分项第 1），搜索与数据分析 ChatGPT 略优，推理打平——差距小到值得用你自己的真实任务连续测一周，而不是看单一榜单。',
+  },
+
+  'chatgpt-vs-gemini': {
+    headline: 'ChatGPT vs Gemini：差异集中在哪',
+    snapshot: [
+      {
+        label: '指令遵循与真实代码修复',
+        text: '在 2026-09-29 抓取的公开快照里，有两项是 Gemini 领先的：LiveBench 指令遵循 gemini-3.8-flash-high 81.4 排全榜第 1（ChatGPT 75.6，第 8）；SWE-bench Verified 上 Gemini 侧提交（live-SWE-agent + Gemini 3 Pro Preview）修好 77.4%（第 4），高于 ChatGPT 系最好配置的 74.6%。',
+      },
+      {
+        label: '推理、数据与搜索类',
+        text: '其余分项 ChatGPT 全面领先：推理 92.7（第 1）对 Gemini 89.3（第 16）；数据分析 83.0（第 1）对 78.5（第 21）；Arena 搜索类 1257（第 1）对 1210（第 9）；代码偏好 1792（第 2）对 1593（第 23）。文本偏好例外：Gemini 1492（第 10）略高于 ChatGPT 1483（第 19）。',
+      },
+    ],
+    practical: [
+      {
+        label: '访问与登录',
+        text: 'Gemini 官网 gemini.google.com 需要Google 账号，中国大陆访问需相应网络条件；ChatGPT 同样需要非大陆地区的访问条件。两者的实测门槛相当。',
+      },
+      {
+        label: '产品定位',
+        text: 'Gemini 与 Google 全家桶（搜索接地、Workspace、Android 端）整合最深，长上下文窗口大；ChatGPT 的插件与多模态生态更成熟。已有 Google 工作流的团队值得把 Gemini 放进同题实测。',
+      },
+      {
+        label: '价格与套餐',
+        text: '两边定价结构不同且经常调整，本页不引用具体数字。请在 Google One / Gemini 与 OpenAI 定价页（见下方官方来源）核对当前套餐与免费额度。',
+      },
+    ],
+    testPack: [
+      '指令遵循：给一段含 5 条以上硬性格式要求的复杂提示词，核对谁一条不漏（Gemini 该分项第 1）',
+      '数据分析：给同一份带脏数据的表格，要求清洗思路 + 结论，核对谁的处理更可靠（ChatGPT 该分项第 1）',
+      '真实代码修复：把同一个未修复的报错分别交给两边，限定回答格式，核对谁的修复能直接跑通',
+    ],
+    bottomLine: '这不是一边倒的对局：Gemini 拿下了指令遵循第 1 和 SWE-bench 更高的组合成绩，ChatGPT 则在推理、数据分析与代码偏好上领先。结合你已有的生态（Google 全家桶或 OpenAI 工具链）同题实测，比看总分更有意义。',
+  },
 };

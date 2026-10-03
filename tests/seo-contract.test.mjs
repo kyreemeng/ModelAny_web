@@ -122,12 +122,22 @@ test('generated comparison pages avoid unsupported rankings and FAQ rich-result 
   assert.doesNotMatch(html, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/benchmarks\//);
 });
 
-test('sitemap declares reciprocal language alternates only for equivalent pages', async () => {
+test('sitemap declares reciprocal language alternates for equivalent pages', async () => {
   const sitemap = await projectFile('sitemap.xml');
   assert.match(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/);
   assert.match(sitemap, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/benchmarks\/"/);
+  // Compare pairs now have language-equivalent zh pages: the sitemap entries
+  // must cross-link both directions and include x-default on each.
   const comparisonEntry = sitemap.match(/<url>\s*<loc>https:\/\/www\.modelany\.app\/compare\/chatgpt-vs-deepseek\/<\/loc>[\s\S]*?<\/url>/)?.[0] || '';
-  assert.doesNotMatch(comparisonEntry, /hreflang="zh-CN"/);
+  assert.match(comparisonEntry, /hreflang="en" href="https:\/\/www\.modelany\.app\/compare\/chatgpt-vs-deepseek\/"/);
+  assert.match(comparisonEntry, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/compare\/chatgpt-vs-deepseek\/"/);
+  assert.match(comparisonEntry, /hreflang="x-default" href="https:\/\/www\.modelany\.app\/compare\/chatgpt-vs-deepseek\/"/);
+  const zhEntry = sitemap.match(/<url>\s*<loc>https:\/\/www\.modelany\.app\/zh\/compare\/chatgpt-vs-deepseek\/<\/loc>[\s\S]*?<\/url>/)?.[0] || '';
+  assert.match(zhEntry, /hreflang="en" href="https:\/\/www\.modelany\.app\/compare\/chatgpt-vs-deepseek\/"/);
+  assert.match(zhEntry, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/compare\/chatgpt-vs-deepseek\/"/);
+  // zh-only pairs (no EN counterpart) must stay single-language entries.
+  const zhOnlyEntry = sitemap.match(/<url>\s*<loc>https:\/\/www\.modelany\.app\/zh\/compare\/qwen-vs-chatgpt\/<\/loc>[\s\S]*?<\/url>/)?.[0] || '';
+  assert.doesNotMatch(zhOnlyEntry, /hreflang="en"/);
 });
 
 test('every sitemap page includes first-party traffic measurement', async () => {

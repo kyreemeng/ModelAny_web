@@ -354,7 +354,12 @@ library with full-text search; prompt library; sensitive-info masking; Edge Add-
 
 **锚文本多样化深链（按对方目录的主题挑一条用，避免全站单一锚文本）**
 
+> P0 定向：外链资源优先给**首页**（树根）与下面前两条 P0 深链（`/ai-chat-comparison/` 与 `/export-chatgpt-conversation-to-pdf/`），其余按目录主题分散。
+
 ```html
+<a href="https://www.modelany.app/">ModelAny — ask multiple AI at once and compare answers side by side</a>
+<a href="https://www.modelany.app/ai-chat-comparison/">AI chat comparison: dated benchmarks + same-prompt method</a>
+<a href="https://www.modelany.app/export-chatgpt-conversation-to-pdf/">export a ChatGPT conversation to PDF (free, in-browser)</a>
 <a href="https://www.modelany.app/compare-ai-models/">how to compare AI models with the same prompt</a>
 <a href="https://www.modelany.app/export-chatgpt-conversation/">export ChatGPT conversation to PDF, Word or Markdown</a>
 <a href="https://www.modelany.app/youtube-video-summarizer/">summarize YouTube videos with ChatGPT</a>
