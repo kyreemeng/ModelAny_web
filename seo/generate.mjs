@@ -17,7 +17,9 @@ import {
   bestForPages,
   comparePages,
   freePages,
+  KEPT_ALTERNATIVE_SLUGS,
   KEPT_BEST_FOR_SLUGS,
+  KEPT_PRICING_SLUGS,
   mergeRedirects,
   pricingPages,
   productPages,
@@ -164,6 +166,12 @@ function zhPairNotesHtml(page, lang) {
     .map((item) => `<li><strong>${esc(item.label)}：</strong>${esc(item.text)}</li>`)
     .join('\n            ');
   const pack = note.testPack.map((task) => `<li>${esc(task)}</li>`).join('\n            ');
+  const decision = (note.decision || []).length
+    ? `<h3>怎么选：按你的任务落位</h3>
+          <ul>
+            ${labeled(note.decision)}
+          </ul>`
+    : '';
   return `<section class="seo-section" aria-labelledby="pair-differences-heading">
           <h2 id="pair-differences-heading">${esc(note.headline)}</h2>
           <h3>公开评测快照里的差异</h3>
@@ -178,6 +186,7 @@ function zhPairNotesHtml(page, lang) {
           <ol>
             ${pack}
           </ol>
+          ${decision}
           <p>${esc(note.bottomLine)}</p>
           <p class="seo-note">快照证据的抓取时间与原始来源见下方评测表。实测任务请在你自己的账号上运行；本页提供证据与任务设计，不代你下结论。</p>
         </section>`;
@@ -254,6 +263,7 @@ function displayModelName(item, lang = 'en') {
 }
 
 function guideCriteria(page, section, items, review, lang) {
+  if (page?.criteria?.length) return page.criteria;
   if (review?.criteria?.length) return review.criteria;
   const names = items.map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '、' : ', ');
   const targetName = displayModelName(items[0] || { name: lang === 'zh' ? '该产品' : 'the product', id: '' }, lang);
@@ -384,7 +394,7 @@ function htmlPage({
   const base = assetBase(path);
   const pageUrl = `${SITE}${canonical}`;
   const robots = indexable ? 'index, follow, max-image-preview:large, max-snippet:-1' : 'noindex, follow, max-image-preview:large, max-snippet:-1';
-  const switchHref = localeHref || (lang === 'zh' ? '/compare/' : '/zh/benchmarks/');
+  const switchHref = localeHref || (lang === 'zh' ? '/' : '/zh/');
   const switchLabel = lang === 'zh' ? 'English' : '中文';
   const switchLang = lang === 'zh' ? 'en' : 'zh';
   const switchHreflang = lang === 'zh' ? 'en' : 'zh-CN';
@@ -546,7 +556,7 @@ function htmlPage({
   <a href="#main" class="skip-link">${lang === 'zh' ? '跳到主要内容' : 'Skip to main content'}</a>
   <header class="site-header"><div class="container nav-container">
     <a href="${lang === 'zh' ? '/zh/' : '/'}" class="brand" aria-label="ModelAny ${lang === 'zh' ? '首页' : 'home'}"><img src="${base}assets/favicon-192.png" alt="" class="brand-icon" width="36" height="36"><span class="brand-text">ModelAny</span></a>
-    <nav class="nav-menu" id="nav-menu" aria-label="${lang === 'zh' ? '主导航' : 'Primary navigation'}">${lang === 'zh' ? '' : '<a href="/compare/">Compare</a>'}<a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '评测数据' : 'Benchmarks'}</a><a href="${switchHref}" data-locale-switch="${switchLang}" class="locale-switch nav-menu-locale" hreflang="${switchHreflang}" lang="${switchHreflang}">${globeIcon}<span>${switchLabel}</span></a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav>${mobileNav}
+    <nav class="nav-menu" id="nav-menu" aria-label="${lang === 'zh' ? '主导航' : 'Primary navigation'}">${lang === 'zh' ? '<a href="/zh/compare/">模型对比</a>' : '<a href="/compare/">Compare</a>'}<a href="${lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/'}">${lang === 'zh' ? '评测数据' : 'Benchmarks'}</a><a href="${switchHref}" data-locale-switch="${switchLang}" class="locale-switch nav-menu-locale" hreflang="${switchHreflang}" lang="${switchHreflang}">${globeIcon}<span>${switchLabel}</span></a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav>${mobileNav}
   </div></header>
   <main id="main" class="seo-main"><div class="container seo-container">
     <nav class="seo-breadcrumb" aria-label="Breadcrumb"><ol>${crumbHtml}</ol></nav>
@@ -558,7 +568,7 @@ function htmlPage({
     </article>
   </div></main>
   <footer class="site-footer"><div class="container footer-container"><div class="footer-brand"><span>ModelAny</span></div><nav class="footer-links" aria-label="${lang === 'zh' ? '页脚导航' : 'Footer navigation'}">${lang === 'zh'
-    ? `<a href="/zh/">首页</a><a href="/zh/benchmarks/">评测数据</a><a href="/zh/compare-ai-models/">同题对比教程</a><a href="/zh/privacy.html">隐私</a>`
+    ? `<a href="/zh/">首页</a><a href="/zh/compare/">模型对比</a><a href="/zh/benchmarks/">评测数据</a><a href="/zh/compare-ai-models/">同题对比教程</a><a href="/zh/privacy.html">隐私</a>`
     : `<a href="/">Home</a><a href="/compare/">Compare</a><a href="/benchmarks/">Benchmarks</a><a href="/best-for/">Best AI by task</a><a href="/alternatives/">Alternatives</a><a href="/privacy.html">Privacy</a>`}<a href="${switchHref}" data-locale-switch="${switchLang}">${switchLabel}</a><a href="${DOWNLOAD}" data-download-cta>${downloadLabel}</a></nav></div></footer>
   <script src="${base}locale.js" defer></script>
   <script src="${base}download.js" defer></script>
@@ -661,9 +671,9 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
   const indexable = prefix === 'compare' ? CORE_COMPARE_SLUGS.has(page.slug) : true;
   const names = items.map((item) => item.name).join(' vs ');
   const h1 = lang === 'zh' ? `${names} 公开评测对比` : `${names}: public benchmark comparison`;
-  const description = lang === 'zh'
+  const description = page.serpDescription || (lang === 'zh'
     ? `${names} 公开第三方评测对比：列出双方共有的测试项、精确模型版本、原始来源与适用边界，便于用同一提示词自行验证；并附官网入口与同题实测任务清单。`
-    : `Public third-party benchmark results, exact model versions, and official sources for ${names}.`;
+    : `Public third-party benchmark results, exact model versions, and official sources for ${names}.`);
   const retrievedAt = sharedBenchmarkGroups(page.models)
     .map((group) => group.retrievedAt)
     .filter(Boolean)
@@ -672,7 +682,8 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
   const lastmod = retrievedAt ? String(retrievedAt).slice(0, 10) : CONTENT_UPDATED;
   // A page whose same-slug counterpart exists in the other language is a true
   // translation pair: emit reciprocal hreflang alternates for it. Compare hubs
-  // are intentionally left unpaired (zh routes its hub to /zh/benchmarks/).
+  // are paired (/compare/ <-> /zh/compare/). ZH-only pairs fall back to the
+  // opposite-language hub for the locale switch.
   const counterpartRegistry = lang === 'zh' ? comparePages : zhComparePages;
   const counterpart = counterpartRegistry.find((item) => item.slug === page.slug && !item.canonicalSlug);
   const alternateUrl = counterpart ? `/${lang === 'zh' ? 'compare' : 'zh/compare'}/${page.slug}/` : undefined;
@@ -684,18 +695,18 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
     content: htmlPage({
       path,
       canonical,
-      title: `${h1} | ModelAny`,
+      title: page.serpTitle || `${h1} | ModelAny`,
       description,
       h1,
       lang,
       body: comparisonBody(page, items, lang),
       indexable,
       dateModified: lastmod,
-      localeHref: lang === 'zh' ? '/compare/' : '/zh/benchmarks/',
+      localeHref: alternateUrl || (lang === 'zh' ? '/compare/' : '/zh/compare/'),
       alternateUrl,
       breadcrumbs: [
         { name: lang === 'zh' ? '首页' : 'Home', href: lang === 'zh' ? '/zh/' : '/' },
-        { name: lang === 'zh' ? '评测数据' : 'Compare', href: lang === 'zh' ? '/zh/benchmarks/' : '/compare/' },
+        { name: lang === 'zh' ? '模型对比' : 'Compare', href: lang === 'zh' ? '/zh/compare/' : '/compare/' },
         { name: names, href: canonical },
       ],
     }),
@@ -710,10 +721,29 @@ function renderCopySections(sections) {
       const tag = block.listOrdered ? 'ol' : 'ul';
       list = `<${tag}>${block.list.map((item) => `<li>${esc(item)}</li>`).join('')}</${tag}>`;
     }
+    // Sections may carry a data table (used by the 11-model same-prompt sheet).
+    let table = '';
+    if (block.table) {
+      const prompt = block.table.prompt
+        ? `<div class="seo-prompt"><p>${esc(block.table.prompt)}</p></div>`
+        : '';
+      const head = block.table.head.map((cell) => `<th>${esc(cell)}</th>`).join('');
+      const rows = block.table.rows.map((row) => `<tr>${row
+        .map((cell, index) => (index === 0 ? `<th scope="row">${esc(cell)}</th>` : `<td>${esc(cell)}</td>`))
+        .join('')}</tr>`).join('\n              ');
+      table = `${prompt}<div class="seo-table-wrap">
+            <table class="seo-table">
+              ${block.table.caption ? `<caption>${esc(block.table.caption)}</caption>` : ''}
+              <thead><tr>${head}</tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>`;
+    }
     return `<section class="seo-section" aria-labelledby="${esc(block.id)}-heading">
           <h2 id="${esc(block.id)}-heading">${esc(block.heading)}</h2>
           ${paragraphs}
           ${list}
+          ${table}
         </section>`;
   }).join('\n        ');
 }
@@ -999,7 +1029,7 @@ function relatedGuidesHtml(page, section, items) {
   if (focus) {
     const focusGuides = bestForPages.filter((p) => p.focus === focus && KEPT_BEST_FOR_SLUGS.has(p.slug) && p.slug !== page.slug);
     for (const p of focusGuides.slice(0, 2)) push(`/best-for/${p.slug}/`, titleCase(p.keyword));
-    const altGuides = alternativePages.filter((p) => p.focus === focus && p.slug !== page.slug);
+    const altGuides = alternativePages.filter((p) => p.focus === focus && KEPT_ALTERNATIVE_SLUGS.has(p.slug) && p.slug !== page.slug);
     for (const p of altGuides.slice(0, 2)) push(`/alternatives/${p.slug}/`, titleCase(p.keyword));
   }
 
@@ -1007,6 +1037,24 @@ function relatedGuidesHtml(page, section, items) {
     const targetGuides = bestForPages.filter((p) => KEPT_BEST_FOR_SLUGS.has(p.slug)).slice(0, 2);
     for (const p of targetGuides) {
       if (!links.some((l) => l.href === `/best-for/${p.slug}/`)) push(`/best-for/${p.slug}/`, titleCase(p.keyword));
+    }
+    // Sibling alternatives would otherwise be reachable only from the hub,
+    // which left eleven of them sitting on a single inbound link.
+    const siblings = alternativePages.filter((p) => KEPT_ALTERNATIVE_SLUGS.has(p.slug) && p.slug !== page.slug);
+    const offset = Math.max(0, alternativePages.findIndex((p) => p.slug === page.slug));
+    for (let i = 0; i < Math.min(3, siblings.length); i += 1) {
+      const p = siblings[(offset + i) % siblings.length];
+      push(`/alternatives/${p.slug}/`, titleCase(p.keyword));
+    }
+  }
+
+  if (section === 'pricing') {
+    // Same fix for the pricing cluster: it had no cross-links at all.
+    const siblings = pricingPages.filter((p) => KEPT_PRICING_SLUGS.has(p.slug) && p.slug !== page.slug);
+    const offset = Math.max(0, pricingPages.findIndex((p) => p.slug === page.slug));
+    for (let i = 0; i < Math.min(3, siblings.length); i += 1) {
+      const p = siblings[(offset + i) % siblings.length];
+      push(`/pricing/${p.slug}/`, titleCase(p.keyword));
     }
   }
 
@@ -1027,10 +1075,16 @@ function generateDraft(page, section, items, tests, lang = 'en') {
   const canonical = `/${section}/${page.slug}/`;
   const path = `${section}/${page.slug}/index.html`;
   const review = approvedReview(tests, section, page.slug);
-  // best-for pages outside KEPT_BEST_FOR_SLUGS stay live but are served with
-  // noindex: they keep working for humans and old links without competing for
-  // crawl budget against the pages that earn clicks.
-  const indexable = section === 'best-for' ? KEPT_BEST_FOR_SLUGS.has(page.slug) : true;
+  // Thin template pages stay live but are served with noindex: they keep
+  // working for humans and old links without competing for crawl budget
+  // against the pages that earn clicks or have unique copy.
+  const indexable = section === 'best-for'
+    ? KEPT_BEST_FOR_SLUGS.has(page.slug)
+    : section === 'alternatives'
+      ? KEPT_ALTERNATIVE_SLUGS.has(page.slug)
+      : section === 'pricing'
+        ? KEPT_PRICING_SLUGS.has(page.slug)
+        : true;
   const h1 = page.h1 || (lang === 'zh' ? page.keyword : titleCase(page.keyword));
   const names = items.map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '、' : ', ');
   const title = page.title || (lang === 'zh'
@@ -1051,7 +1105,7 @@ function generateDraft(page, section, items, tests, lang = 'en') {
       description,
       h1,
       lang,
-      body: `${researchBody(page, section, items, lang, review)}${section === 'best-for' || section === 'alternatives' || section === 'free' || section === 'pricing' ? relatedGuidesHtml(page, section, items) : ''}`,
+      body: `${researchBody(page, section, items, lang, review)}${['best-for', 'alternatives', 'free', 'pricing'].includes(section) ? relatedGuidesHtml(page, section, items) : ''}`,
       indexable,
       dateModified: review?.reviewedAt || CONTENT_UPDATED,
       breadcrumbs: [
@@ -1063,19 +1117,32 @@ function generateDraft(page, section, items, tests, lang = 'en') {
   };
 }
 
-function generateHub(section, label, pages, lang = 'en', title) {
+function generateHub(section, label, pages, lang = 'en', title, options = {}) {
   const canonical = `/${section}/`;
   const path = `${section}/index.html`;
   const publishablePages = pages.filter((page) => !page.canonicalSlug);
-  // A pruned section (best-for) only links to the pages that still participate
-  // in search; noindexed drafts stay reachable from this list only when they
-  // are kept, so the hub does not endorse pages it withdrew from Google.
-  const listablePages = section === 'best-for'
-    ? publishablePages.filter((page) => KEPT_BEST_FOR_SLUGS.has(page.slug))
+  // A pruned section only links to the pages that still participate in search;
+  // noindexed drafts stay reachable from old URLs, but the hub should not
+  // endorse pages it withdrew from Google.
+  const keptSlugs = section === 'best-for'
+    ? KEPT_BEST_FOR_SLUGS
+    : section === 'alternatives'
+      ? KEPT_ALTERNATIVE_SLUGS
+      : section === 'pricing'
+        ? KEPT_PRICING_SLUGS
+        : null;
+  const listablePages = keptSlugs
+    ? publishablePages.filter((page) => keptSlugs.has(page.slug))
     : publishablePages;
   const links = listablePages.map((page) => {
     const linkLabel = lang === 'zh' ? page.keyword : titleCase(page.keyword);
     return `<li><a href="/${section}/${page.slug}/">${esc(linkLabel)}</a></li>`;
+  }).join('');
+  const zhLinks = listablePages.map((page) => {
+    const names = Array.isArray(page.models) && page.models.length
+      ? resolveModels(page.models).map((item) => item.name).join(' vs ')
+      : titleCase(page.keyword);
+    return `<li><a href="/${section}/${page.slug}/">${esc(names)} 公开评测对比</a></li>`;
   }).join('');
   const indexable = listablePages.length > 0;
   const hubCopy = {
@@ -1084,6 +1151,12 @@ function generateHub(section, label, pages, lang = 'en', title) {
     free: 'Guides to free access, free tiers, no-login options, and official conditions that can vary by region.',
     pricing: 'Cost-planning guides focused on your usage patterns, official documentation, and migration risk.',
   };
+  const compareBody = lang === 'zh'
+    ? `<div class="quick-verdict"><h2>先看证据，再谈排名</h2><p>下面每个对比页只使用两个模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，页面同时标明精确模型版本与抓取时间，也不把任何单一分数当作「全面第一」。</p></div><section class="seo-section"><h2>已发布的模型对比</h2><ul class="seo-index-list">${zhLinks}</ul></section><section class="seo-section"><h2>三方对比怎么读</h2><p>「ChatGPT vs Gemini vs Claude」这类三方搜索没有现成的三方榜单可引用，只能拆成三条两两对比。请分别阅读它们的共有评测类别，再用同一提示词亲自验证，而不是把三个分数合成一个总排名。</p><ul class="seo-index-list"><li><a href="/zh/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/zh/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/zh/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>用同一提示词自行验证</h2><p>先固定任务与合格标准，再并排检查事实、修改成本与各站点限制。</p><ul class="seo-index-list"><li><a href="/zh/compare-ai-models/">对比大模型：同一提示词并排验证</a></li><li><a href="/zh/benchmarks/">按场景查看全部公开评测数据</a></li><li><a href="/zh/ai-browser-extension/">AI 浏览器插件说明</a></li></ul></section><section class="seo-section"><h2>这些对比页如何审校</h2><p>每页保留原始排行榜链接、抓取时间、指标口径、精确模型版本与测试局限。</p><p><a href="/zh/benchmarks/">浏览按场景整理的全部公开评测数据</a></p></section>`
+    : `<div class="quick-verdict"><h2>Evidence before rankings</h2><p>Every comparison below uses results where the models appear in the same public benchmark category. Metrics stay separate, exact model versions are shown, and no single score is treated as a universal ranking.</p></div><section class="seo-section"><h2>Published AI model comparisons</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>ChatGPT vs Gemini vs Claude</h2><p>Searches for three-way comparisons still resolve to pairwise evidence. Read each shared-benchmark page, then run the same prompt in ModelAny instead of treating a single blended score as a ranking.</p><ul class="seo-index-list"><li><a href="/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>Try the same prompt yourself</h2><p>Define a repeatable task, compare answers side by side, and review editing cost before choosing a workflow.</p><ul class="seo-index-list"><li><a href="/compare-ai-models/">Compare AI models with the same prompt</a></li><li><a href="/side-by-side-ai-comparison/">Side-by-side AI comparison workflow</a></li><li><a href="/ai-browser-extension/">ChatGPT Chrome extension for comparing models</a></li></ul></section><section class="seo-section"><h2>How these comparisons are reviewed</h2><p>Each page preserves the source leaderboard, retrieval time, metric, exact model version, and stated test limitations.</p><p><a href="/benchmarks/">Browse all benchmark snapshots by scenario</a></p></section>`;
+  const foldBody = lang === 'zh'
+    ? `<div class="quick-verdict"><h2>按意图浏览</h2><p>${esc(options.zhIntro || `${label} 页面各自对应一个明确的搜索与选择意图。`)}</p></div><section class="seo-section"><h2>${label}</h2><ul class="seo-index-list">${zhLinks}</ul></section><section class="seo-section"><h2>使用说明</h2><p>价格、可用性与模型行为都可能变化。请打开官方来源，用代表性任务实测，并在重要决策上保留人工复核。</p></section>`
+    : '';
   return {
     path,
     url: canonical,
@@ -1093,16 +1166,22 @@ function generateHub(section, label, pages, lang = 'en', title) {
       canonical,
       title: title || `${label} | ModelAny`,
       description: indexable
-        ? (hubCopy[section] || 'Compare AI models using public third-party benchmark evidence, exact model versions, source links, and clearly stated limits.')
+        ? (options.description || hubCopy[section] || 'Compare AI models using public third-party benchmark evidence, exact model versions, source links, and clearly stated limits.')
         : `${label} guide hub.`,
       h1: label,
       lang,
       indexable,
       pageType: 'CollectionPage',
       body: section === 'compare'
-        ? `<div class="quick-verdict"><h2>Evidence before rankings</h2><p>Every comparison below uses results where the models appear in the same public benchmark category. Metrics stay separate, exact model versions are shown, and no single score is treated as a universal ranking.</p></div><section class="seo-section"><h2>Published AI model comparisons</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>ChatGPT vs Gemini vs Claude</h2><p>Searches for three-way comparisons still resolve to pairwise evidence. Read each shared-benchmark page, then run the same prompt in ModelAny instead of treating a single blended score as a ranking.</p><ul class="seo-index-list"><li><a href="/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>Try the same prompt yourself</h2><p>Define a repeatable task, compare answers side by side, and review editing cost before choosing a workflow.</p><ul class="seo-index-list"><li><a href="/compare-ai-models/">Compare AI models with the same prompt</a></li><li><a href="/side-by-side-ai-comparison/">Side-by-side AI comparison workflow</a></li><li><a href="/ai-browser-extension/">ChatGPT Chrome extension for comparing models</a></li></ul></section><section class="seo-section"><h2>How these comparisons are reviewed</h2><p>Each page preserves the source leaderboard, retrieval time, metric, exact model version, and stated test limitations.</p><p><a href="/benchmarks/">Browse all benchmark snapshots by scenario</a></p></section>`
+        ? compareBody
+        : lang === 'zh'
+          ? foldBody
         : `<div class="quick-verdict"><h2>Browse by intent</h2><p>${esc(hubCopy[section] || `${label} pages are organized around a distinct search and product-selection intent.`)}</p></div><section class="seo-section"><h2>${label}</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>Use these guides responsibly</h2><p>Availability, prices, and model behavior can change. Open the official sources, test a representative task, and keep human review for decisions with meaningful impact.</p></section>`,
-      breadcrumbs: [{ name: 'Home', href: '/' }, { name: label, href: canonical }],
+      breadcrumbs: lang === 'zh'
+        ? [{ name: '首页', href: '/zh/' }, { name: label, href: canonical }]
+        : [{ name: 'Home', href: '/' }, { name: label, href: canonical }],
+      localeHref: options.localeHref,
+      alternateUrl: options.alternateUrl,
     }),
   };
 }
@@ -1146,13 +1225,18 @@ function pruneRemovedCompareDirs() {
     ...mergeRedirects.map((item) => item.source.replace(/\/$/, '').replace(/^\//, '')),
   ]);
   for (const rel of pruneTargets) {
-    if (rel !== 'zh/compare' && !rel.startsWith('compare/') && !rel.startsWith('zh/compare/')
-      && !rel.startsWith('free/') && !rel.startsWith('alternatives/')) continue;
+    const prunable = rel === 'zh/compare' || rel === 'free'
+      || rel.startsWith('compare/') || rel.startsWith('zh/compare/')
+      || rel.startsWith('free/') || rel.startsWith('alternatives/');
+    if (!prunable) continue;
     if (keep.has(rel)) continue;
     const full = join(ROOT, rel);
     if (rel === 'zh/compare') {
       const hub = join(full, 'index.html');
       if (existsSync(hub)) rmSync(hub, { force: true });
+    } else if (rel === 'free') {
+      // /free/ is retired as a hub; the whole tree is redirected away.
+      if (existsSync(full)) rmSync(full, { recursive: true, force: true });
     } else if (existsSync(full)) {
       rmSync(full, { recursive: true, force: true });
     }
@@ -1194,6 +1278,12 @@ function writeSitemap(records) {
     '/zh/continue-in-another-ai/': { en: '/continue-chat-in-another-ai/', zh: '/zh/continue-in-another-ai/' },
     '/ai-chat-memory/': { en: '/ai-chat-memory/', zh: '/zh/ai-memory/' },
     '/zh/ai-memory/': { en: '/ai-chat-memory/', zh: '/zh/ai-memory/' },
+    // The comparison hubs are language equivalents: /compare/ and /zh/compare/
+    // each list the pairs published for that language.
+    '/compare/': { en: '/compare/', zh: '/zh/compare/' },
+    '/zh/compare/': { en: '/compare/', zh: '/zh/compare/' },
+    '/free-ai-no-login/': { en: '/free-ai-no-login/', zh: '/zh/free-ai-no-login/' },
+    '/zh/free-ai-no-login/': { en: '/free-ai-no-login/', zh: '/zh/free-ai-no-login/' },
   };
   // Compare pairs published in both languages declare reciprocal alternates;
   // zh-only pairs (qwen/doubao/glm/kimi groups) stay single-language entries.
@@ -1240,10 +1330,18 @@ for (const page of pricingPages) records.push(generateDraft(page, 'pricing', res
 for (const page of productPages) records.push(generateProductPage(page));
 
 records.push(
-  generateHub('compare', 'AI model comparisons', comparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'en', 'AI Model Comparisons With Public Evidence | ModelAny'),
+  generateHub('compare', 'AI model comparisons', comparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'en', 'AI Model Comparisons With Public Evidence | ModelAny', {
+    localeHref: '/zh/compare/',
+    alternateUrl: '/zh/compare/',
+  }),
+  generateHub('zh/compare', '模型对比', zhComparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'zh', '大模型对比：公开评测证据与同题验证方法 | ModelAny', {
+    description: 'ChatGPT、Claude、Gemini、DeepSeek、Kimi、GLM 等大模型的公开第三方评测对比：只展示双方共有的测试类别，标明精确模型版本与抓取时间，并给出同题实测方法。',
+    localeHref: '/compare/',
+    alternateUrl: '/compare/',
+    zhIntro: '每个对比页只使用双方共同出现在同一公开评测类别里的结果，并给出可自行复现的同题实测任务。',
+  }),
   generateHub('best-for', 'Best AI by use case', bestForPages, 'en', 'Best AI by Use Case: Guides for Every Task | ModelAny'),
   generateHub('alternatives', 'AI alternatives', alternativePages, 'en', 'AI Alternatives: Switch Tools by Constraint | ModelAny'),
-  generateHub('free', 'Free AI guides', freePages, 'en', 'Free AI Guides: Tiers, Trials & No-Login Access | ModelAny'),
   generateHub('pricing', 'AI pricing guides', pricingPages, 'en', 'AI Pricing Guides: Estimate Cost by Usage | ModelAny'),
 );
 

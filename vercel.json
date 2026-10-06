@@ -117,16 +117,6 @@
       "permanent": true
     },
     {
-      "source": "/zh/compare",
-      "destination": "/zh/benchmarks/",
-      "permanent": true
-    },
-    {
-      "source": "/zh/compare/",
-      "destination": "/zh/benchmarks/",
-      "permanent": true
-    },
-    {
       "source": "/compare/llm-benchmark",
       "destination": "/benchmarks/",
       "permanent": true
@@ -567,6 +557,16 @@
       "permanent": true
     },
     {
+      "source": "/free",
+      "destination": "/alternatives/",
+      "permanent": true
+    },
+    {
+      "source": "/free/",
+      "destination": "/alternatives/",
+      "permanent": true
+    },
+    {
       "source": "/free/chatgpt",
       "destination": "/alternatives/free-chatgpt/",
       "permanent": true
@@ -577,13 +577,103 @@
       "permanent": true
     },
     {
+      "source": "/free/ai-no-limits",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/free/ai-no-limits/",
+      "destination": "/alternatives/free-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/free/best-ai-chatbot",
+      "destination": "/alternatives/best-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/free/best-ai-chatbot/",
+      "destination": "/alternatives/best-chatgpt/",
+      "permanent": true
+    },
+    {
       "source": "/free/best-ai-chatbot-2026",
-      "destination": "/free/best-ai-chatbot/",
+      "destination": "/alternatives/best-chatgpt/",
       "permanent": true
     },
     {
       "source": "/free/best-ai-chatbot-2026/",
-      "destination": "/free/best-ai-chatbot/",
+      "destination": "/alternatives/best-chatgpt/",
+      "permanent": true
+    },
+    {
+      "source": "/free/best-ai-coding",
+      "destination": "/alternatives/chatgpt-coding/",
+      "permanent": true
+    },
+    {
+      "source": "/free/best-ai-coding/",
+      "destination": "/alternatives/chatgpt-coding/",
+      "permanent": true
+    },
+    {
+      "source": "/free/ai-api",
+      "destination": "/pricing/cheapest-api/",
+      "permanent": true
+    },
+    {
+      "source": "/free/ai-api/",
+      "destination": "/pricing/cheapest-api/",
+      "permanent": true
+    },
+    {
+      "source": "/free/claude",
+      "destination": "/alternatives/claude/",
+      "permanent": true
+    },
+    {
+      "source": "/free/claude/",
+      "destination": "/alternatives/claude/",
+      "permanent": true
+    },
+    {
+      "source": "/free/gemini",
+      "destination": "/alternatives/gemini/",
+      "permanent": true
+    },
+    {
+      "source": "/free/gemini/",
+      "destination": "/alternatives/gemini/",
+      "permanent": true
+    },
+    {
+      "source": "/free/deepseek",
+      "destination": "/alternatives/deepseek/",
+      "permanent": true
+    },
+    {
+      "source": "/free/deepseek/",
+      "destination": "/alternatives/deepseek/",
+      "permanent": true
+    },
+    {
+      "source": "/free/ai-tools-2026",
+      "destination": "/alternatives/",
+      "permanent": true
+    },
+    {
+      "source": "/free/ai-tools-2026/",
+      "destination": "/alternatives/",
+      "permanent": true
+    },
+    {
+      "source": "/free/ai-no-login",
+      "destination": "/free-ai-no-login/",
+      "permanent": true
+    },
+    {
+      "source": "/free/ai-no-login/",
+      "destination": "/free-ai-no-login/",
       "permanent": true
     }
   ]

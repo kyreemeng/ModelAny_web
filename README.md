@@ -276,7 +276,7 @@ ChatGPT, Claude, Gemini, DeepSeek, Kimi, Doubao, Qwen, GLM, AI chatbot, browser 
 | 支持 / 反馈 | https://github.com/kyreemeng/ModelAny/issues |
 | 联系邮箱 | kyreemeng@gmail.com |
 | AI 爬虫说明 | https://www.modelany.app/llms.txt |
-| 深度页（做锚文本用） | /ai-chat-comparison/ · /ask-multiple-ai-at-once/ · /export-chatgpt-conversation/ · /export-chatgpt-conversation-to-pdf/ · /export-chatgpt-conversation-to-markdown/ · /download-chatgpt-conversation/ · /copy-chatgpt-conversation/ · /save-chatgpt-conversation/ · /compare-ai-models/ · /youtube-video-summarizer/ · /continue-chat-in-another-ai/ · /ai-chat-memory/ · /chatgpt-vs-claude-vs-gemini-same-prompt/ · /benchmarks/ · /zh/compare/glm-vs-chatgpt/ |
+| 深度页（做锚文本用） | /ai-chat-comparison/ · /free-ai-no-login/ · /ask-multiple-ai-at-once/ · /export-chatgpt-conversation/ · /export-chatgpt-conversation-to-pdf/ · /export-chatgpt-conversation-to-markdown/ · /download-chatgpt-conversation/ · /copy-chatgpt-conversation/ · /save-chatgpt-conversation/ · /ai-exporter/ · /chatgpt-exporter/ · /gemini-exporter/ · /compare-ai-models/ · /youtube-video-summarizer/ · /continue-chat-in-another-ai/ · /ai-chat-memory/ · /chatgpt-vs-claude-vs-gemini-same-prompt/ · /benchmarks/ · /zh/compare/glm-vs-chatgpt/ |
 
 商店扩展 ID（部分目录/商店验证要用）：Chrome `kbpnggjenonafpcigahfaeiooojepfjn` · Edge `lfeckjibcfbjfdlepidpmnalpfimhdli`
 
@@ -354,14 +354,17 @@ library with full-text search; prompt library; sensitive-info masking; Edge Add-
 
 **锚文本多样化深链（按对方目录的主题挑一条用，避免全站单一锚文本）**
 
-> P0 定向：外链资源优先给**首页**（树根）与下面前两条 P0 深链（`/ai-chat-comparison/` 与 `/export-chatgpt-conversation-to-pdf/`），其余按目录主题分散。
+> 定向原则：外链资源优先给**首页**（树根）与核心深链（`/ai-chat-comparison/`、`/free-ai-no-login/`、`/export-chatgpt-conversation-to-pdf/`），其余按目录主题分散。链接候选与投放决策由项目负责人判断。
 
 ```html
-<a href="https://www.modelany.app/">ModelAny — ask multiple AI at once and compare answers side by side</a>
-<a href="https://www.modelany.app/ai-chat-comparison/">AI chat comparison: dated benchmarks + same-prompt method</a>
-<a href="https://www.modelany.app/export-chatgpt-conversation-to-pdf/">export a ChatGPT conversation to PDF (free, in-browser)</a>
+<a href="https://www.modelany.app/">ModelAny — AI comparison: one prompt to ChatGPT, Claude, Gemini and 7 more</a>
+<a href="https://www.modelany.app/">compare AI models side by side with your own accounts</a>
+<a href="https://www.modelany.app/ai-chat-comparison/">AI comparison: dated public benchmarks + the same-prompt method</a>
+<a href="https://www.modelany.app/free-ai-no-login/">free AI without login: what actually opens, and what it costs you</a>
+<a href="https://www.modelany.app/export-chatgpt-conversation-to-pdf/">export a ChatGPT conversation to PDF (free, generated in your browser)</a>
 <a href="https://www.modelany.app/compare-ai-models/">how to compare AI models with the same prompt</a>
 <a href="https://www.modelany.app/export-chatgpt-conversation/">export ChatGPT conversation to PDF, Word or Markdown</a>
+<a href="https://www.modelany.app/ai-exporter/">one AI exporter for ChatGPT, Claude, Gemini and DeepSeek</a>
 <a href="https://www.modelany.app/youtube-video-summarizer/">summarize YouTube videos with ChatGPT</a>
 <a href="https://www.modelany.app/continue-chat-in-another-ai/">continue a ChatGPT conversation in Claude</a>
 <a href="https://www.modelany.app/chatgpt-vs-claude-vs-gemini-same-prompt/">ChatGPT vs Claude vs Gemini: same prompt, three answers</a>

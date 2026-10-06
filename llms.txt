@@ -50,8 +50,14 @@ Workflow:
 - Download a ChatGPT conversation: https://www.modelany.app/download-chatgpt-conversation/
 - Copy a ChatGPT conversation: https://www.modelany.app/copy-chatgpt-conversation/
 - Save a ChatGPT conversation: https://www.modelany.app/save-chatgpt-conversation/
+- ChatGPT exporter: https://www.modelany.app/chatgpt-exporter/
+- Gemini exporter: https://www.modelany.app/gemini-exporter/
+- AI exporter: https://www.modelany.app/ai-exporter/
+- Free AI without login: https://www.modelany.app/free-ai-no-login/
 - ChatGPT Chrome extension guide: https://www.modelany.app/ai-browser-extension/
 - 对比大模型: https://www.modelany.app/zh/compare-ai-models/
+- 免登录的免费 AI: https://www.modelany.app/zh/free-ai-no-login/
+- 中文模型对比: https://www.modelany.app/zh/compare/
 - AI 浏览器插件: https://www.modelany.app/zh/ai-browser-extension/
 - Public benchmarks: https://www.modelany.app/benchmarks/
 - Model comparisons: https://www.modelany.app/compare/

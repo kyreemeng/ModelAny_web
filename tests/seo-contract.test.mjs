@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { hasSharedBenchmarkData } from '../seo/data/benchmarks.mjs';
-import { alternativePages, bestForPages, freePages, KEPT_BEST_FOR_SLUGS, pricingPages, productPages } from '../seo/data/pages.mjs';
+import { alternativePages, bestForPages, freePages, KEPT_ALTERNATIVE_SLUGS, KEPT_BEST_FOR_SLUGS, KEPT_PRICING_SLUGS, pricingPages, productPages } from '../seo/data/pages.mjs';
 
 const root = new URL('../', import.meta.url);
 
@@ -56,16 +56,27 @@ test('each benchmark table puts the higher score first', async () => {
   assert.ok(claudeRow < chatgptRow);
 });
 
-test('Chinese comparison hub is not published as a standalone page', async () => {
+test('Chinese comparison hub is published with a reciprocal hreflang pair', async () => {
+  // The zh pair pages need a real in-language parent: without it every
+  // /zh/compare/<pair>/ breadcrumb pointed at /zh/benchmarks/ and the EN hub
+  // had no declared Chinese equivalent.
+  const [hub, enHub, sitemap] = await Promise.all([
+    projectFile('zh/compare/index.html'),
+    projectFile('compare/index.html'),
+    projectFile('sitemap.xml'),
+  ]);
   const vercel = JSON.parse(await projectFile('vercel.json'));
-  const redirect = vercel.redirects.find((item) => item.source === '/zh/compare/');
 
-  assert.deepEqual(redirect, {
-    source: '/zh/compare/',
-    destination: '/zh/benchmarks/',
-    permanent: true,
-  });
-  assert.equal(await exists('zh/compare/index.html'), false);
+  assert.equal(vercel.redirects.find((item) => item.source === '/zh/compare/'), undefined);
+  assert.match(hub, /<link rel="canonical" href="https:\/\/www\.modelany\.app\/zh\/compare\/">/);
+  assert.match(hub, /hreflang="en" href="https:\/\/www\.modelany\.app\/compare\/"/);
+  assert.match(hub, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/compare\/"/);
+  assert.match(enHub, /hreflang="zh-CN" href="https:\/\/www\.modelany\.app\/zh\/compare\/"/);
+  assert.match(hub, /<meta name="robots" content="index, follow/);
+  assert.match(sitemap, /<loc>https:\/\/www\.modelany\.app\/zh\/compare\/<\/loc>/);
+
+  const pair = await projectFile('zh/compare/glm-vs-chatgpt/index.html');
+  assert.match(pair, /<li><a href="\/zh\/compare\/">模型对比<\/a><\/li>/, 'pair pages should link up to the zh hub');
 });
 
 test('core comparisons and task guides are indexable with selection content', async () => {
@@ -96,7 +107,7 @@ test('best-for pages outside the kept list are noindexed and excluded from the s
 
   assert.match(withdrawn, /<meta name="robots" content="noindex, follow/);
   assert.doesNotMatch(sitemap, /\/best-for\/research\//);
-  for (const slug of ['coding', 'code-review', 'academic-writing', 'excel']) {
+  for (const slug of ['coding', 'code-review', 'academic-writing', 'excel', 'java']) {
     const html = await projectFile(`best-for/${slug}/index.html`);
     assert.doesNotMatch(html, /<meta name="robots" content="noindex, follow/, `${slug} should stay indexable`);
     assert.match(sitemap, new RegExp(`/best-for/${slug}/`), `${slug} should be in the sitemap`);
@@ -107,8 +118,10 @@ test('the best-for hub only links to kept pages', async () => {
   const hub = await projectFile('best-for/index.html');
   assert.match(hub, /href="\/best-for\/coding\/"/);
   assert.match(hub, /href="\/best-for\/excel\/"/);
+  // java earns 172 impressions / 4 clicks in GSC and is the fifth kept guide.
+  assert.match(hub, /href="\/best-for\/java\/"/);
   assert.doesNotMatch(hub, /href="\/best-for\/research\/"/);
-  assert.doesNotMatch(hub, /href="\/best-for\/java\/"/);
+  assert.doesNotMatch(hub, /href="\/best-for\/python\/"/);
 });
 
 test('generated comparison pages avoid unsupported rankings and FAQ rich-result markup', async () => {
@@ -205,12 +218,13 @@ test('editorial review registry only publishes complete, scoped guides', async (
 
 test('every editorially approved guide keeps a self-canonical URL; withdrawn ones are noindexed', async () => {
   const sitemap = await projectFile('sitemap.xml');
-  const stillPublished = ['pricing/api-startups'];
+  const stillPublished = ['pricing/chatgpt-vs-deepseek'];
   const withdrawn = [
     'best-for/research',
     'best-for/essays',
     'best-for/data-analysis',
     'best-for/blog-posts',
+    'pricing/api-startups',
   ];
 
   for (const guide of stillPublished) {
@@ -234,9 +248,9 @@ test('every registered guide and product page is unique and uses lightweight nav
       url: `/best-for/${page.slug}/`,
       published: KEPT_BEST_FOR_SLUGS.has(page.slug),
     })),
-    ...alternativePages.map((page) => ({ path: `alternatives/${page.slug}/index.html`, url: `/alternatives/${page.slug}/`, published: true })),
+    ...alternativePages.map((page) => ({ path: `alternatives/${page.slug}/index.html`, url: `/alternatives/${page.slug}/`, published: KEPT_ALTERNATIVE_SLUGS.has(page.slug) })),
     ...freePages.map((page) => ({ path: `free/${page.slug}/index.html`, url: `/free/${page.slug}/`, published: true })),
-    ...pricingPages.map((page) => ({ path: `pricing/${page.slug}/index.html`, url: `/pricing/${page.slug}/`, published: true })),
+    ...pricingPages.map((page) => ({ path: `pricing/${page.slug}/index.html`, url: `/pricing/${page.slug}/`, published: KEPT_PRICING_SLUGS.has(page.slug) })),
     ...productPages.map((page) => {
       const prefix = page.pathPrefix ? `${page.pathPrefix}/` : '';
       return { path: `${prefix}${page.slug}/index.html`, url: `/${prefix}${page.slug}/`, published: true };
@@ -274,7 +288,20 @@ test('merged free/alternatives URLs permanently redirect and no longer exist as 
     '/alternatives/chatgpt-free/': '/alternatives/free-chatgpt/',
     '/alternatives/free-chatgpt-2026/': '/alternatives/free-chatgpt/',
     '/free/chatgpt/': '/alternatives/free-chatgpt/',
-    '/free/best-ai-chatbot-2026/': '/free/best-ai-chatbot/',
+    // The whole /free/ tree is folded into /alternatives/ and /pricing/ so the
+    // two free-access hubs stop competing for the same intent.
+    '/free/': '/alternatives/',
+    '/free/ai-no-limits/': '/alternatives/free-chatgpt/',
+    '/free/best-ai-chatbot/': '/alternatives/best-chatgpt/',
+    '/free/best-ai-chatbot-2026/': '/alternatives/best-chatgpt/',
+    '/free/best-ai-coding/': '/alternatives/chatgpt-coding/',
+    '/free/ai-api/': '/pricing/cheapest-api/',
+    '/free/claude/': '/alternatives/claude/',
+    '/free/gemini/': '/alternatives/gemini/',
+    '/free/deepseek/': '/alternatives/deepseek/',
+    '/free/ai-tools-2026/': '/alternatives/',
+    // The no-sign-in intent survives as its own top-level page.
+    '/free/ai-no-login/': '/free-ai-no-login/',
   };
 
   for (const [source, destination] of Object.entries(expected)) {
@@ -286,6 +313,11 @@ test('merged free/alternatives URLs permanently redirect and no longer exist as 
 
   const merged = await projectFile('alternatives/free-chatgpt/index.html');
   assert.match(merged, /official free tier|free alternatives/i);
+  // The surviving URL is the promoted no-login page, not the old /free/ hub.
+  assert.equal(await exists('free/index.html'), false, '/free/ hub should not remain a static file');
+  const promoted = await projectFile('free-ai-no-login/index.html');
+  assert.match(promoted, /<meta name="robots" content="index, follow/);
+  assert.match(promoted, /no login/i);
 });
 
 test('priority Chinese comparisons embed per-pair differences beyond the template', async () => {
@@ -309,3 +341,62 @@ test('new keyword-targeted product pages are published and in the sitemap', asyn
   const threeWay = await projectFile('chatgpt-vs-claude-vs-gemini-same-prompt/index.html');
   assert.match(threeWay, /What public benchmarks show/);
 });
+
+test('thin alternatives and pricing pages outside the kept list are noindexed', async () => {
+  const sitemap = await projectFile('sitemap.xml');
+  const withdrawnAlt = await projectFile('alternatives/chatgpt/index.html');
+  const withdrawnPricing = await projectFile('pricing/api-startups/index.html');
+
+  assert.match(withdrawnAlt, /<meta name="robots" content="noindex, follow/);
+  assert.match(withdrawnPricing, /<meta name="robots" content="noindex, follow/);
+  assert.doesNotMatch(sitemap, /\/alternatives\/chatgpt\//);
+  assert.doesNotMatch(sitemap, /\/pricing\/api-startups\//);
+  for (const slug of ['free-chatgpt', 'chatgpt-no-login', 'chatgpt-coding', 'chatgpt-chinese']) {
+    const html = await projectFile(`alternatives/${slug}/index.html`);
+    assert.doesNotMatch(html, /<meta name="robots" content="noindex, follow/, `${slug} should stay indexable`);
+    assert.match(sitemap, new RegExp(`/alternatives/${slug}/`), `${slug} should be in the sitemap`);
+  }
+  for (const slug of ['chatgpt-vs-deepseek', 'cheapest-api']) {
+    const html = await projectFile(`pricing/${slug}/index.html`);
+    assert.doesNotMatch(html, /<meta name="robots" content="noindex, follow/, `${slug} should stay indexable`);
+    assert.match(sitemap, new RegExp(`/pricing/${slug}/`), `${slug} should be in the sitemap`);
+  }
+});
+
+test('the alternatives and pricing hubs only link to kept pages', async () => {
+  const [altHub, pricingHub] = await Promise.all([
+    projectFile('alternatives/index.html'),
+    projectFile('pricing/index.html'),
+  ]);
+  assert.match(altHub, /href="\/alternatives\/free-chatgpt\/"/);
+  assert.doesNotMatch(altHub, /href="\/alternatives\/chatgpt\/"/);
+  assert.doesNotMatch(altHub, /href="\/alternatives\/windsurf\/"/);
+  assert.match(pricingHub, /href="\/pricing\/chatgpt-vs-deepseek\/"/);
+  assert.doesNotMatch(pricingHub, /href="\/pricing\/api-startups\/"/);
+});
+
+test('compare-ai-models is a blank worksheet, not a filled 11-model ranking', async () => {
+  const html = await projectFile('compare-ai-models/index.html');
+  assert.match(html, /<title>Compare AI Models: Same-Prompt Worksheet \| ModelAny<\/title>/);
+  assert.match(html, /blank same-prompt worksheet/i);
+  assert.match(html, /Blank 11-model worksheet/);
+  assert.match(html, /not a completed 11-model test/i);
+});
+
+test('homepage footer does not send Ask multiple AIs at once to compare-ai-models', async () => {
+  const html = await projectFile('index.html');
+  assert.match(html, /href="\/compare-ai-models\/">Compare AI models \(same prompt\)</);
+  assert.match(html, /href="\/ask-multiple-ai-at-once\/">Ask multiple AIs at once</);
+  assert.doesNotMatch(html, /href="\/compare-ai-models\/">Ask multiple AIs at once</);
+});
+
+test('Doubao vs ChatGPT does not treat 74.6% as an independent ChatGPT score', async () => {
+  const html = await projectFile('zh/compare/doubao-vs-chatgpt/index.html');
+  assert.match(html, /JoyCode \+ Claude 4 Sonnet \+ GPT-4\.1/);
+  assert.match(html, /怎么选：按你的任务落位/);
+  assert.doesNotMatch(html, /ChatGPT 系配置的最好记录（74\.6%/);
+  const switchMatch = html.match(/data-locale-switch="en"[^>]*href="([^"]+)"/) || html.match(/href="([^"]+)"[^>]*data-locale-switch="en"/);
+  assert.ok(switchMatch, 'zh pair should have an English locale switch');
+  assert.equal(switchMatch[1], '/compare/');
+});
+

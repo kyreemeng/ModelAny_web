@@ -58,9 +58,12 @@ const COPY = {
         title: 'Features',
         links: [
           { label: 'AI chat comparison', href: '/ai-chat-comparison/' },
-          { label: 'Ask multiple AIs at once', href: '/compare-ai-models/' },
+          { label: 'Compare AI models (same prompt)', href: '/compare-ai-models/' },
+          { label: 'Ask multiple AIs at once', href: '/ask-multiple-ai-at-once/' },
           { label: 'Export AI chats to PDF & Word', href: '/export-chatgpt-conversation/' },
           { label: 'Export ChatGPT to PDF', href: '/export-chatgpt-conversation-to-pdf/' },
+          { label: 'AI exporter for every site', href: '/ai-exporter/' },
+          { label: 'Gemini exporter', href: '/gemini-exporter/' },
           { label: 'YouTube video summarizer', href: '/youtube-video-summarizer/' },
           { label: 'Continue in another AI', href: '/continue-chat-in-another-ai/' },
           { label: 'Local AI chat memory', href: '/ai-chat-memory/' },
@@ -72,9 +75,10 @@ const COPY = {
         links: [
           { label: 'AI model comparisons', href: '/compare/' },
           { label: 'Best AI by use case', href: '/best-for/' },
+          { label: 'Free AI without login', href: '/free-ai-no-login/' },
+          { label: 'ChatGPT usage limit workaround', href: '/chatgpt-usage-limit-workaround/' },
           { label: 'Save ChatGPT conversations', href: '/save-chatgpt-conversation/' },
           { label: 'AI alternatives', href: '/alternatives/' },
-          { label: 'Free AI guides', href: '/free/' },
           { label: 'AI pricing guides', href: '/pricing/' },
           { label: 'Public benchmarks', href: '/benchmarks/' },
         ],
@@ -126,7 +130,8 @@ const COPY = {
       {
         title: '功能',
         links: [
-          { label: '同时问多个 AI', href: '/zh/compare-ai-models/' },
+          { label: '同一提示词对比大模型', href: '/zh/compare-ai-models/' },
+          { label: '免登录的免费 AI', href: '/zh/free-ai-no-login/' },
           { label: 'AI 对话导出 PDF / Word', href: '/zh/export-ai-chat/' },
           { label: 'B 站 / YouTube 视频总结', href: '/zh/video-summary/' },
           { label: '换个 AI 继续聊', href: '/zh/continue-in-another-ai/' },
@@ -137,10 +142,12 @@ const COPY = {
       {
         title: '评测与对比',
         links: [
+          { label: '全部模型对比', href: '/zh/compare/' },
           { label: '公开评测数据', href: '/zh/benchmarks/' },
+          { label: 'Kimi vs DeepSeek', href: '/zh/compare/kimi-vs-deepseek/' },
+          { label: '通义千问 vs DeepSeek', href: '/zh/compare/qwen-vs-deepseek/' },
+          { label: '豆包 vs ChatGPT', href: '/zh/compare/doubao-vs-chatgpt/' },
           { label: 'Kimi vs ChatGPT', href: '/zh/compare/kimi-vs-chatgpt/' },
-          { label: '通义千问 vs ChatGPT', href: '/zh/compare/qwen-vs-chatgpt/' },
-          { label: '豆包 vs DeepSeek', href: '/zh/compare/doubao-vs-deepseek/' },
           { label: 'GLM vs ChatGPT', href: '/zh/compare/glm-vs-chatgpt/' },
           { label: 'GLM vs DeepSeek', href: '/zh/compare/glm-vs-deepseek/' },
         ],

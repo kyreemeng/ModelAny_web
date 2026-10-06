@@ -3,8 +3,8 @@
  * Keys are page slugs. Prefer concrete steps and product facts over marketing filler.
  */
 
-function section(id, heading, paragraphs = [], list = null, listOrdered = false) {
-  return { id, heading, paragraphs, list, listOrdered };
+function section(id, heading, paragraphs = [], list = null, listOrdered = false, table = null) {
+  return { id, heading, paragraphs, list, listOrdered, table };
 }
 
 function link(href, label) {
@@ -917,8 +917,8 @@ const COPY = {
       eyebrow: 'Comparison workflow',
       leadHeading: 'Same task, same prompt, several official sites',
       lead: [
-        'Model rankings from public arenas are useful context, not a verdict for your document, codebase or customer email. A fair check fixes the task and success criteria first, then sends one prompt to multiple web apps you already use.',
-        'ModelAny opens ChatGPT, Claude, Gemini, DeepSeek and other supported sites in parallel, fills the same text, and collects answers for side-by-side review. You can export a Markdown report or save the run to local memory.',
+        'This page is a worksheet, not a completed 11-model test. Public rankings are useful context, not a verdict for your document, codebase or customer email. A fair check fixes the task and success criteria first, then sends one prompt to multiple web apps you already use.',
+        'ModelAny opens ChatGPT, Claude, Gemini, DeepSeek and other supported sites in parallel, fills the same text, and collects answers for side-by-side review. Fill the blank table after you run it; you can also export a Markdown report or save the run to local memory.',
       ],
       sections: [
         section('workflow', 'Suggested workflow', [], [
@@ -930,6 +930,32 @@ const COPY = {
         section('fair', 'Keep the comparison fair', [
           'Do not treat answers from different prompts as comparable. Prefer models you can actually continue using (login, language, price). Public benchmark tables on this site show shared categories only—they do not crown an overall winner.',
         ]),
+        section('test-sheet', 'Blank 11-model worksheet — fill in your own results', [
+          'This table is empty on purpose. ModelAny has not pre-filled scores for these eleven sites. Copy the prompt, run it yourself, and record the version, date and account tier the site actually served you. Public leaderboards below are someone else’s tasks; this log is yours.',
+          'The prompt is deliberately narrow. It asks for one verifiable check and one stated assumption, which are exactly the two things models bluff most often.',
+        ], [
+          'Copy the prompt verbatim; do not reword it per site, even to “help” a model',
+          'Open the model picker in each site and record the exact version string it shows—that is the variable that invalidates most comparisons later',
+          'Fill one row before opening the next answer',
+          'Re-run on a second task type before you draw any conclusion',
+        ], 1, {
+          caption: 'Blank same-prompt worksheet — fill these cells after you run the prompt',
+          prompt: 'In 150 words or fewer: why can a database index make some queries slower? Name one case where adding an index hurts, give me one check I can run to see the effect, and end with the single assumption your answer depends on.',
+          head: ['Model / site', 'Version shown in the UI', 'Date tested', 'Account tier', 'Factual accuracy (1-5)', 'Instruction compliance (1-5)', 'Edit cost (1-5)', 'Time (s)', 'Notes: what it invented, hedged or skipped'],
+          rows: [
+            ['ChatGPT', '', '', '', '', '', '', '', ''],
+            ['Claude', '', '', '', '', '', '', '', ''],
+            ['Gemini', '', '', '', '', '', '', '', ''],
+            ['DeepSeek', '', '', '', '', '', '', '', ''],
+            ['Grok', '', '', '', '', '', '', '', ''],
+            ['Kimi', '', '', '', '', '', '', '', ''],
+            ['Qwen', '', '', '', '', '', '', '', ''],
+            ['Doubao', '', '', '', '', '', '', '', ''],
+            ['GLM (ChatGLM)', '', '', '', '', '', '', '', ''],
+            ['Tencent Yuanbao', '', '', '', '', '', '', '', ''],
+            ['Wenxiaoyan (ERNIE)', '', '', '', '', '', '', '', ''],
+          ],
+        }),
       ],
       related: [
         link('/ai-chat-comparison/', 'AI chat comparison: what the data says'),
@@ -957,8 +983,8 @@ const COPY = {
       eyebrow: '对比方法',
       leadHeading: '同一任务、同一提示词，打开多个官网',
       lead: [
-        '公开竞技场榜单可以作参考，但不能直接当作业、代码或客户邮件的结论。较稳妥的做法是先固定任务与成功标准，再把同一提示词发给多个你已在用的网页版模型。',
-        'ModelAny 会并行打开 ChatGPT、DeepSeek、Kimi、豆包等支持的站点，填入同一段文字，并收集回答供并排查看。可导出 Markdown 报告，或将本轮结果存入本地记忆库。',
+        '本页是空白工作表，不是已经填好的 11 模型实测。公开竞技场榜单可以作参考，但不能直接当作业、代码或客户邮件的结论。较稳妥的做法是先固定任务与成功标准，再把同一提示词发给多个你已在用的网页版模型。',
+        'ModelAny 会并行打开 ChatGPT、DeepSeek、Kimi、豆包等支持的站点，填入同一段文字，并收集回答供并排查看。请在实测后填写空白表格；也可导出 Markdown 报告，或将本轮结果存入本地记忆库。',
       ],
       sections: [
         section('workflow', '建议步骤', [], [
@@ -970,6 +996,32 @@ const COPY = {
         section('fair', '如何比得公平', [
           '不同提示词下的回答不宜直接横向比较。优先选择你之后还能继续用的模型（登录、语言、费用）。本站公开评测表只展示模型共同出现的类别，并不产生「全面第一」的结论。',
         ]),
+        section('test-sheet', '空白 11 模型工作表——请自行填写实测结果', [
+          '这张表刻意留空。ModelAny 没有预填这 11 个站点的得分。请你自己复制提示词、实测后再记下站点当时给出的版本、日期与账号档位。下方公开评测是别人的任务；这张表是你的实测记录。',
+          '下面这条提示词刻意写得窄：既要一条可核查的验证方法，也要模型自己说明结论依赖的假设——这两件事恰好是模型最常含糊过去的地方。',
+        ], [
+          '提示词原样复制，不要为任何一家网站改写——哪怕你是好意',
+          '在站点里打开模型选择器，记下它显示的准确版本号——这是日后回看结论是否失效的关键变量',
+          '每读一个模型就填一行，不要先看完再回头补',
+          '换第二类任务再跑一轮，再下结论',
+        ], 1, {
+          caption: '空白同题工作表——请在实测后填写这些单元格',
+          prompt: '请用不超过 150 字回答：为什么数据库索引有时反而会让查询变慢？举一个"加了索引之后变慢"的具体情形，给出一个我能亲手跑一遍的验证方法，最后用一句话说明你的回答依赖于哪个前提。',
+          head: ['模型 / 站点', '界面显示的版本', '测试日期', '账号档位', '事实准确（1-5）', '指令遵循（1-5）', '修改成本（1-5）', '耗时（秒）', '备注：哪里编造、含糊或漏答'],
+          rows: [
+            ['ChatGPT', '', '', '', '', '', '', '', ''],
+            ['Claude', '', '', '', '', '', '', '', ''],
+            ['Gemini', '', '', '', '', '', '', '', ''],
+            ['DeepSeek', '', '', '', '', '', '', '', ''],
+            ['Grok', '', '', '', '', '', '', '', ''],
+            ['Kimi', '', '', '', '', '', '', '', ''],
+            ['通义千问', '', '', '', '', '', '', '', ''],
+            ['豆包', '', '', '', '', '', '', '', ''],
+            ['GLM 智谱清言', '', '', '', '', '', '', '', ''],
+            ['腾讯元宝', '', '', '', '', '', '', '', ''],
+            ['文小言（文心）', '', '', '', '', '', '', '', ''],
+          ],
+        }),
       ],
       related: [
         link('/zh/ai-browser-extension/', 'AI 浏览器插件说明'),
@@ -1303,7 +1355,7 @@ const COPY = {
         link('/continue-chat-in-another-ai/', 'Continue a ChatGPT chat in Claude'),
         link('/chatgpt-vs-claude-vs-gemini-same-prompt/', 'Same prompt, three answers'),
         link('/ai-chat-memory/', 'Save the thread before switching'),
-        link('/alternatives/chatgpt/', 'ChatGPT alternatives'),
+        link('/alternatives/free-chatgpt/', 'Free ChatGPT alternatives'),
       ],
       faqs: [
         {
@@ -1360,6 +1412,319 @@ const COPY = {
       ],
       ctaHeading: '触顶不让任务停摆',
       ctaBody: '安装 ModelAny，在支持的对话页使用「换个模型继续」。免费、本地优先、无需 API Key。',
+    },
+  },
+
+  'chatgpt-exporter': {
+    en: {
+      eyebrow: 'Exporter guide',
+      leadHeading: 'A ChatGPT exporter is only good if it still works next month',
+      lead: [
+        '“ChatGPT exporter” covers two very different things: tools that read a live conversation on the page you are looking at, and tools that request a bulk archive through OpenAI’s account settings. They fail in different ways, and most buying advice blurs the two.',
+        'This page sets out what to check before you install anything—what gets captured, where the file is built, which formats come out, and whether the tool reaches the other AI sites you use. Then it shows the on-page route with ModelAny, which reads the conversation you already have open and builds the file in your browser.',
+      ],
+      sections: [
+        section('two-kinds', 'Two kinds of exporter, two failure modes', [
+          'Knowing which category a tool belongs to predicts almost everything else about it—its speed, its privacy profile, and how it breaks.',
+        ], [
+          'On-page exporters read the rendered conversation and write a file. They are immediate and work on the chat you are looking at, but they depend on the site’s current HTML—when ChatGPT changes its layout, an unmaintained exporter stops capturing turns until it is updated.',
+          'Account-data exporters ask the provider for everything at once. They survive layout changes because they use a documented data path, but they are slow (often a queue), they arrive as raw data rather than a formatted document, and they cover only the provider you requested.',
+          'A third, weaker category is the screenshot or print route: it always works and always looks wrong—page chrome, split tables, and no selectable structure.',
+        ]),
+        section('checklist', 'What to check before you install one', [], [
+          'What it captures: the whole thread, or only the turns currently rendered? Scroll to the top of a long chat before trusting an exporter.',
+          'Where the file is built: in your browser (nothing leaves the machine) or on the vendor’s server (your conversation is uploaded).',
+          'Formats: PDF and Word for sharing and archiving, Markdown for Notion/Obsidian/Git. A tool that only offers one format will not cover a whole workflow.',
+          'Speaker labels and code blocks: without them a transcript is not reusable, and code that lost its monospace formatting is worse than a screenshot.',
+          'Maintenance signal: when was it last updated, and does it publish a changelog? ChatGPT ships UI changes regularly.',
+          'Reach: if you also use Claude, Gemini or DeepSeek, check whether the same tool covers them or whether you need a second extension.',
+        ]),
+        section('modelany', 'The on-page route with ModelAny', [
+          'ModelAny adds a slim tab to the right edge of every supported AI site. Open the conversation, click the tab, and choose PDF, Word, Markdown or Copy. The file is generated in your browser and saved straight to your downloads folder—there is no ModelAny server in the path.',
+          'Because it reads the page you are on, it works the same way on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Doubao, Qwen, GLM, Tencent Yuanbao and Wenxiaoyan. One tool, one workflow, every site in your rotation.',
+        ], [
+          'Open the conversation and scroll to the top so the full thread has rendered',
+          'Click the ModelAny tab on the right edge of the page',
+          'Pick PDF, Word or Markdown—or Copy as Markdown for a straight paste',
+          'The file downloads locally; nothing is uploaded',
+        ], true),
+        section('limits', 'What no on-page exporter can do', [
+          'An on-page exporter can only read what the page exposes. Images and file attachments may be omitted or replaced with a placeholder. Very long threads may need two passes. And because it renders the live page, a conversation you deleted from your account is not recoverable this way.',
+          'For the complete history of every chat in one request, use OpenAI’s own data export (Settings → Data controls → Export data). It is slower and arrives as data files, but it is the only route that covers everything at once.',
+        ]),
+        section('privacy', 'Privacy: where the file is made matters', [
+          'A browser-generated file never sends your conversation anywhere new—it moves from the page to your disk. A server-side exporter uploads the thread to a third party you did not originally share it with. If the conversation contains client material, credentials or personal data, that difference is the whole decision.',
+        ]),
+      ],
+      related: [
+        link('/export-chatgpt-conversation/', 'All ways to export a ChatGPT conversation'),
+        link('/export-chatgpt-conversation-to-pdf/', 'Export a conversation to PDF'),
+        link('/export-chatgpt-conversation-to-markdown/', 'Export a conversation to Markdown'),
+        link('/ai-exporter/', 'One exporter for every AI site'),
+      ],
+      faqs: [
+        {
+          q: 'Is a ChatGPT exporter the same as ChatGPT’s official data export?',
+          a: 'No. An on-page exporter reads the conversation you have open and produces a formatted file immediately. OpenAI’s Export data (Settings → Data controls) emails you a ZIP of your whole history, arrives as raw data rather than a formatted document, and can take time to process.',
+        },
+        {
+          q: 'Why does an exporter sometimes miss part of a long conversation?',
+          a: 'Most on-page exporters read the turns that have rendered in the page. In a long thread that has not been scrolled to the top, older turns may not exist in the DOM yet. Scroll through the whole conversation before exporting.',
+        },
+        {
+          q: 'Does ModelAny upload my conversations to export them?',
+          a: 'No. The file is generated in your browser from the page you are viewing and saved to your downloads folder. Nothing is sent to a ModelAny server—ModelAny has no server that receives conversation content.',
+        },
+        {
+          q: 'Can one exporter handle Claude, Gemini and DeepSeek too?',
+          a: 'Some can. ModelAny uses the same right-edge toolbar across every supported AI site, so the steps do not change when you switch providers.',
+        },
+      ],
+      ctaHeading: 'Export the conversation you already have open',
+      ctaBody: 'Install ModelAny, open any supported AI conversation, and pick a format from the right-edge tab. Free, local-first, no API key.',
+    },
+  },
+
+  'gemini-exporter': {
+    en: {
+      eyebrow: 'Gemini export',
+      leadHeading: 'Saving a Gemini conversation as a file you can keep',
+      lead: [
+        'Gemini has no per-conversation download button. “Save to Drive” keeps a Docs copy inside Google’s ecosystem; sharing a link keeps it online; and Google Takeout exports everything at once as data. None of those gives you a formatted PDF or Markdown file for the thread on your screen.',
+        'ModelAny adds that missing button. Open the Gemini conversation, click the tab on the right edge of the page, and choose PDF, Word or Markdown. The file is built in your browser and saved locally.',
+      ],
+      sections: [
+        section('routes', 'The routes that exist, and what each one gives you', [], [
+          'ModelAny right-edge tab — PDF, Word or Markdown from the open conversation; generated locally in your browser; works on ChatGPT, Claude and DeepSeek with the same steps.',
+          'Copy and paste — select the conversation text and paste it into a document. Free and instant, but you lose speaker labels, lists and code formatting, and long threads are painful to select cleanly.',
+          'Google Takeout — exports your Gemini activity in bulk as data files. Complete, but not a formatted document, and not per-conversation.',
+          'Share link — creates a live URL. Useful for sending to someone, but it is not a file you own, and it stops working if you revoke it or the conversation is deleted.',
+        ]),
+        section('how', 'Export a Gemini conversation step by step', [], [
+          'Open the conversation on gemini.google.com and scroll to the top so the whole thread has rendered',
+          'Click the ModelAny tab on the right edge of the page',
+          'Choose PDF for a shareable, printable file; Word if it is going into a document workflow; Markdown for Notion, Obsidian or a repository',
+          'The file downloads to your computer—no upload, no share link to revoke later',
+        ], true),
+        section('keeps', 'What the exported file keeps', [
+          'The export preserves the structure that makes a transcript reusable: every turn in order, labeled by speaker, with headings, lists and code blocks intact. It arrives paginated for A4 or Letter and prints predictably.',
+          'What it cannot guarantee is anything the page itself does not expose—generated images, uploaded attachments or interactive elements may be omitted or noted as a placeholder. If a thread matters for its visuals rather than its text, keep the share link as well.',
+        ]),
+        section('privacy', 'Local file, not another copy in the cloud', [
+          'Google Takeout and share links both create additional copies on Google’s servers. A browser-generated export does not—the conversation moves from the page to your disk and nowhere else. On the Gemini web app there is no ModelAny server in the path.',
+        ]),
+      ],
+      related: [
+        link('/export-chatgpt-conversation/', 'All ways to export an AI conversation'),
+        link('/export-chatgpt-conversation-to-pdf/', 'Export to PDF'),
+        link('/export-chatgpt-conversation-to-markdown/', 'Export to Markdown'),
+        link('/ai-exporter/', 'One exporter for every AI site'),
+      ],
+      faqs: [
+        {
+          q: 'Can I export a Gemini conversation to PDF?',
+          a: 'Yes. With ModelAny installed, open the conversation, click the right-edge tab and choose PDF. Without an extension, the nearest option is copying the text into a document or using Google Takeout, which exports data rather than a formatted per-conversation file.',
+        },
+        {
+          q: 'Does Google Takeout give me the same thing?',
+          a: 'No. Takeout exports your Gemini activity in bulk as data files. It is thorough but arrives as raw data, not as a formatted PDF or Markdown file for one conversation.',
+        },
+        {
+          q: 'Will the export include generated images?',
+          a: 'Text, headings, lists and code blocks carry over. Generated images and uploaded attachments may be omitted or represented as a placeholder, depending on what the page exposes.',
+        },
+        {
+          q: 'Does this work on Gemini as well as ChatGPT and Claude?',
+          a: 'Yes. ModelAny uses the same right-edge toolbar on every supported AI site, so the steps are identical across Gemini, ChatGPT, Claude, DeepSeek, Kimi and the other supported providers.',
+        },
+      ],
+      ctaHeading: 'Save the Gemini conversation you are reading',
+      ctaBody: 'Install ModelAny, open the thread, and export it to PDF, Word or Markdown from the right-edge tab. Free and local.',
+    },
+  },
+
+  'ai-exporter': {
+    en: {
+      eyebrow: 'Multi-site export',
+      leadHeading: 'One exporter for ChatGPT, Claude, Gemini and every other site',
+      lead: [
+        'Most exporters are built for a single provider. That works until your work spreads across several: the code review is in ChatGPT, the draft is in Claude, the research pass is in Gemini, and the file you need is in whichever one you happened to be using.',
+        'ModelAny puts the same right-edge export toolbar on every site it supports. One workflow, one set of steps, one place to look—whichever AI you were just talking to.',
+      ],
+      sections: [
+        section('coverage', 'Which sites the export toolbar covers', [
+          'The toolbar appears on every AI site in the launcher: ChatGPT, Claude, Gemini, Grok, DeepSeek, Kimi, Doubao, Qwen, GLM, Tencent Yuanbao and Wenxiaoyan. The steps do not change between them.',
+        ], [
+          'ChatGPT, Claude, Gemini, Grok — international workflows',
+          'DeepSeek, Kimi, Doubao, Qwen, GLM, Tencent Yuanbao, Wenxiaoyan — Chinese-language workflows',
+          'The same four outputs everywhere: PDF, Word (.docx), Markdown, and Copy as Markdown',
+        ]),
+        section('formats', 'Pick the format for where the file is going', [], [
+          'PDF — finished, shareable, printable; the format to attach to an email or drop in a records folder',
+          'Word (.docx) — when someone else will edit it, comment on it, or fold it into a report',
+          'Markdown — for Notion, Obsidian, Git repositories and any plain-text pipeline',
+          'Copy as Markdown — when the destination is an editor or a chat box and you do not want a file at all',
+        ]),
+        section('how', 'How the export works', [
+          'Open the conversation on any supported site, click the ModelAny tab on the right edge of the page and choose a format. The file is generated in your browser from the page you are viewing and saved to your downloads folder.',
+          'Nothing is uploaded. ModelAny has no server that receives conversation content—the export is a local rendering of the page in front of you.',
+        ]),
+        section('compare', 'How this differs from provider data exports', [
+          'Every major provider offers a bulk account export: OpenAI’s Export data, Google Takeout, Anthropic’s data export. Those are the right tool for archiving everything you have ever written, and the wrong tool for saving the conversation you just finished—they are slow, they arrive as raw data, and they do not produce a formatted document.',
+          'Use a provider export for the archive. Use an on-page exporter for the file you need in the next five minutes.',
+        ]),
+        section('limits', 'Limits worth knowing', [
+          'An on-page exporter reads what the page exposes: text, headings, lists and code blocks carry over, while images and uploaded attachments may be omitted or replaced with a placeholder. Scroll to the top of a long thread before exporting so every turn has rendered. And a conversation you have already deleted from your account cannot be recovered from the page.',
+        ]),
+      ],
+      related: [
+        link('/export-chatgpt-conversation/', 'Export a ChatGPT conversation'),
+        link('/chatgpt-exporter/', 'Choosing a ChatGPT exporter'),
+        link('/gemini-exporter/', 'Exporting a Gemini conversation'),
+        link('/export-chatgpt-conversation-to-pdf/', 'Export to PDF'),
+        link('/export-chatgpt-conversation-to-markdown/', 'Export to Markdown'),
+      ],
+      faqs: [
+        {
+          q: 'Does one exporter really work on ChatGPT, Claude and Gemini?',
+          a: 'Yes—ModelAny places the same right-edge toolbar on every supported AI site, so the export steps are identical across ChatGPT, Claude, Gemini, DeepSeek, Kimi and the rest of the launcher.',
+        },
+        {
+          q: 'Which formats can I export to?',
+          a: 'PDF, Word (.docx) and Markdown as files, plus Copy as Markdown to the clipboard. All are generated in your browser.',
+        },
+        {
+          q: 'Is anything uploaded when I export?',
+          a: 'No. The file is rendered from the page in your browser and saved locally. ModelAny has no server that receives conversation content.',
+        },
+        {
+          q: 'Is this the same as Google Takeout or OpenAI’s data export?',
+          a: 'No. Provider data exports archive your entire history in bulk as raw data. An on-page exporter produces a formatted file for the conversation you are looking at right now. They solve different problems.',
+        },
+      ],
+      ctaHeading: 'One export toolbar, every AI site',
+      ctaBody: 'Install ModelAny and export any supported conversation to PDF, Word or Markdown from the page itself. Free, no API key.',
+    },
+  },
+
+  'free-ai-no-login': {
+    en: {
+      eyebrow: 'No-account access',
+      leadHeading: '“Free AI without login” — what actually opens, and what it costs you',
+      lead: [
+        'The phrase promises something simple: an AI chat you can use without making an account. What it usually delivers is a wall—a sign-in prompt, a phone number, or a “free trial” that is a seven-day subscription. The gap between the promise and the reality is most of the search volume.',
+        'This page separates the three things people mean by “no login”, describes what each provider actually asks for at the front door, and gives you a way to check any site in under a minute before you hand over an email address.',
+      ],
+      sections: [
+        section('mean', 'Three different things people mean by “no login”', [
+          'Searches for this phrase mix three intents. They look alike in a keyword tool and behave completely differently on the page.',
+        ], [
+          'No account at all — the site opens a chat box immediately. Rarest, and usually bounded by a message cap or a model downgrade.',
+          'No credit card — an account is required, but the free tier is real and does not require payment details. This is what most big providers actually offer.',
+          'No email verification — a phone number or an OAuth sign-in stands in for an email address. It is still an account; it just feels faster.',
+          'A fourth case is the trap: a site that opens without login but only for a demo prompt, then gates the real answer behind a signup or a paid plan.',
+        ]),
+        section('check', 'How to check any “no login” site in under a minute', [], [
+          'Open it in a private window. If it asks for an account immediately, the marketing page and the product disagree.',
+          'Type a real question—not “hello”—and see whether the answer is complete or truncated with an invitation to sign up.',
+          'Try a second question. A per-session cap often appears on the second or third turn, not the first.',
+          'Look for a phone-number field. It is an account by another name, and it is the most common surprise.',
+          'Check the footer for pricing. If the only paths are “Sign up” and “Pricing”, the free tier is the demo.',
+        ]),
+        section('tradeoffs', 'What you give up, and what you do not', [
+          'A no-login entry point usually trades capability for access: a smaller or older model, no history across sessions, no file uploads, tighter message caps, and no way to continue a thread tomorrow. What you should not trade away is basic data handling—an anonymous chat box can still log your prompts, and “no login” says nothing about retention.',
+          'If the task is a quick one-off, a no-login box is a reasonable choice. If you will come back to the conversation, or if it contains anything sensitive, an account with a clear data policy is the safer trade even when a no-login option exists.',
+        ]),
+        section('modelany', 'The other way to avoid the login treadmill', [
+          'If what you actually want is to stop creating a new account for every model, there is an alternative to hunting for no-login boxes: use the accounts you already have, all at once. ModelAny is a free Chrome and Edge extension that sends one prompt to the official sites you are already signed in to—ChatGPT, Claude, Gemini, DeepSeek, Kimi, Doubao, Qwen, GLM, Tencent Yuanbao and Wenxiaoyan—and lines the answers up side by side.',
+          'It is not an anonymous chat box and does not claim to be: every answer still comes from the provider and is governed by that provider’s terms. What it removes is the copy-paste-and-switch-tabs loop, not the account.',
+        ]),
+      ],
+      related: [
+        link('/alternatives/free-chatgpt/', 'Free ChatGPT: official tier vs alternatives'),
+        link('/alternatives/chatgpt-no-login/', 'ChatGPT alternatives without login'),
+        link('/ask-multiple-ai-at-once/', 'Ask multiple AI at once'),
+        link('/ai-browser-extension/', 'ModelAny browser extension overview'),
+      ],
+      faqs: [
+        {
+          q: 'Is there a completely free AI with no login at all?',
+          a: 'Some sites open a chat box without an account, but they usually cap messages or downgrade the model, and the caps often appear on the second or third turn. Verify in a private window with a real question rather than trusting the marketing page.',
+        },
+        {
+          q: 'Does “no credit card” mean no account?',
+          a: 'No. Most providers that advertise “no credit card” still require an account and an email address. It means the free tier does not ask for payment details, which is a different promise.',
+        },
+        {
+          q: 'Is a no-login chat private?',
+          a: 'Not necessarily. “No login” describes access, not data handling. A site can log prompts and responses without ever asking who you are. Read the privacy terms before sending anything sensitive.',
+        },
+        {
+          q: 'Can I compare models without creating accounts everywhere?',
+          a: 'Yes—use the accounts you already have. ModelAny sends one prompt to the official AI sites you are signed in to and shows the answers side by side, so you are not creating a new login for every model you want to try.',
+        },
+      ],
+      ctaHeading: 'Compare the models you already have accounts for',
+      ctaBody: 'Install ModelAny for Chrome or Edge, stay signed in to the AI sites you use, and send one prompt to all of them at once. Free, no API key.',
+    },
+    zh: {
+      eyebrow: '免登录访问',
+      leadHeading: '“免登录的免费 AI”到底哪些能打开，代价是什么',
+      lead: [
+        '这句话承诺的事情很简单：不用注册就能用的 AI 对话。实际遇到的往往是一堵墙——登录提示、手机号，或者本质上是七天订阅的「免费试用」。承诺与现实之间的落差，正是这个词有搜索量的原因。',
+        '本页把「免登录」拆成三种不同的含义，说明各官网在门口到底要什么，并给出一个一分钟内验证任何站点的方法。',
+      ],
+      sections: [
+        section('mean', '「免登录」其实包含三种诉求', [
+          '这类搜索混合了三种意图。它们在关键词工具里看起来一样，打开网页后的体验完全不同。',
+        ], [
+          '完全不用账号——打开就是输入框。最少见，通常伴随消息条数上限或模型降级。',
+          '不用信用卡——需要账号，但免费层是真实的，不要求支付信息。这是多数大厂实际提供的形式。',
+          '不用邮箱验证——用手机号或第三方登录代替邮箱。它仍然是账号，只是感觉更快。',
+          '还有第四种陷阱：页面能免登录打开，但只给一条演示回答，真正答案卡在注册或付费之后。',
+        ]),
+        section('check', '一分钟验证任何「免登录」站点', [], [
+          '用无痕窗口打开。如果立刻要求账号，说明宣传页和产品本身对不上。',
+          '问一个真实问题，不要只输入「你好」，看回答是完整的，还是被截断并附带注册邀请。',
+          '再问第二个问题。次数限制往往出现在第二、第三轮，而不是第一轮。',
+          '留意手机号输入框。那是账号的另一种形式，也是最常见的意外。',
+          '看页脚有没有定价入口。如果只有「注册」和「定价」两条路，免费层就是演示。',
+        ]),
+        section('tradeoffs', '你会失去什么，不会失去什么', [
+          '免登录入口通常用能力换访问：更小或更旧的模型、不跨会话保存历史、不能上传文件、更紧的消息上限、明天无法接着聊。但有一点不应让步——基础的数据处理。匿名聊天框同样可以记录你的提示词，「免登录」并不等于不留存。',
+          '一次性的小任务，免登录够用。如果这段对话你会回头再看，或涉及敏感内容，即使有免登录选项，选择数据条款清晰的账号通常更稳妥。',
+        ]),
+        section('modelany', '另一条路：不必为每个模型再注册一次', [
+          '如果你真正想摆脱的是「每试一个模型就要注册一次」，除了找免登录站点，还有另一种做法：直接用你已有的账号，一次全用上。ModelAny 是免费的 Chrome / Edge 扩展，把一条提示词发送给你已登录的各个官网——ChatGPT、Claude、Gemini、DeepSeek、Kimi、豆包、通义千问、GLM、腾讯元宝、文小言——并排展示回答。',
+          '它不是匿名聊天框，也不这样宣称：每个回答仍来自对应服务商，受该服务商条款约束。它省掉的是复制粘贴和来回切标签页，而不是账号本身。',
+        ]),
+      ],
+      related: [
+        link('/alternatives/free-chatgpt/', '免费 ChatGPT：官方免费层与替代方案'),
+        link('/alternatives/chatgpt-no-login/', '免登录的 ChatGPT 替代方案'),
+        link('/zh/compare-ai-models/', '同一提示词对比多个模型'),
+        link('/zh/ai-browser-extension/', 'AI 浏览器插件说明'),
+      ],
+      faqs: [
+        {
+          q: '真的存在完全不需要登录的免费 AI 吗？',
+          a: '有些站点打开即可对话，但通常会限制条数或降级模型，而且限制往往在第二、第三轮才出现。建议用无痕窗口配合真实问题自行验证，不要只看宣传页。',
+        },
+        {
+          q: '「不需要信用卡」等于不需要账号吗？',
+          a: '不等于。多数主打「免信用卡」的服务仍需账号和邮箱，它只说明免费层不要求支付信息，与免账号是两件事。',
+        },
+        {
+          q: '免登录的对话就是私密的吗？',
+          a: '不一定。「免登录」描述的是访问方式，不是数据处理方式。站点可以在不知道你是谁的情况下记录提示词与回答。发送敏感内容前请先看隐私条款。',
+        },
+        {
+          q: '不想为每个模型都注册账号，还能对比吗？',
+          a: '可以，用已有账号即可。ModelAny 把同一提示词发送给你已登录的各个 AI 官网并排展示回答，无需为每个想试的模型新建账号。',
+        },
+      ],
+      ctaHeading: '用已有账号对比多个模型',
+      ctaBody: '在 Chrome 或 Edge 安装 ModelAny，保持常用 AI 官网登录，把同一提示词一次发给它们。免费，无需 API Key。',
     },
   },
 };

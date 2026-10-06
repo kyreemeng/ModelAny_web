@@ -73,30 +73,36 @@
           <h2 id="artifact-heading">What the exported PDF looks like</h2>
           <p>The finished file is a clean, paginated PDF you would be comfortable attaching to an email or dropping into a records folder—no browser chrome, no sidebar, no cookie banners. It opens in any PDF reader and prints predictably on A4 or Letter.</p>
           <ul><li>A header block with the conversation title, the source site, and the export date, so the file is identifiable months later</li><li>Every turn in original order, labeled by speaker (You / ChatGPT), with no interleaved UI text</li><li>Structure kept intact: headings, numbered and bulleted lists, and code in monospaced blocks that survive copy-paste from the PDF</li><li>Images and uploaded attachments appear only if the page exposes them; otherwise the text notes the omission instead of leaving a gap</li><li>No share link and no upload: the file exists only on your disk until you send it somewhere yourself</li></ul>
+          
         </section>
         <section class="seo-section" aria-labelledby="toolbar-heading">
           <h2 id="toolbar-heading">Route 1: export to PDF from the page (fastest)</h2>
           
           <ol><li>Open the conversation in the ChatGPT web app and let the whole thread render (scroll to the top first)</li><li>Click the ModelAny tab on the right edge of the page</li><li>Choose PDF — the file is generated in your browser and your browser saves it to your download folder</li><li>Check the result: each turn keeps its speaker order, and code stays in monospaced blocks</li></ol>
+          
         </section>
         <section class="seo-section" aria-labelledby="print-heading">
           <h2 id="print-heading">Route 2: ChatGPT’s share link + your browser’s print dialog</h2>
           <p>Open the conversation, use Share → Create link, then open that link and press Ctrl+P (⌘+P on Mac) and choose Save as PDF. This works without any extension, but the PDF is a print rendering: it can split awkwardly across pages and includes the page chrome. Use it as a fallback on machines where you cannot install extensions.</p>
+          
           
         </section>
         <section class="seo-section" aria-labelledby="official-heading">
           <h2 id="official-heading">Route 3: OpenAI’s account data export</h2>
           <p>Settings → Data controls → Export data emails you a ZIP of your entire chat history. It is the only route that covers every chat at once, but it arrives as data files rather than formatted PDFs and can take time to process. Treat it as the archive of last resort, not a day-to-day export.</p>
           
+          
         </section>
         <section class="seo-section" aria-labelledby="expect-heading">
           <h2 id="expect-heading">What the PDF keeps—and what it leaves out</h2>
           <p>The export renders the turns currently on the page in order, so scroll through the whole thread before exporting. Text, headings and code blocks carry over; images and uploaded attachments may be omitted or replaced with a placeholder, depending on what the page exposes. If a thread is very long, exporting in two passes (top half, then bottom) can beat one giant PDF.</p>
           
+          
         </section>
         <section class="seo-section" aria-labelledby="privacy-heading">
           <h2 id="privacy-heading">Privacy notes</h2>
           <p>Route 1 generates the file in your browser and never uploads the chat. Route 2 publishes a share link on OpenAI’s servers—delete the link when you no longer need it. Route 3 sends your entire history to your own email address.</p>
+          
           
         </section>
         <section class="seo-section" aria-labelledby="install-heading">
@@ -120,6 +126,9 @@
           <ul class="seo-index-list">
             <li><a href="/export-chatgpt-conversation/">How to export a ChatGPT conversation</a></li>
             <li><a href="/copy-chatgpt-conversation/">Copy a ChatGPT conversation without losing the formatting</a></li>
+            <li><a href="/chatgpt-exporter/">ChatGPT exporter: what to look for before you install one</a></li>
+            <li><a href="/gemini-exporter/">Gemini exporter: save a Gemini conversation as a file</a></li>
+            <li><a href="/ai-exporter/">AI exporter: one tool for every chat site you use</a></li>
           </ul>
         </section>
       <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">Frequently asked questions</h2><div class="faq-list"><details class="faq-item"><summary><span>How do I export a ChatGPT conversation to PDF for free?</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>Both main routes are free. With ModelAny installed, open the chat, click the right-edge tab and choose PDF. Without an extension, use Share → Create link, open the link and print it to PDF with your browser. Neither needs a ChatGPT upgrade.</p></div></div></details>

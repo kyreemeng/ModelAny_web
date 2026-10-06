@@ -7,25 +7,73 @@
  */
 
 /**
- * best-for pages that keep participating in search (GSC shows impressions on
- * these). Every other best-for slug stays live but is served with noindex so
- * crawl budget and internal links concentrate on pages that earn clicks.
+ * best-for pages that keep participating in search. The set is capped at five
+ * slugs: the four pages already earning impressions (coding, code-review,
+ * academic-writing, excel) plus java, which GSC shows at 172 impressions and
+ * 4 clicks-the only other task guide with real clicks. Everything else stays
+ * live but noindex so crawl budget and internal links concentrate here.
  */
-export const KEPT_BEST_FOR_SLUGS = new Set(['coding', 'code-review', 'academic-writing', 'excel']);
+export const KEPT_BEST_FOR_SLUGS = new Set(['coding', 'code-review', 'academic-writing', 'excel', 'java']);
+
+/**
+ * alternatives/pricing pages that keep participating in search. The rest of
+ * those clusters still exist as live URLs for humans and old links, but they
+ * share one template (swap the product name) and should not compete in the
+ * index until they have page-specific evidence.
+ */
+export const KEPT_ALTERNATIVE_SLUGS = new Set([
+  'free-chatgpt',
+  'chatgpt-no-login',
+  'chatgpt-coding',
+  'chatgpt-chinese',
+]);
+
+export const KEPT_PRICING_SLUGS = new Set([
+  'chatgpt-vs-deepseek',
+  'cheapest-api',
+]);
 
 /**
  * Free-access and alternatives pages that covered the same intent were merged
  * into one surviving URL per intent. These 301s consolidate their signals.
+ *
+ * The /free/ tree is folded into /alternatives/ and /pricing/ so the two
+ * overlapping hubs stop splitting impressions: brand-specific free pages go to
+ * the matching alternatives page, free-access pages go to the surviving
+ * free-access guide, and the /free/ hub itself resolves to /alternatives/.
+ * /free-ai-no-login/ is the one free-access URL promoted out of the merged
+ * tree (it owns a distinct no-sign-in intent with its own search demand).
  */
 export const mergeRedirects = [
   { source: '/alternatives/chatgpt-free', destination: '/alternatives/free-chatgpt/', permanent: true },
   { source: '/alternatives/chatgpt-free/', destination: '/alternatives/free-chatgpt/', permanent: true },
   { source: '/alternatives/free-chatgpt-2026', destination: '/alternatives/free-chatgpt/', permanent: true },
   { source: '/alternatives/free-chatgpt-2026/', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/free', destination: '/alternatives/', permanent: true },
+  { source: '/free/', destination: '/alternatives/', permanent: true },
   { source: '/free/chatgpt', destination: '/alternatives/free-chatgpt/', permanent: true },
   { source: '/free/chatgpt/', destination: '/alternatives/free-chatgpt/', permanent: true },
-  { source: '/free/best-ai-chatbot-2026', destination: '/free/best-ai-chatbot/', permanent: true },
-  { source: '/free/best-ai-chatbot-2026/', destination: '/free/best-ai-chatbot/', permanent: true },
+  { source: '/free/ai-no-limits', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/free/ai-no-limits/', destination: '/alternatives/free-chatgpt/', permanent: true },
+  { source: '/free/best-ai-chatbot', destination: '/alternatives/best-chatgpt/', permanent: true },
+  { source: '/free/best-ai-chatbot/', destination: '/alternatives/best-chatgpt/', permanent: true },
+  { source: '/free/best-ai-chatbot-2026', destination: '/alternatives/best-chatgpt/', permanent: true },
+  { source: '/free/best-ai-chatbot-2026/', destination: '/alternatives/best-chatgpt/', permanent: true },
+  { source: '/free/best-ai-coding', destination: '/alternatives/chatgpt-coding/', permanent: true },
+  { source: '/free/best-ai-coding/', destination: '/alternatives/chatgpt-coding/', permanent: true },
+  { source: '/free/ai-api', destination: '/pricing/cheapest-api/', permanent: true },
+  { source: '/free/ai-api/', destination: '/pricing/cheapest-api/', permanent: true },
+  { source: '/free/claude', destination: '/alternatives/claude/', permanent: true },
+  { source: '/free/claude/', destination: '/alternatives/claude/', permanent: true },
+  { source: '/free/gemini', destination: '/alternatives/gemini/', permanent: true },
+  { source: '/free/gemini/', destination: '/alternatives/gemini/', permanent: true },
+  { source: '/free/deepseek', destination: '/alternatives/deepseek/', permanent: true },
+  { source: '/free/deepseek/', destination: '/alternatives/deepseek/', permanent: true },
+  { source: '/free/ai-tools-2026', destination: '/alternatives/', permanent: true },
+  { source: '/free/ai-tools-2026/', destination: '/alternatives/', permanent: true },
+  // The no-sign-in intent is promoted to a top-level URL of its own.
+  { source: '/free/ai-no-login', destination: '/free-ai-no-login/', permanent: true },
+  { source: '/free/ai-no-login/', destination: '/free-ai-no-login/', permanent: true },
 ];
 
 export const comparePages = [
@@ -51,7 +99,13 @@ export const zhComparePages = [
   { slug: 'deepseek-vs-gemini', models: ['deepseek', 'gemini'], keyword: 'deepseek vs gemini', priority: 'P1' },
   { slug: 'claude-vs-gemini', models: ['claude', 'gemini'], keyword: 'claude vs gemini', priority: 'P1' },
   { slug: 'qwen-vs-chatgpt', models: ['qwen', 'chatgpt'], keyword: '通义千问 vs chatgpt', priority: 'P0' },
-  { slug: 'doubao-vs-chatgpt', models: ['doubao', 'chatgpt'], keyword: '豆包 vs chatgpt', priority: 'P0' },
+  {
+    slug: 'doubao-vs-chatgpt', models: ['doubao', 'chatgpt'], keyword: '豆包 vs chatgpt', priority: 'P0',
+    // GSC: position 8.2, 12 impressions, 0 clicks. The page ranks for the query
+    // but the snippet gives no reason to click—lead with the concrete finding.
+    serpTitle: '豆包 vs ChatGPT：智能体编程组合排进全榜前三 | ModelAny',
+    serpDescription: '公开快照里豆包智能体组合（TRAE + Doubao-Seed-Code）修好 78.8%，排 SWE-bench 第 3。74.6% 那条是混用 Claude 的组合，不是独立 ChatGPT。含版本、来源与 3 条实测任务。',
+  },
   { slug: 'kimi-vs-chatgpt', models: ['kimi', 'chatgpt'], keyword: 'kimi vs chatgpt', priority: 'P0' },
   { slug: 'glm-vs-chatgpt', models: ['glm', 'chatgpt'], keyword: 'glm vs chatgpt', priority: 'P0' },
   { slug: 'qwen-vs-deepseek', models: ['qwen', 'deepseek'], keyword: '通义千问 vs deepseek', priority: 'P0' },
@@ -62,8 +116,6 @@ export const zhComparePages = [
 
 /** Old compare URLs without shared public evidence. Redirect to hubs or benchmarks. */
 export const removedCompareRedirects = [
-  { source: '/zh/compare', destination: '/zh/benchmarks/', permanent: true },
-  { source: '/zh/compare/', destination: '/zh/benchmarks/', permanent: true },
   { source: '/compare/llm-benchmark', destination: '/benchmarks/', permanent: true },
   { source: '/compare/llm-benchmark/', destination: '/benchmarks/', permanent: true },
   { source: '/compare/chatgpt-vs-copilot', destination: '/compare/', permanent: true },
@@ -154,7 +206,14 @@ export const removedCompareRedirects = [
 ];
 
 export const bestForPages = [
-  { slug: 'coding', keyword: 'best ai for coding', focus: 'coding', models: ['claude', 'deepseek', 'chatgpt', 'cursor'], priority: 'P0' },
+  { slug: 'coding', keyword: 'best ai for coding', focus: 'coding', models: ['claude', 'deepseek', 'chatgpt', 'cursor'], priority: 'P0',
+    description: 'Best AI for coding: compare Claude, DeepSeek, ChatGPT and Cursor on the same ticket. Check compile, tests, and how much of the patch you would actually merge.',
+    intro: 'Coding quality is ticket-specific. Put Claude, DeepSeek, ChatGPT and Cursor on one representative bug or feature, then keep the patch you would merge—not the answer that sounds most confident.',
+    criteria: [
+      'Use one real ticket (bug, failing test, or small feature) with the same repo context for every model.',
+      'Score compile, tests, API usage, and how much of the patch you would actually merge—not how fluent the explanation reads.',
+      'Check whether the tool fits the workflow you already have: chat tab, IDE inline, or a mix of both.',
+    ] },
   { slug: 'coding-2026', keyword: 'best ai for coding 2026', focus: 'coding', models: ['claude', 'deepseek', 'chatgpt', 'cursor'], priority: 'P0' },
   { slug: 'python', keyword: 'best ai for python', focus: 'coding', models: ['deepseek', 'claude', 'chatgpt'], priority: 'P0' },
   { slug: 'javascript', keyword: 'best ai for javascript', focus: 'coding', models: ['claude', 'chatgpt', 'deepseek'], priority: 'P0',
@@ -162,12 +221,22 @@ export const bestForPages = [
     intro: 'For JavaScript work, judge models on debugging speed, framework familiarity, and how much editing the generated code needs—not brand familiarity alone.' },
   { slug: 'java', keyword: 'best ai for java', focus: 'coding', models: ['chatgpt', 'claude', 'deepseek'], priority: 'P0',
     description: 'Best AI for Java: compare ChatGPT, Claude, and DeepSeek on the same Java task. Check correctness, readability, and editing cost side by side.',
-    intro: 'Java teams usually care about compile-ready code, API usage, and how long fixes take. Put ChatGPT, Claude, and DeepSeek on one representative ticket before standardizing a tool.' },
+    intro: 'Java teams usually care about compile-ready code, API usage, and how long fixes take. Put ChatGPT, Claude, and DeepSeek on one representative ticket before standardizing a tool.',
+    criteria: [
+      'Use one representative Java ticket: a compile error, a failing test, or a small Spring/API change, with the same snippets for every model.',
+      'Score whether the patch compiles, uses the right APIs, and how much you would rewrite before merging.',
+      'Check package and build-tool assumptions (Maven/Gradle, Java version) instead of accepting generic pseudo-Java.',
+    ] },
   { slug: 'sql', keyword: 'best ai for sql', focus: 'coding', models: ['chatgpt', 'claude', 'deepseek'], priority: 'P0' },
   { slug: 'debugging', keyword: 'best ai for debugging', focus: 'coding', models: ['claude', 'deepseek', 'chatgpt'], priority: 'P0' },
   { slug: 'code-review', keyword: 'best ai for code review', focus: 'coding', models: ['claude', 'chatgpt', 'deepseek'], priority: 'P0',
     description: 'Best AI for code review: compare Claude, ChatGPT, and DeepSeek on the same pull request. Look for actionable findings, false positives, and review depth.',
-    intro: 'Code review tools should surface real risks without drowning you in noise. Run the same PR through Claude, ChatGPT, and DeepSeek, then score findings you would actually merge.' },
+    intro: 'Code review tools should surface real risks without drowning you in noise. Run the same PR through Claude, ChatGPT, and DeepSeek, then score findings you would actually merge.',
+    criteria: [
+      'Paste the same pull request (diff plus enough surrounding files) into Claude, ChatGPT and DeepSeek.',
+      'Score findings you would actually request: bugs, security, missing tests—not style nits you would ignore.',
+      'Count false positives. A long review that is mostly noise is worse than a short one with two real issues.',
+    ] },
   { slug: 'refactoring', keyword: 'best ai for refactoring', focus: 'coding', models: ['claude', 'cursor', 'deepseek'], priority: 'P0' },
   { slug: 'leetcode', keyword: 'best ai for leetcode', focus: 'coding', models: ['deepseek', 'chatgpt', 'claude'], priority: 'P0' },
   { slug: 'system-design', keyword: 'best ai for system design', focus: 'coding', models: ['claude', 'chatgpt', 'gemini'], priority: 'P0',
@@ -184,7 +253,12 @@ export const bestForPages = [
   { slug: 'content-creation', keyword: 'best ai for content creation', focus: 'writing', models: ['chatgpt', 'claude', 'gemini'], priority: 'P0' },
   { slug: 'academic-writing', keyword: 'best ai for academic writing', focus: 'writing', models: ['claude', 'gemini', 'chatgpt'], priority: 'P0',
     description: 'Best AI for academic writing: compare Claude, Gemini, and ChatGPT on the same manuscript section. Check citation care, structure, and revision effort.',
-    intro: 'Academic drafts need careful sourcing and clear structure. Compare Claude, Gemini, and ChatGPT on one paper section, then verify claims against your primary sources.' },
+    intro: 'Academic drafts need careful sourcing and clear structure. Compare Claude, Gemini, and ChatGPT on one paper section, then verify claims against your primary sources.',
+    criteria: [
+      'Use one manuscript section (abstract, methods, or discussion) with the same notes and citation style.',
+      'Check claim-to-source fit, hedging, and structure—then verify every citation against the paper you actually have.',
+      'Keep human review for anything that will be submitted; the model is a drafting aid, not a source.',
+    ] },
   { slug: 'translation', keyword: 'best ai for translation', focus: 'writing', models: ['chatgpt', 'deepseek', 'qwen'], priority: 'P0' },
   { slug: 'chinese-to-english', keyword: 'best ai for chinese to english', focus: 'writing', models: ['deepseek', 'qwen', 'chatgpt'], priority: 'P0' },
   { slug: 'reasoning', keyword: 'best ai for reasoning', focus: 'reasoning', models: ['deepseek', 'claude', 'chatgpt'], priority: 'P0' },
@@ -198,7 +272,14 @@ export const bestForPages = [
   { slug: 'marketing', keyword: 'best ai for marketing', focus: 'business', models: ['chatgpt', 'claude', 'gemini'], priority: 'P0' },
   { slug: 'sales', keyword: 'best ai for sales', focus: 'business', models: ['chatgpt', 'claude', 'gemini'], priority: 'P0' },
   { slug: 'customer-support', keyword: 'best ai for customer support', focus: 'business', models: ['chatgpt', 'claude', 'gemini'], priority: 'P0' },
-  { slug: 'excel', keyword: 'best ai for excel', focus: 'business', models: ['copilot', 'chatgpt', 'claude'], priority: 'P0' },
+  { slug: 'excel', keyword: 'best ai for excel', focus: 'business', models: ['copilot', 'chatgpt', 'claude'], priority: 'P0',
+    description: 'Best AI for Excel: compare Copilot, ChatGPT and Claude on one spreadsheet job—formulas, cleanup, and whether the output is safe to paste back into the workbook.',
+    intro: 'Excel work fails on formulas that look right and data that should never leave the file. Put Copilot, ChatGPT and Claude on one real workbook task, then check formula correctness, cell references, and how much cleanup you still have to do.',
+    criteria: [
+      'Use one real workbook task (formula, pivot, cleanup, or chart) with the same sample rows for every model.',
+      'Check formula correctness, named ranges, and whether the answer is safe to paste back—not just whether it sounds like Excel help.',
+      'Prefer Copilot when the file must stay in Microsoft 365; use ChatGPT or Claude when you need a second opinion on the same brief.',
+    ] },
   { slug: 'powerpoint', keyword: 'best ai for powerpoint', focus: 'business', models: ['copilot', 'chatgpt', 'gemini'], priority: 'P0' },
   { slug: 'spreadsheets', keyword: 'best ai for spreadsheets', focus: 'business', models: ['copilot', 'chatgpt', 'claude'], priority: 'P0' },
   { slug: 'hr', keyword: 'best ai for hr', focus: 'business', models: ['chatgpt', 'claude', 'gemini'], priority: 'P0',
@@ -216,16 +297,37 @@ export const alternativePages = [
     description: 'Free ChatGPT: use the official free tier on chatgpt.com, or compare free alternatives such as DeepSeek, Gemini and Kimi on the same prompt before you switch.',
     intro: 'There are two honest answers to “free ChatGPT”: the official free tier on chatgpt.com, and free alternatives that cover similar work. This page separates the two, lists what to verify on each official site, and shows how to compare candidates on one prompt instead of brand impressions.',
   },
-  { slug: 'chatgpt-coding', target: 'chatgpt', keyword: 'chatgpt alternative for coding', priority: 'P1', focus: 'coding' },
+  { slug: 'chatgpt-coding', target: 'chatgpt', keyword: 'chatgpt alternative for coding', priority: 'P1', focus: 'coding',
+    description: 'ChatGPT alternative for coding: compare Claude, DeepSeek and Cursor on one real ticket before you switch a daily coding workflow away from ChatGPT.',
+    intro: 'People look for a ChatGPT alternative for coding when the answers compile but the patch still needs too much rewriting, or when an IDE-native tool would be faster than another chat tab. This page is about that switch: what to test on one ticket, and which official products to put next to ChatGPT.',
+    criteria: [
+      'State the coding job you are replacing ChatGPT for: bugfix, tests, review, or inline IDE help.',
+      'Run the same ticket on Claude, DeepSeek and Cursor (or Copilot) with identical repo context.',
+      'Keep the tool whose patch you would merge, not the one whose explanation is longest.',
+    ] },
   { slug: 'chatgpt-writing', target: 'chatgpt', keyword: 'chatgpt alternative for writing', priority: 'P1', focus: 'writing' },
-  { slug: 'chatgpt-no-login', target: 'chatgpt', keyword: 'chatgpt alternative without login', priority: 'P1', filter: 'no-login' },
+  { slug: 'chatgpt-no-login', target: 'chatgpt', keyword: 'chatgpt alternative without login', priority: 'P1', filter: 'no-login',
+    description: 'ChatGPT alternative without login: what “no login” actually means, which official sites open a chat box first, and how to check any candidate in a private window.',
+    intro: 'A ChatGPT alternative without login is rarely a full ChatGPT replacement. It is usually a smaller or older model, a demo that gates the real answer, or a free tier that still wants an email. This page tells those cases apart and points to the official sites you can actually open without an OpenAI account.',
+    criteria: [
+      'Open the candidate in a private window and send a real question, not “hello”.',
+      'Record whether an account, phone number, or credit card appears on the first, second, or third turn.',
+      'Treat a no-login box as a one-off tool: no history, tighter caps, and no claim about ChatGPT-level quality.',
+    ] },
   { slug: 'chatgpt-students', target: 'chatgpt', keyword: 'chatgpt alternative for students', priority: 'P1', focus: 'students' },
   { slug: 'chatgpt-business', target: 'chatgpt', keyword: 'chatgpt alternative for business', priority: 'P1', focus: 'business' },
   { slug: 'chatgpt-api', target: 'chatgpt', keyword: 'chatgpt alternative api', priority: 'P1', filter: 'api' },
   { slug: 'cheap-chatgpt', target: 'chatgpt', keyword: 'cheap chatgpt alternative', priority: 'P1', filter: 'cheap' },
   { slug: 'chatgpt-open-source', target: 'chatgpt', keyword: 'chatgpt alternative open source', priority: 'P1', filter: 'open-source' },
   { slug: 'chatgpt-image', target: 'chatgpt', keyword: 'chatgpt alternative with image generation', priority: 'P1', filter: 'image' },
-  { slug: 'chatgpt-chinese', target: 'chatgpt', keyword: 'chatgpt alternative for chinese', priority: 'P1', focus: 'chinese' },
+  { slug: 'chatgpt-chinese', target: 'chatgpt', keyword: 'chatgpt alternative for chinese', priority: 'P1', focus: 'chinese',
+    description: 'ChatGPT alternative for Chinese: compare DeepSeek, Qwen, Kimi, Doubao and GLM on the same Chinese task, then check mainland access, login, and how much editing the draft still needs.',
+    intro: 'A ChatGPT alternative for Chinese work is usually about access and language, not a global ranking. Mainland-reachable products (DeepSeek, Qwen, Kimi, Doubao, GLM) take a phone number; ChatGPT does not. Compare them on one Chinese brief before treating any of them as a drop-in replacement.',
+    criteria: [
+      'Use one real Chinese task (email, summary, or code comment) with the same brief for every model.',
+      'Check mainland access, phone-number login, and whether the draft still needs native-level rewriting.',
+      'Keep ChatGPT in the mix only if you already have a working account; do not assume a Chinese site copies its tool stack.',
+    ] },
   { slug: 'claude', target: 'claude', keyword: 'claude alternative', priority: 'P1' },
   { slug: 'gemini', target: 'gemini', keyword: 'gemini alternative', priority: 'P1' },
   { slug: 'deepseek', target: 'deepseek', keyword: 'deepseek alternative', priority: 'P1' },
@@ -236,22 +338,34 @@ export const alternativePages = [
   { slug: 'windsurf', target: 'windsurf', keyword: 'windsurf alternative', priority: 'P1', focus: 'coding-ide' },
 ];
 
-export const freePages = [
-  { slug: 'best-ai-chatbot', keyword: 'best free ai chatbot', models: ['gemini', 'deepseek', 'chatgpt', 'perplexity'], priority: 'P1' },
-  { slug: 'best-ai-coding', keyword: 'best free ai for coding', models: ['deepseek', 'gemini', 'chatgpt'], priority: 'P1' },
-  { slug: 'ai-no-login', keyword: 'best free ai without login', models: ['gemini', 'deepseek', 'perplexity'], priority: 'P1' },
-  { slug: 'ai-no-limits', keyword: 'best free ai without limits', models: ['deepseek', 'gemini', 'llama'], priority: 'P1' },
-  { slug: 'ai-api', keyword: 'free ai api', models: ['deepseek', 'gemini', 'mistral', 'llama'], priority: 'P1' },
-  { slug: 'claude', keyword: 'free claude', models: ['claude'], priority: 'P1', special: 'tool-free' },
-  { slug: 'gemini', keyword: 'free gemini', models: ['gemini'], priority: 'P1', special: 'tool-free' },
-  { slug: 'deepseek', keyword: 'free deepseek', models: ['deepseek'], priority: 'P1', special: 'tool-free' },
-  { slug: 'ai-tools-2026', keyword: 'free ai tools 2026', models: ['chatgpt', 'gemini', 'deepseek', 'perplexity', 'mistral'], priority: 'P1' },
-];
+/**
+ * The /free/ tree is retired. Its nine pages split the same free-access intent
+ * across two hubs and two URL prefixes; every one of them is redirected in
+ * `mergeRedirects` above. The single surviving free-access URL is the
+ * top-level `/free-ai-no-login/` guide, which is registered as a product page
+ * below because it is the only one of the group with a distinct, defensible
+ * search intent (no sign-in) and enough demand to justify its own page.
+ */
+export const freePages = [];
 
 export const pricingPages = [
   { slug: 'ai-comparison', keyword: 'ai pricing comparison', models: ['chatgpt', 'claude', 'gemini', 'deepseek', 'perplexity'], priority: 'P1' },
-  { slug: 'chatgpt-vs-deepseek', keyword: 'chatgpt vs deepseek pricing', models: ['chatgpt', 'deepseek'], priority: 'P1' },
-  { slug: 'cheapest-api', keyword: 'cheapest ai api', models: ['deepseek', 'mistral', 'gemini', 'llama'], priority: 'P1' },
+  { slug: 'chatgpt-vs-deepseek', keyword: 'chatgpt vs deepseek pricing', models: ['chatgpt', 'deepseek'], priority: 'P1',
+    description: 'ChatGPT vs DeepSeek pricing: estimate cost from your own tokens and retries, then read both official price pages. This is a checking method, not a stale price table.',
+    intro: 'ChatGPT vs DeepSeek pricing searches want a number. Official rates change, so this page does not publish one. It shows how to estimate spend from your own input, output and retries, then send you to OpenAI and DeepSeek docs to confirm the current list price and terms.',
+    criteria: [
+      'Estimate monthly spend from your real input/output tokens, retries, and peak traffic—not a homepage sticker.',
+      'Open both official pricing pages on the same day and record model names, units, and any cached or batch rates.',
+      'Factor quality and failure rate: a cheaper token that needs three retries is not cheaper.',
+    ] },
+  { slug: 'cheapest-api', keyword: 'cheapest ai api', models: ['deepseek', 'mistral', 'gemini', 'llama'], priority: 'P1',
+    description: 'Cheapest AI API: a method for comparing DeepSeek, Mistral, Gemini and Llama list prices against your own traffic, rate limits, and migration cost—not a ranking that goes stale.',
+    intro: '“Cheapest AI API” is a moving target. List prices, cached tokens, and regional availability change. This page is a checking method: estimate your own traffic, open the official docs, and only then decide whether DeepSeek, Mistral, Gemini or a self-hosted Llama stack is actually cheaper for that load.',
+    criteria: [
+      'Write down input tokens, output tokens, retries, and peak QPS before you look at any price page.',
+      'Compare official docs for DeepSeek, Mistral, Gemini and Llama hosts on the same day, including rate limits and data terms.',
+      'Add migration and quality cost: a cheaper API that fails or needs a second model is not the cheapest path.',
+    ] },
   { slug: 'cheapest-chatgpt', keyword: 'cheapest chatgpt alternative', models: ['deepseek', 'gemini', 'mistral'], priority: 'P1' },
   { slug: 'api-startups', keyword: 'best ai api for startups', models: ['deepseek', 'gemini', 'mistral', 'chatgpt'], priority: 'P1' },
   { slug: 'api-small-business', keyword: 'best ai api for small business', models: ['deepseek', 'gemini', 'chatgpt', 'claude'], priority: 'P1' },
@@ -268,8 +382,8 @@ export const productPages = [
     keyword: 'compare AI models',
     intent: 'model-comparison-workflow',
     h1: 'Compare AI models with the same prompt',
-    description: 'Send one prompt from Chrome or Edge to ChatGPT, Gemini, DeepSeek and other official sites, then review answers side by side before you choose a workflow.',
-    title: 'Compare AI Models with the Same Prompt | ModelAny',
+    description: 'A blank same-prompt worksheet for ChatGPT, Claude, Gemini, DeepSeek and 7 more official sites. Fill in your own scores; public tables below are someone else\'s tasks.',
+    title: 'Compare AI Models: Same-Prompt Worksheet | ModelAny',
     models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
     localePath: '/zh/compare-ai-models/',
     priority: 'P0',
@@ -290,8 +404,8 @@ export const productPages = [
     keyword: 'compare ai answers side by side',
     intent: 'model-comparison-workflow',
     h1: 'Compare AI answers side by side',
-    description: 'Freeze one prompt, send it to ChatGPT, Claude, Gemini and other AI sites at once, then judge the answers side by side on accuracy, completeness and edit cost.',
-    title: 'Side-by-Side AI Comparison: Same-Prompt Method | ModelAny',
+    description: 'A scoring rubric for reading ChatGPT, Claude and Gemini answers together: facts, completeness, edit cost and how the answer fails. Not a filled-in ranking.',
+    title: 'Side-by-Side AI Comparison: Scoring Rubric | ModelAny',
     models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
     priority: 'P1',
   },
@@ -334,9 +448,9 @@ export const productPages = [
     keyword: '对比大模型',
     intent: 'model-comparison-workflow',
     lang: 'zh',
-    h1: '对比大模型：同一提示词，并排验证',
-    description: '先固定任务与合格标准，再用 ModelAny 把同一提示词发给 ChatGPT、DeepSeek、Kimi、豆包等多个官网并排对照事实、结构与修改成本；页面附公开评测数据与实测任务清单。',
-    title: '对比大模型：同一提示词并排验证 | ModelAny',
+    h1: '对比大模型：同一提示词工作表',
+    description: '先固定任务与合格标准，再用 ModelAny 把同一提示词发给 ChatGPT、DeepSeek、Kimi、豆包等官网。本页提供空白记录表和公开评测摘录，不代替你自己填写实测结果。',
+    title: '对比大模型：同一提示词工作表 | ModelAny',
     models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
     localePath: '/compare-ai-models/',
     priority: 'P0',
@@ -418,12 +532,56 @@ export const productPages = [
     priority: 'P1',
   },
   {
+    slug: 'chatgpt-exporter',
+    keyword: 'chatgpt exporter',
+    parent: 'export-chatgpt-conversation',
+    intent: 'browser-extension',
+    h1: 'ChatGPT exporter: what to look for before you install one',
+    description: 'A ChatGPT exporter should still work next month. Check what it captures, where the file is generated, which formats it produces, and whether it reaches Claude, Gemini and DeepSeek too.',
+    title: 'ChatGPT Exporter: Formats, Privacy & Limits | ModelAny',
+    models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
+    priority: 'P1',
+  },
+  {
+    slug: 'gemini-exporter',
+    keyword: 'gemini exporter',
+    parent: 'export-chatgpt-conversation',
+    intent: 'browser-extension',
+    h1: 'Gemini exporter: save a Gemini conversation as a file',
+    description: 'Export a Gemini conversation to PDF, Word or Markdown from the page itself. What the export keeps, what it cannot reach, and how it compares with Google’s own data export.',
+    title: 'Gemini Exporter: PDF, Word & Markdown | ModelAny',
+    models: ['gemini', 'chatgpt', 'claude', 'deepseek'],
+    priority: 'P1',
+  },
+  {
+    slug: 'ai-exporter',
+    keyword: 'ai exporter',
+    parent: 'export-chatgpt-conversation',
+    intent: 'browser-extension',
+    h1: 'AI exporter: one tool for every chat site you use',
+    description: 'Export conversations from ChatGPT, Claude, Gemini, DeepSeek, Kimi and more with one workflow—PDF, Word, Markdown or clipboard—generated locally in your browser.',
+    title: 'AI Exporter for ChatGPT, Claude & Gemini | ModelAny',
+    models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
+    priority: 'P1',
+  },
+  {
+    slug: 'free-ai-no-login',
+    keyword: 'free ai no login',
+    intent: 'free-access',
+    h1: 'Free AI with no login: which sites actually open',
+    description: 'Some AI sites answer before you create an account—and some only look like they do. What “no login” really means, what you give up, and how to check any site before trusting it.',
+    title: 'Free AI Without Login: What Actually Works | ModelAny',
+    models: ['chatgpt', 'gemini', 'deepseek', 'perplexity'],
+    localePath: '/zh/free-ai-no-login/',
+    priority: 'P0',
+  },
+  {
     slug: 'ai-chat-comparison',
     keyword: 'ai chat comparison',
     intent: 'model-comparison-workflow',
     special: 'ai-chat-comparison',
     h1: 'AI chat comparison: same prompt, every model, side by side',
-    description: 'Dated public benchmarks for ChatGPT, Claude, Gemini, DeepSeek, Kimi and GLM, plus a one-click same-prompt method to test them on your own tasks.',
+    description: 'Dated public Arena, SWE-bench and LiveBench tables for ChatGPT, Claude, Gemini, DeepSeek, Kimi and GLM. Use them as context, then test your own prompt separately.',
     title: 'AI Chat Comparison: Evidence + Same-Prompt Method | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek', 'grok', 'yuanbao', 'wenxin', 'qwen', 'doubao', 'kimi', 'glm'],
     priority: 'P0',
@@ -433,8 +591,11 @@ export const productPages = [
     keyword: 'ask multiple ai at once',
     intent: 'model-comparison-workflow',
     h1: 'Ask multiple AI at once: one question, every model',
-    description: 'Type one question, send it to ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and more official sites at once, and read the answers side by side. Free.',
-    title: 'Ask Multiple AI at Once: One Question, 11 Sites | ModelAny',
+    // GSC: "ask many ai" sits at position 8.2 with 16 impressions and 0 clicks.
+    // The ranking is already there; the snippet is what fails to earn the click,
+    // so the title leads with the query's own wording.
+    description: 'Ask many AI at once: type one question, send it to ChatGPT, Claude, Gemini, DeepSeek, Kimi and more official sites, then read every answer together. Free.',
+    title: 'Ask Many AI at Once: 11 Answers Side by Side | ModelAny',
     models: ['chatgpt', 'gemini', 'deepseek', 'qwen'],
     priority: 'P1',
   },
@@ -535,6 +696,19 @@ export const productPages = [
     models: ['chatgpt', 'deepseek', 'kimi', 'doubao'],
     localePath: '/ai-chat-memory/',
     priority: 'P1',
+  },
+  {
+    slug: 'free-ai-no-login',
+    pathPrefix: 'zh',
+    keyword: '免登录的免费AI',
+    intent: 'free-access',
+    lang: 'zh',
+    h1: '免登录的免费 AI：哪些真的能打开',
+    description: '有些 AI 网站不注册就能对话，有些只是看起来可以。本文拆解「免登录」的三种含义、各自会让你失去什么，并给出一个一分钟内验证任何站点的方法。',
+    title: '免登录的免费 AI：哪些真的能用 | ModelAny',
+    models: ['chatgpt', 'gemini', 'deepseek', 'perplexity'],
+    localePath: '/free-ai-no-login/',
+    priority: 'P0',
   },
 ];
 
