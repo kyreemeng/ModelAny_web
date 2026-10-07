@@ -40,7 +40,7 @@ const CORE_COMPARE_SLUGS = new Set([
   'claude-vs-gemini',
 ]);
 const TEST_RECORD_PATH = join(ROOT, 'seo', 'data', 'test-results.json');
-const CONTENT_UPDATED = '2026-10-02';
+const CONTENT_UPDATED = '2026-10-07';
 const BENCHMARK_LASTMOD = loadBenchmarkSnapshot()?.retrievedAt?.slice(0, 10) || CONTENT_UPDATED;
 
 function esc(value) {
@@ -659,7 +659,7 @@ function guideMetaDescription(page, section, items, review, lang) {
   if (section === 'alternatives') return `${topic}: evaluate replacements for ${target || names} with clear constraints, official sources, and a same-prompt trial.`;
   if (section === 'free') return `${topic}: tell trials, free tiers, no-login entry points, and open APIs apart—then verify official conditions.`;
   if (section === 'pricing') return `${topic}: estimate cost from real usage, then cross-check official docs and migration risk.`;
-  return `${topic}: compare ${names} on the same prompt. Selection criteria, official sources, and public-benchmark scope you can verify.`;
+  return `${topic}: compare ${names} on the same prompt. Criteria, official sources, and verifiable benchmark scope.`;
 }
 
 function generateCompare(page, prefix = 'compare', lang = 'en') {

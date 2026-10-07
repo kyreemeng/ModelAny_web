@@ -12,6 +12,7 @@ Disallow: /seo-audit-report.md
 Disallow: /website-audit-report.md
 Disallow: /frontend-review-report.md
 Disallow: /ai-writing-audit.md
+Allow: /pricing.md
 
 # Third-party crawlers (Googlebot, Bingbot, etc.) may crawl freely so they can
 # follow canonical and noindex directives.
@@ -30,6 +31,10 @@ Allow: /
 
 User-agent: Google-Extended
 Allow: /
+
+# AI search discovery and user-triggered retrieval not listed above
+# (PerplexityBot, Claude-SearchBot, ChatGPT-User, Perplexity-User) fall
+# through to the User-agent: * rules, which allow the whole site.
 
 Sitemap: https://www.modelany.app/sitemap.xml
 # AI crawlers: also see https://www.modelany.app/llms.txt

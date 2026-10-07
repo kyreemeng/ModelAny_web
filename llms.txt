@@ -61,5 +61,10 @@ Workflow:
 - AI 浏览器插件: https://www.modelany.app/zh/ai-browser-extension/
 - Public benchmarks: https://www.modelany.app/benchmarks/
 - Model comparisons: https://www.modelany.app/compare/
+- Pricing (machine-readable): https://www.modelany.app/pricing.md
 - Privacy: https://www.modelany.app/privacy.html
 - Sitemap: https://www.modelany.app/sitemap.xml
+
+## Pricing
+
+ModelAny is free: $0, no subscription, no credits, no in-app purchases. Answers come from the AI services you already use under their own plans. Full details: https://www.modelany.app/pricing.md
