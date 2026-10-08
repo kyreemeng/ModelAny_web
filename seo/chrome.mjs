@@ -17,6 +17,11 @@ export function ahrefsAnalytics() {
   return `<script src="https://analytics.ahrefs.com/analytics.js" data-key="${AHREFS_ANALYTICS_KEY}" async></script>`;
 }
 
+// Reciprocal launch badge, shown on the English homepage footer. It lives in
+// the shared footer generator so page regeneration reproduces it instead of
+// dropping the hand-added markup that the chrome sync rewrites.
+const FAZIER_BADGE = '<a href="https://fazier.com" target="_blank" rel="noopener" class="footer-badge" aria-label="Featured on Fazier"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" alt="Fazier badge" loading="lazy"></a>';
+
 const ICONS = {
   moon: '<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
   sun: '<svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>',
@@ -213,9 +218,10 @@ export function siteHeader({ lang = 'en', home = false, switchHref } = {}) {
   </header>`;
 }
 
-export function siteFooter({ lang = 'en', switchHref } = {}) {
+export function siteFooter({ lang = 'en', home = false, switchHref } = {}) {
   const c = COPY[lang];
   const altHref = switchHref || c.switchHref;
+  const badge = home && lang === 'en' ? `\n        ${FAZIER_BADGE}` : '';
   const columns = c.columns.map((column) => `<div class="footer-col">
           <h2 class="footer-heading">${column.title}</h2>
           <ul>
@@ -242,7 +248,7 @@ export function siteFooter({ lang = 'en', switchHref } = {}) {
           <a href="${GITHUB_REPO}" target="_blank" rel="noopener noreferrer">${c.githubLabel}</a>
           <a href="#" data-email="${CONTACT_EMAIL_PARTS}">${c.contactLabel}</a>
           <a href="${altHref}" data-locale-switch="${c.switchLang}" hreflang="${c.switchHreflang}" lang="${c.switchHreflang}">${lang === 'zh' ? 'English' : '中文'}</a>
-        </nav>
+        </nav>${badge}
       </div>
       <p class="footer-disclaimer">${c.disclaimer}</p>
     </div>
