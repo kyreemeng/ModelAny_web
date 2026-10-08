@@ -21,6 +21,12 @@ export function ahrefsAnalytics() {
 // the shared footer generator so page regeneration reproduces it instead of
 // dropping the hand-added markup that the chrome sync rewrites.
 const FAZIER_BADGE = '<a href="https://fazier.com" target="_blank" rel="noopener" class="footer-badge" aria-label="Featured on Fazier"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" alt="Fazier badge" loading="lazy"></a>';
+// Reciprocal directory badges (dofollow backlinks required for free listings).
+// Shown on the English homepage footer; verification bots check the homepage.
+const DANG_BADGE = '<a href=\"https://dang.ai/\" target=\"_blank\" rel=\"noopener\" class=\"footer-badge\" aria-label=\"Verified on Dang.ai\"><img src=\"https://assets.dang.ai/badges/dang-verified-dark.png\" alt=\"Verified on Dang.ai\" loading=\"lazy\"></a>';
+const AAD_BADGE = '<a href=\"https://aiagentsdirectory.com\" target=\"_blank\" rel=\"noopener\" class=\"footer-badge\" aria-label=\"Featured on AI Agents Directory\"><img src=\"https://aiagentsdirectory.com/featured-badge.svg?v=2024\" alt=\"Featured on AI Agents Directory\" loading=\"lazy\"></a>';
+const SHOWMEBEST_BADGE = '<a href=\"https://showmebest.ai\" target=\"_blank\" rel=\"noopener\" class=\"footer-badge\" aria-label=\"Featured on ShowMeBestAI\"><img src=\"https://showmebest.ai/badge/feature-badge-dark.webp\" alt=\"Featured on ShowMeBestAI\" loading=\"lazy\"></a>';
+const STARTUPFAME_BADGE = '<a href=\"https://startupfa.me\" target=\"_blank\" rel=\"noopener\" class=\"footer-badge\" aria-label=\"Featured on Startup Fame\"><img src=\"https://startupfa.me/badges/featured/dark.webp\" alt=\"Featured on Startup Fame\" loading=\"lazy\"></a>';
 
 const ICONS = {
   moon: '<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
@@ -221,7 +227,7 @@ export function siteHeader({ lang = 'en', home = false, switchHref } = {}) {
 export function siteFooter({ lang = 'en', home = false, switchHref } = {}) {
   const c = COPY[lang];
   const altHref = switchHref || c.switchHref;
-  const badge = home && lang === 'en' ? `\n        ${FAZIER_BADGE}` : '';
+  const badge = home && lang === 'en' ? `\n        ${FAZIER_BADGE}\n        ${DANG_BADGE}\n        ${AAD_BADGE}\n        ${SHOWMEBEST_BADGE}\n        ${STARTUPFAME_BADGE}` : '';
   const columns = c.columns.map((column) => `<div class="footer-col">
           <h2 class="footer-heading">${column.title}</h2>
           <ul>
