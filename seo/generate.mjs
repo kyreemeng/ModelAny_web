@@ -28,6 +28,7 @@ import {
 } from './data/pages.mjs';
 import { resolveProductCopy } from './data/product-copy.mjs';
 import { zhCompareNotes } from './data/zh-compare-notes.mjs';
+import { ahrefsAnalytics } from './chrome.mjs';
 import { syncChrome } from './sync-chrome.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -551,6 +552,7 @@ function htmlPage({
   <link rel="stylesheet" href="${base}styles.css">
   <link rel="stylesheet" href="${base}seo-pages.css">
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
+  ${ahrefsAnalytics()}
 </head>
 <body class="seo-page locale-${lang}">
   <a href="#main" class="skip-link">${lang === 'zh' ? '跳到主要内容' : 'Skip to main content'}</a>

@@ -166,6 +166,8 @@ test('every sitemap page includes first-party traffic measurement', async () => 
     const html = await projectFile(path);
     assert.match(html, /G-CX4BMB7829/, `${url} should include GA4`);
     assert.match(html, /cdn\.vercel-insights\.com\/v1\/script\.js/, `${url} should include Vercel Analytics`);
+    assert.match(html, /analytics\.ahrefs\.com\/analytics\.js/, `${url} should include Ahrefs Analytics`);
+    assert.match(html, /data-key="kcyItMUoMOGo8l17owwZQg"/, `${url} should carry the Ahrefs data key`);
   }
 });
 
