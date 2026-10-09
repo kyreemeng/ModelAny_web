@@ -45,9 +45,9 @@ test('kept compare pages embed plain-language public benchmark evidence', async 
 
 test('each benchmark table puts the higher score first', async () => {
   const html = await projectFile('compare/chatgpt-vs-claude/index.html');
-  const sweStart = html.indexOf('SWE-bench Verified');
+  const sweStart = html.indexOf('<h3>SWE-bench Verified');
   assert.ok(sweStart >= 0);
-  const tableSlice = html.slice(sweStart, sweStart + 1200);
+  const tableSlice = html.slice(sweStart, sweStart + 2800);
   const claudeRow = tableSlice.indexOf('<th scope="row">Claude</th>');
   const chatgptRow = tableSlice.indexOf('<th scope="row">ChatGPT</th>');
 

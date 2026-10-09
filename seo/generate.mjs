@@ -41,7 +41,7 @@ const CORE_COMPARE_SLUGS = new Set([
   'claude-vs-gemini',
 ]);
 const TEST_RECORD_PATH = join(ROOT, 'seo', 'data', 'test-results.json');
-const CONTENT_UPDATED = '2026-10-07';
+const CONTENT_UPDATED = '2026-10-09';
 const BENCHMARK_LASTMOD = loadBenchmarkSnapshot()?.retrievedAt?.slice(0, 10) || CONTENT_UPDATED;
 
 function esc(value) {
@@ -112,31 +112,98 @@ function formatRetrievedAt(value, lang) {
   return new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : 'en-US', { dateStyle: 'medium', timeStyle: 'short' }).format(date);
 }
 
+function formatScore(score, unit) {
+  const n = Number(score);
+  if (!Number.isFinite(n)) return String(score);
+  const rounded = unit === '%' || unit === 'Elo'
+    ? n.toFixed(n % 1 ? 1 : 0)
+    : n.toFixed(2).replace(/\.?0+$/, '');
+  if (unit === '%') return `${rounded}%`;
+  return `${rounded} ${unit}`;
+}
+
+function sourceDisplayName(source) {
+  if (source === 'arena') return 'Arena';
+  if (source === 'swebench') return 'SWE-bench Verified';
+  if (source === 'livebench') return 'LiveBench';
+  return source;
+}
+
+function barWidth(score, rows) {
+  const max = Math.max(...rows.map((row) => Number(row.score) || 0), 1);
+  return Math.max(8, Math.round((Number(score) / max) * 100));
+}
+
 function publicEvidenceHtml(modelIds, lang, focus) {
   const groups = sharedBenchmarkGroups(modelIds, { focus });
   if (!groups.length) return '';
   const hub = lang === 'zh' ? '/zh/benchmarks/' : '/benchmarks/';
+  const isZh = lang === 'zh';
   const scopeNote = focus
-    ? (lang === 'zh'
+    ? (isZh
       ? `下列结果已按本页场景优先筛选公开评测类别；不相关类别不会并入结论。`
       : `Results below prefer public benchmark categories relevant to this page’s focus. Unrelated categories are omitted.`)
     : null;
-  const blocks = groups.map((group) => {
-    const rows = [...group.rows].sort((a, b) => b.score - a.score || a.rank - b.rank).map((row) => `<tr>
+
+  const wins = new Map();
+  for (const group of groups) {
+    const ranked = [...group.rows].sort((a, b) => b.score - a.score || a.rank - b.rank);
+    const top = ranked[0];
+    if (!top) continue;
+    const tied = ranked.filter((row) => row.score === top.score).map((row) => row.product);
+    for (const product of tied) wins.set(product, (wins.get(product) || 0) + 1);
+  }
+
+  const scoreboard = `<div class="cmp-scoreboard" aria-label="${isZh ? '该对共有测试一览' : 'Shared tests at a glance'}">
+          ${[...wins.entries()].map(([product, count]) => `<article class="cmp-score-chip">
+            <p class="cmp-score-label">${esc(product)}</p>
+            <p class="cmp-score-value">${count}</p>
+            <p class="cmp-score-note">${isZh ? '在共有测试中分数更高的项目' : 'shared tests with the higher score'}</p>
+          </article>`).join('\n          ')}
+          <article class="cmp-score-chip cmp-score-chip-muted">
+            <p class="cmp-score-label">${isZh ? '共有测试' : 'Shared tests'}</p>
+            <p class="cmp-score-value">${groups.length}</p>
+            <p class="cmp-score-note">${isZh ? '不同来源的分数不能相加' : 'scores stay in their own units'}</p>
+          </article>
+        </div>`;
+
+  const toc = groups.length > 3
+    ? `<nav class="cmp-toc" aria-label="${isZh ? '跳转到测试' : 'Jump to tests'}"><ol>${groups.map((group, index) => {
+      const id = `test-${index}`;
+      const sourceName = sourceDisplayName(group.source);
+      return `<li><a href="#${id}">${esc(sourceName)} · ${esc(group.label[lang] || group.category)}</a></li>`;
+    }).join('')}</ol></nav>`
+    : '';
+
+  const blocks = groups.map((group, index) => {
+    const ranked = [...group.rows].sort((a, b) => b.score - a.score || a.rank - b.rank);
+    const rows = ranked.map((row, rowIndex) => `<tr${rowIndex === 0 ? ' class="cmp-lead-row"' : ''}>
               <th scope="row">${esc(row.product)}</th>
               <td>${esc(row.modelExactName)}</td>
               <td>${esc(String(row.rank))}</td>
-              <td>${esc(String(row.score))}${row.unit === '%' ? '%' : ''}</td>
+              <td>${esc(formatScore(row.score, row.unit))}</td>
               <td>${esc(row.metric)} (${esc(row.unit)})</td>
             </tr>`).join('\n            ');
-    const sourceName = group.source === 'arena' ? 'Arena' : group.source === 'swebench' ? 'SWE-bench Verified' : group.source === 'livebench' ? 'LiveBench' : group.source;
-    return `<article class="seo-evidence-card">
+    const sourceName = sourceDisplayName(group.source);
+    const bars = ranked.map((row, rowIndex) => {
+      const width = barWidth(row.score, ranked);
+      return `<div class="cmp-bar-row${rowIndex === 0 ? ' is-lead' : ''}">
+              <div class="cmp-bar-meta">
+                <strong>${esc(row.product)}</strong>
+                <span>${esc(formatScore(row.score, row.unit))}</span>
+              </div>
+              <div class="cmp-bar-track" aria-hidden="true"><span class="cmp-bar-fill" style="width:${width}%"></span></div>
+              <p class="cmp-bar-version">#${esc(String(row.rank))} · ${esc(row.modelExactName)}</p>
+            </div>`;
+    }).join('\n            ');
+    return `<article class="seo-evidence-card" id="test-${index}">
           <h3>${esc(sourceName)} · ${esc(group.label[lang] || group.category)}</h3>
           <p>${esc(group.plain[lang] || '')}</p>
-          <p class="seo-evidence-meta">${lang === 'zh' ? '数据抓取时间' : 'Retrieved'}: ${esc(formatRetrievedAt(group.retrievedAt, lang))} · <a href="${esc(group.sourceUrl)}" target="_blank" rel="noopener noreferrer">${lang === 'zh' ? '查看原始排行榜' : 'Open original leaderboard'}</a></p>
+          <p class="seo-evidence-meta">${isZh ? '数据抓取时间' : 'Retrieved'}: ${esc(formatRetrievedAt(group.retrievedAt, lang))} · <a href="${esc(group.sourceUrl)}" target="_blank" rel="noopener noreferrer">${isZh ? '查看原始排行榜' : 'Open original leaderboard'}</a></p>
+          <div class="cmp-bars" role="img" aria-label="${esc(`${sourceName} ${group.label[lang] || group.category}`)}">${bars}</div>
           <div class="seo-table-wrap">
             <table class="seo-table">
-              <thead><tr><th>${lang === 'zh' ? '产品' : 'Product'}</th><th>${lang === 'zh' ? '精确模型版本' : 'Exact model version'}</th><th>${lang === 'zh' ? '排名' : 'Rank'}</th><th>${lang === 'zh' ? '成绩' : 'Score'}</th><th>${lang === 'zh' ? '指标' : 'Metric'}</th></tr></thead>
+              <thead><tr><th>${isZh ? '产品' : 'Product'}</th><th>${isZh ? '精确模型版本' : 'Exact model version'}</th><th>${isZh ? '排名' : 'Rank'}</th><th>${isZh ? '成绩' : 'Score'}</th><th>${isZh ? '指标' : 'Metric'}</th></tr></thead>
               <tbody>${rows}</tbody>
             </table>
           </div>
@@ -144,13 +211,15 @@ function publicEvidenceHtml(modelIds, lang, focus) {
   }).join('\n        ');
 
   return `<section class="seo-section" aria-labelledby="public-evidence-heading">
-          <h2 id="public-evidence-heading">${lang === 'zh' ? '公开评测怎么说' : 'What public benchmarks show'}</h2>
-          <p>${lang === 'zh'
+          <h2 id="public-evidence-heading">${isZh ? '公开评测怎么说' : 'What public benchmarks show'}</h2>
+          <p>${isZh
             ? '下面只展示这些模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，也不能据此宣布谁全面更好。'
             : 'Below are results only from public benchmark categories where every model on this page appears together. Scores from different sources cannot be added up, and they do not prove one model is best overall.'}</p>
           ${scopeNote ? `<p>${scopeNote}</p>` : ''}
+          ${scoreboard}
+          ${toc}
           ${blocks}
-          <p><a href="${hub}">${lang === 'zh' ? '查看按场景整理的全部公开评测数据' : 'Browse all public benchmark data by scenario'}</a></p>
+          <p><a href="${hub}">${isZh ? '查看按场景整理的全部公开评测数据' : 'Browse all public benchmark data by scenario'}</a></p>
         </section>`;
 }
 
@@ -202,11 +271,12 @@ function comparisonBody(page, items, lang) {
               <td>${item.inModelAny ? (lang === 'zh' ? 'ModelAny 当前支持' : 'Currently supported by ModelAny') : (lang === 'zh' ? '当前不在 ModelAny 启动列表中' : 'Not currently in ModelAny launcher')}</td>
             </tr>`).join('\n            ');
 
-  return `<div class="quick-verdict">
-          <h2>${lang === 'zh' ? '如何阅读本页' : 'How to read this page'}</h2>
+  return `<div class="quick-verdict cmp-hero">
+          <p class="cmp-kicker">${lang === 'zh' ? '公开证据对照' : 'Public evidence, side by side'}</p>
+          <h2>${lang === 'zh' ? '先看共有测试，再自己验证' : 'Read the shared tests, then try the same prompt'}</h2>
           <p>${lang === 'zh'
-            ? '本页汇总双方共同出现在同一公开第三方评测中的结果，并标明精确模型版本与原始来源。它便于快速核对公开证据，但不能替代你用真实任务亲自试用。'
-            : 'This page summarizes results from public third-party benchmarks where both products appear in the same category, with exact model versions and original sources. It helps you inspect published evidence quickly, but it does not replace testing the models on your own tasks.'}</p>
+            ? '本页汇总双方共同出现在同一公开第三方评测中的结果，并标明精确模型版本与原始来源。条形图只比较同一测试内的分数，不能替代你用真实任务亲自试用。'
+            : 'This page summarizes results from public third-party benchmarks where both products appear in the same category, with exact model versions and original sources. Charts compare scores inside one test only and do not replace trying the models on your own tasks.'}</p>
         </div>
         ${zhPairNotesHtml(page, lang)}
         ${publicEvidenceHtml(page.models, lang)}
@@ -391,6 +461,7 @@ function htmlPage({
   faqItems,
   ctaHeading,
   ctaBody,
+  extraSchema,
 }) {
   const base = assetBase(path);
   const pageUrl = `${SITE}${canonical}`;
@@ -448,6 +519,7 @@ function htmlPage({
       },
     ],
   };
+  if (extraSchema) schema['@graph'].push(extraSchema);
   const crumbHtml = breadcrumbs.map((item, index) => (
     index === breadcrumbs.length - 1
       ? `<li aria-current="page">${esc(item.name)}</li>`
@@ -672,11 +744,12 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
   const path = `${prefix}/${page.slug}/index.html`;
   const indexable = prefix === 'compare' ? CORE_COMPARE_SLUGS.has(page.slug) : true;
   const names = items.map((item) => item.name).join(' vs ');
-  const h1 = lang === 'zh' ? `${names} 公开评测对比` : `${names}: public benchmark comparison`;
+  const groups = sharedBenchmarkGroups(page.models);
+  const h1 = lang === 'zh' ? `${names}：公开评测分数对照` : `${names}: scores, charts, and public benchmarks`;
   const description = page.serpDescription || (lang === 'zh'
-    ? `${names} 公开第三方评测对比：列出双方共有的测试项、精确模型版本、原始来源与适用边界，便于用同一提示词自行验证；并附官网入口与同题实测任务清单。`
-    : `Public third-party benchmark results, exact model versions, and official sources for ${names}.`);
-  const retrievedAt = sharedBenchmarkGroups(page.models)
+    ? `${names} 最新公开评测对照：${groups.length} 项共有测试、精确模型版本、条形图与原始来源。分数不合成总排名，便于用同一提示词自行验证。`
+    : `${names} compared on ${groups.length} shared public tests with exact model versions, score charts, ranks, and original leaderboard links. Scores are not combined into one ranking.`);
+  const retrievedAt = groups
     .map((group) => group.retrievedAt)
     .filter(Boolean)
     .sort()
@@ -711,6 +784,18 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
         { name: lang === 'zh' ? '模型对比' : 'Compare', href: lang === 'zh' ? '/zh/compare/' : '/compare/' },
         { name: names, href: canonical },
       ],
+      extraSchema: {
+        '@type': 'Dataset',
+        '@id': `${SITE}${canonical}#dataset`,
+        name: h1,
+        description,
+        dateModified: lastmod,
+        creator: { '@id': `${SITE}/#organization` },
+        license: 'https://creativecommons.org/licenses/by/4.0/',
+        isAccessibleForFree: true,
+        measurementTechnique: groups.map((group) => sourceDisplayName(group.source)).filter((item, i, arr) => arr.indexOf(item) === i),
+        variableMeasured: groups.map((group) => group.label[lang] || group.category),
+      },
     }),
   };
 }
@@ -1146,6 +1231,33 @@ function generateHub(section, label, pages, lang = 'en', title, options = {}) {
       : titleCase(page.keyword);
     return `<li><a href="/${section}/${page.slug}/">${esc(names)} 公开评测对比</a></li>`;
   }).join('');
+  const compareCards = listablePages.map((page) => {
+    const names = Array.isArray(page.models) && page.models.length
+      ? resolveModels(page.models).map((item) => item.name).join(' vs ')
+      : titleCase(page.keyword);
+    const groups = Array.isArray(page.models) ? sharedBenchmarkGroups(page.models) : [];
+    const wins = new Map();
+    for (const group of groups) {
+      const ranked = [...group.rows].sort((a, b) => b.score - a.score || a.rank - b.rank);
+      const top = ranked[0];
+      if (!top) continue;
+      const tied = ranked.filter((row) => row.score === top.score);
+      for (const row of tied) wins.set(row.product, (wins.get(row.product) || 0) + 1);
+    }
+    const lead = [...wins.entries()].sort((a, b) => b[1] - a[1])[0];
+    const leadNote = lead
+      ? (lang === 'zh'
+        ? `${lead[0]} 在 ${lead[1]}/${groups.length} 项共有测试中分数更高`
+        : `${lead[0]} higher on ${lead[1]}/${groups.length} shared tests`)
+      : (lang === 'zh' ? '查看共有测试分数' : 'Open shared-test scores');
+    const snapshot = groups[0]?.retrievedAt ? String(groups[0].retrievedAt).slice(0, 10) : '';
+    return `<a class="cmp-hub-card" href="/${section}/${page.slug}/">
+            <strong>${esc(names)}</strong>
+            <span class="cmp-hub-stat">${groups.length} ${lang === 'zh' ? '项共有测试' : 'shared tests'}</span>
+            <span>${esc(leadNote)}</span>
+            ${snapshot ? `<span class="cmp-hub-date">${lang === 'zh' ? '快照' : 'snapshot'} ${esc(snapshot)}</span>` : ''}
+          </a>`;
+  }).join('');
   const indexable = listablePages.length > 0;
   const hubCopy = {
     'best-for': 'Practical guides for choosing an AI workflow by task. Each page covers what to evaluate, where public benchmarks apply, and how to validate the same prompt.',
@@ -1154,21 +1266,23 @@ function generateHub(section, label, pages, lang = 'en', title, options = {}) {
     pricing: 'Cost-planning guides focused on your usage patterns, official documentation, and migration risk.',
   };
   const compareBody = lang === 'zh'
-    ? `<div class="quick-verdict"><h2>先看证据，再谈排名</h2><p>下面每个对比页只使用两个模型共同出现在同一公开评测类别里的结果。不同来源的分数不能相加，页面同时标明精确模型版本与抓取时间，也不把任何单一分数当作「全面第一」。</p></div><section class="seo-section"><h2>已发布的模型对比</h2><ul class="seo-index-list">${zhLinks}</ul></section><section class="seo-section"><h2>三方对比怎么读</h2><p>「ChatGPT vs Gemini vs Claude」这类三方搜索没有现成的三方榜单可引用，只能拆成三条两两对比。请分别阅读它们的共有评测类别，再用同一提示词亲自验证，而不是把三个分数合成一个总排名。</p><ul class="seo-index-list"><li><a href="/zh/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/zh/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/zh/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>用同一提示词自行验证</h2><p>先固定任务与合格标准，再并排检查事实、修改成本与各站点限制。</p><ul class="seo-index-list"><li><a href="/zh/compare-ai-models/">对比大模型：同一提示词并排验证</a></li><li><a href="/zh/benchmarks/">按场景查看全部公开评测数据</a></li><li><a href="/zh/ai-browser-extension/">AI 浏览器插件说明</a></li></ul></section><section class="seo-section"><h2>这些对比页如何审校</h2><p>每页保留原始排行榜链接、抓取时间、指标口径、精确模型版本与测试局限。</p><p><a href="/zh/benchmarks/">浏览按场景整理的全部公开评测数据</a></p></section>`
-    : `<div class="quick-verdict"><h2>Evidence before rankings</h2><p>Every comparison below uses results where the models appear in the same public benchmark category. Metrics stay separate, exact model versions are shown, and no single score is treated as a universal ranking.</p></div><section class="seo-section"><h2>Published AI model comparisons</h2><ul class="seo-index-list">${links}</ul></section><section class="seo-section"><h2>ChatGPT vs Gemini vs Claude</h2><p>Searches for three-way comparisons still resolve to pairwise evidence. Read each shared-benchmark page, then run the same prompt in ModelAny instead of treating a single blended score as a ranking.</p><ul class="seo-index-list"><li><a href="/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>Try the same prompt yourself</h2><p>Define a repeatable task, compare answers side by side, and review editing cost before choosing a workflow.</p><ul class="seo-index-list"><li><a href="/compare-ai-models/">Compare AI models with the same prompt</a></li><li><a href="/side-by-side-ai-comparison/">Side-by-side AI comparison workflow</a></li><li><a href="/ai-browser-extension/">ChatGPT Chrome extension for comparing models</a></li></ul></section><section class="seo-section"><h2>How these comparisons are reviewed</h2><p>Each page preserves the source leaderboard, retrieval time, metric, exact model version, and stated test limitations.</p><p><a href="/benchmarks/">Browse all benchmark snapshots by scenario</a></p></section>`;
+    ? `<div class="quick-verdict cmp-hero"><p class="cmp-kicker">公开证据对照</p><h2>先看分数图，再谈选择</h2><p>下面每个对比页只使用两个模型共同出现在同一公开评测类别里的结果，并配上条形图、精确模型版本与抓取时间。不同来源的分数不能相加，也不把任何单一分数当作「全面第一」。</p></div><section class="seo-section"><h2>已发布的模型对比</h2><div class="cmp-hub-grid">${compareCards}</div></section><section class="seo-section"><h2>三方对比怎么读</h2><p>「ChatGPT vs Gemini vs Claude」这类三方搜索没有现成的三方榜单可引用，只能拆成三条两两对比。请分别阅读它们的共有评测类别，再用同一提示词亲自验证，而不是把三个分数合成一个总排名。</p><ul class="seo-index-list"><li><a href="/zh/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/zh/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/zh/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>用同一提示词自行验证</h2><p>先固定任务与合格标准，再并排检查事实、修改成本与各站点限制。</p><ul class="seo-index-list"><li><a href="/zh/compare-ai-models/">对比大模型：同一提示词并排验证</a></li><li><a href="/zh/benchmarks/">按场景查看全部公开评测数据</a></li><li><a href="/zh/ai-browser-extension/">AI 浏览器插件说明</a></li></ul></section><section class="seo-section"><h2>这些对比页如何审校</h2><p>每页保留原始排行榜链接、抓取时间、指标口径、精确模型版本与测试局限。</p><p><a href="/zh/benchmarks/">浏览按场景整理的全部公开评测数据</a></p></section>`
+    : `<div class="quick-verdict cmp-hero"><p class="cmp-kicker">Evidence first</p><h2>See the scores, then pick a pair</h2><p>Every comparison below uses results where the models appear in the same public benchmark category. Charts, exact model versions, and source links stay on the page. Metrics stay separate, and no single score is treated as a universal ranking.</p></div><section class="seo-section"><h2>Published AI model comparisons</h2><div class="cmp-hub-grid">${compareCards}</div></section><section class="seo-section"><h2>ChatGPT vs Gemini vs Claude</h2><p>Searches for three-way comparisons still resolve to pairwise evidence. Read each shared-benchmark page, then run the same prompt in ModelAny instead of treating a single blended score as a ranking.</p><ul class="seo-index-list"><li><a href="/compare/chatgpt-vs-claude/">ChatGPT vs Claude</a></li><li><a href="/compare/chatgpt-vs-gemini/">ChatGPT vs Gemini</a></li><li><a href="/compare/claude-vs-gemini/">Claude vs Gemini</a></li></ul></section><section class="seo-section"><h2>Try the same prompt yourself</h2><p>Define a repeatable task, compare answers side by side, and review editing cost before choosing a workflow.</p><ul class="seo-index-list"><li><a href="/compare-ai-models/">Compare AI models with the same prompt</a></li><li><a href="/side-by-side-ai-comparison/">Side-by-side AI comparison workflow</a></li><li><a href="/ai-browser-extension/">ChatGPT Chrome extension for comparing models</a></li></ul></section><section class="seo-section"><h2>How these comparisons are reviewed</h2><p>Each page preserves the source leaderboard, retrieval time, metric, exact model version, and stated test limitations.</p><p><a href="/benchmarks/">Browse all benchmark snapshots by scenario</a></p></section>`;
   const foldBody = lang === 'zh'
     ? `<div class="quick-verdict"><h2>按意图浏览</h2><p>${esc(options.zhIntro || `${label} 页面各自对应一个明确的搜索与选择意图。`)}</p></div><section class="seo-section"><h2>${label}</h2><ul class="seo-index-list">${zhLinks}</ul></section><section class="seo-section"><h2>使用说明</h2><p>价格、可用性与模型行为都可能变化。请打开官方来源，用代表性任务实测，并在重要决策上保留人工复核。</p></section>`
     : '';
+  const hubLastmod = section === 'compare' || section === 'zh/compare' ? BENCHMARK_LASTMOD : CONTENT_UPDATED;
   return {
     path,
     url: canonical,
     indexable,
+    lastmod: hubLastmod,
     content: htmlPage({
       path,
       canonical,
       title: title || `${label} | ModelAny`,
       description: indexable
-        ? (options.description || hubCopy[section] || 'Compare AI models using public third-party benchmark evidence, exact model versions, source links, and clearly stated limits.')
+        ? (options.description || hubCopy[section] || 'Compare ChatGPT, Claude, Gemini and DeepSeek on shared public tests with scores, charts, exact model versions, and original sources. Scores are not combined into one ranking.')
         : `${label} guide hub.`,
       h1: label,
       lang,
@@ -1184,6 +1298,7 @@ function generateHub(section, label, pages, lang = 'en', title, options = {}) {
         : [{ name: 'Home', href: '/' }, { name: label, href: canonical }],
       localeHref: options.localeHref,
       alternateUrl: options.alternateUrl,
+      dateModified: hubLastmod,
     }),
   };
 }
@@ -1332,12 +1447,12 @@ for (const page of pricingPages) records.push(generateDraft(page, 'pricing', res
 for (const page of productPages) records.push(generateProductPage(page));
 
 records.push(
-  generateHub('compare', 'AI model comparisons', comparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'en', 'AI Model Comparisons With Public Evidence | ModelAny', {
+  generateHub('compare', 'AI model comparisons', comparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'en', 'AI Model Comparisons: Public Scores and Charts | ModelAny', {
     localeHref: '/zh/compare/',
     alternateUrl: '/zh/compare/',
   }),
-  generateHub('zh/compare', '模型对比', zhComparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'zh', '大模型对比：公开评测证据与同题验证方法 | ModelAny', {
-    description: 'ChatGPT、Claude、Gemini、DeepSeek、Kimi、GLM 等大模型的公开第三方评测对比：只展示双方共有的测试类别，标明精确模型版本与抓取时间，并给出同题实测方法。',
+  generateHub('zh/compare', '模型对比', zhComparePages.filter((page) => !page.canonicalSlug && hasSharedBenchmarkData(page.models)), 'zh', '大模型对比：最新公开分数、图表与同题验证 | ModelAny', {
+    description: 'ChatGPT、Claude、Gemini、DeepSeek、Kimi、GLM 等大模型公开评测对照：共有测试分数、条形图、精确模型版本与抓取时间。分数不合成总排名，并给出同题实测方法。',
     localeHref: '/compare/',
     alternateUrl: '/compare/',
     zhIntro: '每个对比页只使用双方共同出现在同一公开评测类别里的结果，并给出可自行复现的同题实测任务。',

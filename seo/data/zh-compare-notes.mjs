@@ -20,7 +20,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '真实代码修复（SWE-bench Verified）',
-        text: '在 2026-09-29 抓取的公开快照里，GLM 5 (high) 修好 72.8% 的真实 GitHub 问题，与 ChatGPT 的 GPT 5.2 (high)（72.8%）持平；而上一代 GLM-4.6 为 68.2%，落后于 GPT 5.2。也就是说：这批测试里，GLM 新版本已经追平 ChatGPT 的代表配置，版本选择对结论影响很大。',
+        text: '在 2026-10-09 抓取的公开快照里，GLM 5 (high) 修好 72.8% 的真实 GitHub 问题（第 25）。被标成 ChatGPT 的最高分 74.6% 来自 JoyCode + Claude 4 Sonnet + GPT-4.1，是混用 Claude 的智能体组合，不是独立 ChatGPT。版本选择对结论影响很大。',
       },
     ],
     practical: [
@@ -64,7 +64,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '真实代码修复（SWE-bench Verified）',
-        text: '在 2026-09-29 抓取的公开快照里，Kimi K2.5 (high) 修好 70.8% 的真实 GitHub 问题（Lingxi v1.5 × Kimi K2 组合为 71.2%），ChatGPT 的 GPT 5.2 (high) 为 72.8%。差距约 1.5–2 个百分点，比很多人预期的小；在具体任务上两边互有胜负是完全可能的。',
+        text: '在 2026-10-09 抓取的公开快照里，Kimi 侧提交（Lingxi v1.5 x Kimi K2）修好 71.2% 的真实 GitHub 问题（第 35）。被标成 ChatGPT 的最高分 74.6% 来自 JoyCode + Claude 4 Sonnet + GPT-4.1 混用组合。差距不大，具体任务上两边互有胜负完全可能。',
       },
     ],
     practical: [
@@ -108,7 +108,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '真实代码修复（SWE-bench Verified）',
-        text: '在 2026-09-29 抓取的公开快照里，豆包的智能体组合（TRAE + Doubao-Seed-Code）修好 78.8% 的真实 GitHub 问题，排在该榜第 3。快照里被标成 ChatGPT 的最高分 74.6% 来自 JoyCode + Claude 4 Sonnet + GPT-4.1，不是独立 ChatGPT 配置；ChatGPT 单独提交的最好成绩是 GPT 5.2 (high) 的 72.8%。注意：豆包这一项是「智能体框架 + 模型」的组合成绩，不代表模型单独能力的排名。',
+        text: '在 2026-10-09 抓取的公开快照里，豆包的智能体组合（TRAE + Doubao-Seed-Code）修好 78.8% 的真实 GitHub 问题，排在该榜第 3。被标成 ChatGPT 的最高分 74.6% 来自 JoyCode + Claude 4 Sonnet + GPT-4.1，不是独立 ChatGPT 配置。豆包这一项是「智能体框架 + 模型」的组合成绩，不代表模型单独能力的排名。',
       },
     ],
     practical: [
@@ -152,7 +152,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '真实代码修复（SWE-bench Verified）',
-        text: '在 2026-09-29 抓取的公开快照里，GLM 5 (high) 修好 72.8% 的真实 GitHub 问题（列第 25），DeepSeek V3.2 (high) 为 70%（列第 46），DeepSeek V3.2 Reasoner 为 60%。这批测试里 GLM 新版本领先约 3 个百分点；DeepSeek 的推理向版本在该项反而偏低，说明「选对版本」比「选对品牌」影响更大。',
+        text: '在 2026-10-09 抓取的公开快照里，GLM 5 (high) 修好 72.8% 的真实 GitHub 问题（第 25），DeepSeek V3.2 (high) 为 70%（第 46）。这批测试里 GLM 领先约 3 个百分点；说明「选对版本」比「选对品牌」影响更大。',
       },
     ],
     practical: [
@@ -196,7 +196,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '真实代码修复（SWE-bench Verified）',
-        text: '在 2026-09-29 抓取的公开快照里，这一对只有一项共同测试：SWE-bench Verified。代表 Qwen 的提交（Nebius AI Qwen 2.5 72B Generator + LLama 3.1 70B Critic）修好 40.6% 的真实 GitHub 问题。被标成 ChatGPT 的最高分（JoyCode + Claude 4 Sonnet + GPT-4.1）为 74.6%，但这是混用 Claude 的智能体组合，不是独立 ChatGPT 配置。两边都是「智能体框架 + 模型」的组合成绩，且 Qwen 侧提交并非其最新一代模型——单凭这一项，不足以对两个产品下整体结论。',
+        text: '在 2026-10-09 抓取的公开快照里，这一对只有一项共同测试：SWE-bench Verified。代表 Qwen 的提交修好 40.6%。被标成 ChatGPT 的最高分 74.6% 来自 JoyCode + Claude 4 Sonnet + GPT-4.1 混用组合。两边都是智能体组合成绩，且 Qwen 侧并非最新一代模型——单凭这一项不足以下整体结论。',
       },
     ],
     practical: [
@@ -240,7 +240,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '真实代码修复（SWE-bench Verified）',
-        text: '在 2026-09-29 抓取的公开快照里，这一对只有一项共同测试：SWE-bench Verified。代表 Qwen 的提交（Nebius AI Qwen 2.5 72B Generator + LLama 3.1 70B Critic）修好 40.6% 的真实 GitHub 问题，DeepSeek V3.2 (high) 为 70%（列第 46）。同样注意：Qwen 侧是「智能体框架 + 模型」的组合成绩，且不一定是其最新模型版本，证据覆盖面很窄。',
+        text: '在 2026-10-09 抓取的公开快照里，这一对只有一项共同测试：SWE-bench Verified。代表 Qwen 的提交修好 40.6%，DeepSeek V3.2 (high) 为 70%（第 46）。Qwen 侧是智能体组合成绩且不一定是最新模型，证据覆盖面很窄。',
       },
     ],
     practical: [
@@ -284,7 +284,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '真实代码修复（SWE-bench Verified）',
-        text: '在 2026-09-29 抓取的公开快照里，这一对只有一项共同测试：SWE-bench Verified。豆包的智能体组合（TRAE + Doubao-Seed-Code）修好 78.8% 的真实 GitHub 问题，排在该榜第 3；DeepSeek V3.2 (high) 为 70%（列第 46）。说明：豆包一侧是「智能体框架 + 模型」的组合成绩，不代表模型单独能力排名，但足以说明国产组合在这类测试里已进入第一梯队。',
+        text: '在 2026-10-09 抓取的公开快照里，这一对只有一项共同测试：SWE-bench Verified。豆包智能体组合（TRAE + Doubao-Seed-Code）修好 78.8%，排第 3；DeepSeek V3.2 (high) 为 70%（第 46）。豆包一侧是组合成绩，不代表模型单独能力排名。',
       },
     ],
     practical: [
@@ -380,7 +380,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '综合分项（LiveBench）',
-        text: '在 2026-09-29 抓取的公开快照里，ChatGPT 的代表配置（gpt-6-astra-max 等）在语言 89.4（第 3）、推理 92.7（第 1）、数学 96.8（第 3）、数据分析 83.0（第 1）领先；DeepSeek 的 deepseek-v4.1-flash-max 在 Agentic Coding 一项拿到 77.3、排全榜第 1，反超 ChatGPT 的 57.3（第 21）。编程这一项两家差距最大，且方向与综合印象相反。',
+        text: '在 2026-10-09 抓取的公开快照里，ChatGPT 代表配置在语言 90.13（第 2）、推理 92.65（第 1）、数学 96.83（第 3）、数据分析 82.97（第 1）领先；DeepSeek 的 deepseek-v4.1-flash-max 在 Agentic Coding 拿到 77.27、排全榜第 1，反超 ChatGPT 的 57.32（第 21）。编程这一项两家差距最大。',
       },
       {
         label: '人类偏好口吻（LMArena）',
@@ -432,7 +432,7 @@ export const zhCompareNotes = {
     snapshot: [
       {
         label: '写作与代码口碑（LMArena）',
-        text: '在 2026-09-25 发布、2026-09-29 抓取的榜单里，文本类 Claude claude-opus-5.5-high 1509 Elo 排第 1，ChatGPT gpt-5.6-sol-xhigh 1483 排第 19；代码类 Claude claude-opus-5.5-max 1827（第 1）对 ChatGPT gpt-6-astra-max 1792（第 2）——差距很小但方向一致。搜索类例外：ChatGPT 1257（第 1）对 Claude 1253（第 2）。',
+        text: '在 2026-10-09 抓取的 Arena 榜单里，文本类 Claude claude-opus-4-6-high 1505 Elo 排第 2，ChatGPT gpt-5.6-sol-xhigh 1484 排第 20；代码类 Claude claude-opus-5.5-max 1814（第 1）对 ChatGPT gpt-6-astra-max 1788（第 2）。搜索类例外：ChatGPT 1257（第 1）对 Claude 1253（第 2）。',
       },
       {
         label: '能力分项（LiveBench）',

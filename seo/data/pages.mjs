@@ -103,8 +103,8 @@ export const zhComparePages = [
     slug: 'doubao-vs-chatgpt', models: ['doubao', 'chatgpt'], keyword: '豆包 vs chatgpt', priority: 'P0',
     // GSC: position 8.2, 12 impressions, 0 clicks. The page ranks for the query
     // but the snippet gives no reason to click—lead with the concrete finding.
-    serpTitle: '豆包 vs ChatGPT：智能体编程组合排进全榜前三 | ModelAny',
-    serpDescription: '公开快照里豆包智能体组合（TRAE + Doubao-Seed-Code）修好 78.8%，排 SWE-bench 第 3。74.6% 那条是混用 Claude 的组合，不是独立 ChatGPT。含版本、来源与 3 条实测任务。',
+    serpTitle: '豆包 vs ChatGPT：智能体组合 SWE-bench 第 3（78.8%） | ModelAny',
+    serpDescription: '2026-10-09 快照：TRAE + Doubao-Seed-Code 修好 78.8%，SWE-bench 第 3。ChatGPT 侧最高 74.6% 是 JoyCode 混用 Claude 的组合。含版本、条形图与实测任务。',
   },
   { slug: 'kimi-vs-chatgpt', models: ['kimi', 'chatgpt'], keyword: 'kimi vs chatgpt', priority: 'P0' },
   { slug: 'glm-vs-chatgpt', models: ['glm', 'chatgpt'], keyword: 'glm vs chatgpt', priority: 'P0' },
