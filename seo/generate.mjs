@@ -746,9 +746,12 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
   const names = items.map((item) => item.name).join(' vs ');
   const groups = sharedBenchmarkGroups(page.models);
   const h1 = lang === 'zh' ? `${names}：公开评测分数对照` : `${names}: scores, charts, and public benchmarks`;
+  const defaultTitle = lang === 'zh'
+    ? `${names} 对比：哪个更好用？| ModelAny`
+    : `${names}: Benchmarks & Live Test | ModelAny`;
   const description = page.serpDescription || (lang === 'zh'
-    ? `${names} 最新公开评测对照：${groups.length} 项共有测试、精确模型版本、条形图与原始来源。分数不合成总排名，便于用同一提示词自行验证。`
-    : `${names} compared on ${groups.length} shared public tests with exact model versions, score charts, ranks, and original leaderboard links. Scores are not combined into one ranking.`);
+    ? `${names}哪个好用？公开评测对照 + 同一提示词实测。共 ${groups.length} 项共有测试、精确模型版本与条形图，分数不合成总排名。`
+    : `${names} on ${groups.length} shared public benchmarks with charts and versions—then retest with your own prompt side by side. Free.`);
   const retrievedAt = groups
     .map((group) => group.retrievedAt)
     .filter(Boolean)
@@ -770,7 +773,7 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
     content: htmlPage({
       path,
       canonical,
-      title: page.serpTitle || `${h1} | ModelAny`,
+      title: page.serpTitle || defaultTitle,
       description,
       h1,
       lang,

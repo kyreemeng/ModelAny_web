@@ -379,7 +379,7 @@ test('the alternatives and pricing hubs only link to kept pages', async () => {
 
 test('compare-ai-models is a blank worksheet, not a filled 11-model ranking', async () => {
   const html = await projectFile('compare-ai-models/index.html');
-  assert.match(html, /<title>Compare AI Models: Same-Prompt Worksheet \| ModelAny<\/title>/);
+  assert.match(html, /<title>Compare AI Models Side by Side — Free \| ModelAny<\/title>/);
   assert.match(html, /blank same-prompt worksheet/i);
   assert.match(html, /Blank 11-model worksheet/);
   assert.match(html, /not a completed 11-model test/i);
