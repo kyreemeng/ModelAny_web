@@ -5,7 +5,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ahrefsAnalytics, mobileCtaBar, scrollTopButton, siteFooter, siteHeader } from './chrome.mjs';
+import { adsenseCode, ahrefsAnalytics, mobileCtaBar, scrollTopButton, siteFooter, siteHeader } from './chrome.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -25,19 +25,21 @@ const FOOTER_START = '<!-- chrome:footer:start -->';
 const FOOTER_END = '<!-- chrome:footer:end -->';
 const HEAD_ANALYTICS_START = '<!-- chrome:head:analytics:start -->';
 const HEAD_ANALYTICS_END = '<!-- chrome:head:analytics:end -->';
+const HEAD_ADSENSE_START = '<!-- chrome:head:adsense:start -->';
+const HEAD_ADSENSE_END = '<!-- chrome:head:adsense:end -->';
 
-// Injects the Ahrefs analytics tag just before </head> on static pages. Uses
-// idempotent markers so re-runs replace rather than duplicate the snippet.
-function syncHeadAnalytics(html) {
-  const block = `  ${HEAD_ANALYTICS_START}\n  ${ahrefsAnalytics()}\n  ${HEAD_ANALYTICS_END}\n`;
-  const startIndex = html.indexOf(HEAD_ANALYTICS_START);
+// Injects a <head> snippet just before </head>, wrapped in idempotent markers
+// so re-runs replace the block instead of duplicating it.
+function syncHeadBlock(html, startMarker, endMarker, content) {
+  const block = `  ${startMarker}\n  ${content}\n  ${endMarker}\n`;
+  const startIndex = html.indexOf(startMarker);
   if (startIndex !== -1) {
-    const endIndex = html.indexOf(HEAD_ANALYTICS_END);
+    const endIndex = html.indexOf(endMarker);
     const lineStart = html.lastIndexOf('\n', startIndex) + 1;
-    return html.slice(0, lineStart) + block + html.slice(endIndex + HEAD_ANALYTICS_END.length + 1);
+    return html.slice(0, lineStart) + block + html.slice(endIndex + endMarker.length + 1);
   }
   const headClose = html.indexOf('</head>');
-  if (headClose === -1) throw new Error('No </head> found for analytics injection');
+  if (headClose === -1) throw new Error(`No </head> found for ${startMarker} injection`);
   return html.slice(0, headClose) + block + html.slice(headClose);
 }
 
@@ -64,7 +66,8 @@ export function syncChrome() {
     html = replaceBlock(html, HEADER_START, HEADER_END, siteHeader(page), /<header class="site-header"[\s\S]*?<\/header>/);
     const footer = [siteFooter(page), scrollTopButton(page.lang), mobileCtaBar(page.lang)].join('\n  ');
     html = replaceBlock(html, FOOTER_START, FOOTER_END, footer, /<footer class="site-footer"[\s\S]*?<\/footer>/);
-    html = syncHeadAnalytics(html);
+    html = syncHeadBlock(html, HEAD_ANALYTICS_START, HEAD_ANALYTICS_END, ahrefsAnalytics());
+    html = syncHeadBlock(html, HEAD_ADSENSE_START, HEAD_ADSENSE_END, adsenseCode());
     writeFileSync(file, html, 'utf8');
   }
 }

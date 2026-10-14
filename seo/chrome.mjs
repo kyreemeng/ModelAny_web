@@ -17,6 +17,14 @@ export function ahrefsAnalytics() {
   return `<script src="https://analytics.ahrefs.com/analytics.js" data-key="${AHREFS_ANALYTICS_KEY}" async></script>`;
 }
 
+// Google AdSense publisher loader. Injected in <head> on every page per
+// Google's install instructions; ad units are placed automatically.
+export const ADSENSE_CLIENT = 'ca-pub-5073138971895700';
+
+export function adsenseCode() {
+  return `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>`;
+}
+
 // Reciprocal launch badge, shown on the English homepage footer. It lives in
 // the shared footer generator so page regeneration reproduces it instead of
 // dropping the hand-added markup that the chrome sync rewrites.

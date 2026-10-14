@@ -168,6 +168,7 @@ test('every sitemap page includes first-party traffic measurement', async () => 
     assert.match(html, /cdn\.vercel-insights\.com\/v1\/script\.js/, `${url} should include Vercel Analytics`);
     assert.match(html, /analytics\.ahrefs\.com\/analytics\.js/, `${url} should include Ahrefs Analytics`);
     assert.match(html, /data-key="kcyItMUoMOGo8l17owwZQg"/, `${url} should carry the Ahrefs data key`);
+    assert.match(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-5073138971895700/, `${url} should include the AdSense loader`);
   }
 });
 
