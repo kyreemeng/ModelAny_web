@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { hasSharedBenchmarkData } from '../seo/data/benchmarks.mjs';
-import { alternativePages, bestForPages, freePages, KEPT_ALTERNATIVE_SLUGS, KEPT_BEST_FOR_SLUGS, KEPT_PRICING_SLUGS, pricingPages, productPages } from '../seo/data/pages.mjs';
+import { alternativePages, bestForPages, comparePages, freePages, KEPT_ALTERNATIVE_SLUGS, KEPT_BEST_FOR_SLUGS, KEPT_PRICING_SLUGS, pricingPages, productPages, zhComparePages } from '../seo/data/pages.mjs';
 
 const root = new URL('../', import.meta.url);
 
@@ -19,6 +19,14 @@ async function exists(path) {
   }
 }
 
+async function datasetsFrom(path) {
+  const html = await projectFile(path);
+  const match = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  assert.ok(match, `${path} should include JSON-LD`);
+  const schema = JSON.parse(match[1]);
+  return { datasets: (schema['@graph'] || [schema]).filter((node) => node['@type'] === 'Dataset'), html };
+}
+
 test('compare pages without shared public evidence are removed and redirected', async () => {
   const vercel = JSON.parse(await projectFile('vercel.json'));
   const redirect = vercel.redirects.find((item) => item.source === '/compare/llm-benchmark/');
@@ -30,6 +38,28 @@ test('compare pages without shared public evidence are removed and redirected', 
   assert.equal(await exists('compare/llm-benchmark/index.html'), false);
   assert.equal(await exists('compare/chatgpt-vs-grok/index.html'), false);
   assert.equal(await exists('zh/compare/chinese-ai-ranking/index.html'), false);
+});
+
+test('comparison Dataset schema meets Google description and creator requirements', async () => {
+  const pages = [
+    ...comparePages.filter((page) => !page.canonicalSlug).map((page) => `compare/${page.slug}/index.html`),
+    ...zhComparePages.filter((page) => !page.canonicalSlug).map((page) => `zh/compare/${page.slug}/index.html`),
+  ];
+
+  for (const path of pages) {
+    const { datasets, html } = await datasetsFrom(path);
+    assert.equal(datasets.length, 1, `${path} should have exactly one Dataset node`);
+    const [dataset] = datasets;
+    const metaDescription = html.match(/<meta name="description" content="([^"]+)">/)?.[1];
+
+    assert.ok(dataset.description.length >= 50, `${path} Dataset description must be at least 50 characters`);
+    assert.ok(dataset.description.length <= 5000, `${path} Dataset description must be at most 5000 characters`);
+    assert.notEqual(dataset.description, metaDescription, `${path} Dataset description must not reuse the short meta description`);
+    assert.equal(dataset.creator?.['@type'], 'Organization', `${path} Dataset creator must be a typed Organization`);
+    assert.equal(dataset.creator?.['@id'], 'https://www.modelany.app/#organization');
+    assert.equal(dataset.creator?.name, 'ModelAny');
+    assert.equal(dataset.creator?.url, 'https://www.modelany.app');
+  }
 });
 
 test('kept compare pages embed plain-language public benchmark evidence', async () => {
@@ -114,14 +144,38 @@ test('best-for pages outside the kept list are noindexed and excluded from the s
   }
 });
 
-test('the best-for hub only links to kept pages', async () => {
+test('the best-for hub links exactly the guides that earn impressions', async () => {
+  // Policy since the 2026-10-16 GSC export: keep every guide with at least one
+  // impression, noindex only the zero-impression slugs. The earlier five-page
+  // cap had withdrawn pages that were already ranking (python, javascript,
+  // system-design, writing, emails, hr, students…), which throws away the only
+  // asset Google has tested. java is the fourth page on the site by clicks, so
+  // it must never be pruned again.
   const hub = await projectFile('best-for/index.html');
-  assert.match(hub, /href="\/best-for\/coding\/"/);
-  assert.match(hub, /href="\/best-for\/excel\/"/);
-  // java earns 172 impressions / 4 clicks in GSC and is the fifth kept guide.
-  assert.match(hub, /href="\/best-for\/java\/"/);
+  for (const slug of ['coding', 'excel', 'java', 'python', 'javascript', 'system-design', 'writing', 'emails', 'hr', 'students']) {
+    assert.match(hub, new RegExp(`href="/best-for/${slug}/"`), `${slug} earns impressions and must stay linked`);
+  }
+  // Zero-impression slugs stay live for humans but out of the hub and index.
   assert.doesNotMatch(hub, /href="\/best-for\/research\/"/);
-  assert.doesNotMatch(hub, /href="\/best-for\/python\/"/);
+  assert.doesNotMatch(hub, /href="\/best-for\/math\/"/);
+  assert.doesNotMatch(hub, /href="\/best-for\/sql\/"/);
+});
+
+test('best-for guides with impressions stay indexable after the re-expansion', async () => {
+  const sitemap = await projectFile('sitemap.xml');
+  // Re-opened in the 2026-10-16 revision; each had impressions but was
+  // noindexed by the earlier five-page cap.
+  for (const slug of ['python', 'javascript', 'system-design', 'writing', 'emails', 'hr', 'students', 'debugging', 'science', 'finance', 'creative-writing', 'marketing', 'sales', 'statistics', 'reasoning', 'customer-support']) {
+    const html = await projectFile(`best-for/${slug}/index.html`);
+    assert.doesNotMatch(html, /<meta name="robots" content="noindex, follow/, `${slug} should be indexable`);
+    assert.match(sitemap, new RegExp(`/best-for/${slug}/`), `${slug} should be back in the sitemap`);
+  }
+  // Still noindexed: no impressions in the export.
+  for (const slug of ['coding-2026', 'sql', 'refactoring', 'leetcode', 'coding-interviews', 'essays', 'blog-posts', 'content-creation', 'translation', 'chinese-to-english', 'math', 'research', 'analysis', 'data-analysis', 'business', 'powerpoint', 'spreadsheets']) {
+    const html = await projectFile(`best-for/${slug}/index.html`);
+    assert.match(html, /<meta name="robots" content="noindex, follow/, `${slug} has no impressions and should stay noindexed`);
+    assert.doesNotMatch(sitemap, new RegExp(`/best-for/${slug}/`), `${slug} should stay out of the sitemap`);
+  }
 });
 
 test('generated comparison pages avoid unsupported rankings and FAQ rich-result markup', async () => {

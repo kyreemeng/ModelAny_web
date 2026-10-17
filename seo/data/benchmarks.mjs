@@ -22,6 +22,16 @@ export const PRODUCT_BY_MODEL_ID = {
   wenxin: 'Wenxin',
 };
 
+/**
+ * Launcher products the public snapshot does not map to any benchmark family
+ * yet. They are named here so the hub can show them as unmeasured rows instead
+ * of dropping them or printing a raw id.
+ */
+const FALLBACK_PRODUCT_NAME = {
+  grok: 'Grok',
+  yuanbao: 'Tencent Yuanbao',
+};
+
 const CATEGORY_LABEL = {
   text: { en: 'general chat preference', zh: '通用对话偏好' },
   search: { en: 'search-style preference', zh: '搜索类偏好' },
@@ -123,6 +133,69 @@ export function sharedBenchmarkGroups(modelIds, { focus } = {}) {
 
 export function hasSharedBenchmarkData(modelIds) {
   return sharedBenchmarkGroups(modelIds).length > 0;
+}
+
+/**
+ * Coverage matrix for the model-comparison hub: one row per launcher model,
+ * one column per public test category that at least `minModels` products
+ * appear in. A cell is either the best-scoring configuration that product has
+ * in that category (score, rank, exact version) or null when the snapshot has
+ * no result for it.
+ *
+ * The nulls are the point: the hub must show which of the eleven web apps have
+ * public evidence and which do not, instead of inventing a "best overall" row
+ * for products nobody has measured. `coverage` counts the tests a product is
+ * actually present in.
+ */
+export function modelCoverageMatrix(modelIds, minModels = 4) {
+  const groups = launcherBenchmarkGroups(modelIds, minModels);
+  // The hub lists every launcher entry, including the ones with no public
+  // benchmark mapping yet—those rows are the honest "no public evidence" line.
+  const products = modelIds.map((id) => PRODUCT_BY_MODEL_ID[id] || FALLBACK_PRODUCT_NAME[id] || id);
+  const rows = modelIds.map((id, index) => {
+    const product = products[index];
+    const cells = groups.map((group) => {
+      const candidates = group.rows.filter((row) => row.product === product);
+      if (!candidates.length) return null;
+      return candidates.reduce((best, row) => (
+        !best || row.score > best.score || (row.score === best.score && row.rank < best.rank) ? row : best
+      ), null);
+    });
+    return {
+      id,
+      product,
+      cells,
+      coverage: cells.filter(Boolean).length,
+      wins: cells.filter((cell, index) => {
+        if (!cell) return false;
+        const best = Math.max(...groups[index].rows.map((row) => row.score));
+        return cell.score === best;
+      }).length,
+    };
+  });
+  return {
+    tests: groups.map((group) => ({
+      source: group.source,
+      category: group.category,
+      label: group.label,
+      unit: group.rows[0]?.unit || '',
+      retrievedAt: group.retrievedAt,
+      sourceUrl: group.sourceUrl,
+    })),
+    rows,
+    covered: rows.filter((row) => row.coverage > 0).length,
+    total: rows.length,
+    mapped: groups.length,
+    retrievedAt: snapshotRetrievedAt(groups),
+  };
+}
+
+function snapshotRetrievedAt(groups) {
+  return groups
+    .map((group) => group.retrievedAt)
+    .filter(Boolean)
+    .sort()
+    .at(-1) || null;
 }
 
 /**

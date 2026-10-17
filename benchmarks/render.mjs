@@ -2,7 +2,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isValidSnapshot } from './sources.mjs';
+import { isValidSnapshot, MODEL_ALIASES } from './sources.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SNAPSHOT_PATH = join(ROOT, 'benchmarks', 'data', 'latest.json');
@@ -82,6 +82,8 @@ const LABELS = {
     gapToTop: 'gap to first place',
     matrixTitle: 'The podium map across all tests',
     matrixNote: 'Each row is a model family, sorted by most first places. A cell shows where that family lands in the test column — only top-3 finishes are marked, and every column keeps its own benchmark’s score.',
+    scoreTitle: 'Every score, side by side',
+    scoreNote: 'The same comparison with the numbers left in: each cell is that family’s score and rank in that test, and the highest score in each column is highlighted. Counts beside a family name show how many tests it appears in and how many it tops. The dots are tests the family has no public result for — not zeros.',
     matrixFamilyCol: 'Model family',
     families: 'model families compared',
     source: 'Open original leaderboard',
@@ -99,6 +101,8 @@ const LABELS = {
     gapToTop: '与第一名的差距',
     matrixTitle: '全部测试的领奖台地图',
     matrixNote: '每一行是一个模型家族，按第一名数量排序。单元格显示该家族在对应测试中的名次，仅标注前三名，且每列保留各自基准的独立分数。',
+    scoreTitle: '全部成绩对照表',
+    scoreNote: '同一批测试的完整数字：每个格子是该模型家族在这项测试中的成绩与名次，每列最高分已标出。名称旁的数字表示它出现在几项测试中、拿下几项第一；点号表示没有公开成绩，而不是零分。',
     matrixFamilyCol: '模型家族',
     families: '个模型家族参与对比',
     source: '查看原始排行榜',
@@ -203,6 +207,84 @@ function leaderCard({ sourceId, category, products }, { source, lang, labels }) 
  * Cross-test podium matrix: one row per model family that reached a top-3
  * spot, one column per test. Rows are sorted by gold, then silver, then bronze.
  */
+/**
+ * Dense score table: every family × every test, with the actual number rather
+ * than a rank badge. The podium matrix shows who won; this shows how far apart
+ * they actually are, which is the question people bring to a leaderboard page.
+ * Cells keep each column's own unit and highlight that column's best score.
+ */
+function scoreTableHtml(groups, { sourceById, lang, labels }) {
+  const tests = groups.map(({ sourceId, category, products }) => {
+    const source = sourceById.get(sourceId);
+    return {
+      short: MATRIX_SHORT[sourceId]?.[category]?.[lang] || category,
+      full: `${source?.name || sourceId} · ${CATEGORY_LABEL[sourceId]?.[category]?.[lang] || category}`,
+      unit: products[0]?.record.unit || '',
+      best: products[0]?.record.score ?? 0,
+      scores: new Map(products.map(({ family, record }) => [family, record])),
+    };
+  });
+  // Sort rows by number of columns where the family holds the top score, then
+  // by how many tests it appears in at all, then alphabetically.
+  //
+  // The raw snapshot has 100+ exact configurations, which would bury the
+  // comparison. Keep a row when it is either a product people recognise (the
+  // nine mapped families) or a configuration that actually reached a podium —
+  // the same population as the podium matrix, plus the mapped products that
+  // never podiumed so their scores stay visible.
+  const knownProducts = new Set(MODEL_ALIASES.map((alias) => alias.product));
+  const families = [...new Set(groups.flatMap(({ products }) => products.map(({ family }) => family)))];
+  const rows = families.map((family) => ({
+    family,
+    wins: tests.filter((test) => {
+      const record = test.scores.get(family);
+      return record && record.score === test.best;
+    }).length,
+    podium: tests.some((test) => {
+      const record = test.scores.get(family);
+      return record && record.rank <= 3;
+    }),
+    present: tests.filter((test) => test.scores.has(family)).length,
+  }))
+    .filter((row) => row.podium || knownProducts.has(row.family))
+    .sort((a, b) => b.wins - a.wins || b.present - a.present || a.family.localeCompare(b.family));
+
+  const headCells = tests.map((test) => (
+    `<th scope="col" title="${esc(test.full)}">${esc(test.short)}${test.unit ? `<span class="bm-score-unit">${esc(test.unit)}</span>` : ''}</th>`
+  )).join('');
+  const bodyRows = rows.map(({ family, wins, present }) => {
+    const cells = tests.map((test) => {
+      const record = test.scores.get(family);
+      if (!record) return '<td class="bm-score-empty" aria-label="-">·</td>';
+      const isBest = record.score === test.best;
+      return `<td class="bm-score-cell${isBest ? ' is-best' : ''}"><span>${esc(fmtScore(record))}</span><em>#${esc(String(record.rank))}</em></td>`;
+    }).join('');
+    return `<tr>
+              <th scope="row" class="bm-score-family"><strong>${esc(family)}</strong><span class="bm-score-count">${present}/${tests.length}</span>${wins ? `<span class="bm-score-wins">${wins}×</span>` : ''}</th>
+              ${cells}
+            </tr>`;
+  }).join('\n            ');
+
+  return `<section class="bm-score-sec" aria-labelledby="bm-score-title">
+            <h2 id="bm-score-title">${esc(labels.scoreTitle)}</h2>
+            <p class="bm-strip-note">${esc(labels.scoreNote)}</p>
+            <div class="bm-matrix-wrap" role="region" aria-label="${esc(labels.scoreTitle)}" tabindex="0">
+              <table class="bm-matrix bm-score-table">
+                <caption class="visually-hidden">${esc(labels.scoreTitle)}</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">${esc(labels.matrixFamilyCol)}</th>
+                    ${headCells}
+                  </tr>
+                </thead>
+                <tbody>
+                  ${bodyRows}
+                </tbody>
+              </table>
+            </div>
+          </section>`;
+}
+
 function matrixHtml(groups, { sourceById, lang, labels }) {
   const tests = groups.map(({ sourceId, category, products }) => {
     const source = sourceById.get(sourceId);
@@ -342,6 +424,7 @@ function render(snapshot, lang) {
               ${leaderCards}
             </div>
           </section>
+          ${scoreTableHtml(groups, { sourceById, lang, labels })}
           ${matrixHtml(groups, { sourceById, lang, labels })}
           <section class="bm-details" aria-labelledby="bm-details-title">
             <h2 id="bm-details-title">${esc(labels.detailTitle)}</h2>

@@ -282,6 +282,16 @@ const COPY = {
         section('print', 'Route 2: ChatGPT’s share link + your browser’s print dialog', [
           'Open the conversation, use Share → Create link, then open that link and press Ctrl+P (⌘+P on Mac) and choose Save as PDF. This works without any extension, but the PDF is a print rendering: it can split awkwardly across pages and includes the page chrome. Use it as a fallback on machines where you cannot install extensions.',
         ]),
+        section('wordings', '“Export ChatGPT to PDF”, “print this chat”, “single conversation”', [
+          'The same job gets searched several ways: “export chatgpt to pdf”, “print chatgpt conversation to pdf”, “how to export a single chatgpt conversation”, “how do you export an entire thread to a word or pdf doc”. They all point at the same three routes described above—one page covers them all, and the steps do not change with the wording.',
+          'One distinction is worth keeping straight. A single conversation is exported from that chat’s own page, one at a time. Every conversation at once is only available through OpenAI’s account-wide data export, which arrives as a ZIP of data files rather than formatted PDFs.',
+        ], [
+          '“Export ChatGPT to PDF” — open the chat and pick PDF on the right-edge toolbar (Route 1), or print the share link (Route 2)',
+          '“Print ChatGPT conversation to PDF” — the share-link route is literally a print dialog; Route 1 produces a cleaner file without browser chrome',
+          '“How to export a single ChatGPT conversation” — Route 1 exports exactly one chat, the one currently open',
+          '“Export an entire thread to Word or PDF” — the same toolbar offers Word (.docx) next to PDF, for threads someone else will edit',
+          '“Is there a way to export a ChatGPT conversation?” — yes, without an extension via the share link, and in one click with the toolbar',
+        ]),
         section('official', 'Route 3: OpenAI’s account data export', [
           'Settings → Data controls → Export data emails you a ZIP of your entire chat history. It is the only route that covers every chat at once, but it arrives as data files rather than formatted PDFs and can take time to process. Treat it as the archive of last resort, not a day-to-day export.',
         ]),
@@ -319,6 +329,14 @@ const COPY = {
           q: 'Does this work on Claude, Gemini or DeepSeek chats?',
           a: 'Yes. The same edge-toolbar PDF export works on every AI site ModelAny supports, using the identical steps.',
         },
+        {
+          q: 'How do I export a single ChatGPT conversation instead of my whole account?',
+          a: 'Open that one conversation and use the right-edge toolbar to save it as PDF, Word or Markdown. That is a per-chat export and works on free accounts. OpenAI’s own export (Settings → Data controls → Export data) is the whole-account route and returns a ZIP of data files, not formatted documents.',
+        },
+        {
+          q: 'How do I print a ChatGPT conversation to PDF?',
+          a: 'Open the conversation, choose Share → Create link, open that link and press Ctrl+P (⌘+P on Mac), then pick Save as PDF. It needs no extension, but the result is a print rendering of the page—headings can split across pages and page chrome is included. The toolbar route produces a cleaner, paginated PDF in one click.',
+        },
       ],
       ctaHeading: 'Export the open chat to PDF in one click',
       ctaBody: 'Install ModelAny from the official store, open any supported conversation, and pick PDF on the right edge. Free; no API key.',
@@ -344,6 +362,15 @@ const COPY = {
         ]),
         section('manual', 'The manual fallback, and why it disappoints', [
           'Selecting the whole thread and pressing Ctrl+C copies what the browser shows: it usually flattens headings, keeps or drops formatting unpredictably, and pastes differently into every target app. It is fine for one answer—the per-answer copy button on ChatGPT messages exists for exactly that—but for whole threads the structured export is faster to clean up.',
+        ]),
+        section('wordings', '“Export chatgpt to markdown”, “chatgpt to markdown”, “markdown for chatgpt”', [
+          'Searches for “export chatgpt to markdown”, “chatgpt to markdown”, “save chatgpt conversation as markdown” and “markdown for chatgpt” all describe the same two outcomes: a .md file on disk, or Markdown text on the clipboard. This page covers both—choose Markdown for the file, Copy as Markdown for the clipboard.',
+          'The usual reason people want Markdown rather than PDF is what happens next: Markdown is the format that every notes app, static-site generator and code repository can read, edit and diff. If the conversation is going somewhere you will keep working in, Markdown is the format that does not need cleaning up first.',
+        ], [
+          'Into Obsidian, Notion or a repo → save the .md file (headings become structure, code stays fenced)',
+          'Straight into an editor or chat box → Copy as Markdown and paste, no intermediate file',
+          'Into a document someone else will edit → use Word (.docx) instead; Markdown pasted into Word arrives as plain text',
+          'Into a fixed record for printing or email → use PDF instead; Markdown does not preserve layout',
         ]),
         section('privacy', 'Privacy notes', [
           'The Markdown file is generated in your browser and saved locally. Copy as Markdown touches your clipboard only. Neither route uploads the conversation anywhere.',
@@ -394,6 +421,15 @@ const COPY = {
         section('choose', 'File format vs account archive', [
           'The two routes answer different needs. A per-chat file is immediate, formatted and shareable; the account archive is complete but asynchronous, arrives as JSON/HTML data files, and includes more than chats. Most people use per-chat exports as they work and run an account export occasionally as a disaster-recovery net.',
         ]),
+        section('wordings', '“Download chatgpt chat”, “save as markdown”, “how to download a conversation as PDF”', [
+          'Downloading a ChatGPT conversation is searched as “download chatgpt chat”, “download chatgpt conversation as pdf”, “save chatgpt conversation as markdown”, and “chatgpt chat downloader”. All of them want the same outcome: a file on your own disk. Pick the format by what comes next—PDF for records, Word for editing, Markdown for notes tools and repositories.',
+          'If you only need the text to paste somewhere, copying is faster than downloading. If you want the conversation back later as working context, saving it to the local library beats a file. Download when the file itself is the deliverable.',
+        ], [
+          '“Download chatgpt chat” — open the chat, use the right-edge toolbar, pick a format',
+          '“Download chatgpt conversation as PDF” — same menu, PDF option; a clean paginated file, not a print rendering',
+          '“Save chatgpt conversation as markdown” — the Markdown option writes a .md file you can drop into Obsidian or a repo',
+          '“Download chatgpt conversations” (plural) — per-chat downloads are one at a time; the plural intent is served by OpenAI’s account export',
+        ]),
         section('privacy', 'Privacy notes', [
           'The extension-generated download is produced locally after you click. The share-link route stores a copy on OpenAI’s servers until you delete the link. The official export goes from OpenAI to your email inbox.',
         ]),
@@ -417,6 +453,10 @@ const COPY = {
           q: 'Does downloading a chat require ChatGPT Plus?',
           a: 'No. Both the extension route and OpenAI’s data export work on free accounts.',
         },
+        {
+          q: 'Can I download a ChatGPT chat as Markdown instead of PDF?',
+          a: 'Yes. Open the conversation, click the ModelAny tab on the right edge and choose Markdown. You get a .md file with headings, lists and fenced code blocks intact—ready for Obsidian, Notion or a Git repository—rather than a fixed-layout PDF.',
+        },
       ],
       ctaHeading: 'Download any supported AI chat as a file',
       ctaBody: 'Install ModelAny and download PDF, Word or Markdown straight from the conversation page. Free; no API key.',
@@ -437,6 +477,15 @@ const COPY = {
           'A run of turns: copy each answer, or grab the thread as Markdown and delete what you do not need',
           'The whole conversation: Copy as Markdown from the edge toolbar, then paste into the target app',
         ], true),
+        section('wordings', '“ChatGPT chat copy”, “copy ChatGPT chat”, “how can I copy a conversation”', [
+          'People search for this task in several ways, and they all describe the same three jobs: copy one answer, copy the whole chat, or copy a conversation with its formatting intact. This page covers all three—there is no separate copy for “chat” and “conversation”, and no need to open a different page for each phrasing.',
+          'The short answer: use the per-message copy button for a single reply; for anything longer, copy the thread as Markdown so headings, lists and code blocks survive the paste. Selecting the page and pressing Ctrl+C is the one approach that reliably loses the structure.',
+        ], [
+          '“ChatGPT chat copy” / “copy ChatGPT chat” — the same action described with the word “chat”; copy the thread as Markdown from the edge toolbar',
+          '“How can I copy a ChatGPT conversation?” — open the conversation, click the ModelAny tab on the right edge, choose Copy as Markdown',
+          '“How to copy and paste an entire ChatGPT conversation” — Copy as Markdown, then paste; the whole thread arrives in order with speaker turns marked',
+          '“Copy and paste from GPT without the buttons” — this is what structured copying fixes; a raw page selection is what drags the UI text along',
+        ]),
         section('targets', 'Pasting into Word, email, Notion or an issue tracker', [
           'Word and email clients accept the pasted Markdown as text; run it through a Markdown-to-rich-text converter, or export to Word (.docx) directly instead if the document must look right on arrival. Notion, Obsidian, GitHub issues and most developer tools accept pasted Markdown natively—this is the case where Copy as Markdown shines.',
         ]),
@@ -462,6 +511,14 @@ const COPY = {
         {
           q: 'What is the difference between copying and exporting?',
           a: 'Copy puts text on your clipboard for immediate pasting; export writes a file (PDF, Word or Markdown) to your disk. Use copy for quick handoffs and export for anything you need to keep or attach.',
+        },
+        {
+          q: 'How can I copy a ChatGPT chat or conversation in one step?',
+          a: 'Open the conversation, click the ModelAny tab on the right edge of the page and choose Copy as Markdown. One action copies every turn in order with the speaker labels, lists and code blocks kept as structure—no dragging the mouse across the page and no UI text in the paste.',
+        },
+        {
+          q: 'Should I copy the chat or the conversation—are they different?',
+          a: 'They are the same thing. “Copy ChatGPT chat”, “copy ChatGPT conversation” and “copy the whole thread” all describe copying the full exchange; the steps on this page work no matter which wording you used to search.',
         },
       ],
       ctaHeading: 'Copy whole AI conversations as clean Markdown',
@@ -490,6 +547,10 @@ const COPY = {
         ], true),
         section('reuse', 'Getting the conversation back', [
           'Open the Memory page from the extension popup, search by keyword or filter by tag, then bring a saved thread into the model you are about to use as context. This is how a chat survives moving between machines, models, or after clearing site data.',
+        ]),
+        section('where-to-find', 'Saving the chat somewhere you can search later', [
+          'Saving is only half the job; the other half is finding it again. ChatGPT’s own history is searchable, but only inside ChatGPT, and only while the chat stays in the account—delete it, or lose access to the account, and the conversation goes with it. ModelAny’s local library keeps the same chats searchable by keyword across every AI site you use, with tags and notes, on your own machine.',
+          'Both routes are worth having. Save to the local library when you may want to reopen or reuse the thread; export to Markdown, Word or PDF when you need a file you can hand to someone else or archive outside the browser.',
         ]),
         section('privacy', 'Privacy notes', [
           'The library and exports are generated and stored locally in your browser; ModelAny does not operate a server that receives them. Clearing the extension’s data or uninstalling it removes the library—export important chats to files if you also want copies outside the browser.',
@@ -533,6 +594,10 @@ const COPY = {
         'ModelAny is a free Chrome and Edge extension that does exactly this: type once, tick the models—ChatGPT, Claude, Gemini, DeepSeek, Grok, Kimi, Qwen, Doubao, GLM, Tencent Yuanbao, Wenxiaoyan—and send. ModelAny opens each official site, fills in your question and can submit it, then lines the answers up for side-by-side reading.',
       ],
       sections: [
+        section('wordings', '“Ask many AI”, “ask any model”, “ask several AIs at once”', [
+          'People describe this workflow with several phrasings: “ask many AI”, “ask any model”, “ask multiple AI at once”, “ask several AIs the same question”. They all mean one thing—write the prompt once and send it to more than one model, then read the replies together.',
+          'The phrasings are not interchangeable in a chat app, because a single chat only has one model behind it. They describe a workflow across sites. ModelAny provides that workflow in the browser: one box, the official sites you already use, answers side by side.',
+        ]),
         section('steps', 'How to ask several AIs one question', [], [
           'Install ModelAny from the Chrome Web Store or Edge Add-ons and pin the icon',
           'Click the icon (or press Ctrl+Shift+Y) and type your question once',
@@ -724,6 +789,10 @@ const COPY = {
           'The most common route: a long ChatGPT thread hits its message cap mid-task. Open Continue in another AI on that chat page and pick Claude. ModelAny packs the recent turns of the ChatGPT conversation into a context block and opens claude.ai with it filled in, so your first Claude message is “continue from here”, not a re-explanation.',
           'Skim the prepared block once before sending: long threads keep the most recent turns, so earlier constraints worth restating (goals, format, deadlines) are better pinned at the top of your next message.',
         ]),
+        section('shared-chat', 'How to continue a shared chat in Claude', [
+          'If someone sent you a shared chat link and you want to keep going with it, there are two different situations. A public share link is read-only: it renders the conversation but gives you no thread to type into. To continue it in Claude, open the shared chat in a tab so its turns are on the page, then use Continue in another AI and pick Claude—ModelAny reads the visible turns into a context block and opens claude.ai with it filled in, ready for “continue from here”.',
+          'If you own the original conversation, open it directly in ChatGPT instead of the share link; the continue tools work on the live thread, where every turn is available.',
+        ]),
         section('when', 'When it helps', [], [
           'Daily or hourly caps on one provider',
           'Cross-checking a plan, code review or translation with a second model',
@@ -738,6 +807,7 @@ const COPY = {
         link('/export-chatgpt-conversation/', 'Export the original chat first'),
         link('/ai-chat-memory/', 'Save threads to local memory'),
         link('/compare-ai-models/', 'Compare fresh answers with one prompt'),
+        link('/chatgpt-usage-limit-workaround/', 'Hit a usage limit? The four options'),
       ],
       faqs: [
         {
@@ -751,6 +821,14 @@ const COPY = {
         {
           q: 'Can I go from Claude back to ChatGPT?',
           a: 'Yes. Continue in another AI works across supported sites in either direction, subject to each site’s login and limits.',
+        },
+        {
+          q: 'How do I continue a shared ChatGPT chat in Claude?',
+          a: 'Open the shared chat so its turns are visible on the page, then use ModelAny → Continue in another AI and choose Claude. The shared view is read-only, so ModelAny carries the visible turns into the context block it fills in at claude.ai; you continue the work there under your own Claude account.',
+        },
+        {
+          q: 'Where is the “continue from here” option in Claude?',
+          a: 'There is no button with that name inside Claude—you simply send the next message. ModelAny prepares the context so your first Claude message can be a short “continue from here” instruction with the prior turns already in place.',
         },
       ],
       ctaHeading: 'Switch models without restarting the brief',
@@ -773,6 +851,10 @@ const COPY = {
         section('carry', '把一段对话真正接过去', [
           '最常见的场景：一段较长的 ChatGPT 对话在任务中途到达次数上限。在该对话页打开「换个模型继续」并选择目标模型，ModelAny 会把该对话的近期轮次整理成上下文块，并在目标官网填好——你的第一条消息就是「从这里继续」，而不是重新解释一遍背景。',
           '发送前先快速浏览整理好的上下文：长对话只保留最近若干轮，此前定下的目标、格式与截止时间等约束，建议在新消息开头再点明一次，避免接续时丢失前提。',
+        ]),
+        section('shared-chat', '别人分享的对话链接，怎么在 Claude 里接着聊', [
+          '收到一个分享链接、想继续往下问时，先分清两种情况。公开分享链接是只读的：能看完整段对话，但页面上没有可直接输入的对话线程。想在 Claude 里继续，就把分享页打开并让轮次显示出来，再用「换个模型继续」选择 Claude——ModelAny 会把页面上可见的轮次整理成上下文块并填入 claude.ai，你的第一句就可以是「接着上面的继续」。',
+          '如果这段对话本来就是你自己的，请直接打开 ChatGPT 里的原对话页，而不是分享链接；原对话页有完整轮次，接续与导出工具都在那里生效。',
         ]),
         section('when', '适合这些情况', [], [
           '某一平台达到日/时限额',
@@ -801,6 +883,10 @@ const COPY = {
         {
           q: '可以从 Claude 再转回 ChatGPT 吗？',
           a: '可以。在支持的站点之间可双向继续，仍受各网站登录状态与额度限制。',
+        },
+        {
+          q: '别人分享的对话链接，能接着在 Claude 里继续吗？',
+          a: '可以，但分享页是只读的。请在分享页打开并让对话轮次显示出来后，用 ModelAny →「换个模型继续」选择 Claude；携带的是页面上可见的轮次，接续后的对话发生在你自己的 Claude 账号里。',
         },
       ],
       ctaHeading: '换模型，不换话题',
@@ -964,6 +1050,7 @@ const COPY = {
         link('/how-to-use/', 'Install and first send'),
         link('/compare/', 'Public model comparisons'),
         link('/benchmarks/', 'Benchmark snapshots'),
+        link('/chatgpt-usage-limit-workaround/', 'When one model hits its usage limit'),
       ],
       faqs: [
         {
@@ -1028,6 +1115,8 @@ const COPY = {
         link('/zh/how-to-use/', '安装与第一次发送'),
         link('/zh/benchmarks/', '公开评测数据'),
         link('/zh/compare/kimi-vs-chatgpt/', 'Kimi vs ChatGPT 评测摘录'),
+        link('/zh/compare/doubao-vs-chatgpt/', '豆包 vs ChatGPT：哪个更好用'),
+        link('/zh/free-ai-no-login/', '免登录的免费 AI 哪些真能用'),
       ],
       faqs: [
         {
@@ -1060,6 +1149,21 @@ const COPY = {
           'Sign in to the AI websites you rely on',
           'Press Ctrl+Shift+Y (⌘+Shift+Y on Mac) for the first send',
         ], true),
+        section('abilities', 'What you can do once it is installed', [], [
+          'Same-prompt comparison: type once, send to several official sites, and read the answers side by side',
+          'Export and save: export any supported conversation to PDF, Word or Markdown, or keep it in the local memory library',
+          'Video summaries: attach YouTube or Bilibili captions on the watch page, then ask for key points or a chapter timeline',
+          'Continue elsewhere: when one site hits a limit or you want a second opinion, carry the conversation into another supported site',
+        ]),
+        section('compare', 'Extension, API client, or manual tabs?', [
+          'The three paths differ in what they control. A browser extension drives the web UI under your existing logins. An API client calls each vendor’s API with its own key. Manual tabs are exactly what you do today—no install, no automation.',
+          'Pick by constraint: if you already rely on the web UI features (projects, memory, attachment handling) and want to keep using the plan you pay for, the extension path matches that. If you need programmatic access, logging, or a single bill, an API route is the right tool and ModelAny is not trying to replace it.',
+        ], [
+          'Browser extension (ModelAny): uses the AI sites’ own web interfaces, no API key, no ModelAny account. Each site still enforces its own quotas and terms.',
+          'API client or SDK: needs a key and billing per vendor, but gives you request-level control, reproducibility and server-side scheduling.',
+          'Manual tabs: zero setup, but the prompt gets re-pasted and the comparison drifts as you retype.',
+          'Standalone aggregator apps: convenient when you accept a third-party account and data path; check where prompts are stored before using one for sensitive work.',
+        ]),
         section('fit', 'When an extension helps', [
           'Choose an extension when your work already happens in the browser and you refuse to re-paste the same brief across tabs. If you need server-side orchestration or a single vendor API bill, use that vendor’s API instead—ModelAny intentionally stays on the web UI path.',
         ]),
@@ -1104,6 +1208,15 @@ const COPY = {
           '导出与保存：把任意支持的对话导出为 PDF / Word / Markdown，或存入本地记忆库',
           '视频总结：在 B 站或 YouTube 播放页附上字幕，发给你的模型总结要点与章节',
           '换个模型继续：达到限额或想要第二意见时，带着上下文转到另一个官网',
+        ]),
+        section('compare', '扩展、API 客户端，还是手动切标签页？', [
+          '三条路径控制的东西不同。浏览器扩展驱动的是你已登录的网页版界面；API 客户端用各自的 Key 调用厂商接口；手动标签页就是今天的做法——不装任何东西，也没有自动化。',
+          '按约束选：如果你依赖网页版的功能（项目、记忆、附件处理），又想继续用已付费的套餐，扩展路径与之匹配。若你需要程序化访问、日志或统一账单，应走 API 路径，ModelAny 并不打算替代它。',
+        ], [
+          '浏览器扩展（ModelAny）：使用各 AI 官网自己的网页界面，无需 API Key，也没有 ModelAny 账号。额度与条款仍由各站点执行。',
+          'API 客户端或 SDK：需要 Key 与按厂商计费，但换来请求级控制、可复现与服务端调度。',
+          '手动标签页：零配置，但要反复粘贴提示词，随着手动改写，对比条件会漂移。',
+          '独立聚合应用：接受第三方账号与数据路径时很方便；用于敏感工作前，请先确认提示词存在哪里。',
         ]),
         section('fit', '什么时候适合用扩展', [
           '若工作已在浏览器里完成、又不想在多个标签页重复粘贴同一段需求，扩展很合适。若你需要服务端编排或统一的厂商 API 账单，应直接使用该厂商 API——ModelAny 有意停留在网页操作路径。',
@@ -1154,6 +1267,15 @@ const COPY = {
         ], true),
         section('report', 'Turn the run into a record', [
           'After a send, export the comparison as a Markdown report or save it to local memory. A dated record of prompt, models and scores turns a one-off check into evidence you can re-run when a new model version ships.',
+        ]),
+        section('compare-answers', '“Compare AI answers”: what actually gets compared', [
+          'People search for “compare ai answers”, “compare answers” and “compare ai answers side by side” meaning the same thing: put the responses to one question next to each other and judge them. Three things have to line up or the comparison measures nothing—one prompt, one set of criteria, and answers read at the same time rather than in sequence.',
+          'What you get from a side-by-side read that a single chat cannot give you: you notice when one model invents a number the others do not, when one hedges where another commits, and when three answers agree because the task was easy rather than because any of them is right. The disagreements are the useful part.',
+        ], [
+          'Same prompt everywhere — retyping per tab introduces drift that looks like a quality difference but is your own wording changing',
+          'One criteria list written before you read — otherwise the answer you read first becomes the standard',
+          'More than one task type before deciding — a single prompt is a data point, not a pattern',
+          'A dated record — model versions change under you, and so does any conclusion you drew last month',
         ]),
       ],
       related: [
@@ -1348,7 +1470,11 @@ const COPY = {
           'Continue in another AI packs the conversation turns visible on the page into a context block and opens the destination site with it filled in. Long threads keep the most recent turns. Restate any early constraint that still matters (goal, format, deadline) at the top of your next message.',
         ]),
         section('avoid', 'What to avoid', [
-          'Bulk account creation, VPN rotation to dodge regional rules, or automation that fakes human pace violate the provider’s terms and put your account at risk. None of them raise the cap anyway. ModelAny does not do these things: it opens sites, fills your prompt and clicks send only when you tell it to.',
+          'Searches for “how to bypass ChatGPT usage limit” mostly lead to methods that do not raise the cap: extra accounts, VPN rotation, or scripted requests. Bulk account creation, VPN rotation to dodge regional rules, or automation that fakes human pace violate the provider’s terms and put your account at risk. None of them raise the cap anyway. ModelAny does not do these things: it opens sites, fills your prompt and clicks send only when you tell it to.',
+        ]),
+        section('reduce', 'Hitting the cap often? Reduce how fast you spend it', [
+          'If the limit arrives mid-task several days in a row, the problem is usually how the thread is being used rather than the plan. Long attachments and repeated instructions are charged with the rest of the conversation, so restating the brief in turn ten costs more than fixing it in turn one. Ask for the shortest complete answer, and start a new chat when the topic changes instead of carrying a long history forward.',
+          'Spend the fast models on drafting, reformatting and summarizing—they generally carry more headroom—and keep the reasoning-heavy model for the steps that genuinely need it. If the same cap lands at the same hour every day, a higher plan is the honest fix; rotating evasions is not.',
         ]),
       ],
       related: [
@@ -1356,6 +1482,7 @@ const COPY = {
         link('/chatgpt-vs-claude-vs-gemini-same-prompt/', 'Same prompt, three answers'),
         link('/ai-chat-memory/', 'Save the thread before switching'),
         link('/alternatives/free-chatgpt/', 'Free ChatGPT alternatives'),
+        link('/export-chatgpt-conversation/', 'Export the thread before you switch'),
       ],
       faqs: [
         {
@@ -1369,6 +1496,14 @@ const COPY = {
         {
           q: 'Does the other AI see my whole ChatGPT history?',
           a: 'No. Only the context package prepared from the current page is sent to the site you move to, with recent-turn trimming on long chats.',
+        },
+        {
+          q: 'How do I bypass the ChatGPT usage limit?',
+          a: 'There is no legitimate way to remove the cap itself—it applies to your account, plan and window, and attempts to bypass it (extra accounts, VPN rotation, automation that fakes human pace) break the provider’s terms and risk the account without raising the limit. What works is spending the remaining quota deliberately: wait for the rolling reset, move lighter subtasks to a faster model inside ChatGPT, continue the conversation in Claude or DeepSeek with the context carried over, and upgrade only if you hit the same cap several days running.',
+        },
+        {
+          q: 'How do I reduce ChatGPT usage so I hit the limit less often?',
+          a: 'Keep long documents and repeated instructions out of the thread: state the task once, ask for the shortest answer that is still complete, and start a fresh chat when the topic changes instead of carrying a huge history. Move drafting and reformatting work to the faster models, which generally have more headroom, and save the reasoning-heavy model for the steps that genuinely need it.',
         },
       ],
       ctaHeading: 'Keep the task moving when the cap hits',

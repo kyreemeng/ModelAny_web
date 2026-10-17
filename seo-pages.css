@@ -154,6 +154,45 @@
   white-space: nowrap;
 }
 
+/* 11-model coverage matrix on the comparison hub. Cells hold a score plus the
+   benchmark rank; the top score per column is emphasized, and a dash keeps an
+   unmeasured model visible instead of quietly dropping the row. */
+.cmp-cov-table { min-width: 720px; }
+.cmp-cov-table thead th:not(:first-child),
+.cmp-cov-table tbody td { text-align: center; }
+.cmp-cov-table tbody th { display: flex; flex-direction: column; gap: 2px; }
+.cmp-cov-wins {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+.cmp-cov-cell span { display: block; font-weight: 600; color: var(--ink); }
+.cmp-cov-cell em {
+  display: block;
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+.cmp-cov-cell.is-best span { color: var(--brand-primary); }
+.cmp-cov-empty { color: var(--border-strong); }
+.cmp-cov-unmeasured th { color: var(--ink-muted); }
+
+/* Answer-first verdict on the Chinese pair pages. The zh market converts on a
+   concrete conclusion in the first screen, so the bottom-line sentence moves
+   above the benchmark tables instead of trailing them. */
+.cmp-verdict-first .cmp-answer {
+  margin: 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--brand-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
 .seo-score {
   letter-spacing: -0.05em;
   color: var(--brand-primary);

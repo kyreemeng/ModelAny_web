@@ -7,13 +7,42 @@
  */
 
 /**
- * best-for pages that keep participating in search. The set is capped at five
- * slugs: the four pages already earning impressions (coding, code-review,
- * academic-writing, excel) plus java, which GSC shows at 172 impressions and
- * 4 clicks-the only other task guide with real clicks. Everything else stays
- * live but noindex so crawl budget and internal links concentrate here.
+ * best-for pages that keep participating in search.
+ *
+ * Rule (2026-10-16 GSC export): keep every guide that has at least one
+ * impression, noindex only the slugs with zero impressions. An earlier draft
+ * capped this list at five, but /best-for/java/ is the fourth page on the site
+ * by clicks (320 impressions, 5 clicks, position 10.1), and the 2026-09-29
+ * "crawl-budget" pruning had also withdrawn pages that do earn impressions
+ * (python, javascript, system-design, writing, emails, hr, students…).
+ * Withdrawing a page that already ranks removes the only asset Google has
+ * tested, so the list now follows the data: zero impressions -> noindex,
+ * reviewed again after two weeks.
  */
-export const KEPT_BEST_FOR_SLUGS = new Set(['coding', 'code-review', 'academic-writing', 'excel', 'java']);
+export const KEPT_BEST_FOR_SLUGS = new Set([
+  // Impressions in the 2026-10-16 export, ordered by impressions.
+  'java',
+  'academic-writing',
+  'writing',
+  'system-design',
+  'code-review',
+  'javascript',
+  'hr',
+  'emails',
+  'python',
+  'excel',
+  'students',
+  'debugging',
+  'science',
+  'finance',
+  'creative-writing',
+  'coding',
+  'marketing',
+  'sales',
+  'statistics',
+  'reasoning',
+  'customer-support',
+]);
 
 /**
  * alternatives/pricing pages that keep participating in search. The rest of
@@ -230,7 +259,11 @@ export const bestForPages = [
     description: 'Best AI for JavaScript: compare Claude, ChatGPT, and DeepSeek on the same bugfix or feature task before you pick a daily coding workflow.',
     intro: 'For JavaScript work, judge models on debugging speed, framework familiarity, and how much editing the generated code needs—not brand familiarity alone.' },
   { slug: 'java', keyword: 'best ai for java', focus: 'coding', models: ['chatgpt', 'claude', 'deepseek'], priority: 'P0',
-    title: 'Best AI for Java Programming (2026 Test) | ModelAny',
+    // GSC (2026-10-16): 320 impressions, 5 clicks, position 10.1, and the
+    // query that actually ranks is "best ai model for java programming"
+    // (15 impressions, position 9) plus "best ai for java programming"
+    // (10 impressions). Lead with that wording instead of a generic 2026 test.
+    title: 'Best AI Model for Java Programming (2026) | ModelAny',
     description: 'Best AI model for Java programming: run the same task on ChatGPT, Claude & DeepSeek. Compare correctness, style, and edit cost—free.',
     intro: 'Java teams usually care about compile-ready code, API usage, and how long fixes take. Put ChatGPT, Claude, and DeepSeek on one representative ticket before standardizing a tool.',
     criteria: [
@@ -257,7 +290,12 @@ export const bestForPages = [
   { slug: 'coding-interviews', keyword: 'best ai for coding interviews', focus: 'coding', models: ['chatgpt', 'deepseek', 'claude'], priority: 'P0' },
   { slug: 'writing', keyword: 'best ai for writing', focus: 'writing', models: ['claude', 'chatgpt', 'gemini'], priority: 'P0',
     description: 'Best AI for writing: compare Claude, ChatGPT, and Gemini on the same brief. Judge tone, structure, and editing time—not marketing claims.',
-    intro: 'Writing quality is task-specific. Put Claude, ChatGPT, and Gemini on one real brief, then keep the draft that needs the least rewriting for your voice.' },
+    intro: 'Writing quality is task-specific. Put Claude, ChatGPT, and Gemini on one real brief, then keep the draft that needs the least rewriting for your voice.',
+    // GSC (2026-10-16): 69 impressions at position 63—too deep to earn the
+    // click and too generic to outrank the scenario pages. The plan defers
+    // this one; until the two-week review, it points readers at the specific
+    // writing jobs instead of trying to own "best ai for writing" alone.
+    relatedNote: 'This is the broad writing entry point. If your work is a specific deliverable, start from the scenario page instead: <a href="/best-for/blog-posts/">blog posts</a>, <a href="/best-for/emails/">emails</a>, <a href="/best-for/essays/">essays</a>, <a href="/best-for/creative-writing/">creative writing</a>, <a href="/best-for/academic-writing/">academic writing</a> or <a href="/best-for/content-creation/">content creation</a>.' },
   { slug: 'essays', keyword: 'best ai for essays', focus: 'writing', models: ['claude', 'chatgpt', 'gemini'], priority: 'P0' },
   { slug: 'emails', keyword: 'best ai for emails', focus: 'writing', models: ['chatgpt', 'claude', 'gemini'], priority: 'P0' },
   { slug: 'blog-posts', keyword: 'best ai for blog posts', focus: 'writing', models: ['claude', 'chatgpt', 'gemini'], priority: 'P0' },
@@ -438,7 +476,11 @@ export const productPages = [
     intent: 'browser-extension',
     h1: 'Hit your ChatGPT usage limit? Four ways to keep working',
     description: 'ChatGPT usage limit reached? Wait, switch model, or move the full chat to Claude, Gemini or DeepSeek with context. Free workaround.',
-    title: 'ChatGPT Limit Hit? Continue in Another AI | ModelAny',
+    // GSC (2026-10-16): 281 impressions, 1 click, 0.4% CTR, position 7.7, plus
+    // "how to bypass chatgpt usage limit" at position 8 and "how to reduce
+    // chatgpt usage" at 11. Lead with the searcher's own words and the number
+    // of options, which is what the page actually delivers.
+    title: 'ChatGPT Usage Limit Reached? 4 Ways to Keep Working',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     priority: 'P0',
   },
@@ -485,7 +527,10 @@ export const productPages = [
     intent: 'browser-extension',
     h1: 'How to export a ChatGPT conversation',
     description: 'Every working way to export a ChatGPT conversation—PDF, Word, Markdown, copy-paste or official data export—with trade-offs and a one-click browser route.',
-    title: 'Export ChatGPT Conversation: PDF, Word, Markdown | ModelAny',
+    // GSC (2026-10-16): 70 impressions, 0 clicks, position 6.7. The page is the
+    // parent of the whole export cluster, so the title says "all the ways"
+    // instead of listing three formats that already have their own pages.
+    title: 'Export a ChatGPT Conversation: All the Ways | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     localePath: '/zh/export-ai-chat/',
     priority: 'P0',
@@ -497,7 +542,11 @@ export const productPages = [
     intent: 'browser-extension',
     h1: 'Export a ChatGPT conversation to PDF',
     description: 'Export a ChatGPT conversation to PDF in one click. Also Word & Markdown. Works on Claude & DeepSeek too. Free browser toolbar.',
-    title: 'Export ChatGPT Chat to PDF — Free One-Click | ModelAny',
+    // GSC (2026-10-16): 783 impressions, 10 clicks, 1.3% CTR, position 6.9 —
+    // the site's biggest page. Searchers type "conversation", not "chat", so
+    // the title now matches the query wording and carries the actual hooks
+    // (one click, free, nothing uploaded).
+    title: 'Export ChatGPT Conversation to PDF — One Click, Free, No Upload',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     priority: 'P0',
   },
@@ -508,7 +557,9 @@ export const productPages = [
     intent: 'browser-extension',
     h1: 'Export a ChatGPT conversation to Markdown',
     description: 'Export a ChatGPT conversation to Markdown in one click. Keep code & speakers. Free browser toolbar; also PDF & Word.',
-    title: 'Export ChatGPT to Markdown — Free | ModelAny',
+    // GSC (2026-10-16): 59 impressions, 0 clicks, position 9.2. The ranking
+    // query is the full "export chatgpt conversation to markdown".
+    title: 'Export ChatGPT Conversation to Markdown | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     priority: 'P1',
   },
@@ -519,7 +570,9 @@ export const productPages = [
     intent: 'browser-extension',
     h1: 'Download a ChatGPT conversation to your computer',
     description: 'Download a ChatGPT chat as PDF, Word or Markdown. One-click local export—also works on Claude & DeepSeek.',
-    title: 'Download ChatGPT Conversation (PDF/MD) | ModelAny',
+    // GSC (2026-10-16): 53 impressions, 0 clicks, position 10.4. Keep the
+    // query verb first and say what the downloaded file actually is.
+    title: 'Download ChatGPT Conversation as PDF, Word or MD | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     priority: 'P1',
   },
@@ -530,7 +583,11 @@ export const productPages = [
     intent: 'browser-extension',
     h1: 'Copy a ChatGPT conversation without losing the formatting',
     description: 'Copy a ChatGPT conversation with speakers & code intact—one turn or full thread as Markdown. Paste cleanly into Word, Notion, docs.',
-    title: 'Copy ChatGPT Conversation Cleanly | ModelAny',
+    // GSC (2026-10-16): 184 impressions, 0 clicks, position 7.0, and the
+    // queries split across "chatgpt chat copy" / "copy chatgpt chat" /
+    // "how can i copy a chatgpt conversation". Lead with the query wording and
+    // the concrete payoff: the paste keeps speakers and code blocks.
+    title: 'Copy ChatGPT Conversation — Keep Speakers & Code Blocks Intact',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     priority: 'P1',
   },
@@ -540,7 +597,9 @@ export const productPages = [
     intent: 'browser-extension',
     h1: 'Save a ChatGPT conversation and find it again later',
     description: 'Save ChatGPT conversations before they scroll away: local searchable library, or export PDF / Word / Markdown. Free, runs in browser.',
-    title: 'Save ChatGPT Chats as PDF, Word or MD | ModelAny',
+    // GSC (2026-10-16): 108 impressions, 0 clicks, position 7.4. Name the
+    // mechanism searchers want (save + find again) rather than generic formats.
+    title: 'Save ChatGPT Conversation to a Searchable Library | ModelAny',
     models: ['chatgpt', 'claude', 'gemini', 'deepseek'],
     priority: 'P1',
   },

@@ -1284,7 +1284,7 @@ html[data-browser="edge"] .cta-icon .browser-icon-edge { display: block; }
 .bm-strip-note { margin: 0; color: var(--ink-soft); font-size: 13.5px; max-width: 74ch; }
 .bm-legend { margin: 6px 0 18px; color: var(--ink-light); font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.02em; }
 
-.bm-leaders > h2, .bm-matrix-sec > h2, .bm-details > h2 { margin: 0; font-family: var(--font-display); font-size: 24px; letter-spacing: -0.02em; color: var(--ink); }
+.bm-leaders > h2, .bm-matrix-sec > h2, .bm-score-sec > h2, .bm-details > h2 { margin: 0; font-family: var(--font-display); font-size: 24px; letter-spacing: -0.02em; color: var(--ink); }
 .bm-leaders { margin: 0 0 44px; }
 .bm-leaders > h2 { margin-bottom: 4px; }
 
@@ -1329,6 +1329,21 @@ html[data-browser="edge"] .cta-icon .browser-icon-edge { display: block; }
 /* Cross-test podium matrix */
 .bm-matrix-sec { margin: 0 0 44px; }
 .bm-matrix-sec > h2 { margin-bottom: 4px; }
+/* Dense score table: the podium matrix shows who won, this shows by how much. */
+.bm-score-sec { margin: 0 0 44px; }
+.bm-score-sec > h2 { margin-bottom: 4px; }
+.bm-score-table { min-width: 940px; }
+.bm-score-table thead th { text-transform: none; }
+.bm-score-unit { display: block; margin-top: 2px; font-size: 9.5px; font-weight: 500; letter-spacing: 0.06em; color: var(--ink-light); }
+.bm-score-family { position: sticky; left: 0; z-index: 1; min-width: 168px; text-align: left; padding-left: 18px; background: var(--surface-raised); box-shadow: inset -1px 0 0 var(--border-soft); }
+.bm-score-table tbody tr:hover .bm-score-family { background: var(--surface-tint); }
+.bm-score-family strong { display: block; font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+.bm-score-count, .bm-score-wins { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 11px; color: var(--ink-light); }
+.bm-score-wins { margin-left: 6px; color: var(--signal); font-weight: 700; }
+.bm-score-cell span { display: block; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 12.5px; color: var(--ink-soft); }
+.bm-score-cell em { display: block; margin-top: 1px; font-style: normal; font-size: 10px; color: var(--ink-light); }
+.bm-score-cell.is-best span { color: var(--signal); font-weight: 700; }
+.bm-score-empty { color: var(--border-strong); }
 .bm-matrix-wrap { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface-raised); box-shadow: var(--shadow-xs); overflow-x: auto; }
 .bm-matrix { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 820px; }
 .bm-matrix thead th { padding: 12px 10px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); background: var(--surface-tint); border-bottom: 1px solid var(--border); white-space: nowrap; text-align: center; }
@@ -1413,4 +1428,5 @@ html[data-browser="edge"] .cta-icon .browser-icon-edge { display: block; }
   .bm-champ-score { font-size: 19px; }
   .bm-source-body { grid-template-columns: 1fr; }
   .bm-matrix .bm-mx-family { min-width: 132px; }
+  .bm-score-family { min-width: 128px; padding-left: 12px; }
 }

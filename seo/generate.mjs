@@ -10,7 +10,7 @@
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { hasSharedBenchmarkData, launcherBenchmarkGroups, loadBenchmarkSnapshot, sharedBenchmarkGroups } from './data/benchmarks.mjs';
+import { hasSharedBenchmarkData, launcherBenchmarkGroups, loadBenchmarkSnapshot, modelCoverageMatrix, PRODUCT_BY_MODEL_ID, sharedBenchmarkGroups } from './data/benchmarks.mjs';
 import { DATE, DOWNLOAD, EDGE_STORE_URL, models, SITE } from './data/models.mjs';
 import {
   alternativePages,
@@ -257,13 +257,20 @@ function zhPairNotesHtml(page, lang) {
             ${pack}
           </ol>
           ${decision}
-          <p>${esc(note.bottomLine)}</p>
           <p class="seo-note">快照证据的抓取时间与原始来源见下方评测表。实测任务请在你自己的账号上运行；本页提供证据与任务设计，不代你下结论。</p>
         </section>`;
 }
 
 function comparisonBody(page, items, lang) {
   const names = items.map((item) => item.name).join(' vs ');
+  // Zhen pair pages answer "哪个好用" in the first screen instead of burying the
+  // conclusion under every benchmark table. The Chinese pages are the site's
+  // highest-CTR market (6.6% average, /zh/free-ai-no-login/ at 26.3%), and that
+  // page's pattern is an immediate concrete answer, then the evidence.
+  const zhNote = lang === 'zh' ? zhCompareNotes[page.slug] : null;
+  const heroAnswer = zhNote
+    ? `<p class="cmp-answer">${esc(zhNote.bottomLine)}</p>`
+    : '';
   const productRows = items.map((item) => `<tr>
               <th scope="row">${esc(item.name)}</th>
               <td>${esc(item.vendor)}</td>
@@ -278,6 +285,7 @@ function comparisonBody(page, items, lang) {
             ? '本页汇总双方共同出现在同一公开第三方评测中的结果，并标明精确模型版本与原始来源。条形图只比较同一测试内的分数，不能替代你用真实任务亲自试用。'
             : 'This page summarizes results from public third-party benchmarks where both products appear in the same category, with exact model versions and original sources. Charts compare scores inside one test only and do not replace trying the models on your own tasks.'}</p>
         </div>
+        ${heroAnswer ? `<section class="seo-section cmp-verdict-first" aria-labelledby="verdict-heading"><h2 id="verdict-heading">先给结论</h2>${heroAnswer}</section>` : ''}
         ${zhPairNotesHtml(page, lang)}
         ${publicEvidenceHtml(page.models, lang)}
         <section class="seo-section">
@@ -310,14 +318,22 @@ function relatedComparisonsHtml(currentPage, lang) {
     .slice(0, 6);
   if (!pages.length) return '';
   const prefix = lang === 'zh' ? '/zh/compare/' : '/compare/';
-  const links = pages.map((page) => {
+  const pairLinks = pages.map((page) => {
     const names = resolveModels(page.models).map((item) => item.name).join(' vs ');
     return `<li><a href="${prefix}${page.slug}/">${esc(names)}</a></li>`;
   }).join('\n            ');
+  // Every pair page also points up to the comparison cluster hub, so the
+  // evidence pages converge weight on /compare-ai-models/ instead of forming
+  // an unordered mesh that shares links only among siblings (P2: US position
+  // 15.2 is the largest increment; internal convergence is the no-new-page path).
+  const hubLink = lang === 'zh'
+    ? '<li><a href="/zh/compare-ai-models/">用同一提示词对比多个模型（对比主页）</a></li>'
+    : '<li><a href="/compare-ai-models/">Compare AI models on the same prompt (comparison hub)</a></li>';
   return `<section class="seo-section" aria-labelledby="related-comparisons-heading">
           <h2 id="related-comparisons-heading">${lang === 'zh' ? '更多有公开证据的模型对比' : 'More evidence-backed model comparisons'}</h2>
           <ul class="seo-index-list">
-            ${links}
+            ${pairLinks}
+            ${hubLink}
           </ul>
         </section>`;
 }
@@ -331,6 +347,99 @@ function displayModelName(item, lang = 'en') {
     glm: 'GLM',
   };
   return enAlias[item.id] || item.name;
+}
+
+/**
+ * The full 11-model coverage matrix for the comparison hub.
+ *
+ * The P2 plan asked for a measured 11-model same-prompt table. ModelAny has not
+ * run that test and the site's evidence rule forbids claiming it did, so the
+ * table is built from the dated public snapshot instead: one row per launcher
+ * model, one column per public test, and a visible dash wherever a model has no
+ * public result. That gap is the honest answer to "which of these eleven can I
+ * actually compare on public evidence?"—eight of them, in eight categories.
+ */
+function modelCoverageHtml(lang) {
+  const launcher = ['chatgpt', 'claude', 'gemini', 'deepseek', 'grok', 'kimi', 'qwen', 'doubao', 'glm', 'yuanbao', 'wenxin'];
+  const matrix = modelCoverageMatrix(launcher, 4);
+  if (!matrix.tests.length) return '';
+  const isZh = lang === 'zh';
+  const nameFor = (row) => {
+    if (!isZh) return row.product;
+    const zhNames = {
+      chatgpt: 'ChatGPT',
+      claude: 'Claude',
+      gemini: 'Gemini',
+      deepseek: 'DeepSeek',
+      grok: 'Grok',
+      kimi: 'Kimi',
+      qwen: '通义千问',
+      doubao: '豆包',
+      glm: '智谱 GLM',
+      yuanbao: '腾讯元宝',
+      wenxin: '文小言',
+    };
+    return zhNames[row.id] || row.product;
+  };
+  const shortLabel = (test) => {
+    const names = {
+      Verified: { en: 'SWE-bench', zh: '真实修码' },
+      'Agentic Coding': { en: 'Agentic', zh: '智能体' },
+      Coding: { en: 'Coding', zh: '编程' },
+      Mathematics: { en: 'Math', zh: '数学' },
+      Reasoning: { en: 'Reason', zh: '推理' },
+      'Data Analysis': { en: 'Data', zh: '数据' },
+      'Instruction Following': { en: 'Instruct', zh: '指令' },
+      Language: { en: 'Lang', zh: '语言' },
+    };
+    return names[test.category]?.[lang] || test.category;
+  };
+  const sourceName = (source) => {
+    const names = { swebench: 'SWE-bench Verified', livebench: 'LiveBench', arena: 'Arena' };
+    return names[source] || source;
+  };
+  const head = matrix.tests.map((test) => (
+    `<th scope="col" title="${esc(`${sourceName(test.source)} · ${test.label[lang] || test.category}`)}">${esc(shortLabel(test))}</th>`
+  )).join('');
+  const rowFor = (row) => {
+    const bestByColumn = matrix.tests.map((test, index) => (
+      Math.max(...matrix.rows.map((other) => (other.cells[index] ? other.cells[index].score : -Infinity)))
+    ));
+    const cells = row.cells.map((cell, index) => {
+      if (!cell) return `<td class="cmp-cov-empty" aria-label="${isZh ? '无公开成绩' : 'no public result'}">·</td>`;
+      const isBest = cell.score === bestByColumn[index];
+      const value = cell.unit === '%' ? `${cell.score.toFixed(1)}%` : cell.score.toFixed(1);
+      return `<td class="cmp-cov-cell${isBest ? ' is-best' : ''}"><span>${esc(value)}</span><em>#${esc(String(cell.rank))}</em></td>`;
+    }).join('');
+    return `<tr${row.coverage === 0 ? ' class="cmp-cov-unmeasured"' : ''}>
+      <th scope="row">${esc(nameFor(row))}${row.wins ? `<span class="cmp-cov-wins">${isZh ? `最高分 × ${row.wins}` : `top score × ${row.wins}`}</span>` : ''}</th>
+      ${cells}
+    </tr>`;
+  };
+  const rows = matrix.rows.map(rowFor).join('\n            ');
+  const unmeasured = matrix.rows.filter((row) => row.coverage === 0);
+  const unmeasuredNote = unmeasured.length
+    ? `<p class="seo-note">${isZh
+      ? `${unmeasured.map((row) => nameFor(row)).join('、')} 在当前快照里没有公开成绩。这不代表能力不足——公开榜单尚未覆盖这些网页版产品；它们的差别要靠你自己用同一提示词实测。`
+      : `${unmeasured.map((row) => nameFor(row)).join(', ')} have no public result in this snapshot. That is not a verdict on capability—the public leaderboards simply do not cover these web products yet. Their differences are for your own same-prompt test to settle.`}</p>`
+    : '';
+  return `<section class="seo-section" aria-labelledby="coverage-heading">
+          <h2 id="coverage-heading">${isZh ? '11 个模型的公开证据覆盖表' : 'Public-evidence coverage for all 11 launcher models'}</h2>
+          <p>${isZh
+            ? `下表把可对比的 ${matrix.covered}/${matrix.total} 个模型放进同一张表：列为公开测试类别，格内是该模型在这类测试里的最好公开成绩与名次，加粗表示该项最高分。破折号表示当前快照没有公开成绩——不是能力结论，只是尚未被测。抓取时间 ${esc(String(matrix.retrievedAt).slice(0, 10))}。`
+            : `This table puts every launcher model next to the same public tests: each column is a benchmark category, each cell is that product's best public configuration with its rank, and bold marks the top score in that column. A dash means the snapshot has no public result for that product—not a verdict on capability, just an unmeasured one. Retrieved ${esc(String(matrix.retrievedAt).slice(0, 10))}.`}</p>
+          <div class="seo-table-wrap">
+            <table class="seo-table cmp-cov-table">
+              <caption>${isZh ? '同一批公开测试下的模型覆盖与最好成绩' : 'Coverage and best public score across the same set of tests'}</caption>
+              <thead><tr><th scope="col">${isZh ? '模型' : 'Model'}</th>${head}</tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+          <p class="seo-note">${isZh
+            ? '同一列内的分数才可直接比较；不同测试的口径不同，不能相加，也不据单列宣布「全面第一」。每个类别的原始排行榜链接见下面对应测试页。'
+            : 'Only scores inside one column are comparable. Different tests use different metrics, cannot be added together, and no single column crowns an overall winner. Original leaderboards are linked from each test page below.'}</p>
+          ${unmeasuredNote}
+        </section>`;
 }
 
 function guideCriteria(page, section, items, review, lang) {
@@ -415,10 +524,17 @@ function researchBody(page, section, items, lang = 'en', review = null) {
     ? `<p class="seo-note">${lang === 'zh' ? `本页最近编辑审校：${esc(review.reviewedAt)}。` : `Last editorial review: ${esc(review.reviewedAt)}.`}</p>`
     : '';
   const intro = page.intro || guideIntroduction(page, section, items, lang);
+  // Broad use-case guides stay live for the queries that already reach them,
+  // but route the specific job to the scenario page so the two do not compete
+  // for the same intent.
+  const scoped = page.relatedNote
+    ? `<p class="seo-note">${page.relatedNote}</p>`
+    : '';
   return `<div class="quick-verdict">
           <h2>${lang === 'zh' ? '选择框架' : 'Selection framework'}</h2>
           <p>${esc(intro)}</p>
         </div>
+        ${scoped}
         <section class="seo-section" aria-labelledby="selection-criteria-heading">
           <h2 id="selection-criteria-heading">${lang === 'zh' ? '选择时要核对什么' : 'What to evaluate'}</h2>
           <ul>${criteria}</ul>
@@ -759,6 +875,16 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
     .sort()
     .at(-1);
   const lastmod = retrievedAt ? String(retrievedAt).slice(0, 10) : CONTENT_UPDATED;
+  const datasetNames = items.map((item) => displayModelName(item, lang)).join(lang === 'zh' ? '和' : ' and ');
+  const datasetSources = groups
+    .map((group) => sourceDisplayName(group.source))
+    .filter((item, index, all) => all.indexOf(item) === index)
+    .join(lang === 'zh' ? '和' : ' and ');
+  // Dataset descriptions have their own 50–5000 character constraint and must
+  // not reuse the much shorter search-result descriptions above.
+  const datasetDescription = lang === 'zh'
+    ? `这是一份${datasetNames}的公开评测快照，汇总${datasetSources}的 ${groups.length} 项共有测试。页面列明精确模型版本、各项原始分数、来源链接与抓取日期；不同测试的分数只在本测试内比较，不合成总排名。`
+    : `This is a public benchmark snapshot for ${datasetNames}, drawing on ${groups.length} shared tests from ${datasetSources}. It lists exact model versions, each score in its original unit, source links and retrieval dates. Different tests are compared only within their own scale and are not combined into an overall ranking.`;
   // A page whose same-slug counterpart exists in the other language is a true
   // translation pair: emit reciprocal hreflang alternates for it. Compare hubs
   // are paired (/compare/ <-> /zh/compare/). ZH-only pairs fall back to the
@@ -792,9 +918,14 @@ function generateCompare(page, prefix = 'compare', lang = 'en') {
         '@type': 'Dataset',
         '@id': `${SITE}${canonical}#dataset`,
         name: h1,
-        description,
+        description: datasetDescription,
         dateModified: lastmod,
-        creator: { '@id': `${SITE}/#organization` },
+        creator: {
+          '@type': 'Organization',
+          '@id': `${SITE}/#organization`,
+          name: 'ModelAny',
+          url: SITE,
+        },
         license: 'https://creativecommons.org/licenses/by/4.0/',
         isAccessibleForFree: true,
         measurementTechnique: groups.map((group) => sourceDisplayName(group.source)).filter((item, i, arr) => arr.indexOf(item) === i),
@@ -883,6 +1014,26 @@ function aiChatComparisonBody(page, items, lang) {
             ? '大多数「AI 对比」页面给的是营销话术堆出来的排名。可用的对比只取决于三件事：每个模型拿到<strong>同一条提示词</strong>、回答<strong>并排阅读</strong>、结论挂在你真实拥有的任务上。本页同时保住这两半：下面是我们持续追踪的公开测试数据（带日期与来源），以及在你自己的提示词上一键复现同一对比的方法。'
             : 'Most “AI chat comparison” pages hand you a ranking built from marketing claims or cherry-picked demos. A comparison is only usable when three things hold: every model gets <strong>the same prompt</strong>, the answers are read <strong>side by side</strong>, and the conclusion is tied to a task you actually have. This page keeps both halves of that standard: the latest public test data we track (dated and sourced below), and the method to run the same comparison on your own prompts in one click.'}</p>
         </div>
+        <section class="seo-section" aria-labelledby="intent-split-heading">
+          <h2 id="intent-split-heading">${lang === 'zh' ? '先分清：你要找的是工具，还是选型方法' : 'Which question are you actually asking?'}</h2>
+          <p>${lang === 'zh'
+            ? '「AI comparison」在搜索里混着两种意图。本页只负责第二种：<strong>怎么对比、证据从哪里来、分数怎么读</strong>。如果你要的是「在同一屏里输入一次、看到多个模型的回答」，那是产品功能，请直接去首页或对比工作流页，不必在本页里找安装按钮。'
+            : '“AI comparison” mixes two intents in search. This page owns the second one: <strong>how to compare, where the evidence comes from, and how to read the scores</strong>. If what you want is the product itself—type once and see several answers on one screen—that lives on the homepage and the comparison workflow page, not here.'}</p>
+          <ul class="seo-index-list">
+            <li>${lang === 'zh'
+              ? '<a href="/">ModelAny 首页</a>：一次提问，最多 11 个 AI 官网并排作答（产品功能与安装入口）'
+              : '<a href="/">ModelAny homepage</a>: one prompt to up to 11 official AI sites, answers side by side (product features and install)'}</li>
+            <li>${lang === 'zh'
+              ? '<a href="/compare-ai-models/">同一提示词对比多个模型</a>：可复制的对比流程、11 模型覆盖表与实测工作表'
+              : '<a href="/compare-ai-models/">Compare AI models with the same prompt</a>: repeatable workflow, 11-model coverage table and test sheet'}</li>
+            <li>${lang === 'zh'
+              ? '<a href="/side-by-side-ai-comparison/">并排对比 AI 答案的方法</a>：评分标准、常见误区与如何把一轮对比变成记录'
+              : '<a href="/side-by-side-ai-comparison/">Side-by-side AI comparison method</a>: scoring rubric, common mistakes, and how to turn one run into a record'}</li>
+            <li>${lang === 'zh'
+              ? '<a href="/benchmarks/">按场景浏览公开评测</a>：每个分数附精确模型版本、抓取时间与原始排行榜'
+              : '<a href="/benchmarks/">Browse public benchmarks by scenario</a>: every score with exact model version, retrieval date and source leaderboard'}</li>
+          </ul>
+        </section>
         ${evidence}
         <section class="seo-section" aria-labelledby="method-heading">
           <h2 id="method-heading">${lang === 'zh' ? '在你自己的提示词上复现：五步法' : 'Run the comparison on your own prompts: the five-step method'}</h2>
@@ -1038,9 +1189,13 @@ function generateProductPage(page) {
     : [];
   const relatedHrefs = new Set((copy?.related || []).map((item) => item.href));
   const treeHtml = guideSetHtml({ parentPage, childPages, siblingPages }, relatedHrefs, lang);
+  // The comparison-cluster hub carries the filled public-evidence matrix for
+  // all eleven launcher models; the blank worksheet above it is still the part
+  // only the reader can complete.
+  const coverage = page.slug === 'compare-ai-models' ? modelCoverageHtml(lang) : '';
   const body = (page.special === 'ai-chat-comparison'
     ? aiChatComparisonBody(page, items, lang)
-    : productBody(page, items, lang, copy)) + (treeHtml ? `\n        ${treeHtml}` : '');
+    : productBody(page, items, lang, copy)) + (coverage ? `\n        ${coverage}` : '') + (treeHtml ? `\n        ${treeHtml}` : '');
   const breadcrumbs = parentPage
     ? [
         { name: 'Home', href: '/' },

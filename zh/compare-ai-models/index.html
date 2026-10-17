@@ -117,6 +117,8 @@
             <li><a href="/zh/how-to-use/">安装与第一次发送</a></li>
             <li><a href="/zh/benchmarks/">公开评测数据</a></li>
             <li><a href="/zh/compare/kimi-vs-chatgpt/">Kimi vs ChatGPT 评测摘录</a></li>
+            <li><a href="/zh/compare/doubao-vs-chatgpt/">豆包 vs ChatGPT：哪个更好用</a></li>
+            <li><a href="/zh/free-ai-no-login/">免登录的免费 AI 哪些真能用</a></li>
           </ul>
         </section>
         <section class="seo-section" aria-labelledby="public-evidence-heading">
@@ -217,6 +219,62 @@
             <li><a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener noreferrer">DeepSeek API models and pricing</a> - 2026-09-28</li>
             <li><a href="https://qianwen.com/" target="_blank" rel="noopener noreferrer">Qwen (通义千问) official site</a> - 2026-09-28</li>
           </ul>
+        </section>
+        <section class="seo-section" aria-labelledby="coverage-heading">
+          <h2 id="coverage-heading">11 个模型的公开证据覆盖表</h2>
+          <p>下表把可对比的 8/11 个模型放进同一张表：列为公开测试类别，格内是该模型在这类测试里的最好公开成绩与名次，加粗表示该项最高分。破折号表示当前快照没有公开成绩——不是能力结论，只是尚未被测。抓取时间 2026-10-11。</p>
+          <div class="seo-table-wrap">
+            <table class="seo-table cmp-cov-table">
+              <caption>同一批公开测试下的模型覆盖与最好成绩</caption>
+              <thead><tr><th scope="col">模型</th><th scope="col" title="SWE-bench Verified · 真实软件问题修复">真实修码</th><th scope="col" title="LiveBench · 智能体编程">智能体</th><th scope="col" title="LiveBench · 编程任务">编程</th><th scope="col" title="LiveBench · 数据分析">数据</th><th scope="col" title="LiveBench · 指令遵循">指令</th><th scope="col" title="LiveBench · 语言任务">语言</th><th scope="col" title="LiveBench · 数学">数学</th><th scope="col" title="LiveBench · 推理">推理</th></tr></thead>
+              <tbody><tr>
+      <th scope="row">ChatGPT<span class="cmp-cov-wins">最高分 × 2</span></th>
+      <td class="cmp-cov-cell"><span>74.6%</span><em>#17</em></td><td class="cmp-cov-cell"><span>57.3</span><em>#21</em></td><td class="cmp-cov-cell"><span>83.9</span><em>#7</em></td><td class="cmp-cov-cell is-best"><span>83.0</span><em>#1</em></td><td class="cmp-cov-cell"><span>75.6</span><em>#8</em></td><td class="cmp-cov-cell"><span>90.1</span><em>#2</em></td><td class="cmp-cov-cell"><span>96.8</span><em>#3</em></td><td class="cmp-cov-cell is-best"><span>92.7</span><em>#1</em></td>
+    </tr>
+            <tr>
+      <th scope="row">Claude<span class="cmp-cov-wins">最高分 × 4</span></th>
+      <td class="cmp-cov-cell is-best"><span>79.2%</span><em>#1</em></td><td class="cmp-cov-cell"><span>71.7</span><em>#2</em></td><td class="cmp-cov-cell is-best"><span>91.4</span><em>#1</em></td><td class="cmp-cov-cell"><span>80.5</span><em>#6</em></td><td class="cmp-cov-cell"><span>75.8</span><em>#6</em></td><td class="cmp-cov-cell is-best"><span>90.7</span><em>#1</em></td><td class="cmp-cov-cell is-best"><span>97.1</span><em>#1</em></td><td class="cmp-cov-cell"><span>92.2</span><em>#3</em></td>
+    </tr>
+            <tr>
+      <th scope="row">Gemini<span class="cmp-cov-wins">最高分 × 1</span></th>
+      <td class="cmp-cov-cell"><span>77.4%</span><em>#4</em></td><td class="cmp-cov-cell"><span>58.3</span><em>#19</em></td><td class="cmp-cov-cell"><span>78.9</span><em>#29</em></td><td class="cmp-cov-cell"><span>78.5</span><em>#23</em></td><td class="cmp-cov-cell is-best"><span>81.4</span><em>#1</em></td><td class="cmp-cov-cell"><span>87.8</span><em>#7</em></td><td class="cmp-cov-cell"><span>93.5</span><em>#21</em></td><td class="cmp-cov-cell"><span>89.3</span><em>#18</em></td>
+    </tr>
+            <tr>
+      <th scope="row">DeepSeek<span class="cmp-cov-wins">最高分 × 1</span></th>
+      <td class="cmp-cov-cell"><span>70.0%</span><em>#46</em></td><td class="cmp-cov-cell is-best"><span>77.3</span><em>#1</em></td><td class="cmp-cov-cell"><span>80.0</span><em>#22</em></td><td class="cmp-cov-cell"><span>79.5</span><em>#13</em></td><td class="cmp-cov-cell"><span>71.0</span><em>#26</em></td><td class="cmp-cov-cell"><span>82.1</span><em>#26</em></td><td class="cmp-cov-cell"><span>95.1</span><em>#16</em></td><td class="cmp-cov-cell"><span>86.7</span><em>#31</em></td>
+    </tr>
+            <tr class="cmp-cov-unmeasured">
+      <th scope="row">Grok</th>
+      <td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td>
+    </tr>
+            <tr>
+      <th scope="row">Kimi</th>
+      <td class="cmp-cov-cell"><span>71.2%</span><em>#35</em></td><td class="cmp-cov-cell"><span>62.2</span><em>#11</em></td><td class="cmp-cov-cell"><span>81.4</span><em>#15</em></td><td class="cmp-cov-cell"><span>78.7</span><em>#21</em></td><td class="cmp-cov-cell"><span>71.4</span><em>#23</em></td><td class="cmp-cov-cell"><span>85.5</span><em>#11</em></td><td class="cmp-cov-cell"><span>84.4</span><em>#56</em></td><td class="cmp-cov-cell"><span>90.7</span><em>#9</em></td>
+    </tr>
+            <tr>
+      <th scope="row">通义千问</th>
+      <td class="cmp-cov-cell"><span>40.6%</span><em>#137</em></td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td>
+    </tr>
+            <tr>
+      <th scope="row">豆包</th>
+      <td class="cmp-cov-cell"><span>78.8%</span><em>#3</em></td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td>
+    </tr>
+            <tr>
+      <th scope="row">智谱 GLM</th>
+      <td class="cmp-cov-cell"><span>72.8%</span><em>#25</em></td><td class="cmp-cov-cell"><span>60.9</span><em>#15</em></td><td class="cmp-cov-cell"><span>79.7</span><em>#24</em></td><td class="cmp-cov-cell"><span>76.4</span><em>#34</em></td><td class="cmp-cov-cell"><span>69.3</span><em>#33</em></td><td class="cmp-cov-cell"><span>79.9</span><em>#31</em></td><td class="cmp-cov-cell"><span>89.8</span><em>#37</em></td><td class="cmp-cov-cell"><span>85.8</span><em>#35</em></td>
+    </tr>
+            <tr class="cmp-cov-unmeasured">
+      <th scope="row">腾讯元宝</th>
+      <td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td>
+    </tr>
+            <tr class="cmp-cov-unmeasured">
+      <th scope="row">文小言</th>
+      <td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td><td class="cmp-cov-empty" aria-label="无公开成绩">·</td>
+    </tr></tbody>
+            </table>
+          </div>
+          <p class="seo-note">同一列内的分数才可直接比较；不同测试的口径不同，不能相加，也不据单列宣布「全面第一」。每个类别的原始排行榜链接见下面对应测试页。</p>
+          <p class="seo-note">Grok、腾讯元宝、文小言 在当前快照里没有公开成绩。这不代表能力不足——公开榜单尚未覆盖这些网页版产品；它们的差别要靠你自己用同一提示词实测。</p>
         </section>
       <section class="seo-section" aria-labelledby="faq-heading"><h2 id="faq-heading">常见问题</h2><div class="faq-list"><details class="faq-item"><summary><span>这是 API 聚合路由吗？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>不是。ModelAny 在你的浏览器里操作各官方网站。计费与次数限制仍由各服务商决定。</p></div></div></details>
           <details class="faq-item"><summary><span>一次最多发给几个模型？</span></summary><div class="faq-answer"><div class="faq-answer-inner"><p>不超过启动列表中的站点数量（目前为 11 个）。认真评估时，用清晰标准少选几个模型，通常比全选更有用。</p></div></div></details></div></section>

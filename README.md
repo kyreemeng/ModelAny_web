@@ -354,21 +354,26 @@ library with full-text search; prompt library; sensitive-info masking; Edge Add-
 
 **锚文本多样化深链（按对方目录的主题挑一条用，避免全站单一锚文本）**
 
-> 定向原则：外链资源优先给**首页**（树根）与核心深链（`/ai-chat-comparison/`、`/free-ai-no-login/`、`/export-chatgpt-conversation-to-pdf/`），其余按目录主题分散。链接候选与投放决策由项目负责人判断。
+> 定向原则（2026-10-16 更新）：外链资源优先给**首页**（树根）与下面第一组里的核心深链——它们是美国市场 885 次曝光所在的入口，位置 15.2 进到前 10 是当前最大的单一增量，靠的是内链汇聚加定向外链，不是加页面。中文渠道优先给 `/zh/free-ai-no-login/` 与 `/zh/compare/doubao-vs-chatgpt/`（华语区 CTR 最高的一批）。其余按目录主题分散；链接候选与投放决策由项目负责人判断。
 
 ```html
 <a href="https://www.modelany.app/">ModelAny — AI comparison: one prompt to ChatGPT, Claude, Gemini and 7 more</a>
 <a href="https://www.modelany.app/">compare AI models side by side with your own accounts</a>
 <a href="https://www.modelany.app/ai-chat-comparison/">AI comparison: dated public benchmarks + the same-prompt method</a>
 <a href="https://www.modelany.app/free-ai-no-login/">free AI without login: what actually opens, and what it costs you</a>
-<a href="https://www.modelany.app/export-chatgpt-conversation-to-pdf/">export a ChatGPT conversation to PDF (free, generated in your browser)</a>
 <a href="https://www.modelany.app/compare-ai-models/">how to compare AI models with the same prompt</a>
+<a href="https://www.modelany.app/compare-ai-models/">11 AI models against the same public benchmark categories</a>
+<a href="https://www.modelany.app/export-chatgpt-conversation-to-pdf/">export a ChatGPT conversation to PDF (one click, free, nothing uploaded)</a>
 <a href="https://www.modelany.app/export-chatgpt-conversation/">export ChatGPT conversation to PDF, Word or Markdown</a>
+<a href="https://www.modelany.app/chatgpt-usage-limit-workaround/">ChatGPT usage limit reached? four ways to keep working</a>
+<a href="https://www.modelany.app/copy-chatgpt-conversation/">copy a ChatGPT chat or conversation without losing the formatting</a>
 <a href="https://www.modelany.app/ai-exporter/">one AI exporter for ChatGPT, Claude, Gemini and DeepSeek</a>
 <a href="https://www.modelany.app/youtube-video-summarizer/">summarize YouTube videos with ChatGPT</a>
 <a href="https://www.modelany.app/continue-chat-in-another-ai/">continue a ChatGPT conversation in Claude</a>
 <a href="https://www.modelany.app/chatgpt-vs-claude-vs-gemini-same-prompt/">ChatGPT vs Claude vs Gemini: same prompt, three answers</a>
 <a href="https://www.modelany.app/benchmarks/">public AI model benchmarks (Arena, SWE-bench)</a>
+<a href="https://www.modelany.app/zh/free-ai-no-login/">免登录的免费 AI：哪些真的能打开</a>
+<a href="https://www.modelany.app/zh/compare/doubao-vs-chatgpt/">豆包和 ChatGPT 哪个好用：公开评测对照</a>
 <a href="https://www.modelany.app/zh/compare/glm-vs-chatgpt/">GLM vs ChatGPT 公开评测对比</a>
 ```
 
