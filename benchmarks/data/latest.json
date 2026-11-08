@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "retrievedAt": "2026-11-01T17:48:17.448Z",
+  "retrievedAt": "2026-11-08T17:48:51.097Z",
   "sources": [
     {
       "id": "livebench",
@@ -40,7 +40,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.396Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-12-05",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -56,7 +56,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.396Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-12-15",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -72,7 +72,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.396Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-09-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -88,7 +88,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.396Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-11-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -104,7 +104,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.396Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-08-04",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -120,7 +120,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.396Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-09-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -136,7 +136,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -152,7 +152,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-08-19",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -168,7 +168,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -184,7 +184,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -200,7 +200,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-09-01",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -216,7 +216,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -232,7 +232,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-06-12",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -248,7 +248,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-07-31",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -264,7 +264,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-11-03",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -280,7 +280,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-07-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -296,7 +296,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-09-15",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -312,7 +312,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-06-03",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -328,7 +328,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-10-15",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -344,7 +344,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-11-24",
       "benchmarkVersion": "1.16.0",
       "category": "Verified",
@@ -360,7 +360,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-11-18",
       "benchmarkVersion": "1.15.0",
       "category": "Verified",
@@ -376,7 +376,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-11-03",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -392,7 +392,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-22",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -408,7 +408,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-10-21",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -424,7 +424,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -440,7 +440,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -456,7 +456,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-19",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -472,7 +472,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-22",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -488,7 +488,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-08-07",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -504,7 +504,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-12-11",
       "benchmarkVersion": "1.17.2",
       "category": "Verified",
@@ -520,7 +520,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -536,7 +536,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-07-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -552,7 +552,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-07-15",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -568,7 +568,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-09-29",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -584,7 +584,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-10-14",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -600,7 +600,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-06-23",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -616,7 +616,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-06-11",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -632,7 +632,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -648,7 +648,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-19",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -664,7 +664,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-09-29",
       "benchmarkVersion": "1.13.3",
       "category": "Verified",
@@ -680,7 +680,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-15",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -696,7 +696,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-24",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -712,7 +712,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-06-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -728,7 +728,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-19",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -744,7 +744,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-04-30",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -760,7 +760,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -776,7 +776,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-08-05",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -792,7 +792,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-26",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -808,7 +808,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-12-11",
       "benchmarkVersion": "1.17.2",
       "category": "Verified",
@@ -824,7 +824,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-16",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -840,7 +840,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-09-30",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -856,7 +856,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-08-02",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -872,7 +872,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-22",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -888,7 +888,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -904,7 +904,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-05-14",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -920,7 +920,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-11-20",
       "benchmarkVersion": "1.15.0",
       "category": "Verified",
@@ -936,7 +936,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-11-24",
       "benchmarkVersion": "1.16.0",
       "category": "Verified",
@@ -952,7 +952,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-04-15",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -968,7 +968,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-03-16",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -984,7 +984,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-04-05",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1000,7 +1000,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-07-16",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1016,7 +1016,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-08-07",
       "benchmarkVersion": "1.7.0",
       "category": "Verified",
@@ -1032,7 +1032,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.601Z",
       "publishedAt": "2025-07-26",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -1048,7 +1048,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-01-17",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1064,7 +1064,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-05-03",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1080,7 +1080,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1096,7 +1096,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-02-06",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1112,7 +1112,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-12-10",
       "benchmarkVersion": "1.17.2",
       "category": "Verified",
@@ -1128,7 +1128,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-02-24",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1144,7 +1144,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-01-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1160,7 +1160,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-02-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1176,7 +1176,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-02-25",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1192,7 +1192,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-21",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1208,7 +1208,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-11-24",
       "benchmarkVersion": "1.17.0",
       "category": "Verified",
@@ -1224,7 +1224,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-02-03",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1240,7 +1240,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-09-01",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1256,7 +1256,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-01-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1272,7 +1272,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-12-01",
       "benchmarkVersion": "1.17.1",
       "category": "Verified",
@@ -1288,7 +1288,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-07",
       "benchmarkVersion": "1.7.0",
       "category": "Verified",
@@ -1304,7 +1304,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-06-29",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1320,7 +1320,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-26",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -1336,7 +1336,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-13",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1352,7 +1352,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-04-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1368,7 +1368,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-23",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1384,7 +1384,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-08",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1400,7 +1400,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-09-24",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1416,7 +1416,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-04-05",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1432,7 +1432,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-12-09",
       "benchmarkVersion": "1.17.2",
       "category": "Verified",
@@ -1448,7 +1448,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2026-02-17",
       "benchmarkVersion": "2.0.0",
       "category": "Verified",
@@ -1464,7 +1464,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-12",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1480,7 +1480,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-02",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -1496,7 +1496,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-12-01",
       "benchmarkVersion": "1.17.1",
       "category": "Verified",
@@ -1512,7 +1512,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1528,7 +1528,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-08",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1544,7 +1544,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-22",
       "benchmarkVersion": "1.9.1",
       "category": "Verified",
@@ -1560,7 +1560,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-12-09",
       "benchmarkVersion": "1.17.2",
       "category": "Verified",
@@ -1576,7 +1576,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-11-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1592,7 +1592,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-26",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -1608,7 +1608,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-04",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1624,7 +1624,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-01-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1640,7 +1640,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-29",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1656,7 +1656,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-20",
       "benchmarkVersion": "0.0.0",
       "category": "Verified",
@@ -1672,7 +1672,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-12",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1688,7 +1688,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-09-01",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1704,7 +1704,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-25",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1720,7 +1720,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-01-22",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1736,7 +1736,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-05",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1752,7 +1752,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-12-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1768,7 +1768,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1784,7 +1784,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-25",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1800,7 +1800,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-05",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1816,7 +1816,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-22",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1832,7 +1832,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-25",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1848,7 +1848,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-06",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1864,7 +1864,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-06-16",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1880,7 +1880,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-05-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1896,7 +1896,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-23",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1912,7 +1912,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-08",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1928,7 +1928,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-05-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1944,7 +1944,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-09-24",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1960,7 +1960,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-08-24",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1976,7 +1976,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-11-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -1992,7 +1992,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-26",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -2008,7 +2008,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-01-18",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2024,7 +2024,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-07",
       "benchmarkVersion": "1.7.0",
       "category": "Verified",
@@ -2040,7 +2040,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-09-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2056,7 +2056,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-02-14",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2072,7 +2072,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-05-27",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2088,7 +2088,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-06-29",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2104,7 +2104,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-06",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2120,7 +2120,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-30",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2136,7 +2136,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-01-12",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2152,7 +2152,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-02-26",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2168,7 +2168,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-08-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2184,7 +2184,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-16",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2200,7 +2200,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-22",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2216,7 +2216,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-13",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2232,7 +2232,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-05-11",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2248,7 +2248,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-29",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2264,7 +2264,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-26",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -2280,7 +2280,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-07-21",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2296,7 +2296,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2312,7 +2312,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-06-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2328,7 +2328,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-06-16",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2344,7 +2344,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-25",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2360,7 +2360,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-06-17",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2376,7 +2376,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-07",
       "benchmarkVersion": "1.7.0",
       "category": "Verified",
@@ -2392,7 +2392,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-06-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2408,7 +2408,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-03-06",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2424,7 +2424,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-06-12",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2440,7 +2440,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2456,7 +2456,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-07",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2472,7 +2472,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-11-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2488,7 +2488,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2504,7 +2504,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-26",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -2520,7 +2520,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-16",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2536,7 +2536,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-06-15",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2552,7 +2552,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-07",
       "benchmarkVersion": "1.7.0",
       "category": "Verified",
@@ -2568,7 +2568,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-01",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2584,7 +2584,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-05-09",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2600,7 +2600,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-09-18",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2616,7 +2616,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-08-20",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2632,7 +2632,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-20",
       "benchmarkVersion": "0.0.0",
       "category": "Verified",
@@ -2648,7 +2648,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-07-28",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2664,7 +2664,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-06-27",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2680,7 +2680,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-04-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2696,7 +2696,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-20",
       "benchmarkVersion": "0.0.0",
       "category": "Verified",
@@ -2712,7 +2712,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-20",
       "benchmarkVersion": "0.0.0",
       "category": "Verified",
@@ -2728,7 +2728,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-10-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2744,7 +2744,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-04-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2760,7 +2760,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-26",
       "benchmarkVersion": "0.0.0",
       "category": "Verified",
@@ -2776,7 +2776,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-09-18",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2792,7 +2792,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-07-20",
       "benchmarkVersion": "0.0.0",
       "category": "Verified",
@@ -2808,7 +2808,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2025-08-03",
       "benchmarkVersion": "1.0.0",
       "category": "Verified",
@@ -2824,7 +2824,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-04-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2840,7 +2840,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2023-10-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2856,7 +2856,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2024-04-02",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2872,7 +2872,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2023-10-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2888,7 +2888,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2023-10-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
@@ -2904,7 +2904,7 @@
     {
       "source": "swebench",
       "sourceUrl": "https://www.swebench.com/verified",
-      "retrievedAt": "2026-11-01T17:48:17.397Z",
+      "retrievedAt": "2026-11-08T17:48:50.602Z",
       "publishedAt": "2023-10-10",
       "benchmarkVersion": "Verified",
       "category": "Verified",
